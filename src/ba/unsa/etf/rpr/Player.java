@@ -1,18 +1,21 @@
 package ba.unsa.etf.rpr;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Player {
     public String name;
     public String surname;
-    public Date birth;
+    public LocalDate birth;
     public Position position;
+    public String nationality;
 
-    public Player(String name, String surname, Date birth, Position position) {
+    public Player(String name, String surname, LocalDate birth, String nationality, Position position) {
         this.name = name;
         this.surname = surname;
         this.birth = birth;
         this.position = position;
+        this.nationality = nationality;
     }
 
     public String getName() {
@@ -31,11 +34,11 @@ public class Player {
         this.surname = surname;
     }
 
-    public Date getBirth() {
+    public LocalDate getBirth() {
         return birth;
     }
 
-    public void setBirth(Date birth) {
+    public void setBirth(LocalDate birth) {
         this.birth = birth;
     }
 
@@ -45,5 +48,18 @@ public class Player {
 
     public void setPosition(Position position) {
         this.position = position;
+    }
+
+    public String getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
+
+    @Override
+    public String toString() {
+        return (name + " " + surname);
     }
 }

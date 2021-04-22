@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -18,8 +19,10 @@ public class MatchController {
     private Club awayClub;
     public TextField homeTeamScore;
     public TextField awayTeamScore;
-    public ListView<Goal> homeTeamGoals;
-    public ListView<Goal> awayTeamGoals;
+    public ListView<Goal> homeTeamGoals = new ListView();
+    public ListView<Goal> awayTeamGoals = new ListView();
+    public Button cancelButton;
+    public Button finishButton;
 
     MatchController (Club c1, Club c2) {
         this.homeClub=c1;
@@ -30,6 +33,8 @@ public class MatchController {
     public void initialize() {
         homeTeamScore.setText(String.valueOf(homeTeamGoals.getItems().size())); // vjerovatno će trebati
         awayTeamScore.setText(String.valueOf(awayTeamGoals.getItems().size())); // dodati neki listener
+//        homeTeamGoals.setItems();
+  //      awayTeamGoals.setItems();
     }
 
     public void addGoalHome(ActionEvent actionEvent) {
@@ -64,5 +69,18 @@ public class MatchController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void finishPressed(ActionEvent actionEvent) {
+
+
+        Stage stage = (Stage) finishButton.getScene().getWindow();
+        stage.close();
+    }
+
+
+    public void cancelPressed(ActionEvent actionEvent) {
+        Stage stage = (Stage) cancelButton.getScene().getWindow();
+        stage.close();
     }
 }

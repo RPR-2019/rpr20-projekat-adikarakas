@@ -1,24 +1,22 @@
 package ba.unsa.etf.rpr;
 
+import javafx.scene.paint.Color;
+
 import java.util.ArrayList;
 
 public class Club {
-    public String name;
-    public ArrayList<Player> players;
-    public int wins;
-    public int draws;
-    public int losses;
-    public int goalsScored;
-    public int goalsConceded;
+    private String name;
+    private String nickname="";
+    private String stadium="";
+    private String mascot="";
+    private Color color;
+    private String manager="";
+    private ArrayList<Player> players;
 
     public Club(String name) {
         this.name = name;
         this.players = new ArrayList<Player>(0);
-        this.wins=0;
-        this.draws=0;
-        this.losses=0;
-        this.goalsConceded=0;
-        this.goalsScored=0;
+        this.color=Color.WHITE;
     }
 
     public int getPoints(int wins, int draws) {
@@ -41,44 +39,44 @@ public class Club {
         this.players = players;
     }
 
-    public int getWins() {
-        return wins;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setWins(int wins) {
-        this.wins = wins;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
-    public int getDraws() {
-        return draws;
+    public String getStadium() {
+        return stadium;
     }
 
-    public void setDraws(int draws) {
-        this.draws = draws;
+    public void setStadium(String stadium) {
+        this.stadium = stadium;
     }
 
-    public int getLosses() {
-        return losses;
+    public String getMascot() {
+        return mascot;
     }
 
-    public void setLosses(int losses) {
-        this.losses = losses;
+    public void setMascot(String mascot) {
+        this.mascot = mascot;
     }
 
-    public int getGoalsScored() {
-        return goalsScored;
+    public Color getColor() {
+        return color;
     }
 
-    public void setGoalsScored(int goalsScored) {
-        this.goalsScored = goalsScored;
+    public void setColor(Color color) {
+        this.color = color;
     }
 
-    public int getGoalsConceded() {
-        return goalsConceded;
+    public String getManager() {
+        return manager;
     }
 
-    public void setGoalsConceded(int goalsConceded) {
-        this.goalsConceded = goalsConceded;
+    public void setManager(String manager) {
+        this.manager = manager;
     }
 
     public void addPlayer(Player player) {
@@ -89,4 +87,8 @@ public class Club {
         this.players.remove(player);
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
 }

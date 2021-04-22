@@ -1,0 +1,23 @@
+
+u
+java:S1104"XMake createButton a static final constant or non-public and provide accessors if needed.(·ÌØ‡8¥´/
+O
+java:S1172&"2Remove this unused method parameter "actionEvent".(á¢©Ù8™Â¡´/
+M
+java:S14817"+Remove this unused "league" local variable.(ü¡Œ­øÿÿÿÿ8„¤ª´/
+T
+java:S1172="2Remove this unused method parameter "actionEvent".(÷œœôûÿÿÿÿ8¥´/
+u
+java:S1104"XMake spinnerField a static final constant or non-public and provide accessors if needed.(Š±Ïà8óñ¦´/
+x
+java:S1104"VMake scheduleCb a static final constant or non-public and provide accessors if needed.(¤ã‚ÿÿÿÿÿ8óñ¦´/
+w
+java:S1192"UDefine a constant instead of duplicating this literal "popunjenoKakoNeTreba" 4 times.(¾Şüáúÿÿÿÿ8ÅšûÑ/
+u
+java:S1104"XMake cancelButton a static final constant or non-public and provide accessors if needed.(·ÌØ‡8¥´/
+w
+java:S1104"UMake nameField a static final constant or non-public and provide accessors if needed.(¾Àˆÿÿÿÿÿ8óñ¦´/
+J
+java:S1604"(Make this anonymous inner class a lambda(‘‡Æ¤ùÿÿÿÿ8ñ„õĞ/
+\
+java:S18547":Remove this useless assignment to local variable "league".(ü¡Œ­øÿÿÿÿ8„¤ª´/

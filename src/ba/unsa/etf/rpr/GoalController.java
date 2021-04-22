@@ -76,11 +76,14 @@ public class GoalController {
             alert.setHeaderText("Niste dobro unijeli podatke");
         }
 
-        Goal goal = new Goal(goalScorer.getValue(), assistProvider.getValue(), goalType, goalSituation, goalDistance);
-        this.goals.add(goal);
+        else {
 
-        Stage stage = (Stage) okButton.getScene().getWindow();
-        stage.close();
+            Goal goal = new Goal(goalScorer.getValue(), assistProvider.getValue(), goalType, goalSituation, goalDistance);
+            this.goals.add(goal);
+
+            Stage stage = (Stage) okButton.getScene().getWindow();
+            stage.close();
+        }
     }
 
     public void cancelPressed(ActionEvent actionEvent) {

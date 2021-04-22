@@ -1,15 +1,15 @@
 
-m
-java:S1104"RMake scorer a static final constant or non-public and provide accessors if needed.(ÕñÖìùÿÿÿÿ
-X	java:S125"<This block of commented-out lines of code should be removed.(¾©ª«8é‚¹/
-u
-java:S1104	"XMake goalDistance a static final constant or non-public and provide accessors if needed.(Û¡Ëô8“ò´¸/
-q
-java:S1104"TMake goalType a static final constant or non-public and provide accessors if needed.(‚ú“8“ò´¸/
-X	java:S125"<This block of commented-out lines of code should be removed.(¾©ª«8¤¨¹/
-m
-java:S1104"WMake scoringTeam a static final constant or non-public and provide accessors if needed.(´ ¾Ì
 k
 java:S1104"UMake assistent a static final constant or non-public and provide accessors if needed.(°¯³¦
+q
+java:S1104"TMake goalType a static final constant or non-public and provide accessors if needed.(‚ú“8“ò´¸/
+m
+java:S1104"WMake scoringTeam a static final constant or non-public and provide accessors if needed.(´ ¾Ì
 {
 java:S1104"YMake goalSituation a static final constant or non-public and provide accessors if needed.(ñøšĞûÿÿÿÿ8“ò´¸/
+X	java:S125"<This block of commented-out lines of code should be removed.(¾©ª«8é‚¹/
+m
+java:S1104"RMake scorer a static final constant or non-public and provide accessors if needed.(ÕñÖìùÿÿÿÿ
+X	java:S125"<This block of commented-out lines of code should be removed.(¾©ª«8¤¨¹/
+u
+java:S1104	"XMake goalDistance a static final constant or non-public and provide accessors if needed.(Û¡Ëô8“ò´¸/

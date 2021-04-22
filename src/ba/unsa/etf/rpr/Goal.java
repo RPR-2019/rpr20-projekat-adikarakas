@@ -73,4 +73,9 @@ public class Goal {
     public void setGoalDistance(GoalDistance goalDistance) {
         this.goalDistance = goalDistance;
     }
+
+    @Override
+    public String toString() {
+        return scorer.getSurname() + "(" + assistent.getSurname() + ")";
+    }
 }

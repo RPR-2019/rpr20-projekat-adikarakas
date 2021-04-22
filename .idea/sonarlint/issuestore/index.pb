@@ -1,14 +1,4 @@
 
-H
-resources/fxml/goal.fxml,f\6\f6c0052905962006a301cc6a1d805087f339a1cb
-I
-resources/fxml/match.fxml,0\6\06497087c3ed7e9b6ae1471bbf1ed6f15e88fb08
-J
-resources/fxml/player.fxml,a\1\a11f0be38e0deb12cb8f84908ba10b8b5524ad08
-J
-resources/fxml/sample.fxml,9\b\9b8483e56435b6143b12a2e995c82a42c1415b68
-I
-resources/fxml/table.fxml,9\7\9722fb7b1abe27dc5c99abae2dd101e85796c8ca
 Q
 !src/ba/unsa/etf/rpr/GoalType.java,8\b\8bce1f05006b136b96e563598cfb4158c0734322
 U
@@ -29,3 +19,29 @@ M
 src/ba/unsa/etf/rpr/Goal.java,7\6\765471a6590580d2acf952075a78d64dcdd0293c
 W
 'src/ba/unsa/etf/rpr/GoalController.java,5\1\51a43e038814f2d8ecf693a62e93810beb2139c1
+M
+src/ba/unsa/etf/rpr/Club.java,3\d\3d9525e23bbea19f94ab02c6cbbfe22022a0493b
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+O
+src/ba/unsa/etf/rpr/League.java,1\1\117c8e28b08584f9018c16c0bbfea476d09afcc9
+G
+.idea/libraries/lib.xml,5\6\563a23e064e6fdd2d09bd0c2d99ef456aff71a31
+e
+5.idea/libraries/mysql_mysql_connector_java_8_0_22.xml,e\4\e44e5eafe975517e3e0037703356757b9b13dd95
+i
+9.idea/libraries/org_testfx_testfx_junit5_4_0_15_alpha.xml,a\8\a8f48de4ecfdd46bf246473730bfcac7810419aa
+a
+1.idea/libraries/org_xerial_sqlite_jdbc_3_21_0.xml,5\4\5425a9e8197bbc593a3ad60641080ce9498caabd
+O
+src/ba/unsa/etf/rpr/Player.java,e\2\e27aa7aa017580c2972ded65840f7a55b6d7712d
+X
+(src/ba/unsa/etf/rpr/TableController.java,c\9\c978f5b22beb940464cb9f50ef3a94744d228d3c
+X
+(src/ba/unsa/etf/rpr/SquadController.java,7\9\79a77932d7399db29311d9061ccb64fc786a7fe8
+T
+$src/ba/unsa/etf/rpr/ClubOnTable.java,3\0\30ec813c08c08adf14c16026d19b3c31a360943b
+N
+src/ba/unsa/etf/rpr/Match.java,7\2\72f6e493d96f6ffeeb9f7df2174e505d7cce9d67
+X
+(src/ba/unsa/etf/rpr/StartController.java,7\3\73b2aae372cec2ceaf183e71043b0bd240f488d4

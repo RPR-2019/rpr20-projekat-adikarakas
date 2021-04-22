@@ -1,5 +1,33 @@
 
+v
+java:S1104"TMake openPlay a static final constant or non-public and provide accessors if needed.(¥ÛÁàıÿÿÿÿ8“àâ/
+z
+java:S1104"XMake cancelButton a static final constant or non-public and provide accessors if needed.(•ÚŞãÿÿÿÿÿ8ÍıÙâ/
+u
+java:S1104"SMake penalty a static final constant or non-public and provide accessors if needed.(¥ÛÁàıÿÿÿÿ8“àâ/
+v
+java:S1104"TMake leftFoot a static final constant or non-public and provide accessors if needed.(å­¾¤ûÿÿÿÿ8“àâ/
+x
+java:S1104"VMake goalScorer a static final constant or non-public and provide accessors if needed.(­üĞ‹ÿÿÿÿÿ8ÚÎÚâ/
+q
+java:S1104"TMake okButton a static final constant or non-public and provide accessors if needed.(Ûİª8Ş™Ùâ/
 T
-java:S11721"2Remove this unused method parameter "actionEvent".(Ø×§Ÿşÿÿÿÿ8Ç¢ş×/
+java:S11721"2Remove this unused method parameter "actionEvent".(Ø×§Ÿşÿÿÿÿ8ÂÙâ/
+|
+java:S1104"ZMake assistProvider a static final constant or non-public and provide accessors if needed.(ÊÄÏßøÿÿÿÿ8Ş“İâ/
+w
+java:S1104"UMake insideBox a static final constant or non-public and provide accessors if needed.(ªº¬ïüÿÿÿÿ8“àâ/
+t
+java:S37761"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(Ø×§Ÿşÿÿÿÿ8×¥š/
+v
+java:S1104"TMake freeKick a static final constant or non-public and provide accessors if needed.(¥ÛÁàıÿÿÿÿ8“àâ/
 E
-java:S1125I"(Remove the literal "true" boolean value.(ñÛÚá8èËØ/
+java:S1125I"(Remove the literal "true" boolean value.(ñÛÚá8ÂÙâ/
+x
+java:S1104"VMake outsideBox a static final constant or non-public and provide accessors if needed.(ªº¬ïüÿÿÿÿ8“àâ/
+w
+java:S1104"UMake rightFoot a static final constant or non-public and provide accessors if needed.(å­¾¤ûÿÿÿÿ8“àâ/
+T
+java:S1172Y"2Remove this unused method parameter "actionEvent".(÷œœôûÿÿÿÿ8äîèâ/
+r
+java:S1104"PMake head a static final constant or non-public and provide accessors if needed.(å­¾¤ûÿÿÿÿ8“àâ/
