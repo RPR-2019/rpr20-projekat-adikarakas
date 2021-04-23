@@ -1,11 +1,11 @@
 
+Œ
+java:S13194"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¬À©D8ïÛ±/
+
+java:S13198"rThe type of the "matches" object should be an interface such as "List" rather than the implementation "ArrayList".(ÄÛ¯h8ïÛ±/
 
 java:S1319
 "rThe type of the "matches" object should be an interface such as "List" rather than the implementation "ArrayList".(šİÊı8‰‡±/
-
-java:S13198"rThe type of the "matches" object should be an interface such as "List" rather than the implementation "ArrayList".(ÄÛ¯h8ïÛ±/
 o
 java:S3776
 "RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(šİÊı8›³±/
-Œ
-java:S13194"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¬À©D8ïÛ±/

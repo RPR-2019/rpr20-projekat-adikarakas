@@ -68,6 +68,10 @@ public class League {
         clubs.add(c);
     }
 
+    public void removeClub (Club c) {
+        clubs.remove(c);
+    }
+
 //    public static void registerMatch(Club c1, Club c2, ArrayList<Goal> goals) {
 
   //  }

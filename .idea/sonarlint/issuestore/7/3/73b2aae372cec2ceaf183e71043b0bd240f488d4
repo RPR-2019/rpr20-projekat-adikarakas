@@ -1,23 +1,18 @@
 
 u
-java:S1104"XMake createButton a static final constant or non-public and provide accessors if needed.(·ÌØ‡8¥Ž´/
-O
-java:S1172&"2Remove this unused method parameter "actionEvent".(á¢©Ù8™Â¡´/
-M
-java:S14817"+Remove this unused "league" local variable.(ü¡Œ­øÿÿÿÿ8„¤ª´/
-T
-java:S1172="2Remove this unused method parameter "actionEvent".(÷œœôûÿÿÿÿ8¥Ž´/
-u
-java:S1104"XMake spinnerField a static final constant or non-public and provide accessors if needed.(Š±Ïà8óñ¦´/
+java:S1104"XMake cancelButton a static final constant or non-public and provide accessors if needed.(·ÌØ‡8¥Ž´/
+w
+java:S1104"UMake nameField a static final constant or non-public and provide accessors if needed.(¾ÀŽˆÿÿÿÿÿ8óñ¦´/
 x
-java:S1104"VMake scheduleCb a static final constant or non-public and provide accessors if needed.(¤ã‚Žÿÿÿÿÿ8óñ¦´/
-w
-java:S1192"UDefine a constant instead of duplicating this literal "popunjenoKakoNeTreba" 4 times.(¾Þüáúÿÿÿÿ8ÅšûÑ/
+java:S1104"VMake scheduleCb a static final constant or non-public and provide accessors if needed.(¤ã‚Žÿÿÿÿÿ8óñ¦´/
 u
-java:S1104"XMake cancelButton a static final constant or non-public and provide accessors if needed.(·ÌØ‡8¥Ž´/
-w
-java:S1104"UMake nameField a static final constant or non-public and provide accessors if needed.(¾ÀŽˆÿÿÿÿÿ8óñ¦´/
+java:S1104"XMake createButton a static final constant or non-public and provide accessors if needed.(·ÌØ‡8¥Ž´/
+T
+java:S1172Q"2Remove this unused method parameter "actionEvent".(÷œœôûÿÿÿÿ8¥Ž´/
+u
+java:S1104"XMake spinnerField a static final constant or non-public and provide accessors if needed.(Š±Ïà8óñ¦´/
+O
+java:S1172+"2Remove this unused method parameter "actionEvent".(ËÌì‡8™Â¡´/
 J
-java:S1604"(Make this anonymous inner class a lambda(‘‡Æ¤ùÿÿÿÿ8ñ„õÐ/
-\
-java:S18547":Remove this useless assignment to local variable "league".(ü¡Œ­øÿÿÿÿ8„¤ª´/
+java:S1604"(Make this anonymous inner class a lambda(‘‡Æ¤ùÿÿÿÿ8ñ„õÐ/
+]	java:S125>"<This block of commented-out lines of code should be removed.(ÑÓœÏÿÿÿÿÿ8Õ—Îß/

@@ -25,9 +25,9 @@ public class SquadController {
         this.midfielders = FXCollections.observableArrayList();
         this.attackers = FXCollections.observableArrayList();
         for (int i=0; i<allPlayers.size(); i++) {
-            if (allPlayers.get(i).getPosition().equals(Position.GOALKEEPER)) this.goalkeepers.add(allPlayers.get(i));
-            else if (allPlayers.get(i).getPosition().equals(Position.DEFENDER)) this.defenders.add(allPlayers.get(i));
-            else if (allPlayers.get(i).getPosition().equals(Position.MIDFIELDER)) this.midfielders.add(allPlayers.get(i));
+            if (allPlayers.get(i) instanceof Goalkeeper) this.goalkeepers.add(allPlayers.get(i));
+            else if (allPlayers.get(i) instanceof Defender) this.defenders.add(allPlayers.get(i));
+            else if (allPlayers.get(i) instanceof Midfielder) this.midfielders.add(allPlayers.get(i));
             else this.attackers.add(allPlayers.get(i));
         }
     }

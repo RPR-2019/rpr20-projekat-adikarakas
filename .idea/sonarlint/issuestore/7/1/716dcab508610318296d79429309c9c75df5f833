@@ -1,31 +1,39 @@
 
-p
-java:S11921"SDefine a constant instead of duplicating this literal "popunjenoKakoTreba" 4 times.(ÙÙ¿§8—Ãó©/
+h
+java:S1192("KDefine a constant instead of duplicating this literal "Goalkeeper" 3 times.(Š´ñ©8Ñ“öö/
 w
-java:S11920"UDefine a constant instead of duplicating this literal "popunjenoKakoNeTreba" 4 times.(µì™½ùÿÿÿÿ8—Ãó©/
-x
-java:S1104"VMake saveButton a static final constant or non-public and provide accessors if needed.(˜…øÿÿÿÿ8ÍÊÁ‹/
-|
-java:S1104"ZMake choicePosition a static final constant or non-public and provide accessors if needed.(Ô¼ª—üÿÿÿÿ8äÑ ‹/
-z
-java:S1104"XMake cancelButton a static final constant or non-public and provide accessors if needed.(•ÚŞãÿÿÿÿÿ8‹øÁ‹/
-J
-java:S1604:"(Make this anonymous inner class a lambda(ƒóáÚûÿÿÿÿ8—Ãó©/
-J
-java:S1604,"(Make this anonymous inner class a lambda(‘‡Æ¤ùÿÿÿÿ8¼´ã©/
-z
-java:S1104"]Make choiceNationality a static final constant or non-public and provide accessors if needed.(§ñóî8ˆ«‹/
-T
-java:S1172l"2Remove this unused method parameter "actionEvent".(÷œœôûÿÿÿÿ8®ÎÃ‹/
-E
-java:S1125Q"(Remove the literal "true" boolean value.(ñÛÚá8´Ê“/
-u
-java:S1104"XMake dateIdentity a static final constant or non-public and provide accessors if needed.(®ÌøŸ8¿¿ÒŒ/
-w
-java:S1104"UMake nameField a static final constant or non-public and provide accessors if needed.(Ê¨Ëùÿÿÿÿ8¿şËŒ/
+java:S1192;"UDefine a constant instead of duplicating this literal "popunjenoKakoNeTreba" 4 times.(µì™½ùÿÿÿÿ8¤êÓö/
 G
-java:S5411Q"*Use the primitive boolean expression here.(ñÛÚá8´Ê“/
-O
-java:S1172J"2Remove this unused method parameter "actionEvent".(ç×µÊ8¶¢Å‹/
+java:S5411\"*Use the primitive boolean expression here.(ñÛÚá8¤êÓö/
+k
+java:S1192)"IDefine a constant instead of duplicating this literal "Defender" 3 times.(°´³¤øÿÿÿÿ8Ñ“öö/
 z
-java:S1104"XMake surnameField a static final constant or non-public and provide accessors if needed.(Ê¨Ëùÿÿÿÿ8¿şËŒ/
+java:S1104"XMake surnameField a static final constant or non-public and provide accessors if needed.(Ê¨Ëùÿÿÿÿ8¤êÓö/
+u
+java:S1104"XMake dateIdentity a static final constant or non-public and provide accessors if needed.(®ÌøŸ8¿¿ÒŒ/
+O
+java:S1172U"2Remove this unused method parameter "actionEvent".(ç×µÊ8¤êÓö/
+U
+java:S1172„"2Remove this unused method parameter "actionEvent".(÷œœôûÿÿÿÿ8¤êÓö/
+v
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(û˜“Ã8¤êÓö/
+J
+java:S1604E"(Make this anonymous inner class a lambda(ƒóáÚûÿÿÿÿ8¤êÓö/
+h
+java:S1192*"KDefine a constant instead of duplicating this literal "Midfielder" 3 times.(şİ‘¡8Ñ“öö/
+J
+java:S16047"(Make this anonymous inner class a lambda(‘‡Æ¤ùÿÿÿÿ8¤êÓö/
+w
+java:S1104"UMake nameField a static final constant or non-public and provide accessors if needed.(Ê¨Ëùÿÿÿÿ8¤êÓö/
+z
+java:S1104"]Make choiceNationality a static final constant or non-public and provide accessors if needed.(§ñóî8¤êÓö/
+v
+java:S1104"ZMake choicePosition a static final constant or non-public and provide accessors if needed.(ªé—>8äÑ ‹/
+x
+java:S1104"VMake saveButton a static final constant or non-public and provide accessors if needed.(˜…øÿÿÿÿ8¤êÓö/
+E
+java:S1125\"(Remove the literal "true" boolean value.(ñÛÚá8¤êÓö/
+p
+java:S1192<"SDefine a constant instead of duplicating this literal "popunjenoKakoTreba" 4 times.(ÙÙ¿§8ÚôÒö/
+z
+java:S1104"XMake cancelButton a static final constant or non-public and provide accessors if needed.(•ÚŞãÿÿÿÿÿ8‹øÁ‹/

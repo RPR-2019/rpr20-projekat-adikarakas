@@ -1,26 +1,26 @@
 
-]	java:S125$"<This block of commented-out lines of code should be removed.(ÍŠğêüÿÿÿÿ8à€ä/
-z
-java:S1104"XMake cancelButton a static final constant or non-public and provide accessors if needed.(•ÚŞãÿÿÿÿÿ8¶¥…ä/
-O
-java:S1172("2Remove this unused method parameter "actionEvent".(»‘Ï8€ø ã/
+T
+java:S1172R"2Remove this unused method parameter "actionEvent".(÷œœôûÿÿÿÿ8¶¥…ä/
 {
 java:S1104"YMake homeTeamGoals a static final constant or non-public and provide accessors if needed.(©¤Â…üÿÿÿÿ8¯¼ã/
 L
 java:S3740"/Provide the parametrized type for this generic.(‚Ü€8 »Ôã/
+z
+java:S1104"XMake cancelButton a static final constant or non-public and provide accessors if needed.(•ÚŞãÿÿÿÿÿ8¶¥…ä/
+v
+java:S1104"YMake homeTeamScore a static final constant or non-public and provide accessors if needed.(ûµ°Í8â¶µã/
 O
 java:S11729"2Remove this unused method parameter "actionEvent".(ßëŸ¿8ÚÅ¤ã/
-T
-java:S1172R"2Remove this unused method parameter "actionEvent".(÷œœôûÿÿÿÿ8¶¥…ä/
+O
+java:S1172J"2Remove this unused method parameter "actionEvent".(Î²—³8•é†ä/
+]	java:S125$"<This block of commented-out lines of code should be removed.(ÍŠğêüÿÿÿÿ8à€ä/
+z
+java:S1104"XMake finishButton a static final constant or non-public and provide accessors if needed.(­û÷Áøÿÿÿÿ8¶¥…ä/
 {
 java:S1104"YMake awayTeamScore a static final constant or non-public and provide accessors if needed.(üÙñíÿÿÿÿÿ8´½¶ã/
 v
-java:S1104"YMake homeTeamScore a static final constant or non-public and provide accessors if needed.(ûµ°Í8â¶µã/
+java:S1104"YMake awayTeamGoals a static final constant or non-public and provide accessors if needed.(‚Ü€8¹Ô½ã/
 Q
 java:S3740"/Provide the parametrized type for this generic.(©¤Â…üÿÿÿÿ8 »Ôã/
-v
-java:S1104"YMake awayTeamGoals a static final constant or non-public and provide accessors if needed.(‚Ü€8¹Ô½ã/
-z
-java:S1104"XMake finishButton a static final constant or non-public and provide accessors if needed.(­û÷Áøÿÿÿÿ8¶¥…ä/
 O
-java:S1172J"2Remove this unused method parameter "actionEvent".(Î²—³8•é†ä/
+java:S1172("2Remove this unused method parameter "actionEvent".(»‘Ï8€ø ã/
