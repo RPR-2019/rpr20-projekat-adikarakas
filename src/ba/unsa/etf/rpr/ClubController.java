@@ -43,6 +43,7 @@ public class ClubController {
                     players.add(this.currentClub.getPlayers().get(i));
                 }
                 playersLv.setItems(players);
+                playersLv.refresh();
             }
 
             nameField.setText(this.currentClub.getName());

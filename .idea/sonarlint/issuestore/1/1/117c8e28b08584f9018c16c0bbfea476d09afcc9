@@ -1,15 +1,19 @@
 
+’
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÊÓøÿÿÿÿ8»Ùè°/
 
-java:S1319+"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(“ğı¹8–êÔŞ/
+java:S1319,"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(“ğı¹8–êÔŞ/
 •
-java:S1319/"sThe type of the "managers" object should be an interface such as "List" rather than the implementation "ArrayList".(´€ìöüÿÿÿÿ8–êÔŞ/
-
-java:S1319'"rThe type of the "matches" object should be an interface such as "List" rather than the implementation "ArrayList".(ÄÛ¯h8»Ùè°/
-V	java:S125K"<This block of commented-out lines of code should be removed.(­®Ïùÿÿÿÿÿ
+java:S1319H"sThe type of the "fixtures" object should be an interface such as "List" rather than the implementation "ArrayList".(ø¿š™øÿÿÿÿ8åêÑ’/
 Œ
-java:S1319#"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¬À©D8»Ùè°/
+java:S1319$"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¬À©D8»Ùè°/
 ’
-java:S1319"pThe type of the "clubs" object should be an interface such as "List" rather than the implementation "ArrayList".(ğâˆ¯ıÿÿÿÿ8»Ùè°/
+java:S1319D"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(È‡›øÿÿÿÿÿ8åêÑ’/
+V	java:S125V"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ
 ’
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÊÓøÿÿÿÿ8»Ùè°/
-V	java:S125M"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ
+java:S1319 "pThe type of the "clubs" object should be an interface such as "List" rather than the implementation "ArrayList".(ğâˆ¯ıÿÿÿÿ8»Ùè°/
+
+java:S1319("rThe type of the "matches" object should be an interface such as "List" rather than the implementation "ArrayList".(ÄÛ¯h8»Ùè°/
+•
+java:S13190"sThe type of the "managers" object should be an interface such as "List" rather than the implementation "ArrayList".(´€ìöüÿÿÿÿ8–êÔŞ/
+V	java:S125T"<This block of commented-out lines of code should be removed.(­®Ïùÿÿÿÿÿ

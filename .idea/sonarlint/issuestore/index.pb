@@ -73,3 +73,13 @@ S
 #src/ba/unsa/etf/rpr/Goalkeeper.java,b\4\b47b3db45d891e5bc8de86c2d49976f77ada2d82
 Q
 !src/ba/unsa/etf/rpr/Attacker.java,a\4\a4f7b5664d48ee2cc2b8cd9b4ab4208117df0b8a
+g
+7out/production/rpr20-projekat-adikarakas/fxml/club.fxml,d\8\d8c79c028ec17eafede4dcce9304e3dc94de174b
+l
+<out/production/rpr20-projekat-adikarakas/fxml/preseason.fxml,5\1\512d67393f5f7f81dcd1d540c3fa1c7cd6d3e671
+P
+ src/ba/unsa/etf/rpr/Fixture.java,1\9\19aeba00e83f6591af67f7f4bedb1abf048967f7
+_
+/src/ba/unsa/etf/rpr/FixtureAdderController.java,a\9\a902da3471f6cb10f006f53d15c9b06f72d56b3b
+X
+(src/ba/unsa/etf/rpr/StatsController.java,5\9\59f7bb8354b74e91b97d2ea1e2ad6fe880c3df59

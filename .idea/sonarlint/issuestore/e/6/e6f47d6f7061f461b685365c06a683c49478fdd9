@@ -1,23 +1,31 @@
 
-{
-java:S1104"YMake managerChoice a static final constant or non-public and provide accessors if needed.(Â¾¥ªúÿÿÿÿ8ÔÛŒİ/
-L
-java:S3740;"/Provide the parametrized type for this generic.(Ë±ä«8÷ãÊß/
-u
-java:S1104"XMake cancelButton a static final constant or non-public and provide accessors if needed.(õôå8²ÿ„İ/
-z
-java:S1104"XMake stadiumField a static final constant or non-public and provide accessors if needed.(Ì„´ıÿÿÿÿ8çãŠİ/
 T
-java:S1172L"2Remove this unused method parameter "actionEvent".(÷œœôûÿÿÿÿ8²ÿ„İ/
-y
-java:S1104"WMake mascotField a static final constant or non-public and provide accessors if needed.(Ì„´ıÿÿÿÿ8çãŠİ/
-T
-java:S1172*"2Remove this unused method parameter "actionEvent".(Ø×§Ÿşÿÿÿÿ8²ÿ„İ/
+java:S1172G"2Remove this unused method parameter "actionEvent".(”ÔÏûÿÿÿÿ8¸É×/
 q
-java:S1104"TMake okButton a static final constant or non-public and provide accessors if needed.(õôå8²ÿ„İ/
+java:S1104"UMake playersLv a static final constant or non-public and provide accessors if needed.(³Û½48€‚‰ş/
+T
+java:S1172T"2Remove this unused method parameter "actionEvent".(Ø×§Ÿşÿÿÿÿ8²ÿ„İ/
+O
+java:S1172:"2Remove this unused method parameter "actionEvent".(àã”8Ê‘³€/
 {
-java:S1104"YMake nicknameField a static final constant or non-public and provide accessors if needed.(Ì„´ıÿÿÿÿ8Ô’¢ß/
-y
-java:S1104"WMake colorPicker a static final constant or non-public and provide accessors if needed.(ğ•èŠüÿÿÿÿ8ˆ‡Œİ/
+java:S1104"YMake nicknameField a static final constant or non-public and provide accessors if needed.(Ì„´ıÿÿÿÿ8Ô’¢ß/
+Y
+java:S3655M"7Call "Optional#isPresent()" before accessing the value.(ŸªÍäùÿÿÿÿ8¸É×/
+L
+java:S3740e"/Provide the parametrized type for this generic.(Ë±ä«8÷ãÊß/
 w
-java:S1104"UMake nameField a static final constant or non-public and provide accessors if needed.(Ì„´ıÿÿÿÿ8çãŠİ/
+java:S1104"UMake nameField a static final constant or non-public and provide accessors if needed.(Ì„´ıÿÿÿÿ8çãŠİ/
+y
+java:S1104"WMake colorPicker a static final constant or non-public and provide accessors if needed.(ğ•èŠüÿÿÿÿ8ˆ‡Œİ/
+{
+java:S1104"YMake managerChoice a static final constant or non-public and provide accessors if needed.(Â¾¥ªúÿÿÿÿ8ÔÛŒİ/
+y
+java:S1104"WMake mascotField a static final constant or non-public and provide accessors if needed.(Ì„´ıÿÿÿÿ8çãŠİ/
+T
+java:S1172v"2Remove this unused method parameter "actionEvent".(÷œœôûÿÿÿÿ8²ÿ„İ/
+u
+java:S1104"XMake cancelButton a static final constant or non-public and provide accessors if needed.(õôå8²ÿ„İ/
+z
+java:S1104"XMake stadiumField a static final constant or non-public and provide accessors if needed.(Ì„´ıÿÿÿÿ8çãŠİ/
+q
+java:S1104"TMake okButton a static final constant or non-public and provide accessors if needed.(õôå8²ÿ„İ/

@@ -4,10 +4,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="311.0" vgap="5.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.SquadController">
+<GridPane hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="727.0" vgap="5.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="301.4" minWidth="10.0" prefWidth="110.80000000000001" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="465.99998474121094" minWidth="10.0" prefWidth="200.8" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="301.4" minWidth="10.0" prefWidth="104.2" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="465.99998474121094" minWidth="10.0" prefWidth="168.4000152587891" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="465.99998474121094" minWidth="10.0" prefWidth="175.2" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="465.99998474121094" minWidth="10.0" prefWidth="108.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="465.99998474121094" minWidth="10.0" prefWidth="159.80000000000007" />
   </columnConstraints>
   <rowConstraints>
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -24,34 +27,60 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <TextField fx:id="position1" editable="false" />
-      <TextField fx:id="position2" editable="false" GridPane.rowIndex="1" />
-      <TextField fx:id="position3" editable="false" GridPane.rowIndex="2" />
-      <TextField fx:id="position4" editable="false" GridPane.rowIndex="3" />
-      <TextField fx:id="position5" editable="false" GridPane.rowIndex="4" />
-      <TextField fx:id="position6" editable="false" GridPane.rowIndex="5" />
-      <TextField fx:id="position7" editable="false" GridPane.rowIndex="6" />
-      <TextField fx:id="position8" editable="false" GridPane.rowIndex="7" />
-      <TextField fx:id="position9" editable="false" GridPane.rowIndex="8" />
-      <TextField fx:id="position10" editable="false" GridPane.rowIndex="9" />
-      <TextField fx:id="position11" editable="false" GridPane.rowIndex="10" />
-      <ChoiceBox fx:id="playerChoiceBox1" prefWidth="150.0" GridPane.columnIndex="1" />
-      <ChoiceBox fx:id="playerChoiceBox2" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <ChoiceBox fx:id="playerChoiceBox3" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <ChoiceBox fx:id="playerChoiceBox4" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-      <ChoiceBox fx:id="playerChoiceBox5" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <ChoiceBox fx:id="playerChoiceBox6" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-      <ChoiceBox fx:id="playerChoiceBox7" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-      <ChoiceBox fx:id="playerChoiceBox8" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-      <ChoiceBox fx:id="playerChoiceBox9" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-      <ChoiceBox fx:id="playerChoiceBox10" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-      <ChoiceBox fx:id="playerChoiceBox11" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-      <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
+      <ChoiceBox fx:id="homePlayerChoiceBox1" prefWidth="150.0" GridPane.columnIndex="1" />
+      <ChoiceBox fx:id="homePlayerChoiceBox2" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <ChoiceBox fx:id="homePlayerChoiceBox3" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <ChoiceBox fx:id="homePlayerChoiceBox4" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <ChoiceBox fx:id="homePlayerChoiceBox5" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <ChoiceBox fx:id="homePlayerChoiceBox6" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      <ChoiceBox fx:id="homePlayerChoiceBox7" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+      <ChoiceBox fx:id="homePlayerChoiceBox8" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+      <ChoiceBox fx:id="homePlayerChoiceBox9" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+      <ChoiceBox fx:id="homePlayerChoiceBox10" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+      <ChoiceBox fx:id="homePlayerChoiceBox11" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+      <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="11">
         <buttons>
           <Button fx:id="okButton" defaultButton="true" mnemonicParsing="false" onAction="#okPressed" text="Ok" />
             <Button fx:id="cancelButton" cancelButton="true" mnemonicParsing="false" onAction="#cancelPressed" text="Cancel" />
         </buttons>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
       </ButtonBar>
+      <Label text="Goalkeeper:" />
+      <Label text="Defender:" GridPane.rowIndex="1" />
+      <Label text="Defender:" GridPane.rowIndex="2" />
+      <Label text="Defender:" GridPane.rowIndex="3" />
+      <Label text="Defender:" GridPane.rowIndex="4" />
+      <Label text="Midfielder:" GridPane.rowIndex="5" />
+      <Label text="Midfielder:" GridPane.rowIndex="6" />
+      <Label text="Midfielder:" GridPane.rowIndex="7" />
+      <Label text="Attacker:" GridPane.rowIndex="8" />
+      <Label text="Attacker:" GridPane.rowIndex="9" />
+      <Label text="Attacker:" GridPane.rowIndex="10" />
+      <Label text="Goalkeeper:" GridPane.columnIndex="3" />
+      <Label text="Defender:" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+      <Label text="Defender:" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+      <Label text="Defender:" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+      <Label text="Defender:" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+      <Label text="Midfielder:" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+      <Label text="Midfielder:" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+      <Label text="Midfielder:" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+      <Label text="Attacker:" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+      <Label text="Attacker:" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+      <Label text="Attacker:" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+      <ChoiceBox fx:id="awayPlayerChoiceBox1" prefWidth="150.0" GridPane.columnIndex="4" />
+      <ChoiceBox fx:id="awayPlayerChoiceBox2" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+      <ChoiceBox fx:id="awayPlayerChoiceBox3" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+      <ChoiceBox fx:id="awayPlayerChoiceBox4" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+      <ChoiceBox fx:id="awayPlayerChoiceBox5" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+      <ChoiceBox fx:id="awayPlayerChoiceBox6" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+      <ChoiceBox fx:id="awayPlayerChoiceBox7" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+      <ChoiceBox fx:id="awayPlayerChoiceBox8" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+      <ChoiceBox fx:id="awayPlayerChoiceBox9" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+      <ChoiceBox fx:id="awayPlayerChoiceBox10" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+      <ChoiceBox fx:id="awayPlayerChoiceBox11" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="10" />
+      <Label text=" " GridPane.columnIndex="2" GridPane.rowIndex="1" />
    </children>
    <padding>
       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

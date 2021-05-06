@@ -50,6 +50,8 @@ public class Player {
 
     @Override
     public String toString() {
-        return (name + " " + surname);
+        if (name.trim().isEmpty()) return surname;
+        else if (surname.trim().isEmpty()) return name;
+        else return (name + " " + surname);
     }
 }

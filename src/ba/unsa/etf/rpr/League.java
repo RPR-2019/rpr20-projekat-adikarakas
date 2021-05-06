@@ -8,6 +8,7 @@ public class League {
     private boolean isScheduleRandom;
     private ArrayList<Club> clubs = new ArrayList<>();
     private ArrayList<Match> matches = new ArrayList<>();
+    private ArrayList<Fixture> fixtures = new ArrayList<>();
     private ArrayList<String> managers = new ArrayList<>();
 
     public League(String name, int numberOfClubs, boolean isScheduleRandom) {
@@ -62,6 +63,14 @@ public class League {
 
     public void setScheduleRandom(boolean scheduleRandom) {
         isScheduleRandom = scheduleRandom;
+    }
+
+    public ArrayList<Fixture> getFixtures() {
+        return fixtures;
+    }
+
+    public void setFixtures(ArrayList<Fixture> fixtures) {
+        this.fixtures = fixtures;
     }
 
     public void addClub (Club c) {

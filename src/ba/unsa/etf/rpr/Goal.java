@@ -1,37 +1,29 @@
 package ba.unsa.etf.rpr;
 
 public class Goal {
-    public Club scoringTeam;
-    public Player scorer;
-    public Player assistent;
-    public GoalType goalType;
-    public GoalSituation goalSituation;
-    public GoalDistance goalDistance;
+    private Player scorer;
+    private Player assistent;
+    private GoalType goalType;
+    private GoalSituation goalSituation;
+    private GoalDistance goalDistance;
+    private int minute;
 
-    public Goal(Player scorer, Player assistent, GoalType goalType, GoalSituation goalSituation, GoalDistance goalDistance) {
-        //this.scoringTeam = scoringTeam;
+    public Goal(Player scorer, Player assistent, int minute, GoalType goalType, GoalSituation goalSituation, GoalDistance goalDistance) {
         this.scorer = scorer;
         this.assistent = assistent;
+        this.minute = minute;
         this.goalType = goalType;
         this.goalSituation = goalSituation;
         this.goalDistance = goalDistance;
     }
 
-    public Goal(Player scorer, GoalType goalType, GoalSituation goalSituation, GoalDistance goalDistance) {
-        //this.scoringTeam = scoringTeam;
+    public Goal(Player scorer, int minute, GoalType goalType, GoalSituation goalSituation, GoalDistance goalDistance) {
         this.scorer = scorer;
         this.assistent = null;
+        this.minute = minute;
         this.goalType = goalType;
         this.goalSituation = goalSituation;
         this.goalDistance = goalDistance;
-    }
-
-    public Club getScoringTeam() {
-        return scoringTeam;
-    }
-
-    public void setScoringTeam(Club scoringTeam) {
-        this.scoringTeam = scoringTeam;
     }
 
     public Player getScorer() {
@@ -74,8 +66,17 @@ public class Goal {
         this.goalDistance = goalDistance;
     }
 
+    public int getMinute() {
+        return minute;
+    }
+
+    public void setMinute(int minute) {
+        this.minute = minute;
+    }
+
     @Override
     public String toString() {
-        return scorer.getSurname() + "(" + assistent.getSurname() + ")";
+        if (assistent!=null) return minute + "' " + scorer.getName().charAt(0) + ". " + scorer.getSurname() + " (" + assistent.getName().charAt(0) + ". " + assistent.getSurname() + ")";
+        else return minute + "' " + scorer.getName().charAt(0) + ". " + scorer.getSurname();
     }
 }

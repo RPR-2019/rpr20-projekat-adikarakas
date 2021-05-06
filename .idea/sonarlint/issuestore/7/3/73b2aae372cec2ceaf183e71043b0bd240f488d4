@@ -1,18 +1,42 @@
 
-u
-java:S1104"XMake cancelButton a static final constant or non-public and provide accessors if needed.(·ÌØ‡8¥Ž´/
-w
-java:S1104"UMake nameField a static final constant or non-public and provide accessors if needed.(¾ÀŽˆÿÿÿÿÿ8óñ¦´/
-x
-java:S1104"VMake scheduleCb a static final constant or non-public and provide accessors if needed.(¤ã‚Žÿÿÿÿÿ8óñ¦´/
-u
-java:S1104"XMake createButton a static final constant or non-public and provide accessors if needed.(·ÌØ‡8¥Ž´/
-T
-java:S1172Q"2Remove this unused method parameter "actionEvent".(÷œœôûÿÿÿÿ8¥Ž´/
-u
-java:S1104"XMake spinnerField a static final constant or non-public and provide accessors if needed.(Š±Ïà8óñ¦´/
-O
-java:S1172+"2Remove this unused method parameter "actionEvent".(ËÌì‡8™Â¡´/
+e
+java:S1192J"HDefine a constant instead of duplicating this literal "Germany" 5 times.(èèÌ›8‚Õ¥ë‘/
+n
+java:S1192["LDefine a constant instead of duplicating this literal "Switzerland" 3 times.(òÏ÷Êûÿÿÿÿ8Ÿº–ä“/
+U
+java:S1172š"2Remove this unused method parameter "actionEvent".(÷œœôûÿÿÿÿ8¥Ž´/
 J
-java:S1604"(Make this anonymous inner class a lambda(‘‡Æ¤ùÿÿÿÿ8ñ„õÐ/
-]	java:S125>"<This block of commented-out lines of code should be removed.(ÑÓœÏÿÿÿÿÿ8Õ—Îß/
+java:S1604"(Make this anonymous inner class a lambda(‘‡Æ¤ùÿÿÿÿ8ñ„õÐ/
+O
+java:S1172,"2Remove this unused method parameter "actionEvent".(ËÌì‡8™Â¡´/
+b
+java:S1192^"FDefine a constant instead of duplicating this literal "Gabon" 3 times.(ì‰W8Ÿº–ä“/
+d
+java:S1192D"GDefine a constant instead of duplicating this literal "France" 6 times.(€çžÕ8øåÖê‘/
+l
+java:S1192T"JDefine a constant instead of duplicating this literal "Australia" 3 times.(Õù êùÿÿÿÿ8Ÿº–ä“/
+e
+java:S1192B"IDefine a constant instead of duplicating this literal "England" 12 times.(±ùýk8øåÖê‘/
+X	java:S125P"<This block of commented-out lines of code should be removed.(œ‚ã8…ÆþÍ“/
+f
+java:S1192Y"IDefine a constant instead of duplicating this literal "Portugal" 3 times.(Ïìä×8Ÿº–ä“/
+n
+java:S1192`"LDefine a constant instead of duplicating this literal "Ivory Coast" 3 times.( ÒÒÆýÿÿÿÿ8Ÿº–ä“/
+c
+java:S1192A"FDefine a constant instead of duplicating this literal "Spain" 8 times.(„ÀÅ³8‚Õ¥ë‘/
+u
+java:S1104"XMake cancelButton a static final constant or non-public and provide accessors if needed.(·ÌØ‡8¥Ž´/
+x
+java:S1104"VMake scheduleCb a static final constant or non-public and provide accessors if needed.(¤ã‚Žÿÿÿÿÿ8óñ¦´/
+h
+java:S1192Z"FDefine a constant instead of duplicating this literal "Ghana" 3 times.(µÐ‡åûÿÿÿÿ8Ÿº–ä“/
+k
+java:S1192X"IDefine a constant instead of duplicating this literal "Scotland" 3 times.(êŒ™ýÿÿÿÿ8Ÿº–ä“/
+d
+java:S1192C"GDefine a constant instead of duplicating this literal "Brazil" 4 times.(¤í·—8Ÿº–ä“/
+u
+java:S1104"XMake createButton a static final constant or non-public and provide accessors if needed.(·ÌØ‡8¥Ž´/
+w
+java:S1104"UMake nameField a static final constant or non-public and provide accessors if needed.(¾ÀŽˆÿÿÿÿÿ8óñ¦´/
+u
+java:S1104"XMake spinnerField a static final constant or non-public and provide accessors if needed.(Š±Ïà8óñ¦´/

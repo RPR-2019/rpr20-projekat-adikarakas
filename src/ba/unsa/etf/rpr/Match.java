@@ -44,4 +44,9 @@ public class Match {
     public void setAwayTeamGoals(ArrayList<Goal> awayTeamGoals) {
         this.awayTeamGoals = awayTeamGoals;
     }
+
+    @Override
+    public String toString() {
+        return homeTeam + " " + homeTeamGoals.size() + " - " + awayTeamGoals.size() + " " + awayTeam;
+    }
 }

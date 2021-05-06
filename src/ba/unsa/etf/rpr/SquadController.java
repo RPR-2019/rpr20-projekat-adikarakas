@@ -1,92 +1,142 @@
 package ba.unsa.etf.rpr;
 
+import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
+
 public class SquadController {
     public Button okButton, cancelButton;
-    public TextField position1, position2, position3, position4, position5, position6, position7, position8, position9, position10, position11;
-    public ChoiceBox<Player> playerChoiceBox1, playerChoiceBox2, playerChoiceBox3, playerChoiceBox4, playerChoiceBox5, playerChoiceBox6, playerChoiceBox7, playerChoiceBox8, playerChoiceBox9, playerChoiceBox10, playerChoiceBox11;
-    private ObservableList<Player> goalkeepers, defenders, midfielders, attackers;
+    public ChoiceBox<Player> homePlayerChoiceBox1, homePlayerChoiceBox2, homePlayerChoiceBox3, homePlayerChoiceBox4, homePlayerChoiceBox5, homePlayerChoiceBox6, homePlayerChoiceBox7, homePlayerChoiceBox8, homePlayerChoiceBox9, homePlayerChoiceBox10, homePlayerChoiceBox11;
+    public ChoiceBox<Player> awayPlayerChoiceBox1, awayPlayerChoiceBox2, awayPlayerChoiceBox3, awayPlayerChoiceBox4, awayPlayerChoiceBox5, awayPlayerChoiceBox6, awayPlayerChoiceBox7, awayPlayerChoiceBox8, awayPlayerChoiceBox9, awayPlayerChoiceBox10, awayPlayerChoiceBox11;
+    private ObservableList<Player> homeGoalkeepers, homeDefenders, homeMidfielders, homeAttackers;
+    private ObservableList<Player> awayGoalkeepers, awayDefenders, awayMidfielders, awayAttackers;
+    private Club homeClub, awayClub;
+    private League league;
+    private ObservableList<ClubOnTable> clubsOnTable;
 
-    SquadController (ArrayList<Player> allPlayers) {
-        this.goalkeepers = FXCollections.observableArrayList();
-        this.defenders = FXCollections.observableArrayList();
-        this.midfielders = FXCollections.observableArrayList();
-        this.attackers = FXCollections.observableArrayList();
-        for (int i=0; i<allPlayers.size(); i++) {
-            if (allPlayers.get(i) instanceof Goalkeeper) this.goalkeepers.add(allPlayers.get(i));
-            else if (allPlayers.get(i) instanceof Defender) this.defenders.add(allPlayers.get(i));
-            else if (allPlayers.get(i) instanceof Midfielder) this.midfielders.add(allPlayers.get(i));
-            else this.attackers.add(allPlayers.get(i));
+    SquadController (League l, Club home, Club away, ObservableList<ClubOnTable> clubsOnTable) {
+        this.league=l;
+        this.clubsOnTable=clubsOnTable;
+        this.homeClub=home;
+        this.awayClub=away;
+        this.homeGoalkeepers = FXCollections.observableArrayList();
+        this.homeDefenders = FXCollections.observableArrayList();
+        this.homeMidfielders = FXCollections.observableArrayList();
+        this.homeAttackers = FXCollections.observableArrayList();
+        for (int i=0; i<home.getPlayers().size(); i++) {
+            if (home.getPlayers().get(i) instanceof Goalkeeper) this.homeGoalkeepers.add(home.getPlayers().get(i));
+            else if (home.getPlayers().get(i) instanceof Defender) this.homeDefenders.add(home.getPlayers().get(i));
+            else if (home.getPlayers().get(i) instanceof Midfielder) this.homeMidfielders.add(home.getPlayers().get(i));
+            else this.homeAttackers.add(home.getPlayers().get(i));
+        }
+
+        this.awayGoalkeepers = FXCollections.observableArrayList();
+        this.awayDefenders = FXCollections.observableArrayList();
+        this.awayMidfielders = FXCollections.observableArrayList();
+        this.awayAttackers = FXCollections.observableArrayList();
+        for (int i=0; i<away.getPlayers().size(); i++) {
+            if (away.getPlayers().get(i) instanceof Goalkeeper) this.awayGoalkeepers.add(away.getPlayers().get(i));
+            else if (away.getPlayers().get(i) instanceof Defender) this.awayDefenders.add(away.getPlayers().get(i));
+            else if (away.getPlayers().get(i) instanceof Midfielder) this.awayMidfielders.add(away.getPlayers().get(i));
+            else this.awayAttackers.add(away.getPlayers().get(i));
         }
     }
 
     public void initialize() {
-        // za početak će biti fiksna formacija 4-3-3
-        position1.setText("Goalkeeper:");
-        position2.setText("Defender:");
-        position3.setText("Defender:");
-        position4.setText("Defender:");
-        position5.setText("Defender:");
-        position6.setText("Midfielder:");
-        position7.setText("Midfielder:");
-        position8.setText("Midfielder:");
-        position9.setText("Attacker:");
-        position10.setText("Attacker:");
-        position11.setText("Attacker:");
 
-        playerChoiceBox1.setItems(this.goalkeepers);
-        playerChoiceBox2.setItems(this.defenders);
-        playerChoiceBox3.setItems(this.defenders);
-        playerChoiceBox4.setItems(this.defenders);
-        playerChoiceBox5.setItems(this.defenders);
-        playerChoiceBox6.setItems(this.midfielders);
-        playerChoiceBox7.setItems(this.midfielders);
-        playerChoiceBox8.setItems(this.midfielders);
-        playerChoiceBox9.setItems(this.attackers);
-        playerChoiceBox10.setItems(this.attackers);
-        playerChoiceBox11.setItems(this.attackers);
+        homePlayerChoiceBox1.setItems(this.homeGoalkeepers);
+        homePlayerChoiceBox2.setItems(this.homeDefenders);
+        homePlayerChoiceBox3.setItems(this.homeDefenders);
+        homePlayerChoiceBox4.setItems(this.homeDefenders);
+        homePlayerChoiceBox5.setItems(this.homeDefenders);
+        homePlayerChoiceBox6.setItems(this.homeMidfielders);
+        homePlayerChoiceBox7.setItems(this.homeMidfielders);
+        homePlayerChoiceBox8.setItems(this.homeMidfielders);
+        homePlayerChoiceBox9.setItems(this.homeAttackers);
+        homePlayerChoiceBox10.setItems(this.homeAttackers);
+        homePlayerChoiceBox11.setItems(this.homeAttackers);
 
         // defaultna postava
-        playerChoiceBox1.setValue(this.goalkeepers.get(0));
-        playerChoiceBox2.setValue(this.defenders.get(0));
-        playerChoiceBox3.setValue(this.defenders.get(1));
-        playerChoiceBox4.setValue(this.defenders.get(2));
-        playerChoiceBox5.setValue(this.defenders.get(3));
-        playerChoiceBox6.setValue(this.midfielders.get(0));
-        playerChoiceBox7.setValue(this.midfielders.get(1));
-        playerChoiceBox8.setValue(this.midfielders.get(2));
-        playerChoiceBox9.setValue(this.attackers.get(0));
-        playerChoiceBox10.setValue(this.attackers.get(1));
-        playerChoiceBox11.setValue(this.attackers.get(2));
+        homePlayerChoiceBox1.setValue(this.homeGoalkeepers.get(0));
+        homePlayerChoiceBox2.setValue(this.homeDefenders.get(0));
+        homePlayerChoiceBox3.setValue(this.homeDefenders.get(1));
+        homePlayerChoiceBox4.setValue(this.homeDefenders.get(2));
+        homePlayerChoiceBox5.setValue(this.homeDefenders.get(3));
+        homePlayerChoiceBox6.setValue(this.homeMidfielders.get(0));
+        homePlayerChoiceBox7.setValue(this.homeMidfielders.get(1));
+        homePlayerChoiceBox8.setValue(this.homeMidfielders.get(2));
+        homePlayerChoiceBox9.setValue(this.homeAttackers.get(0));
+        homePlayerChoiceBox10.setValue(this.homeAttackers.get(1));
+        homePlayerChoiceBox11.setValue(this.homeAttackers.get(2));
+
+        awayPlayerChoiceBox1.setItems(this.awayGoalkeepers);
+        awayPlayerChoiceBox2.setItems(this.awayDefenders);
+        awayPlayerChoiceBox3.setItems(this.awayDefenders);
+        awayPlayerChoiceBox4.setItems(this.awayDefenders);
+        awayPlayerChoiceBox5.setItems(this.awayDefenders);
+        awayPlayerChoiceBox6.setItems(this.awayMidfielders);
+        awayPlayerChoiceBox7.setItems(this.awayMidfielders);
+        awayPlayerChoiceBox8.setItems(this.awayMidfielders);
+        awayPlayerChoiceBox9.setItems(this.awayAttackers);
+        awayPlayerChoiceBox10.setItems(this.awayAttackers);
+        awayPlayerChoiceBox11.setItems(this.awayAttackers);
+
+        // defaultna postava
+        awayPlayerChoiceBox1.setValue(this.awayGoalkeepers.get(0));
+        awayPlayerChoiceBox2.setValue(this.awayDefenders.get(0));
+        awayPlayerChoiceBox3.setValue(this.awayDefenders.get(1));
+        awayPlayerChoiceBox4.setValue(this.awayDefenders.get(2));
+        awayPlayerChoiceBox5.setValue(this.awayDefenders.get(3));
+        awayPlayerChoiceBox6.setValue(this.awayMidfielders.get(0));
+        awayPlayerChoiceBox7.setValue(this.awayMidfielders.get(1));
+        awayPlayerChoiceBox8.setValue(this.awayMidfielders.get(2));
+        awayPlayerChoiceBox9.setValue(this.awayAttackers.get(0));
+        awayPlayerChoiceBox10.setValue(this.awayAttackers.get(1));
+        awayPlayerChoiceBox11.setValue(this.awayAttackers.get(2));
     }
 
-    public void okPressed(ActionEvent actionEvent) {
-        Set<Player> set = new HashSet<Player>();
-        set.add(playerChoiceBox1.getValue());
-        set.add(playerChoiceBox2.getValue());
-        set.add(playerChoiceBox3.getValue());
-        set.add(playerChoiceBox4.getValue());
-        set.add(playerChoiceBox5.getValue());
-        set.add(playerChoiceBox6.getValue());
-        set.add(playerChoiceBox7.getValue());
-        set.add(playerChoiceBox8.getValue());
-        set.add(playerChoiceBox9.getValue());
-        set.add(playerChoiceBox10.getValue());
-        set.add(playerChoiceBox11.getValue());
+    public void okPressed(ActionEvent actionEvent) throws IOException {
+        Set<Player> homeSet = new HashSet<Player>();
+        homeSet.add(homePlayerChoiceBox1.getValue());
+        homeSet.add(homePlayerChoiceBox2.getValue());
+        homeSet.add(homePlayerChoiceBox3.getValue());
+        homeSet.add(homePlayerChoiceBox4.getValue());
+        homeSet.add(homePlayerChoiceBox5.getValue());
+        homeSet.add(homePlayerChoiceBox6.getValue());
+        homeSet.add(homePlayerChoiceBox7.getValue());
+        homeSet.add(homePlayerChoiceBox8.getValue());
+        homeSet.add(homePlayerChoiceBox9.getValue());
+        homeSet.add(homePlayerChoiceBox10.getValue());
+        homeSet.add(homePlayerChoiceBox11.getValue());
 
-        if (set.size()!=11) {
+        Set<Player> awaySet = new HashSet<Player>();
+        awaySet.add(awayPlayerChoiceBox1.getValue());
+        awaySet.add(awayPlayerChoiceBox2.getValue());
+        awaySet.add(awayPlayerChoiceBox3.getValue());
+        awaySet.add(awayPlayerChoiceBox4.getValue());
+        awaySet.add(awayPlayerChoiceBox5.getValue());
+        awaySet.add(awayPlayerChoiceBox6.getValue());
+        awaySet.add(awayPlayerChoiceBox7.getValue());
+        awaySet.add(awayPlayerChoiceBox8.getValue());
+        awaySet.add(awayPlayerChoiceBox9.getValue());
+        awaySet.add(awayPlayerChoiceBox10.getValue());
+        awaySet.add(awayPlayerChoiceBox11.getValue());
+
+        if (homeSet.size()!=11 || awaySet.size()!=11) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Greška");
             alert.setHeaderText("Nepravilan odabir igrača");
@@ -94,10 +144,22 @@ public class SquadController {
             alert.showAndWait();
         }
         else {
-            ArrayList<Player> startingLineUp = new ArrayList<>(set);
+            ArrayList<Player> homeStartingLineUp = new ArrayList<>(homeSet);
+            ArrayList<Player> awayStartingLineUp = new ArrayList<>(awaySet);
 
-            Stage stage = (Stage) okButton.getScene().getWindow();
-            stage.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/match.fxml"));
+            MatchController ctrl = new MatchController(this.league, this.homeClub, this.awayClub, homeStartingLineUp, awayStartingLineUp, this.clubsOnTable);
+            fxmlLoader.setController(ctrl);
+            Scene scene = new Scene(fxmlLoader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
+            Stage stage = new Stage();
+            stage.setMinHeight(150);
+            stage.setMinWidth(400);
+            stage.setTitle("Match");
+            stage.setScene(scene);
+            stage.show();
+
+            Stage stage2 = (Stage) okButton.getScene().getWindow();
+            stage2.close();
         }
     }
 

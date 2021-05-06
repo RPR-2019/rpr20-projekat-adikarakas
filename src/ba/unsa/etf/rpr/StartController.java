@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
@@ -59,8 +60,80 @@ public class StartController {
             League league = new League(nameField.getText(), spinnerField.getValue(), scheduleCb.isSelected());
 
             // eksperimentalno
-//            league.addClub(new Club ("Chelsea"));
-  //          league.addClub(new Club ("Arsenal"));
+            Club chelsea = new Club("Chelsea");
+            chelsea.addPlayer(new Goalkeeper("Edouard", "Mendy", LocalDate.of(1992, 03, 13), "Senegal"));
+            chelsea.addPlayer(new Goalkeeper("Kepa", "Arizzabalaga",LocalDate.of(1994, 02, 13), "Spain"));
+            chelsea.addPlayer(new Defender("Reece", "James", LocalDate.of(1999, 04, 13), "England"));
+            chelsea.addPlayer(new Defender("Thiago", "Silva", LocalDate.of(1984, 05, 13), "Brazil"));
+            chelsea.addPlayer(new Defender("Kurt", "Zouma", LocalDate.of(1995, 06, 13), "France"));
+            chelsea.addPlayer(new Defender("Ben", "Chilwell", LocalDate.of(1996, 07, 13), "England"));
+            chelsea.addPlayer(new Defender("Cesar", "Azpilicueta", LocalDate.of(1989, 8, 13), "Spain"));
+            chelsea.addPlayer(new Midfielder("Ngolo", "Kante", LocalDate.of(1991, 9, 13), "France"));
+            chelsea.addPlayer(new Midfielder("Mateo", "Kovačić", LocalDate.of(1995, 10, 13), "Croatia"));
+            chelsea.addPlayer(new Midfielder("Mason", "Mount", LocalDate.of(1999, 11, 13), "England"));
+            chelsea.addPlayer(new Midfielder("Kai", "Havertz", LocalDate.of(1999, 12, 13), "Germany"));
+            chelsea.addPlayer(new Attacker("Timo", "Werner", LocalDate.of(1996, 10, 13), "Germany"));
+            chelsea.addPlayer(new Attacker("Olivier", "Giroud", LocalDate.of(1986, 11, 13), "France"));
+            chelsea.addPlayer(new Attacker("Christian", "Pulišić", LocalDate.of(1998, 03, 13), "USA"));
+            chelsea.addPlayer(new Attacker("Hakim", "Ziyech", LocalDate.of(1993, 01, 13), "Morocco"));
+
+//            System.out.println("Chelsea ima " + chelsea.getPlayers().size() + " igrača");
+
+            Club arsenal = new Club("Arsenal");
+            arsenal.addPlayer(new Goalkeeper("Bernd", "Leno", LocalDate.of(1992, 03, 13), "Germany"));
+            arsenal.addPlayer(new Goalkeeper("Mat", "Ryan",LocalDate.of(1994, 02, 13), "Australia"));
+            arsenal.addPlayer(new Defender("Hector", "Bellerin", LocalDate.of(1999, 04, 13), "Spain"));
+            arsenal.addPlayer(new Defender("David", "Luiz", LocalDate.of(1984, 05, 13), "Brazil"));
+            arsenal.addPlayer(new Defender("Rob", "Holding", LocalDate.of(1995, 06, 13), "England"));
+            arsenal.addPlayer(new Defender("Kieran", "Tierney", LocalDate.of(1996, 07, 13), "Scotland"));
+            arsenal.addPlayer(new Defender("Cedric", "Soares", LocalDate.of(1989, 8, 13), "Portugal"));
+            arsenal.addPlayer(new Midfielder("Thomas", "Partey", LocalDate.of(1991, 9, 13), "Ghana"));
+            arsenal.addPlayer(new Midfielder("Granit", "Xhaka", LocalDate.of(1995, 10, 13), "Switzerland"));
+            arsenal.addPlayer(new Midfielder("Daniel", "Ceballos", LocalDate.of(1999, 11, 13), "Spain"));
+            arsenal.addPlayer(new Midfielder("Emile", "Smith Rowe", LocalDate.of(1999, 12, 13), "England"));
+            arsenal.addPlayer(new Attacker("Pierre Emerick", "Aubameyang", LocalDate.of(1996, 10, 13), "Gabon"));
+            arsenal.addPlayer(new Attacker("Alexandre", "Lacazette", LocalDate.of(1986, 11, 13), "France"));
+            arsenal.addPlayer(new Attacker("Nicolas", "Pepe", LocalDate.of(1998, 03, 13), "Ivory Coast"));
+            arsenal.addPlayer(new Attacker("Bukayo", "Saka", LocalDate.of(1993, 01, 13), "England"));
+
+            Club liverpool = new Club("Liverpool");
+            liverpool.addPlayer(new Goalkeeper("Alisson", "Becker", LocalDate.of(1992, 03, 13), "Germany"));
+            liverpool.addPlayer(new Goalkeeper("Caoimhin", "Kelleher",LocalDate.of(1994, 02, 13), "Australia"));
+            liverpool.addPlayer(new Defender("Trent", "Alexander-Arnold", LocalDate.of(1999, 04, 13), "Spain"));
+            liverpool.addPlayer(new Defender("Joe", "Gomez", LocalDate.of(1984, 05, 13), "Brazil"));
+            liverpool.addPlayer(new Defender("Virgil", "Van Dijk", LocalDate.of(1995, 06, 13), "England"));
+            liverpool.addPlayer(new Defender("Joel", "Matip", LocalDate.of(1996, 07, 13), "Scotland"));
+            liverpool.addPlayer(new Defender("Andrew", "Robertson", LocalDate.of(1989, 8, 13), "Portugal"));
+            liverpool.addPlayer(new Midfielder("Jordan", "Henderson", LocalDate.of(1991, 9, 13), "Ghana"));
+            liverpool.addPlayer(new Midfielder("", "Fabinho", LocalDate.of(1995, 10, 13), "Switzerland"));
+            liverpool.addPlayer(new Midfielder("Georginio", "Wijnaldum", LocalDate.of(1999, 11, 13), "Spain"));
+            liverpool.addPlayer(new Midfielder("Thiago", "Alcantara", LocalDate.of(1999, 12, 13), "England"));
+            liverpool.addPlayer(new Attacker("Mohamed", "Salah", LocalDate.of(1996, 10, 13), "Gabon"));
+            liverpool.addPlayer(new Attacker("Sadio", "Mane", LocalDate.of(1986, 11, 13), "France"));
+            liverpool.addPlayer(new Attacker("Roberto", "Firmino", LocalDate.of(1998, 03, 13), "Ivory Coast"));
+            liverpool.addPlayer(new Attacker("Diogo", "Jota", LocalDate.of(1993, 01, 13), "England"));
+
+            Club everton = new Club("Everton");
+            everton.addPlayer(new Goalkeeper("Jordan", "Pickford", LocalDate.of(1992, 03, 13), "Germany"));
+            everton.addPlayer(new Goalkeeper("Robin", "Olsen",LocalDate.of(1994, 02, 13), "Australia"));
+            everton.addPlayer(new Defender("Seamus", "Coleman", LocalDate.of(1999, 04, 13), "Spain"));
+            everton.addPlayer(new Defender("Mason", "Holgate", LocalDate.of(1984, 05, 13), "Brazil"));
+            everton.addPlayer(new Defender("Yerry", "Mina", LocalDate.of(1995, 06, 13), "England"));
+            everton.addPlayer(new Defender("Michael", "Keane", LocalDate.of(1996, 07, 13), "Scotland"));
+            everton.addPlayer(new Defender("Lucas", "Digne", LocalDate.of(1989, 8, 13), "Portugal"));
+            everton.addPlayer(new Midfielder("", "Allan", LocalDate.of(1991, 9, 13), "Ghana"));
+            everton.addPlayer(new Midfielder("Abdoulaye", "Doucoure", LocalDate.of(1995, 10, 13), "Switzerland"));
+            everton.addPlayer(new Midfielder("Gylfi", "Sigurdsson", LocalDate.of(1999, 11, 13), "Spain"));
+            everton.addPlayer(new Midfielder("James", "Rodriguez", LocalDate.of(1999, 12, 13), "England"));
+            everton.addPlayer(new Attacker("Dominic", "Calvert-Lewin", LocalDate.of(1996, 10, 13), "Gabon"));
+            everton.addPlayer(new Attacker("", "Richarlison", LocalDate.of(1986, 11, 13), "France"));
+            everton.addPlayer(new Attacker("Alex", "Iwobi", LocalDate.of(1998, 03, 13), "Ivory Coast"));
+            everton.addPlayer(new Attacker("Josh", "King", LocalDate.of(1993, 01, 13), "England"));
+
+            league.addClub(chelsea);
+            league.addClub(arsenal);
+            league.addClub(liverpool);
+            league.addClub(everton);
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/preseason.fxml"));
             PreseasonController ctrl = new PreseasonController(league, spinnerField.getValue());

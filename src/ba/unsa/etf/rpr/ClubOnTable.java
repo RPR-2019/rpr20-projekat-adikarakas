@@ -2,15 +2,16 @@ package ba.unsa.etf.rpr;
 
 import java.util.ArrayList;
 
-public class ClubOnTable {
+public class ClubOnTable implements Comparable<ClubOnTable> {
     private Club club;
+    private String position;
+    private int played, wins, draws, losses, goalsScored, goalsConceded, goalDifference, points;
     private ArrayList<Match> matches;
-    private int games, wins, draws, losses, goalsScored, goalsConceded, goalDifference, points;
 
     public ClubOnTable(Club club, ArrayList<Match> matches) {
         this.club = club;
         this.matches = matches;
-        this.games=0;
+        this.played =0;
         this.wins=0;
         this.draws=0;
         this.losses=0;
@@ -18,27 +19,33 @@ public class ClubOnTable {
         this.goalsConceded=0;
         this.goalDifference=0;
         this.points=0;
-        for (int i=0; i<matches.size(); i++) {
-            if (club.equals(matches.get(i).getHomeTeam()) || club.equals(matches.get(i).getAwayTeam())) {
-                this.games++;
-                if (club.equals(matches.get(i).getHomeTeam())) {
-                    this.goalsScored+=matches.get(i).getHomeTeamGoals().size();
-                    this.goalsConceded+=matches.get(i).getAwayTeamGoals().size();
-                    if (matches.get(i).getHomeTeamGoals().size() > matches.get(i).getAwayTeamGoals().size()) this.wins++;
-                    else if (matches.get(i).getHomeTeamGoals().size() == matches.get(i).getAwayTeamGoals().size()) this.draws++;
-                    else this.losses++;
+        this.position="";
+        if (matches!=null) {
+            for (int i = 0; i < matches.size(); i++) {
+                if (club.equals(matches.get(i).getHomeTeam()) || club.equals(matches.get(i).getAwayTeam())) {
+                    this.played++;
+                    if (club.equals(matches.get(i).getHomeTeam())) {
+                        this.goalsScored += matches.get(i).getHomeTeamGoals().size();
+                        this.goalsConceded += matches.get(i).getAwayTeamGoals().size();
+                        if (matches.get(i).getHomeTeamGoals().size() > matches.get(i).getAwayTeamGoals().size())
+                            this.wins++;
+                        else if (matches.get(i).getHomeTeamGoals().size() == matches.get(i).getAwayTeamGoals().size())
+                            this.draws++;
+                        else this.losses++;
+                    } else {
+                        this.goalsScored += matches.get(i).getAwayTeamGoals().size();
+                        this.goalsConceded += matches.get(i).getHomeTeamGoals().size();
+                        if (matches.get(i).getHomeTeamGoals().size() < matches.get(i).getAwayTeamGoals().size())
+                            this.wins++;
+                        else if (matches.get(i).getHomeTeamGoals().size() == matches.get(i).getAwayTeamGoals().size())
+                            this.draws++;
+                        else this.losses++;
+                    }
+                    this.goalDifference = this.goalsScored - this.goalsConceded;
                 }
-                else {
-                    this.goalsScored+=matches.get(i).getAwayTeamGoals().size();
-                    this.goalsConceded+=matches.get(i).getHomeTeamGoals().size();
-                    if (matches.get(i).getHomeTeamGoals().size() < matches.get(i).getAwayTeamGoals().size()) this.wins++;
-                    else if (matches.get(i).getHomeTeamGoals().size() == matches.get(i).getAwayTeamGoals().size()) this.draws++;
-                    else this.losses++;
-                }
-                this.goalDifference=this.goalsScored-this.goalsConceded;
             }
+            this.points = this.wins * 3 + this.draws;
         }
-        this.points=this.wins*3+this.draws;
     }
 
     public Club getClub() {
@@ -113,6 +120,23 @@ public class ClubOnTable {
         this.points = points;
     }
 
+    public int getPlayed() {
+        return played;
+    }
+
+    public void setPlayed(int played) {
+        this.played = played;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    @Override
     public int compareTo(ClubOnTable c) {
         if (this.getPoints()>c.getPoints()) return 1;
         else if (this.getPoints()==c.getPoints()) {
@@ -121,7 +145,7 @@ public class ClubOnTable {
                 if (this.getGoalsScored()>c.getGoalsScored()) return 1;
                 else if (this.getGoalsScored()==c.getGoalsScored()) {
                     if (this.getWins()>c.getWins()) return 1;
-                    else if (this.getWins()==c.getWins()) return this.getClub().getName().compareTo(c.getClub().getName());
+                    else if (this.getWins()==c.getWins()) return (-1) * this.getClub().getName().compareTo(c.getClub().getName());
                 }
             }
         }

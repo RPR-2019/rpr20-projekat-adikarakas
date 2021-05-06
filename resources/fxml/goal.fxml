@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="426.0" prefWidth="420.0" vgap="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.GoalController">
+<GridPane hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="426.0" prefWidth="420.0" vgap="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -13,6 +13,7 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -33,7 +34,7 @@
             <Insets left="5.0" />
          </padding>
       </Label>
-      <Label text="Goal type:" GridPane.rowIndex="2" GridPane.rowSpan="3">
+      <Label text="Goal type:" GridPane.rowIndex="3" GridPane.rowSpan="3">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
@@ -43,49 +44,49 @@
       </Label>
       <ChoiceBox fx:id="goalScorer" prefWidth="150.0" GridPane.columnIndex="1" />
       <ChoiceBox fx:id="assistProvider" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <RadioButton fx:id="rightFoot" mnemonicParsing="false" text="Right foot" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <RadioButton fx:id="rightFoot" mnemonicParsing="false" text="Right foot" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <padding>
             <Insets top="5.0" />
          </padding>
       </RadioButton>
-      <RadioButton fx:id="leftFoot" mnemonicParsing="false" text="Left foot" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-      <RadioButton fx:id="head" mnemonicParsing="false" text="Head" GridPane.columnIndex="1" GridPane.rowIndex="4">
+      <RadioButton fx:id="leftFoot" mnemonicParsing="false" text="Left foot" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <RadioButton fx:id="head" mnemonicParsing="false" text="Head" GridPane.columnIndex="1" GridPane.rowIndex="5">
          <padding>
             <Insets bottom="5.0" />
          </padding>
       </RadioButton>
-      <Label text="Goal distance:" GridPane.rowIndex="5" GridPane.rowSpan="2">
+      <Label text="Goal distance:" GridPane.rowIndex="6" GridPane.rowSpan="2">
          <padding>
             <Insets left="5.0" />
          </padding>
       </Label>
-      <RadioButton fx:id="insideBox" mnemonicParsing="false" text="Inside box" GridPane.columnIndex="1" GridPane.rowIndex="5">
+      <RadioButton fx:id="insideBox" mnemonicParsing="false" text="Inside box" GridPane.columnIndex="1" GridPane.rowIndex="6">
          <padding>
             <Insets top="5.0" />
          </padding>
       </RadioButton>
-      <RadioButton fx:id="outsideBox" mnemonicParsing="false" text="Outside box" GridPane.columnIndex="1" GridPane.rowIndex="6">
+      <RadioButton fx:id="outsideBox" mnemonicParsing="false" text="Outside box" GridPane.columnIndex="1" GridPane.rowIndex="7">
          <padding>
             <Insets bottom="5.0" />
          </padding>
       </RadioButton>
-      <Label text="Goal situation:" GridPane.rowIndex="7" GridPane.rowSpan="3">
+      <Label text="Goal situation:" GridPane.rowIndex="8" GridPane.rowSpan="3">
          <padding>
             <Insets left="5.0" />
          </padding>
       </Label>
-      <RadioButton fx:id="penalty" mnemonicParsing="false" text="Penalty" GridPane.columnIndex="1" GridPane.rowIndex="7">
+      <RadioButton fx:id="penalty" mnemonicParsing="false" text="Penalty" GridPane.columnIndex="1" GridPane.rowIndex="8">
          <padding>
             <Insets top="5.0" />
          </padding>
       </RadioButton>
-      <RadioButton fx:id="freeKick" mnemonicParsing="false" text="Free kick" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-      <RadioButton fx:id="openPlay" mnemonicParsing="false" text="Open play" GridPane.columnIndex="1" GridPane.rowIndex="9">
+      <RadioButton fx:id="freeKick" mnemonicParsing="false" text="Free kick" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+      <RadioButton fx:id="openPlay" mnemonicParsing="false" text="Open play" GridPane.columnIndex="1" GridPane.rowIndex="10">
          <padding>
             <Insets bottom="5.0" />
          </padding>
       </RadioButton>
-      <ButtonBar prefHeight="15.0" prefWidth="182.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
+      <ButtonBar prefHeight="15.0" prefWidth="182.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
         <buttons>
           <Button fx:id="okButton" defaultButton="true" mnemonicParsing="false" onAction="#okPressed" text="Ok" />
             <Button fx:id="cancelButton" cancelButton="true" mnemonicParsing="false" onAction="#cancelPressed" text="Cancel" />
@@ -97,6 +98,12 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </ButtonBar>
+      <Label text="Minute:" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </GridPane.margin>
+      </Label>
+      <Spinner fx:id="minuteSpinner" editable="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
    </children>
    <padding>
       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
