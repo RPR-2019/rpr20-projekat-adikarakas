@@ -5,12 +5,15 @@ import java.util.ArrayList;
 public class Match {
     private Club homeTeam, awayTeam;
     private ArrayList<Goal> homeTeamGoals, awayTeamGoals;
+    private ArrayList<Player> homeTeamParticipants, awayTeamParticipants;
 
-    public Match(Club homeTeam, Club awayTeam, ArrayList<Goal> homeTeamGoals, ArrayList<Goal> awayTeamGoals) {
+    public Match(Club homeTeam, Club awayTeam, ArrayList<Goal> homeTeamGoals, ArrayList<Goal> awayTeamGoals, ArrayList<Player> homeTeamParticipants, ArrayList<Player> awayTeamParticipants) {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
         this.homeTeamGoals = homeTeamGoals;
         this.awayTeamGoals = awayTeamGoals;
+        this.homeTeamParticipants = homeTeamParticipants;
+        this.awayTeamParticipants = awayTeamParticipants;
     }
 
     public Club getHomeTeam() {
@@ -43,6 +46,22 @@ public class Match {
 
     public void setAwayTeamGoals(ArrayList<Goal> awayTeamGoals) {
         this.awayTeamGoals = awayTeamGoals;
+    }
+
+    public ArrayList<Player> getHomeTeamParticipants() {
+        return homeTeamParticipants;
+    }
+
+    public void setHomeTeamParticipants(ArrayList<Player> homeTeamParticipants) {
+        this.homeTeamParticipants = homeTeamParticipants;
+    }
+
+    public ArrayList<Player> getAwayTeamParticipants() {
+        return awayTeamParticipants;
+    }
+
+    public void setAwayTeamParticipants(ArrayList<Player> awayTeamParticipants) {
+        this.awayTeamParticipants = awayTeamParticipants;
     }
 
     @Override

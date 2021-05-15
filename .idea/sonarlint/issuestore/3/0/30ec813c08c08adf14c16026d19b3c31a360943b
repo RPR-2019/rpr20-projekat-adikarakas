@@ -1,11 +1,11 @@
 
-o
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 26 to the 15 allowed.(šİÊı8›³±/
 |
 java:S1210Œ"YOverride "equals(Object obj)" to comply with the contract of the "compareTo(T o)" method.(Ùõ²›ùÿÿÿÿ8¦†¶£“/
-
-java:S1319?"rThe type of the "matches" object should be an interface such as "List" rather than the implementation "ArrayList".(ÄÛ¯h8ïÛ±/
-
-java:S1319"rThe type of the "matches" object should be an interface such as "List" rather than the implementation "ArrayList".(šİÊı8‰‡±/
-Œ
-java:S1319;"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¬À©D8ïÛ±/
+”
+java:S1319"rThe type of the "results" object should be an interface such as "List" rather than the implementation "ArrayList".(”ÔÑéşÿÿÿÿ8ï¤ùì•/
+”
+java:S1319?"rThe type of the "results" object should be an interface such as "List" rather than the implementation "ArrayList".(“Å™ÿÿÿÿÿ8¯Òúì•/
+
+java:S1319;"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(æˆÏÆ8¯Òúì•/
+t
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 26 to the 15 allowed.(”ÔÑéşÿÿÿÿ8›³±/

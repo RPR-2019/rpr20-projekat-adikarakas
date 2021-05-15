@@ -1,5 +1,7 @@
 package ba.unsa.etf.rpr;
 
+import java.util.Objects;
+
 public class Fixture {
     private Club homeTeam, awayTeam;
 
@@ -28,4 +30,14 @@ public class Fixture {
     public String toString() {
         return homeTeam + " vs " + awayTeam;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Fixture fixture = (Fixture) o;
+        return Objects.equals(homeTeam, fixture.homeTeam) &&
+                Objects.equals(awayTeam, fixture.awayTeam);
+    }
+
 }

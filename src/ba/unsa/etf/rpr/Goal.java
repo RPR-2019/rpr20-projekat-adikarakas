@@ -76,7 +76,18 @@ public class Goal {
 
     @Override
     public String toString() {
-        if (assistent!=null) return minute + "' " + scorer.getName().charAt(0) + ". " + scorer.getSurname() + " (" + assistent.getName().charAt(0) + ". " + assistent.getSurname() + ")";
-        else return minute + "' " + scorer.getName().charAt(0) + ". " + scorer.getSurname();
+        String goal="";
+        goal = goal + minute + "' ";
+        if (scorer.getName().trim().isEmpty()) goal = goal + scorer.getSurname();
+        else if (scorer.getSurname().trim().isEmpty()) goal = goal + scorer.getName();
+        else goal = goal + scorer.getName().charAt(0) + ". " + scorer.getSurname();
+        if (assistent!=null) {
+            goal = goal + " (";
+            if (assistent.getName().trim().isEmpty()) goal = goal + assistent.getSurname();
+            else if (assistent.getSurname().trim().isEmpty()) goal = goal + assistent.getName();
+            else goal = goal + assistent.getName().charAt(0) + ". " + assistent.getSurname();
+            goal = goal + ")";
+        }
+        return goal;
     }
 }

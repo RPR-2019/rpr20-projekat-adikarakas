@@ -13,7 +13,6 @@ import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,51 +22,17 @@ public class PreseasonController {
     public Button addClubButton, editClubButton, deleteClubButton, startButton;
     public ListView<Club> clubsLv;
     private int numberOfClubs;
-    private League league;
+    private LeagueDAO dao;
 
-    PreseasonController (League league, int number) {
+    PreseasonController (int number) {
         this.numberOfClubs=number;
-        this.league=league;
-/*        league.getClubs().get(0).addPlayer(new Goalkeeper("Edouard", "Mendy", LocalDate.of(1992, 03, 13), "Senegal"));
-        league.getClubs().get(0).addPlayer(new Goalkeeper("Kepa", "Arizzabalaga",LocalDate.of(1994, 02, 13), "Spain"));
-        league.getClubs().get(0).addPlayer(new Defender("Reece", "James", LocalDate.of(1999, 04, 13), "England"));
-        league.getClubs().get(0).addPlayer(new Defender("Thiago", "Silva", LocalDate.of(1984, 05, 13), "Brazil"));
-        league.getClubs().get(0).addPlayer(new Defender("Kurt", "Zouma", LocalDate.of(1995, 06, 13), "France"));
-        league.getClubs().get(0).addPlayer(new Defender("Ben", "Chilwell", LocalDate.of(1996, 07, 13), "England"));
-        league.getClubs().get(0).addPlayer(new Defender("Cesar", "Azpilicueta", LocalDate.of(1989, 8, 13), "Spain"));
-        league.getClubs().get(0).addPlayer(new Midfielder("Ngolo", "Kante", LocalDate.of(1991, 9, 13), "France"));
-        league.getClubs().get(0).addPlayer(new Midfielder("Mateo", "Kovačić", LocalDate.of(1995, 10, 13), "Croatia"));
-        league.getClubs().get(0).addPlayer(new Midfielder("Mason", "Mount", LocalDate.of(1999, 11, 13), "England"));
-        league.getClubs().get(0).addPlayer(new Midfielder("Kai", "Havertz", LocalDate.of(1999, 12, 13), "Germany"));
-        league.getClubs().get(0).addPlayer(new Attacker("Timo", "Werner", LocalDate.of(1996, 10, 13), "Germany"));
-        league.getClubs().get(0).addPlayer(new Attacker("Olivier", "Giroud", LocalDate.of(1986, 11, 13), "France"));
-        league.getClubs().get(0).addPlayer(new Attacker("Christian", "Pulišić", LocalDate.of(1998, 03, 13), "USA"));
-        league.getClubs().get(0).addPlayer(new Attacker("Hakim", "Ziyech", LocalDate.of(1993, 01, 13), "Morocco"));
-
-        league.getClubs().get(1).addPlayer(new Goalkeeper("Bernd", "Leno", LocalDate.of(1992, 03, 13), "Germany"));
-        league.getClubs().get(1).addPlayer(new Goalkeeper("Mat", "Ryan",LocalDate.of(1994, 02, 13), "Australia"));
-        league.getClubs().get(1).addPlayer(new Defender("Hector", "Bellerin", LocalDate.of(1999, 04, 13), "Spain"));
-        league.getClubs().get(1).addPlayer(new Defender("David", "Luiz", LocalDate.of(1984, 05, 13), "Brazil"));
-        league.getClubs().get(1).addPlayer(new Defender("Rob", "Holding", LocalDate.of(1995, 06, 13), "England"));
-        league.getClubs().get(1).addPlayer(new Defender("Kieran", "Tierney", LocalDate.of(1996, 07, 13), "Scotland"));
-        league.getClubs().get(1).addPlayer(new Defender("Cedric", "Soares", LocalDate.of(1989, 8, 13), "Portugal"));
-        league.getClubs().get(1).addPlayer(new Midfielder("Thomas", "Partey", LocalDate.of(1991, 9, 13), "Ghana"));
-        league.getClubs().get(1).addPlayer(new Midfielder("Granit", "Xhaka", LocalDate.of(1995, 10, 13), "Switzerland"));
-        league.getClubs().get(1).addPlayer(new Midfielder("Daniel", "Ceballos", LocalDate.of(1999, 11, 13), "Spain"));
-        league.getClubs().get(1).addPlayer(new Midfielder("Emile", "Smith Rowe", LocalDate.of(1999, 12, 13), "England"));
-        league.getClubs().get(1).addPlayer(new Attacker("Pierre Emerick", "Aubameyang", LocalDate.of(1996, 10, 13), "Gabon"));
-        league.getClubs().get(1).addPlayer(new Attacker("Alexandre", "Lacazette", LocalDate.of(1986, 11, 13), "France"));
-        league.getClubs().get(1).addPlayer(new Attacker("Nicolas", "Pepe", LocalDate.of(1998, 03, 13), "Ivory Coast"));
-        league.getClubs().get(1).addPlayer(new Attacker("Bukayo", "Saka", LocalDate.of(1993, 01, 13), "England"));
-
- */
     }
 
     @FXML
     public void initialize() {
         ObservableList<Club> list = FXCollections.observableArrayList();
-        for (int i=0; i<league.getClubs().size(); i++) {
-            list.add(league.getClubs().get(i));
+        for (int i=0; i<dao.getInstance().clubs().size(); i++) {
+            list.add(dao.getInstance().clubs().get(i));
         }
         clubsLv.setItems(list);
         clubsLv.refresh();
@@ -75,7 +40,7 @@ public class PreseasonController {
 
     public void addClubPressed (ActionEvent actionEvent) throws IOException {
         clubsLv.refresh();
-        if (league.getClubs().size()==this.numberOfClubs) {
+        if (dao.getInstance().clubs().size()==this.numberOfClubs) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Greška");
             alert.setHeaderText("Dostigli ste limit");
@@ -84,7 +49,7 @@ public class PreseasonController {
         }
         else {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/club.fxml"));
-            ClubController ctrl = new ClubController(this.league, null);
+            ClubController ctrl = new ClubController(null);
             fxmlLoader.setController(ctrl);
             Scene scene = new Scene(fxmlLoader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
             Stage stage = new Stage();
@@ -99,7 +64,7 @@ public class PreseasonController {
     public void editClubPressed (ActionEvent actionEvent) throws IOException {
         if (clubsLv.getSelectionModel().getSelectedItem()!=null) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/club.fxml"));
-            ClubController ctrl = new ClubController(this.league, clubsLv.getSelectionModel().getSelectedItem());
+            ClubController ctrl = new ClubController(clubsLv.getSelectionModel().getSelectedItem());
             fxmlLoader.setController(ctrl);
             Scene scene = new Scene(fxmlLoader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
             Stage stage = new Stage();
@@ -118,7 +83,7 @@ public class PreseasonController {
             alert.setTitle("Potvrda");
             alert.setContentText("Jeste li sigurni da želite izbrisati klub " + temp.getName() + "?");
             if (alert.showAndWait().get() == ButtonType.OK) {
-                league.removeClub(temp);
+                dao.getInstance().deleteClub(temp.getName());
                 clubsLv.getItems().remove(temp);
             }
         }
@@ -139,7 +104,7 @@ public class PreseasonController {
 
     public void startPressed (ActionEvent actionEvent) throws IOException {
         boolean start = true;
-        if (league.getClubs().size()!=this.numberOfClubs) {
+        if (dao.getInstance().clubs().size()!=this.numberOfClubs) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Greška");
             alert.setHeaderText("Liga nije popunjena");
@@ -148,13 +113,13 @@ public class PreseasonController {
             start = false;
         }
         else {
-            for (int i = 0; i < league.getNumberOfClubs(); i++) {
-                Club temp = league.getClubs().get(i);
+            for (int i = 0; i < dao.getInstance().getNumberOfClubs(); i++) {
+                Club temp = dao.getInstance().clubs().get(i);
                 if (temp.getPlayers().size() < 15) {
                     Alert alert = new Alert(Alert.AlertType.WARNING);
                     alert.setTitle("Greška");
                     alert.setHeaderText("Nedovoljno igrača");
-                    alert.setContentText("Klub " + league.getClubs().get(i) + " ima manje od 15 igrača.");
+                    alert.setContentText("Klub " + dao.getInstance().clubs().get(i) + " ima manje od 15 igrača.");
                     alert.showAndWait();
                     start = false;
                     break;
@@ -173,7 +138,25 @@ public class PreseasonController {
                     Alert alert = new Alert(Alert.AlertType.WARNING);
                     alert.setTitle("Greška");
                     alert.setHeaderText("Nedovoljno igrača");
-                    alert.setContentText("Klub " + league.getClubs().get(i) + " nema dovoljno igrača po pozicijama.");
+                    alert.setContentText("Klub " + dao.getInstance().clubs().get(i) + " nema dovoljno igrača po pozicijama.");
+                    alert.showAndWait();
+                    start = false;
+                    break;
+                }
+                if (temp.getCaptain()==null) {
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Greška");
+                    alert.setHeaderText("Nema kapitena");
+                    alert.setContentText("Klub " + dao.getInstance().clubs().get(i) + " nije izabrao kapitena.");
+                    alert.showAndWait();
+                    start = false;
+                    break;
+                }
+                if (temp.getManager().trim().length()==0) {
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Greška");
+                    alert.setHeaderText("Nema menadžera");
+                    alert.setContentText("Klub " + dao.getInstance().clubs().get(i) + " nije imenovao menadžera.");
                     alert.showAndWait();
                     start = false;
                     break;
@@ -181,16 +164,17 @@ public class PreseasonController {
             }
         }
         if (start) {
-            if (this.league.isScheduleRandom()) scheduleGenerator(this.league.getClubs());
-
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/table.fxml"));
-            TableController ctrl = new TableController(this.league);
+            if (dao.getInstance().isScheduleRandom()) scheduleGenerator(dao.getInstance().clubs());
+            dao.getInstance().setStarted(true);
+            dao.getInstance().createStats();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/season.fxml"));
+            SeasonController ctrl = new SeasonController();
             fxmlLoader.setController(ctrl);
             Scene scene = new Scene(fxmlLoader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
             Stage stage = new Stage();
             stage.setMinHeight(150);
             stage.setMinWidth(400);
-            stage.setTitle("Table");
+            stage.setTitle("Season");
             stage.setScene(scene);
             stage.show();
 
@@ -198,6 +182,8 @@ public class PreseasonController {
             stage2.close();
         }
     }
+
+    // ovo popraviti kad dodamo tabelu za kola
 
     public void scheduleGenerator(ArrayList<Club> clubs) {
 
@@ -215,20 +201,20 @@ public class PreseasonController {
 
         for (int day = 0; day < numDays; day++) {
             int teamIdx = day % teamsSize;
-            this.league.getFixtures().add(new Fixture(teams.get(teamIdx), clubs.get(0)));
+            dao.getInstance().fixtures().add(new Fixture(teams.get(teamIdx), clubs.get(0)));
             for (int idx = 1; idx < halfSize; idx++) {
                 int firstTeam = (day + idx) % teamsSize;
                 int secondTeam = (day  + teamsSize - idx) % teamsSize;
-                this.league.getFixtures().add(new Fixture(teams.get(firstTeam), teams.get(secondTeam)));
+                dao.getInstance().fixtures().add(new Fixture(teams.get(firstTeam), teams.get(secondTeam)));
             }
         }
         for (int day = 0; day < numDays; day++) {
             int teamIdx = day % teamsSize;
-            this.league.getFixtures().add(new Fixture(clubs.get(0), teams.get(teamIdx)));
+            dao.getInstance().fixtures().add(new Fixture(clubs.get(0), teams.get(teamIdx)));
             for (int idx = 1; idx < halfSize; idx++) {
                 int firstTeam = (day + idx) % teamsSize;
                 int secondTeam = (day  + teamsSize - idx) % teamsSize;
-                this.league.getFixtures().add(new Fixture(teams.get(secondTeam), teams.get(firstTeam)));
+                dao.getInstance().fixtures().add(new Fixture(teams.get(secondTeam), teams.get(firstTeam)));
             }
         }
     }

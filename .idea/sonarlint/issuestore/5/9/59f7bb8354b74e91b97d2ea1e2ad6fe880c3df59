@@ -1,3 +1,324 @@
 
-X
-java:S2094"BRemove this empty class, write its code or make it an "interface".(Ò¶ÓŞ
+L
+java:S3740"/Provide the parametrized type for this generic.(¤×«ä8ô•³•”/
+L
+java:S3740"/Provide the parametrized type for this generic.(ò§ãÛ8©Ø¦•”/
+L
+java:S3740"/Provide the parametrized type for this generic.(öç€à8©Ø¦•”/
+Q
+java:S3740"/Provide the parametrized type for this generic.(ä¯ùËûÿÿÿÿ8ô•³•”/
+F
+java:S1604Á"(Make this anonymous inner class a lambda(í” ¥8²ªıã–/
+[
+java:S1854–"8Remove this useless assignment to local variable "broj".(ŠîÕúşÿÿÿÿ8Å€ôã–/
+Q
+java:S3740!"/Provide the parametrized type for this generic.(Ñï“òùÿÿÿÿ8…¶»•”/
+Q
+java:S3740"/Provide the parametrized type for this generic.(óâé¦ûÿÿÿÿ8ô•³•”/
+
+java:S1104"bMake tableColumnAssistsClub a static final constant or non-public and provide accessors if needed.(®ÆÛ8öıÖš”/
+R
+java:S3740å"/Provide the parametrized type for this generic.(ğÃë‹úÿÿÿÿ8åÉ½ä–/
+
+java:S1104"bMake tableColumnAssistsName a static final constant or non-public and provide accessors if needed.(®ÆÛ8öıÖš”/
+M
+java:S3740è"/Provide the parametrized type for this generic.(á—ª¼8¿ì‡ä–/
+|
+java:S1104"_Make tableViewApperances a static final constant or non-public and provide accessors if needed.(×øóŒ8µ¢Øš”/
+L
+java:S3740H"/Provide the parametrized type for this generic.(€Ú²8ˆ©œà–/
+Q
+java:S3740"/Provide the parametrized type for this generic.(ä¯ùËûÿÿÿÿ8ô•³•”/
+Q
+java:S3740"/Provide the parametrized type for this generic.(¶Å¤—şÿÿÿÿ8Ö¹•”/
+Q
+java:S3740%"/Provide the parametrized type for this generic.(©Ó‹‹øÿÿÿÿ8ë©À•”/
+{
+java:S1104"YMake tableViewLeft a static final constant or non-public and provide accessors if needed.(æİî™ÿÿÿÿÿ8µ¢Øš”/
+ˆ
+java:S1104"fMake tableColumnCleanSheetsClub a static final constant or non-public and provide accessors if needed.(¦¿ —ÿÿÿÿÿ8¿´Ùš”/
+K
+java:S1604€"(Make this anonymous inner class a lambda(²‹ßõıÿÿÿÿ8»Øä–/
+‡
+java:S1104"eMake tableColumnApperancesClub a static final constant or non-public and provide accessors if needed.(Ï÷ùÚøÿÿÿÿ8¿´Ùš”/
+„
+java:S1104 "bMake tableColumnOutsideRank a static final constant or non-public and provide accessors if needed.(ÇÏÖ–ÿÿÿÿÿ8¿´Ùš”/
+L
+java:S3740"/Provide the parametrized type for this generic.(êƒËö8©Ø¦•”/
+
+java:S1104$"dMake tableColumnPenaltiesStat a static final constant or non-public and provide accessors if needed.(Ìş› 8¹€Úš”/
+Q
+java:S3740"/Provide the parametrized type for this generic.(¶Å¤—şÿÿÿÿ8Ö¹•”/
+[
+java:S1854Ö"8Remove this useless assignment to local variable "broj".(ŠîÕúşÿÿÿÿ8¿ì‡ä–/
+†
+java:S1104%"dMake tableColumnFreeKicksClub a static final constant or non-public and provide accessors if needed.(©Ó‹‹øÿÿÿÿ8¹€Úš”/
+†
+java:S1104%"dMake tableColumnFreeKicksStat a static final constant or non-public and provide accessors if needed.(©Ó‹‹øÿÿÿÿ8¹€Úš”/
+Q
+java:S3740"/Provide the parametrized type for this generic.(¦¿ —ÿÿÿÿÿ8 €¶•”/
+Q
+java:S3740#"/Provide the parametrized type for this generic.(»æîÖıÿÿÿÿ8€•¾•”/
+‚
+java:S1104!"`Make tableColumnRightStat a static final constant or non-public and provide accessors if needed.(Ñï“òùÿÿÿÿ8¿´Ùš”/
+L
+java:S3740$"/Provide the parametrized type for this generic.(Ìş› 8°æ¾•”/
+Q
+java:S3740 "/Provide the parametrized type for this generic.(ÇÏÖ–ÿÿÿÿÿ8³Ñ¹•”/
+ƒ
+java:S1104"aMake tableColumnInsideStat a static final constant or non-public and provide accessors if needed.(¶Å¤—şÿÿÿÿ8¿´Ùš”/
+
+java:S1104&"_Make tableColumnOpenRank a static final constant or non-public and provide accessors if needed.(ç¥Êõşÿÿÿÿ8¹€Úš”/
+L
+java:S3740"/Provide the parametrized type for this generic.(£Ğ— 8ô•³•”/
+Q
+java:S3740"/Provide the parametrized type for this generic.(¶Å¤—şÿÿÿÿ8Ö¹•”/
+
+java:S1104&"_Make tableColumnOpenClub a static final constant or non-public and provide accessors if needed.(ç¥Êõşÿÿÿÿ8¹€Úš”/
+
+java:S1104#"_Make tableColumnHeadName a static final constant or non-public and provide accessors if needed.(»æîÖıÿÿÿÿ8¹€Úš”/
+Q
+java:S3740"/Provide the parametrized type for this generic.(¦¿ —ÿÿÿÿÿ8 €¶•”/
+L
+java:S3740"/Provide the parametrized type for this generic.(®ÆÛ8Íù´•”/
+Q
+java:S3740#"/Provide the parametrized type for this generic.(»æîÖıÿÿÿÿ8€•¾•”/
+w
+java:S1104"ZMake tableViewRight a static final constant or non-public and provide accessors if needed.(¢íşÚ8µ¢Øš”/
+Q
+java:S3740"/Provide the parametrized type for this generic.(Ï÷ùÚøÿÿÿÿ8¿·•”/
+[
+java:S1854Ó"8Remove this useless assignment to local variable "broj".(ŠîÕúşÿÿÿÿ8åÉ½ä–/
+L
+java:S3740"/Provide the parametrized type for this generic.(¤×«ä8ô•³•”/
+Q
+java:S3740"/Provide the parametrized type for this generic.(æİî™ÿÿÿÿÿ8ô•³•”/
+Q
+java:S3740&"/Provide the parametrized type for this generic.(ç¥Êõşÿÿÿÿ8ÖÑÁ•”/
+Q
+java:S3740!"/Provide the parametrized type for this generic.(Ñï“òùÿÿÿÿ8…¶»•”/
+{
+java:S1104"^Make tableViewFreeKicks a static final constant or non-public and provide accessors if needed.(£Ğ— 8µ¢Øš”/
+v
+java:S1104"YMake tableViewOpen a static final constant or non-public and provide accessors if needed.(¥Õœ8µ¢Øš”/
+L
+java:S3740"/Provide the parametrized type for this generic.(×øóŒ8©Ø¦•”/
+L
+java:S3740"/Provide the parametrized type for this generic.(¹ßÃï8©Ø¦•”/
+Q
+java:S3740#"/Provide the parametrized type for this generic.(»æîÖıÿÿÿÿ8€•¾•”/
+
+java:S1104""_Make tableColumnLeftName a static final constant or non-public and provide accessors if needed.(ÍÖîÑûÿÿÿÿ8¿´Ùš”/
+Q
+java:S3740%"/Provide the parametrized type for this generic.(©Ó‹‹øÿÿÿÿ8ë©À•”/
+
+java:S1104#"_Make tableColumnHeadRank a static final constant or non-public and provide accessors if needed.(»æîÖıÿÿÿÿ8¹€Úš”/
+‚
+java:S1104!"`Make tableColumnRightClub a static final constant or non-public and provide accessors if needed.(Ñï“òùÿÿÿÿ8¿´Ùš”/
+L
+java:S3740"/Provide the parametrized type for this generic.(¥Õœ8ô•³•”/
+L
+java:S3740$"/Provide the parametrized type for this generic.(Ìş› 8°æ¾•”/
+‡
+java:S1104"eMake tableColumnApperancesName a static final constant or non-public and provide accessors if needed.(Ï÷ùÚøÿÿÿÿ8¿´Ùš”/
+‚
+java:S1104"`Make tableColumnGoalsName a static final constant or non-public and provide accessors if needed.(ä¯ùËûÿÿÿÿ8ƒŞœš”/
+Q
+java:S3740 "/Provide the parametrized type for this generic.(ÇÏÖ–ÿÿÿÿÿ8³Ñ¹•”/
+†
+java:S1104%"dMake tableColumnFreeKicksName a static final constant or non-public and provide accessors if needed.(©Ó‹‹øÿÿÿÿ8¹€Úš”/
+v
+java:S1104"YMake tableViewHead a static final constant or non-public and provide accessors if needed.(¤×«ä8µ¢Øš”/
+‚
+java:S1104"`Make tableColumnGoalsRank a static final constant or non-public and provide accessors if needed.(ä¯ùËûÿÿÿÿ8ƒŞœš”/
+L
+java:S3740"/Provide the parametrized type for this generic.(¢íşÚ8©Ø¦•”/
+L
+java:S3740h"/Provide the parametrized type for this generic.(ç±ìÿ8©ĞËã–/
+M
+java:S3740ˆ"/Provide the parametrized type for this generic.(ÌÈ¥ù8“Óâã–/
+R
+java:S3740‡"/Provide the parametrized type for this generic.(¸Ôôõúÿÿÿÿ8»Øä–/
+u
+java:S3776."SRefactor this method to reduce its Cognitive Complexity from 149 to the 15 allowed.(·òşÿÿÿÿ8ëïÎâ–/
+ƒ
+java:S1104"aMake tableColumnInsideClub a static final constant or non-public and provide accessors if needed.(¶Å¤—şÿÿÿÿ8¿´Ùš”/
+Q
+java:S3740&"/Provide the parametrized type for this generic.(ç¥Êõşÿÿÿÿ8ÖÑÁ•”/
+Q
+java:S3740&"/Provide the parametrized type for this generic.(ç¥Êõşÿÿÿÿ8ÖÑÁ•”/
+Q
+java:S3740"/Provide the parametrized type for this generic.(Ï÷ùÚøÿÿÿÿ8¿·•”/
+Q
+java:S3740!"/Provide the parametrized type for this generic.(Ñï“òùÿÿÿÿ8…¶»•”/
+Q
+java:S3740"/Provide the parametrized type for this generic.(ŒéùÄÿÿÿÿÿ8ô•³•”/
+„
+java:S1104 "bMake tableColumnOutsideClub a static final constant or non-public and provide accessors if needed.(ÇÏÖ–ÿÿÿÿÿ8¿´Ùš”/
+Z
+java:S1854v"8Remove this useless assignment to local variable "broj".(ŠîÕúşÿÿÿÿ8“Óâã–/
+Q
+java:S3740%"/Provide the parametrized type for this generic.(©Ó‹‹øÿÿÿÿ8ë©À•”/
+L
+java:S3740"/Provide the parametrized type for this generic.(®ÆÛ8Íù´•”/
+E
+java:S1604 "(Make this anonymous inner class a lambda(ø•ıN8’Ú—ä–/
+Q
+java:S3740""/Provide the parametrized type for this generic.(ÍÖîÑûÿÿÿÿ8úØ¼•”/
+Q
+java:S3740"/Provide the parametrized type for this generic.(¶Å¤—şÿÿÿÿ8Ö¹•”/
+E
+java:S1604a"(Make this anonymous inner class a lambda(ÀÀ±Ì8©ĞËã–/
+ƒ
+java:S1104"aMake tableColumnInsideName a static final constant or non-public and provide accessors if needed.(¶Å¤—şÿÿÿÿ8¿´Ùš”/
+Q
+java:S3740"/Provide the parametrized type for this generic.(ŒéùÄÿÿÿÿÿ8ô•³•”/
+Q
+java:S3740!"/Provide the parametrized type for this generic.(Ñï“òùÿÿÿÿ8…¶»•”/
+ƒ
+java:S1104"aMake tableColumnInsideRank a static final constant or non-public and provide accessors if needed.(¶Å¤—şÿÿÿÿ8¿´Ùš”/
+
+java:S1104""_Make tableColumnLeftClub a static final constant or non-public and provide accessors if needed.(ÍÖîÑûÿÿÿÿ8¿´Ùš”/
+K
+java:S1604¡"(Make this anonymous inner class a lambda(æˆ¦¸úÿÿÿÿ8Å€ôã–/
+Q
+java:S3740#"/Provide the parametrized type for this generic.(»æîÖıÿÿÿÿ8€•¾•”/
+y
+java:S1104"\Make tableViewAssists a static final constant or non-public and provide accessors if needed.(öç€à8“İÖš”/
+Q
+java:S3740"/Provide the parametrized type for this generic.(Ï÷ùÚøÿÿÿÿ8¿·•”/
+Q
+java:S3740"/Provide the parametrized type for this generic.(óâé¦ûÿÿÿÿ8ô•³•”/
+R
+java:S3740¨"/Provide the parametrized type for this generic.(ÌÅÛ²üÿÿÿÿ8Å€ôã–/
+w
+java:S1104"ZMake tableViewGoals a static final constant or non-public and provide accessors if needed.(êƒËö8½»œš”/
+L
+java:S3740"/Provide the parametrized type for this generic.(®ÆÛ8Íù´•”/
+F
+java:S1604á"(Make this anonymous inner class a lambda(¸ûàœ8¿ì‡ä–/
+‚
+java:S1104!"`Make tableColumnRightRank a static final constant or non-public and provide accessors if needed.(Ñï“òùÿÿÿÿ8¿´Ùš”/
+L
+java:S3740"/Provide the parametrized type for this generic.(×øóŒ8©Ø¦•”/
+
+java:S1104$"dMake tableColumnPenaltiesRank a static final constant or non-public and provide accessors if needed.(Ìş› 8¹€Úš”/
+
+java:S1104"bMake tableColumnAssistsRank a static final constant or non-public and provide accessors if needed.(®ÆÛ8öıÖš”/
+R
+java:S3740È"/Provide the parametrized type for this generic.(æ÷…¼ÿÿÿÿÿ8²ªıã–/
+‡
+java:S1104"eMake tableColumnApperancesRank a static final constant or non-public and provide accessors if needed.(Ï÷ùÚøÿÿÿÿ8¿´Ùš”/
+
+java:S1104""_Make tableColumnLeftRank a static final constant or non-public and provide accessors if needed.(ÍÖîÑûÿÿÿÿ8¿´Ùš”/
+ˆ
+java:S1104"fMake tableColumnCleanSheetsRank a static final constant or non-public and provide accessors if needed.(¦¿ —ÿÿÿÿÿ8¿´Ùš”/
+Q
+java:S3740 "/Provide the parametrized type for this generic.(ÇÏÖ–ÿÿÿÿÿ8³Ñ¹•”/
+L
+java:S3740$"/Provide the parametrized type for this generic.(Ìş› 8°æ¾•”/
+Q
+java:S3740""/Provide the parametrized type for this generic.(ÍÖîÑûÿÿÿÿ8úØ¼•”/
+Q
+java:S3740"/Provide the parametrized type for this generic.(Ï÷ùÚøÿÿÿÿ8¿·•”/
+
+java:S1104&"_Make tableColumnOpenStat a static final constant or non-public and provide accessors if needed.(ç¥Êõşÿÿÿÿ8¹€Úš”/
+[
+java:S1854õ"8Remove this useless assignment to local variable "broj".(ŠîÕúşÿÿÿÿ8»Øä–/
+†
+java:S1104%"dMake tableColumnFreeKicksRank a static final constant or non-public and provide accessors if needed.(©Ó‹‹øÿÿÿÿ8¹€Úš”/
+Q
+java:S3740 "/Provide the parametrized type for this generic.(ÇÏÖ–ÿÿÿÿÿ8³Ñ¹•”/
+M
+java:S3740Æ"/Provide the parametrized type for this generic.(Éú¨°8¸²¡ä–/
+F
+java:S1604"(Make this anonymous inner class a lambda(‘Œ¶¬8“Óâã–/
+L
+java:S3740$"/Provide the parametrized type for this generic.(Ìş› 8°æ¾•”/
+‚
+java:S1104"`Make tableColumnGoalsClub a static final constant or non-public and provide accessors if needed.(ä¯ùËûÿÿÿÿ8ƒŞœš”/
+‚
+java:S1104!"`Make tableColumnRightName a static final constant or non-public and provide accessors if needed.(Ñï“òùÿÿÿÿ8¿´Ùš”/
+L
+java:S3740"/Provide the parametrized type for this generic.(ò§ãÛ8©Ø¦•”/
+„
+java:S1104 "bMake tableColumnOutsideStat a static final constant or non-public and provide accessors if needed.(ÇÏÖ–ÿÿÿÿÿ8¿´Ùš”/
+L
+java:S3740"/Provide the parametrized type for this generic.(®ÆÛ8Íù´•”/
+
+java:S1104#"_Make tableColumnHeadClub a static final constant or non-public and provide accessors if needed.(»æîÖıÿÿÿÿ8¹€Úš”/
+K
+java:S1604¿"(Make this anonymous inner class a lambda(ªÚãŒúÿÿÿÿ8¸²¡ä–/
+
+java:S1104#"_Make tableColumnHeadStat a static final constant or non-public and provide accessors if needed.(»æîÖıÿÿÿÿ8¹€Úš”/
+L
+java:S3740"/Provide the parametrized type for this generic.(¢íşÚ8©Ø¦•”/
+€
+java:S1104"^Make tableViewPenalties a static final constant or non-public and provide accessors if needed.(óâé¦ûÿÿÿÿ8µ¢Øš”/
+ˆ
+java:S1104"fMake tableColumnCleanSheetsStat a static final constant or non-public and provide accessors if needed.(¦¿ —ÿÿÿÿÿ8¿´Ùš”/
+K
+java:S1604Ş"(Make this anonymous inner class a lambda(Á¥öíùÿÿÿÿ8åÉ½ä–/
+
+java:S1104$"dMake tableColumnPenaltiesName a static final constant or non-public and provide accessors if needed.(Ìş› 8¹€Úš”/
+J
+java:S1604A"(Make this anonymous inner class a lambda(˜ıÀÆşÿÿÿÿ8ˆ©œà–/
+Q
+java:S3740&"/Provide the parametrized type for this generic.(ç¥Êõşÿÿÿÿ8ÖÑÁ•”/
+L
+java:S3740"/Provide the parametrized type for this generic.(êƒËö8¨Ø¦•”/
+L
+java:S3740"/Provide the parametrized type for this generic.(¹ßÃï8©Ø¦•”/
+[
+java:S1854•"8Remove this useless assignment to local variable "broj".(ŠîÕúşÿÿÿÿ8’Ú—ä–/
+[
+java:S1854´"8Remove this useless assignment to local variable "broj".(ŠîÕúşÿÿÿÿ8¸²¡ä–/
+‡
+java:S1104"eMake tableColumnApperancesStat a static final constant or non-public and provide accessors if needed.(Ï÷ùÚøÿÿÿÿ8¿´Ùš”/
+Q
+java:S3740"/Provide the parametrized type for this generic.(ä¯ùËûÿÿÿÿ8ô•³•”/
+„
+java:S1104 "bMake tableColumnOutsideName a static final constant or non-public and provide accessors if needed.(ÇÏÖ–ÿÿÿÿÿ8¿´Ùš”/
+‚
+java:S1104"`Make tableColumnGoalsStat a static final constant or non-public and provide accessors if needed.(ä¯ùËûÿÿÿÿ8ƒŞœš”/
+ˆ
+java:S1104"fMake tableColumnCleanSheetsName a static final constant or non-public and provide accessors if needed.(¦¿ —ÿÿÿÿÿ8¿´Ùš”/
+L
+java:S3740"/Provide the parametrized type for this generic.(¥Õœ8ô•³•”/
+Q
+java:S3740""/Provide the parametrized type for this generic.(ÍÖîÑûÿÿÿÿ8úØ¼•”/
+
+java:S1104"bMake tableColumnAssistsStat a static final constant or non-public and provide accessors if needed.(®ÆÛ8öıÖš”/
+Q
+java:S3740"/Provide the parametrized type for this generic.(¦¿ —ÿÿÿÿÿ8 €¶•”/
+Q
+java:S3740""/Provide the parametrized type for this generic.(ÍÖîÑûÿÿÿÿ8úØ¼•”/
+L
+java:S3740"/Provide the parametrized type for this generic.(öç€à8©Ø¦•”/
+}
+java:S1104"`Make tableViewCleanSheets a static final constant or non-public and provide accessors if needed.(¹ßÃï8µ¢Øš”/
+~
+java:S1104"\Make tableViewOutside a static final constant or non-public and provide accessors if needed.(ŒéùÄÿÿÿÿÿ8µ¢Øš”/
+
+java:S1104&"_Make tableColumnOpenName a static final constant or non-public and provide accessors if needed.(ç¥Êõşÿÿÿÿ8¹€Úš”/
+Q
+java:S3740"/Provide the parametrized type for this generic.(ä¯ùËûÿÿÿÿ8ô•³•”/
+^	java:S125î"<This block of commented-out lines of code should be removed.(ò’à§ûÿÿÿÿ8åÉ½ä–/
+M
+java:S3740§"/Provide the parametrized type for this generic.(Ô›ÇŞ8’Ú—ä–/
+x
+java:S1104"[Make tableViewInside a static final constant or non-public and provide accessors if needed.(ò§ãÛ8µ¢Øš”/
+
+java:S1104$"dMake tableColumnPenaltiesClub a static final constant or non-public and provide accessors if needed.(Ìş› 8¹€Úš”/
+[
+java:S1854¶"8Remove this useless assignment to local variable "broj".(ŠîÕúşÿÿÿÿ8²ªıã–/
+L
+java:S3740"/Provide the parametrized type for this generic.(£Ğ— 8ô•³•”/
+Q
+java:S3740%"/Provide the parametrized type for this generic.(©Ó‹‹øÿÿÿÿ8ë©À•”/
+
+java:S1104""_Make tableColumnLeftStat a static final constant or non-public and provide accessors if needed.(ÍÖîÑûÿÿÿÿ8¿´Ùš”/
+Q
+java:S3740"/Provide the parametrized type for this generic.(æİî™ÿÿÿÿÿ8ô•³•”/
+Q
+java:S3740"/Provide the parametrized type for this generic.(¦¿ —ÿÿÿÿÿ8 €¶•”/

@@ -1,6 +1,5 @@
 package ba.unsa.etf.rpr;
 
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -36,15 +35,14 @@ public class MatchController {
     private ArrayList<Player> homePlayers, awayPlayers;
     private ObservableList<Goal> homeClubGoals = FXCollections.observableArrayList();
     private ObservableList<Goal> awayClubGoals = FXCollections.observableArrayList();
-    private League league;
+    private LeagueDAO dao;
     private ObservableList<ClubOnTable> clubsOnTable;
 
-    MatchController (League l, Club c1, Club c2, ArrayList<Player> p1, ArrayList<Player> p2, ObservableList<ClubOnTable> clubsOnTable) {
+    MatchController (Club c1, Club c2, ArrayList<Player> p1, ArrayList<Player> p2, ObservableList<ClubOnTable> clubsOnTable) {
         this.homeClub=c1;
         this.awayClub=c2;
         this.homePlayers=p1;
         this.awayPlayers=p2;
-        this.league=l;
         this.clubsOnTable=clubsOnTable;
     }
 
@@ -107,27 +105,73 @@ public class MatchController {
     public void finishPressed(ActionEvent actionEvent) {
         ArrayList<Goal> hcG = new ArrayList<>(this.homeClubGoals);
         ArrayList<Goal> acG = new ArrayList<>(this.awayClubGoals);
-        Match m = new Match(this.homeClub, this.awayClub, hcG, acG);
-        this.league.getMatches().add(m);
+        Match m = new Match(this.homeClub, this.awayClub, hcG, acG, this.homePlayers, this.awayPlayers);
+
+        // upisivanje rezultata i golova
+        dao.getInstance().addResult(new Result(this.homeClub, this.awayClub, hcG.size(), acG.size()));
+        for (int i=0; i<hcG.size(); i++) {
+            dao.getInstance().addGoal(hcG.get(i));
+        }
+        for (int i=0; i<acG.size(); i++) {
+            dao.getInstance().addGoal(acG.get(i));
+        }
         FxRobot robot = new FxRobot();
         ListView resultsList= robot.lookup("#resultsList").queryAs(ListView.class);
         resultsList.getItems().add(m);
-        for (int i=0; i<this.league.getFixtures().size(); i++) {
-            if (this.league.getFixtures().get(i).getHomeTeam().equals(this.homeClub) && this.league.getFixtures().get(i).getAwayTeam().equals(this.awayClub)) {
-                FxRobot robot2 = new FxRobot();
-                ListView fixturesList= robot2.lookup("#fixturesList").queryAs(ListView.class);
-                fixturesList.getItems().remove(this.league.getFixtures().get(i));
-                this.league.getFixtures().remove(this.league.getFixtures().get(i));
-            }
+
+
+        // izbacujemo kolo jer se utakmica odigrala
+        Fixture fixture = dao.getInstance().findFixture(homeClub.getName(), awayClub.getName());
+        if (fixture!=null) {
+            FxRobot robot2 = new FxRobot();
+            ListView fixturesList = robot2.lookup("#fixturesList").queryAs(ListView.class);
+            fixturesList.getItems().remove(fixture);
+            dao.getInstance().deleteFixture(this.homeClub.getName(), this.awayClub.getName());
         }
 
+        // sređivanje statistike
+        if (homeClubGoals.size()==0) {
+            for (int i=0; i<this.awayPlayers.size(); i++) {
+                if (this.awayPlayers.get(i) instanceof Goalkeeper) {
+                    Stats stat = new Stats(this.awayPlayers.get(i).getId());
+                    stat.setApperances(dao.getInstance().findStat(stat.getId()).getApperances());
+                    stat.setCleanSheets(dao.getInstance().findStat(stat.getId()).getCleanSheets() + 1);
+                    dao.getInstance().editStat(stat);
+                }
+            }
+        }
+        if (awayClubGoals.size()==0) {
+            for (int i=0; i<this.homePlayers.size(); i++) {
+                if (this.homePlayers.get(i) instanceof Goalkeeper) {
+                    Stats stat = new Stats(this.homePlayers.get(i).getId());
+                    stat.setApperances(dao.getInstance().findStat(stat.getId()).getApperances());
+                    stat.setCleanSheets(dao.getInstance().findStat(stat.getId()).getCleanSheets() + 1);
+                    dao.getInstance().editStat(stat);
+                }
+            }
+        }
+        for (int i=0; i<this.homePlayers.size(); i++) {
+            Stats stat = new Stats(this.homePlayers.get(i).getId());
+            stat.setApperances(dao.getInstance().findStat(stat.getId()).getApperances() + 1);
+            stat.setCleanSheets(dao.getInstance().findStat(stat.getId()).getCleanSheets());
+            dao.getInstance().editStat(stat);
+        }
+        for (int i=0; i<this.awayPlayers.size(); i++) {
+            Stats stat = new Stats(this.awayPlayers.get(i).getId());
+            stat.setApperances(dao.getInstance().findStat(stat.getId()).getApperances() + 1);
+            stat.setCleanSheets(dao.getInstance().findStat(stat.getId()).getCleanSheets());
+            dao.getInstance().editStat(stat);
+        }
+
+
+        // ažuriranje tabele
         FxRobot robot3 = new FxRobot();
         TableView tableViewTable= robot3.lookup("#tableViewTable").queryAs(TableView.class);
 
         this.clubsOnTable.clear();
         tableViewTable.setItems(null);
-        for (int i=0; i<this.league.getNumberOfClubs(); i++) {
-            this.clubsOnTable.add(new ClubOnTable(this.league.getClubs().get(i), this.league.getMatches()));
+        for (int i=0; i<dao.getInstance().clubs().size(); i++) {
+            this.clubsOnTable.add(new ClubOnTable(dao.getInstance().clubs().get(i), dao.getInstance().results()));
         }
         this.clubsOnTable.sort(new Comparator<ClubOnTable>() {
             @Override
@@ -135,7 +179,7 @@ public class MatchController {
                 return o2.compareTo(o1);
             }
         });
-        for (int i=0; i<this.league.getNumberOfClubs(); i++) {
+        for (int i=0; i<dao.getInstance().clubs().size(); i++) {
             this.clubsOnTable.get(i).setPosition((i+1) + ".");
         }
         tableViewTable.setItems(this.clubsOnTable);

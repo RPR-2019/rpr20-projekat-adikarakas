@@ -25,11 +25,10 @@ public class SquadController {
     private ObservableList<Player> homeGoalkeepers, homeDefenders, homeMidfielders, homeAttackers;
     private ObservableList<Player> awayGoalkeepers, awayDefenders, awayMidfielders, awayAttackers;
     private Club homeClub, awayClub;
-    private League league;
+    private LeagueDAO dao;
     private ObservableList<ClubOnTable> clubsOnTable;
 
-    SquadController (League l, Club home, Club away, ObservableList<ClubOnTable> clubsOnTable) {
-        this.league=l;
+    SquadController (Club home, Club away, ObservableList<ClubOnTable> clubsOnTable) {
         this.clubsOnTable=clubsOnTable;
         this.homeClub=home;
         this.awayClub=away;
@@ -37,22 +36,22 @@ public class SquadController {
         this.homeDefenders = FXCollections.observableArrayList();
         this.homeMidfielders = FXCollections.observableArrayList();
         this.homeAttackers = FXCollections.observableArrayList();
-        for (int i=0; i<home.getPlayers().size(); i++) {
-            if (home.getPlayers().get(i) instanceof Goalkeeper) this.homeGoalkeepers.add(home.getPlayers().get(i));
-            else if (home.getPlayers().get(i) instanceof Defender) this.homeDefenders.add(home.getPlayers().get(i));
-            else if (home.getPlayers().get(i) instanceof Midfielder) this.homeMidfielders.add(home.getPlayers().get(i));
-            else this.homeAttackers.add(home.getPlayers().get(i));
+        for (int i=0; i<dao.getInstance().playersInClub(home).size(); i++) {
+            if (dao.getInstance().playersInClub(home).get(i) instanceof Goalkeeper) this.homeGoalkeepers.add(dao.getInstance().playersInClub(home).get(i));
+            else if (dao.getInstance().playersInClub(home).get(i) instanceof Defender) this.homeDefenders.add(dao.getInstance().playersInClub(home).get(i));
+            else if (dao.getInstance().playersInClub(home).get(i) instanceof Midfielder) this.homeMidfielders.add(dao.getInstance().playersInClub(home).get(i));
+            else this.homeAttackers.add(dao.getInstance().playersInClub(home).get(i));
         }
 
         this.awayGoalkeepers = FXCollections.observableArrayList();
         this.awayDefenders = FXCollections.observableArrayList();
         this.awayMidfielders = FXCollections.observableArrayList();
         this.awayAttackers = FXCollections.observableArrayList();
-        for (int i=0; i<away.getPlayers().size(); i++) {
-            if (away.getPlayers().get(i) instanceof Goalkeeper) this.awayGoalkeepers.add(away.getPlayers().get(i));
-            else if (away.getPlayers().get(i) instanceof Defender) this.awayDefenders.add(away.getPlayers().get(i));
-            else if (away.getPlayers().get(i) instanceof Midfielder) this.awayMidfielders.add(away.getPlayers().get(i));
-            else this.awayAttackers.add(away.getPlayers().get(i));
+        for (int i=0; i<dao.getInstance().playersInClub(away).size(); i++) {
+            if (dao.getInstance().playersInClub(away).get(i) instanceof Goalkeeper) this.awayGoalkeepers.add(dao.getInstance().playersInClub(away).get(i));
+            else if (dao.getInstance().playersInClub(away).get(i) instanceof Defender) this.awayDefenders.add(dao.getInstance().playersInClub(away).get(i));
+            else if (dao.getInstance().playersInClub(away).get(i) instanceof Midfielder) this.awayMidfielders.add(dao.getInstance().playersInClub(away).get(i));
+            else this.awayAttackers.add(dao.getInstance().playersInClub(away).get(i));
         }
     }
 
@@ -148,7 +147,7 @@ public class SquadController {
             ArrayList<Player> awayStartingLineUp = new ArrayList<>(awaySet);
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/match.fxml"));
-            MatchController ctrl = new MatchController(this.league, this.homeClub, this.awayClub, homeStartingLineUp, awayStartingLineUp, this.clubsOnTable);
+            MatchController ctrl = new MatchController(this.homeClub, this.awayClub, homeStartingLineUp, awayStartingLineUp, this.clubsOnTable);
             fxmlLoader.setController(ctrl);
             Scene scene = new Scene(fxmlLoader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
             Stage stage = new Stage();

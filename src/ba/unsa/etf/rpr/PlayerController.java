@@ -10,6 +10,8 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.testfx.api.FxRobot;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -24,6 +26,7 @@ public class PlayerController {
     private Player currentPlayer;
     public TextField nameField, surnameField;
     private Club currentClub;
+    private LeagueDAO dao;
 
     PlayerController (Club club, Player player) {
         this.currentPlayer=player;
@@ -110,6 +113,9 @@ public class PlayerController {
                 if (choicePosition.getValue().equals("Goalkeeper")) {
                     Goalkeeper player = new Goalkeeper(nameField.getText(), surnameField.getText(), dateIdentity.getValue(), choiceNationality.getValue());
                     this.currentClub.getPlayers().add(player);
+                    player.setClub(this.currentClub);
+                    player.setPosition(player.getClass().getSimpleName());
+                    dao.getInstance().addPlayer(player);
                     FxRobot robot = new FxRobot();
                     ListView playersLv = robot.lookup("#playersLv").queryAs(ListView.class);
                     playersLv.getItems().add(player);
@@ -117,6 +123,9 @@ public class PlayerController {
                 else if (choicePosition.getValue().equals("Defender")) {
                     Defender player = new Defender(nameField.getText(), surnameField.getText(), dateIdentity.getValue(), choiceNationality.getValue());
                     this.currentClub.getPlayers().add(player);
+                    player.setClub(this.currentClub);
+                    player.setPosition(player.getClass().getSimpleName());
+                    dao.getInstance().addPlayer(player);
                     FxRobot robot = new FxRobot();
                     ListView playersLv = robot.lookup("#playersLv").queryAs(ListView.class);
                     playersLv.getItems().add(player);
@@ -124,6 +133,9 @@ public class PlayerController {
                 else if (choicePosition.getValue().equals("Midfielder")) {
                     Midfielder player = new Midfielder(nameField.getText(), surnameField.getText(), dateIdentity.getValue(), choiceNationality.getValue());
                     this.currentClub.getPlayers().add(player);
+                    player.setClub(this.currentClub);
+                    player.setPosition(player.getClass().getSimpleName());
+                    dao.getInstance().addPlayer(player);
                     FxRobot robot = new FxRobot();
                     ListView playersLv = robot.lookup("#playersLv").queryAs(ListView.class);
                     playersLv.getItems().add(player);
@@ -131,6 +143,9 @@ public class PlayerController {
                 else {
                     Attacker player = new Attacker(nameField.getText(), surnameField.getText(), dateIdentity.getValue(), choiceNationality.getValue());
                     this.currentClub.getPlayers().add(player);
+                    player.setClub(this.currentClub);
+                    player.setPosition(player.getClass().getSimpleName());
+                    dao.getInstance().addPlayer(player);
                     FxRobot robot = new FxRobot();
                     ListView playersLv = robot.lookup("#playersLv").queryAs(ListView.class);
                     playersLv.getItems().add(player);

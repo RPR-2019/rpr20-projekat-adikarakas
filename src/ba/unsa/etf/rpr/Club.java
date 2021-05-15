@@ -3,14 +3,17 @@ package ba.unsa.etf.rpr;
 import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Club {
+    private int id;
     private String name;
     private String nickname="";
     private String stadium="";
     private String mascot="";
     private Color color;
     private String manager="";
+    private Player captain = null;
     private ArrayList<Player> players;
 
     public Club(String name) {
@@ -19,8 +22,12 @@ public class Club {
         this.color=Color.WHITE;
     }
 
-    public int getPoints(int wins, int draws) {
-        return wins*3+draws;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -79,6 +86,14 @@ public class Club {
         this.manager = manager;
     }
 
+    public Player getCaptain() {
+        return captain;
+    }
+
+    public void setCaptain(Player captain) {
+        this.captain = captain;
+    }
+
     public void addPlayer(Player player) {
         this.players.add(player);
     }
@@ -91,4 +106,13 @@ public class Club {
     public String toString() {
         return name;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Club club = (Club) o;
+        return Objects.equals(name, club.name);
+    }
+
 }

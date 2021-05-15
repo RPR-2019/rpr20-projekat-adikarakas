@@ -1,7 +1,9 @@
 
-
-java:S1319&"rThe type of the "players" object should be an interface such as "List" rather than the implementation "ArrayList".(ñìÊØúÿÿÿÿ
+r
+java:S1206o"PThis class overrides "equals()" and should therefore also override "hashCode()".(İ¢êÍıÿÿÿÿ8ÌËëÜ–/
 o
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ìÏú
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ìÏú
 †
-java:S1319""pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ğÂ›
+java:S1319)"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ğÂ›
+
+java:S1319-"rThe type of the "players" object should be an interface such as "List" rather than the implementation "ArrayList".(ñìÊØúÿÿÿÿ

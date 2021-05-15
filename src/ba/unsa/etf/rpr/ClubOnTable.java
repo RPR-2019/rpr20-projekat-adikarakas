@@ -6,11 +6,11 @@ public class ClubOnTable implements Comparable<ClubOnTable> {
     private Club club;
     private String position;
     private int played, wins, draws, losses, goalsScored, goalsConceded, goalDifference, points;
-    private ArrayList<Match> matches;
+    private ArrayList<Result> results;
 
-    public ClubOnTable(Club club, ArrayList<Match> matches) {
+    public ClubOnTable(Club club, ArrayList<Result> results) {
         this.club = club;
-        this.matches = matches;
+        this.results = results;
         this.played =0;
         this.wins=0;
         this.draws=0;
@@ -20,24 +20,24 @@ public class ClubOnTable implements Comparable<ClubOnTable> {
         this.goalDifference=0;
         this.points=0;
         this.position="";
-        if (matches!=null) {
-            for (int i = 0; i < matches.size(); i++) {
-                if (club.equals(matches.get(i).getHomeTeam()) || club.equals(matches.get(i).getAwayTeam())) {
+        if (results!=null) {
+            for (int i = 0; i < results.size(); i++) {
+                if (club.equals(results.get(i).getHomeTeam()) || club.equals(results.get(i).getAwayTeam())) {
                     this.played++;
-                    if (club.equals(matches.get(i).getHomeTeam())) {
-                        this.goalsScored += matches.get(i).getHomeTeamGoals().size();
-                        this.goalsConceded += matches.get(i).getAwayTeamGoals().size();
-                        if (matches.get(i).getHomeTeamGoals().size() > matches.get(i).getAwayTeamGoals().size())
+                    if (club.equals(results.get(i).getHomeTeam())) {
+                        this.goalsScored += results.get(i).getHomeTeamScore();
+                        this.goalsConceded += results.get(i).getAwayTeamScore();
+                        if (results.get(i).getHomeTeamScore() > results.get(i).getAwayTeamScore())
                             this.wins++;
-                        else if (matches.get(i).getHomeTeamGoals().size() == matches.get(i).getAwayTeamGoals().size())
+                        else if (results.get(i).getHomeTeamScore() == results.get(i).getAwayTeamScore())
                             this.draws++;
                         else this.losses++;
                     } else {
-                        this.goalsScored += matches.get(i).getAwayTeamGoals().size();
-                        this.goalsConceded += matches.get(i).getHomeTeamGoals().size();
-                        if (matches.get(i).getHomeTeamGoals().size() < matches.get(i).getAwayTeamGoals().size())
+                        this.goalsScored += results.get(i).getAwayTeamScore();
+                        this.goalsConceded += results.get(i).getHomeTeamScore();
+                        if (results.get(i).getHomeTeamScore() < results.get(i).getAwayTeamScore())
                             this.wins++;
-                        else if (matches.get(i).getHomeTeamGoals().size() == matches.get(i).getAwayTeamGoals().size())
+                        else if (results.get(i).getHomeTeamScore() == results.get(i).getAwayTeamScore())
                             this.draws++;
                         else this.losses++;
                     }
@@ -56,12 +56,12 @@ public class ClubOnTable implements Comparable<ClubOnTable> {
         this.club = club;
     }
 
-    public ArrayList<Match> getMatches() {
-        return matches;
+    public ArrayList<Result> getresults() {
+        return results;
     }
 
-    public void setMatches(ArrayList<Match> matches) {
-        this.matches = matches;
+    public void setresults(ArrayList<Result> results) {
+        this.results = results;
     }
 
     public int getWins() {

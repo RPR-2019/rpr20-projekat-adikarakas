@@ -36,8 +36,6 @@ a
 O
 src/ba/unsa/etf/rpr/Player.java,e\2\e27aa7aa017580c2972ded65840f7a55b6d7712d
 X
-(src/ba/unsa/etf/rpr/TableController.java,c\9\c978f5b22beb940464cb9f50ef3a94744d228d3c
-X
 (src/ba/unsa/etf/rpr/SquadController.java,7\9\79a77932d7399db29311d9061ccb64fc786a7fe8
 T
 $src/ba/unsa/etf/rpr/ClubOnTable.java,3\0\30ec813c08c08adf14c16026d19b3c31a360943b
@@ -63,8 +61,6 @@ h
 8out/production/rpr20-projekat-adikarakas/fxml/squad.fxml,d\2\d25f27bdafaaeeae6237e8e104a4437b247ad48f
 h
 8out/production/rpr20-projekat-adikarakas/fxml/start.fxml,a\e\ae1cce6ef65b668343beb7474d6b80083b8293c7
-h
-8out/production/rpr20-projekat-adikarakas/fxml/table.fxml,0\c\0cf4e12b465c3cb76668d3e20b1560a0182a2415
 Q
 !src/ba/unsa/etf/rpr/Defender.java,a\6\a6fe86a6dd1bf2f25817af75f73131364f44a22b
 S
@@ -83,3 +79,25 @@ _
 /src/ba/unsa/etf/rpr/FixtureAdderController.java,a\9\a902da3471f6cb10f006f53d15c9b06f72d56b3b
 X
 (src/ba/unsa/etf/rpr/StatsController.java,5\9\59f7bb8354b74e91b97d2ea1e2ad6fe880c3df59
+o
+?out/production/rpr20-projekat-adikarakas/fxml/fixtureAdder.fxml,a\b\ab1a429e9a181200b285bf87945936d08c1ad0ce
+P
+ resources/fxml/fixtureAdder.fxml,a\f\af5ef79f3a84f6d917d349cd5e9b496640a0565a
+H
+resources/fxml/goal.fxml,f\6\f6c0052905962006a301cc6a1d805087f339a1cb
+I
+resources/fxml/match.fxml,0\6\06497087c3ed7e9b6ae1471bbf1ed6f15e88fb08
+h
+8out/production/rpr20-projekat-adikarakas/fxml/stats.fxml,3\b\3b8afd7feb11779c9c7965ccecdbce01a887f3d6
+Y
+)src/ba/unsa/etf/rpr/SeasonController.java,3\c\3c39fc0381a04b1ecb4d5fc08d604d5f6cafce78
+T
+$src/ba/unsa/etf/rpr/PlayerStats.java,f\9\f95fb6d67fcd24a4df6e1f3e452bb2c8a1239721
+R
+"src/ba/unsa/etf/rpr/LeagueDAO.java,7\c\7c7b6a15d8e77ffb969be9e364fd23b045568d66
+=
+league.db.sql,b\a\ba7598734ed1eff1188d8abbf99c855000d53144
+O
+src/ba/unsa/etf/rpr/Result.java,b\4\b4ed7989f37b85505dedfafb823949d94a27dade
+N
+src/ba/unsa/etf/rpr/Stats.java,7\1\7157f62bbc0ca5c599a6e087e1e64f603f1956e7

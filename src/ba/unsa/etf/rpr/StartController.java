@@ -19,6 +19,7 @@ public class StartController {
     public TextField nameField;
     public Spinner<Integer> spinnerField;
     public CheckBox scheduleCb;
+    private LeagueDAO dao;
 
     @FXML
     public void initialize() {
@@ -57,10 +58,14 @@ public class StartController {
             alert.showAndWait();
         }
         else {
-            League league = new League(nameField.getText(), spinnerField.getValue(), scheduleCb.isSelected());
+            dao.getInstance().setName(nameField.getText());
+            dao.getInstance().setNumberOfClubs(spinnerField.getValue());
+            dao.getInstance().setScheduleRandom(scheduleCb.isSelected());
+            dao.getInstance().setCreated(true);
 
             // eksperimentalno
-            Club chelsea = new Club("Chelsea");
+            /*
+            Club chelsea = new Club(1, "Chelsea");
             chelsea.addPlayer(new Goalkeeper("Edouard", "Mendy", LocalDate.of(1992, 03, 13), "Senegal"));
             chelsea.addPlayer(new Goalkeeper("Kepa", "Arizzabalaga",LocalDate.of(1994, 02, 13), "Spain"));
             chelsea.addPlayer(new Defender("Reece", "James", LocalDate.of(1999, 04, 13), "England"));
@@ -77,9 +82,8 @@ public class StartController {
             chelsea.addPlayer(new Attacker("Christian", "Pulišić", LocalDate.of(1998, 03, 13), "USA"));
             chelsea.addPlayer(new Attacker("Hakim", "Ziyech", LocalDate.of(1993, 01, 13), "Morocco"));
 
-//            System.out.println("Chelsea ima " + chelsea.getPlayers().size() + " igrača");
 
-            Club arsenal = new Club("Arsenal");
+            Club arsenal = new Club(2, "Arsenal");
             arsenal.addPlayer(new Goalkeeper("Bernd", "Leno", LocalDate.of(1992, 03, 13), "Germany"));
             arsenal.addPlayer(new Goalkeeper("Mat", "Ryan",LocalDate.of(1994, 02, 13), "Australia"));
             arsenal.addPlayer(new Defender("Hector", "Bellerin", LocalDate.of(1999, 04, 13), "Spain"));
@@ -96,7 +100,7 @@ public class StartController {
             arsenal.addPlayer(new Attacker("Nicolas", "Pepe", LocalDate.of(1998, 03, 13), "Ivory Coast"));
             arsenal.addPlayer(new Attacker("Bukayo", "Saka", LocalDate.of(1993, 01, 13), "England"));
 
-            Club liverpool = new Club("Liverpool");
+            Club liverpool = new Club(3, "Liverpool");
             liverpool.addPlayer(new Goalkeeper("Alisson", "Becker", LocalDate.of(1992, 03, 13), "Germany"));
             liverpool.addPlayer(new Goalkeeper("Caoimhin", "Kelleher",LocalDate.of(1994, 02, 13), "Australia"));
             liverpool.addPlayer(new Defender("Trent", "Alexander-Arnold", LocalDate.of(1999, 04, 13), "Spain"));
@@ -113,7 +117,7 @@ public class StartController {
             liverpool.addPlayer(new Attacker("Roberto", "Firmino", LocalDate.of(1998, 03, 13), "Ivory Coast"));
             liverpool.addPlayer(new Attacker("Diogo", "Jota", LocalDate.of(1993, 01, 13), "England"));
 
-            Club everton = new Club("Everton");
+            Club everton = new Club(4, "Everton");
             everton.addPlayer(new Goalkeeper("Jordan", "Pickford", LocalDate.of(1992, 03, 13), "Germany"));
             everton.addPlayer(new Goalkeeper("Robin", "Olsen",LocalDate.of(1994, 02, 13), "Australia"));
             everton.addPlayer(new Defender("Seamus", "Coleman", LocalDate.of(1999, 04, 13), "Spain"));
@@ -133,10 +137,10 @@ public class StartController {
             league.addClub(chelsea);
             league.addClub(arsenal);
             league.addClub(liverpool);
-            league.addClub(everton);
+            league.addClub(everton); */
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/preseason.fxml"));
-            PreseasonController ctrl = new PreseasonController(league, spinnerField.getValue());
+            PreseasonController ctrl = new PreseasonController(spinnerField.getValue());
             fxmlLoader.setController(ctrl);
             Scene scene = new Scene(fxmlLoader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
             Stage stage = new Stage();

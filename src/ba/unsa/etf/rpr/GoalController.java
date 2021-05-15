@@ -54,6 +54,8 @@ public class GoalController {
         goalScorer.setItems(players);
         assistProvider.setItems(players);
 
+        assistProvider.getItems().add(null);
+
         ToggleGroup goalTypeGroup = new ToggleGroup();
         ToggleGroup goalDistanceGroup = new ToggleGroup();
         ToggleGroup goalSituationGroup = new ToggleGroup();
@@ -87,11 +89,37 @@ public class GoalController {
         else if (openPlay.isSelected()) goalSituation=GoalSituation.OPENPLAY;
         else irregular = true;
 
-        if (goalScorer.getValue()==null) irregular=true;
-        if (assistProvider.getValue()!=null && goalScorer.getValue()==assistProvider.getValue()) irregular=true;
-
-
-        if (irregular==true) {
+        if (goalScorer.getValue()==null)  {
+            Alert alert = new Alert (Alert.AlertType.WARNING);
+            alert.setTitle("Pogrešan unos");
+            alert.setHeaderText("Morate odrediti strijelca");
+            alert.showAndWait();
+        }
+        else if (assistProvider.getValue()!=null && goalScorer.getValue()==assistProvider.getValue()) {
+            Alert alert = new Alert (Alert.AlertType.WARNING);
+            alert.setTitle("Pogrešan unos");
+            alert.setHeaderText("Asistent i strijelac ne mogu biti ista osoba");
+            alert.showAndWait();
+        }
+        else if (assistProvider.getValue()!=null && goalSituation!=GoalSituation.OPENPLAY) {
+            Alert alert = new Alert (Alert.AlertType.WARNING);
+            alert.setTitle("Pogrešan unos");
+            alert.setHeaderText("Kod penala i slobodnih udaraca se ne dodjeljuje asistencija");
+            alert.showAndWait();
+        }
+        else if (goalSituation==GoalSituation.PENALTY && goalDistance!=GoalDistance.INSIDEBOX) {
+            Alert alert = new Alert (Alert.AlertType.WARNING);
+            alert.setTitle("Pogrešan unos");
+            alert.setHeaderText("Penal se izvodi sa 11 metara");
+            alert.showAndWait();
+        }
+        else if (goalSituation==GoalSituation.FREEKICK && goalDistance!=GoalDistance.OUTSIDEBOX) {
+            Alert alert = new Alert (Alert.AlertType.WARNING);
+            alert.setTitle("Pogrešan unos");
+            alert.setHeaderText("Slobodan udarac se izvodi izvan šesnaesterca");
+            alert.showAndWait();
+        }
+        else if (irregular==true) {
             Alert alert = new Alert (Alert.AlertType.WARNING);
             alert.setTitle("Pogrešan unos");
             alert.setHeaderText("Niste dobro unijeli podatke");

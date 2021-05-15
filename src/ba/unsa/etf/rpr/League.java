@@ -6,6 +6,8 @@ public class League {
     private String name;
     private int numberOfClubs;
     private boolean isScheduleRandom;
+    private boolean started;
+    private boolean finished;
     private ArrayList<Club> clubs = new ArrayList<>();
     private ArrayList<Match> matches = new ArrayList<>();
     private ArrayList<Fixture> fixtures = new ArrayList<>();
@@ -15,6 +17,8 @@ public class League {
         this.name=name;
         this.numberOfClubs=numberOfClubs;
         this.isScheduleRandom=isScheduleRandom;
+        this.started=false;
+        this.finished=false;
     }
 
     public String getName() {
@@ -71,6 +75,22 @@ public class League {
 
     public void setFixtures(ArrayList<Fixture> fixtures) {
         this.fixtures = fixtures;
+    }
+
+    public boolean isStarted() {
+        return started;
+    }
+
+    public void setStarted(boolean started) {
+        this.started = started;
+    }
+
+    public boolean isFinished() {
+        return finished;
+    }
+
+    public void setFinished(boolean finished) {
+        this.finished = finished;
     }
 
     public void addClub (Club c) {

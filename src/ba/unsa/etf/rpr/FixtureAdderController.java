@@ -15,17 +15,16 @@ import org.testfx.api.FxRobot;
 public class FixtureAdderController {
     public Button confirmButton, cancelButton;
     public ChoiceBox<Club> homeChoice, awayChoice;
-    private League league;
+    private LeagueDAO dao;
 
-    FixtureAdderController(League league) {
-        this.league=league;
+    FixtureAdderController() {
     }
 
     @FXML
     public void initialize() {
         ObservableList<Club> teams = FXCollections.observableArrayList();
-        for (int i=0; i<this.league.getClubs().size(); i++) {
-            teams.add(this.league.getClubs().get(i));
+        for (int i=0; i<dao.getInstance().clubs().size(); i++) {
+            teams.add(dao.getInstance().clubs().get(i));
         }
         homeChoice.setItems(teams);
         awayChoice.setItems(teams);
@@ -35,17 +34,17 @@ public class FixtureAdderController {
         boolean correct=true;
         if (homeChoice.getValue()==null || awayChoice.getValue()==null) correct = false;
         else if (homeChoice.getValue().equals(awayChoice.getValue())) correct = false;
-        for (int i = 0; i < this.league.getMatches().size(); i++) {
-            if (this.league.getMatches().get(i).getHomeTeam().equals(homeChoice.getValue()) && this.league.getMatches().get(i).getAwayTeam().equals(awayChoice.getValue()))
+        for (int i = 0; i < dao.getInstance().results().size(); i++) {
+            if (dao.getInstance().results().get(i).getHomeTeam().getName().equals(homeChoice.getValue().getName()) && dao.getInstance().results().get(i).getAwayTeam().getName().equals(awayChoice.getValue().getName()))
                 correct = false;
         }
-        for (int i = 0; i < this.league.getFixtures().size(); i++) {
-            if (this.league.getFixtures().get(i).getHomeTeam().equals(homeChoice.getValue()) && this.league.getFixtures().get(i).getAwayTeam().equals(awayChoice.getValue()))
+        for (int i = 0; i < dao.getInstance().fixtures().size(); i++) {
+            if (dao.getInstance().fixtures().get(i).getHomeTeam().getName().equals(homeChoice.getValue().getName()) && dao.getInstance().fixtures().get(i).getAwayTeam().getName().equals(awayChoice.getValue().getName()))
                 correct = false;
         }
         if (correct) {
             Fixture newFixture = new Fixture(homeChoice.getValue(), awayChoice.getValue());
-            this.league.getFixtures().add(newFixture);
+            dao.getInstance().addFixture(newFixture);
             FxRobot robot = new FxRobot();
             ListView fixturesList = robot.lookup("#fixturesList").queryAs(ListView.class);
             fixturesList.getItems().add(newFixture);
