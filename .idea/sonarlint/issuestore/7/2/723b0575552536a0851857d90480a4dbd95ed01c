@@ -1,0 +1,13 @@
+
+j
+java:S2095å"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ8—•Š€›/
+X
+java:S1141ä"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8—•Š€›/
+?
+java:S1643â"Use a StringBuilder instead.(“ÂãÂùÿÿÿÿ8—•Š€›/
+j
+java:S2095ô"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ8—•Š€›/
+E
+java:S2115E")Add password protection to this database.(ÔÀÕ8Ÿ¶ ´™/
+ƒ
+java:S1192J"aDefine a constant instead of duplicating this literal "SELECT * FROM clubs WHERE name=?" 3 times.(åÓ•¾şÿÿÿÿ8Ÿ¶ ´™/

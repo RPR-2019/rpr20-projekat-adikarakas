@@ -1,0 +1,49 @@
+#tbPrint {
+     -fx-graphic: url("/images/print-mini.png");
+     -fx-background-color: transparent;
+     -fx-border-width: 0;
+}
+
+#tbPrint:hover {
+    -fx-background-color: lightgray;
+}
+
+#tbPrint:pressed {
+    -fx-background-color: gray;
+}
+
+#tbHelp {
+     -fx-graphic: url("/images/help-mini.png");
+     -fx-background-color: transparent;
+     -fx-border-width: 0;
+}
+
+#tbHelp:hover {
+    -fx-background-color: lightgray;
+}
+
+#tbHelp:pressed {
+    -fx-background-color: gray;
+}
+
+#tbExit {
+     -fx-graphic: url("/images/exit-mini.png");
+     -fx-background-color: transparent;
+     -fx-border-width: 0;
+}
+
+#tbExit:hover {
+    -fx-background-color: lightgray;
+}
+
+#tbExit:pressed {
+    -fx-background-color: gray;
+}
+
+.popunjenoKakoTreba {
+     -fx-control-inner-background: yellowgreen;
+}
+
+.popunjenoKakoNeTreba {
+     -fx-control-inner-background: lightpink;
+ }

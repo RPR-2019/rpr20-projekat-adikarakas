@@ -46,12 +46,12 @@
             <TableColumn fx:id="tableColumnCleanSheetsStat" prefWidth="35.0" sortable="false" text="Stat" />
         </columns>
       </TableView>
-      <TableView fx:id="tableViewApperances" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      <TableView fx:id="tableViewAppearances" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
         <columns>
-          <TableColumn fx:id="tableColumnApperancesRank" prefWidth="35.0" sortable="false" text="Rank" />
-          <TableColumn fx:id="tableColumnApperancesName" prefWidth="155.0" sortable="false" text="Name" />
-            <TableColumn fx:id="tableColumnApperancesClub" prefWidth="115.0" sortable="false" text="Club" />
-            <TableColumn fx:id="tableColumnApperancesStat" prefWidth="35.0" sortable="false" text="Stat" />
+          <TableColumn fx:id="tableColumnAppearancesRank" prefWidth="35.0" sortable="false" text="Rank" />
+          <TableColumn fx:id="tableColumnAppearancesName" prefWidth="155.0" sortable="false" text="Name" />
+            <TableColumn fx:id="tableColumnAppearancesClub" prefWidth="115.0" sortable="false" text="Club" />
+            <TableColumn fx:id="tableColumnAppearancesStat" prefWidth="35.0" sortable="false" text="Stat" />
         </columns>
       </TableView>
       <TableView fx:id="tableViewInside" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
@@ -118,20 +118,20 @@
             <TableColumn fx:id="tableColumnOpenStat" prefWidth="35.0" sortable="false" text="Stat" />
         </columns>
       </TableView>
-       <Label text="Goals:" GridPane.columnIndex="1" />
-      <Label text="Assists:" GridPane.columnIndex="2" />
-      <Label text="Clean sheets:" GridPane.columnIndex="3" />
-      <Label text="Apperances:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <Label text="Goals inside box:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-      <Label text="Goals outside box:" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-      <Label text="Goals with right foot:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <Label text="Goals with left foot:" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-      <Label text="Headers:" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-      <Label text="Penalties scored:" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-      <Label text="Free kicks scored:" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-      <Label text="Goals from open play:" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+       <Label text="%goals" GridPane.columnIndex="1" />
+      <Label text="%assists" GridPane.columnIndex="2" />
+      <Label text="%cleanSheets" GridPane.columnIndex="3" />
+      <Label text="%appearances" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Label text="%goalsInsideBox" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <Label text="%goalsOutsideBox" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+      <Label text="%goalsWithRightFoot" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <Label text="%goalsWithLeftFoot" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+      <Label text="%headers" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+      <Label text="%penaltiesScored" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+      <Label text="%freeKicksScored" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+      <Label text="%goalsFromOpenPlay" GridPane.columnIndex="3" GridPane.rowIndex="6" />
    </children>
    <padding>
-      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
    </padding>
 </GridPane>
