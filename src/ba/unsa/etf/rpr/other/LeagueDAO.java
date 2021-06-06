@@ -14,46 +14,45 @@ import java.util.Scanner;
 
 public final class LeagueDAO {
     private static LeagueDAO instance;
-    private PreparedStatement findResultUpit;
-    private PreparedStatement setIdForResultUpit;
-    private PreparedStatement dajStatsUpit;
-    private PreparedStatement deleteFixtureUpit;
-    private PreparedStatement addGoalUpit;
-    private PreparedStatement dajResultsUpit;
-    private PreparedStatement addResultUpit;
-    private PreparedStatement findFixtureUpit;
-    private PreparedStatement dajFixturesUpit;
-    private PreparedStatement addFixtureUpit;
-    private PreparedStatement findPlayersForClubUpit;
-    private PreparedStatement editClubUpit;
-    private PreparedStatement editPlayerUpit;
-    private PreparedStatement editStatUpit;
-    private PreparedStatement addPlayerUpit;
-    private PreparedStatement setIdForPlayerUpit;
-    private PreparedStatement addClubUpit;
-    private PreparedStatement setIdForClubUpit;
-    private PreparedStatement deletePlayersForClubUpit;
-    private PreparedStatement deleteClubUpit;
-    private PreparedStatement deletePlayerUpit;
-    private PreparedStatement deleteAllGoalsUpit;
-    private PreparedStatement deleteAllResultsUpit;
-    private PreparedStatement deleteAllPlayersUpit;
-    private PreparedStatement deleteAllClubsUpit;
-    private PreparedStatement findClubUpit;
-    private PreparedStatement findPlayerUpit;
-    private PreparedStatement dajClubsUpit;
-    private PreparedStatement dajPlayersUpit;
-    private PreparedStatement dajPlayerUpit;
-    private PreparedStatement dajClubUpit;
-    private PreparedStatement captainUpit;
-    private PreparedStatement deleteAllStatUpit;
-    private PreparedStatement dajResultUpit;
-    private PreparedStatement zaIzvjestajUpit;
+    private PreparedStatement findResultQuery;
+    private PreparedStatement setIdForResultQuery;
+    private PreparedStatement getStatsQuery;
+    private PreparedStatement deleteFixtureQuery;
+    private PreparedStatement addGoalQuery;
+    private PreparedStatement getResultsQuery;
+    private PreparedStatement addResultQuery;
+    private PreparedStatement findFixtureQuery;
+    private PreparedStatement getFixturesQuery;
+    private PreparedStatement addFixtureQuery;
+    private PreparedStatement findPlayersForClubQuery;
+    private PreparedStatement editClubQuery;
+    private PreparedStatement editPlayerQuery;
+    private PreparedStatement editStatQuery;
+    private PreparedStatement addPlayerQuery;
+    private PreparedStatement setIdForPlayerQuery;
+    private PreparedStatement addClubQuery;
+    private PreparedStatement setIdForClubQuery;
+    private PreparedStatement deletePlayersForClubQuery;
+    private PreparedStatement deleteClubQuery;
+    private PreparedStatement deletePlayerQuery;
+    private PreparedStatement deleteAllGoalsQuery;
+    private PreparedStatement deleteAllResultsQuery;
+    private PreparedStatement deleteAllPlayersQuery;
+    private PreparedStatement deleteAllClubsQuery;
+    private PreparedStatement findClubQuery;
+    private PreparedStatement findPlayerQuery;
+    private PreparedStatement getClubsQuery;
+    private PreparedStatement getPlayersQuery;
+    private PreparedStatement getPlayerQuery;
+    private PreparedStatement getClubQuery;
+    private PreparedStatement captainQuery;
+    private PreparedStatement deleteAllStatQuery;
+    private PreparedStatement getResultQuery;
+    private PreparedStatement forReportQuery;
+    private PreparedStatement getGoalsQuery;
+    private PreparedStatement addStatQuery;
+    private PreparedStatement findStatQuery;
     private Connection conn;
-
-    private PreparedStatement dajGoalsUpit;
-    private PreparedStatement addStatUpit;
-    private PreparedStatement findStatUpit;
 
     public static LeagueDAO getInstance() {
         if (instance==null) instance = new LeagueDAO();
@@ -71,84 +70,70 @@ public final class LeagueDAO {
             e.getMessage();
         }
         try {
-            dajClubUpit = conn.prepareStatement("SELECT * FROM clubs WHERE name=?");
+            getClubQuery = conn.prepareStatement("SELECT * FROM clubs WHERE name=?");
         } catch (SQLException e) {
             regenerisiBazu();
             try {
-                dajClubUpit = conn.prepareStatement("SELECT * FROM clubs WHERE name=?");
+                getClubQuery = conn.prepareStatement("SELECT * FROM clubs WHERE name=?");
             } catch (SQLException e1) {
                 e1.getMessage();
             }
         }
-
         try {
+            forReportQuery = conn.prepareStatement("SELECT * FROM goals where result=? AND club=?");
 
-            zaIzvjestajUpit = conn.prepareStatement("SELECT * FROM goals where result=? AND club=?");
+            deletePlayersForClubQuery = conn.prepareStatement("DELETE FROM players WHERE club=?");
+            deleteClubQuery = conn.prepareStatement("DELETE FROM clubs WHERE name=?");
+            deletePlayerQuery = conn.prepareStatement("DELETE FROM players WHERE id=?");
+            deleteFixtureQuery = conn.prepareStatement("DELETE FROM fixtures WHERE home_team=? AND away_team=?");
+            deleteAllStatQuery = conn.prepareStatement("DELETE FROM stats");
+            deleteAllGoalsQuery = conn.prepareStatement("DELETE FROM goals");
+            deleteAllResultsQuery = conn.prepareStatement("DELETE FROM results");
+            deleteAllPlayersQuery = conn.prepareStatement("DELETE FROM players");
+            deleteAllClubsQuery = conn.prepareStatement("DELETE FROM clubs");
 
-            dajPlayerUpit = conn.prepareStatement("SELECT * FROM players WHERE id=?");
-            dajResultUpit = conn.prepareStatement("SELECT * FROM results WHERE id=?");
+            findClubQuery = conn.prepareStatement("SELECT * FROM clubs WHERE name=?");
+            findPlayersForClubQuery = conn.prepareStatement("SELECT * FROM players WHERE club=?");
+            findPlayerQuery = conn.prepareStatement("SELECT * FROM players WHERE id=?");
+            findFixtureQuery = conn.prepareStatement("SELECT * FROM fixtures WHERE home_team=? AND away_team=?");
+            findStatQuery = conn.prepareStatement("SELECT * FROM stats WHERE id=?");
+            findResultQuery = conn.prepareStatement("SELECT * FROM results WHERE home_team=? AND away_team=?");
 
-            deletePlayersForClubUpit = conn.prepareStatement("DELETE FROM players WHERE club=?");
-            deleteClubUpit = conn.prepareStatement("DELETE FROM clubs WHERE name=?");
-            deletePlayerUpit = conn.prepareStatement("DELETE FROM players WHERE id=?");
-            deleteFixtureUpit = conn.prepareStatement("DELETE FROM fixtures WHERE home_team=? AND away_team=?");
-            deleteAllStatUpit = conn.prepareStatement("DELETE FROM stats");
-            deleteAllGoalsUpit = conn.prepareStatement("DELETE FROM goals");
-            deleteAllResultsUpit = conn.prepareStatement("DELETE FROM results");
-            deleteAllPlayersUpit = conn.prepareStatement("DELETE FROM players");
-            deleteAllClubsUpit = conn.prepareStatement("DELETE FROM clubs");
+            getPlayersQuery = conn.prepareStatement("SELECT * FROM players");
+            getClubsQuery = conn.prepareStatement("SELECT * FROM clubs");
+            getFixturesQuery = conn.prepareStatement("SELECT * FROM fixtures");
+            getResultsQuery = conn.prepareStatement("SELECT * FROM results");
+            getGoalsQuery = conn.prepareStatement("SELECT * FROM goals");
+            getStatsQuery = conn.prepareStatement("SELECT * FROM stats");
 
-            findClubUpit = conn.prepareStatement("SELECT * FROM clubs WHERE name=?");
-            findPlayersForClubUpit = conn.prepareStatement("SELECT * FROM players WHERE club=?");
-            findPlayerUpit = conn.prepareStatement("SELECT * FROM players WHERE id=?");
-            findFixtureUpit = conn.prepareStatement("SELECT * FROM fixtures WHERE home_team=? AND away_team=?");
-            findStatUpit = conn.prepareStatement("SELECT * FROM stats WHERE id=?");
-            findResultUpit = conn.prepareStatement("SELECT * FROM results WHERE home_team=? AND away_team=?");
+            getPlayerQuery = conn.prepareStatement("SELECT * FROM players WHERE id=?");
+            getResultQuery = conn.prepareStatement("SELECT * FROM results WHERE id=?");
 
-            dajPlayersUpit = conn.prepareStatement("SELECT * FROM players");
-            dajClubsUpit = conn.prepareStatement("SELECT * FROM clubs");
-            dajFixturesUpit = conn.prepareStatement("SELECT * FROM fixtures");
-            dajResultsUpit = conn.prepareStatement("SELECT * FROM results");
-            dajGoalsUpit = conn.prepareStatement("SELECT * FROM goals");
-            dajStatsUpit = conn.prepareStatement("SELECT * FROM stats");
+            addPlayerQuery = conn.prepareStatement("INSERT INTO players VALUES(?,?,?,?,?,?,?)");
+            addClubQuery = conn.prepareStatement("INSERT INTO clubs VALUES(?,?,?,?,?,?)");
+            addFixtureQuery = conn.prepareStatement("INSERT INTO fixtures VALUES(?,?)");
+            addResultQuery = conn.prepareStatement("INSERT INTO results VALUES(?,?,?,?,?)");
+            addGoalQuery = conn.prepareStatement("INSERT INTO goals VALUES(?,?,?,?,?,?,?,?)");
+            addStatQuery = conn.prepareStatement("INSERT INTO stats VALUES(?,?,?)");
 
-            addPlayerUpit = conn.prepareStatement("INSERT INTO players VALUES(?,?,?,?,?,?,?)");
-            setIdForPlayerUpit = conn.prepareStatement("SELECT MAX(id)+1 FROM players");
-            setIdForResultUpit = conn.prepareStatement("SELECT MAX(id)+1 FROM results");
-            addClubUpit = conn.prepareStatement("INSERT INTO clubs VALUES(?,?,?,?,?,?)");
-            addFixtureUpit = conn.prepareStatement("INSERT INTO fixtures VALUES(?,?)");
-            addResultUpit = conn.prepareStatement("INSERT INTO results VALUES(?,?,?,?,?)");
-            addGoalUpit = conn.prepareStatement("INSERT INTO goals VALUES(?,?,?,?,?,?,?,?)");
-            addStatUpit = conn.prepareStatement("INSERT INTO stats VALUES(?,?,?)");
+            setIdForPlayerQuery = conn.prepareStatement("SELECT MAX(id)+1 FROM players");
+            setIdForResultQuery = conn.prepareStatement("SELECT MAX(id)+1 FROM results");
 
-            editPlayerUpit = conn.prepareStatement("UPDATE players SET name=?, surname=?, date=?, nationality=?, club=?, position=? WHERE id=?");
-            editClubUpit = conn.prepareStatement("UPDATE clubs SET nickname=?, stadium=?, mascot=?, manager=?, captain=? WHERE name=?");
-            editStatUpit = conn.prepareStatement("UPDATE stats SET appearances=?, clean_sheets=? WHERE id=?");
+            editPlayerQuery = conn.prepareStatement("UPDATE players SET name=?, surname=?, date=?, nationality=?, club=?, position=? WHERE id=?");
+            editClubQuery = conn.prepareStatement("UPDATE clubs SET nickname=?, stadium=?, mascot=?, manager=?, captain=? WHERE name=?");
+            editStatQuery = conn.prepareStatement("UPDATE stats SET appearances=?, clean_sheets=? WHERE id=?");
         }
         catch (SQLException e) {
             e.getMessage();
         }
     }
 
-    public Player captain(String club) {
-        try {
-            Club c = findClub(club);
-            captainUpit.setString(1, club);
-            ResultSet rs = captainUpit.executeQuery();
-            if (!rs.next()) return null;
-            return getPlayerFromResultSet(rs, c);
-        } catch (SQLException e) {
-            e.getMessage();
-            return null;
-        }
-    }
-
-    public ObservableList<Goal> metodaDomacin(Result r) {
+    public ObservableList<Goal> homeTeamGoalsCollecting(Result r) {
         ObservableList<Goal> goals = FXCollections.observableArrayList();
         try {
-            zaIzvjestajUpit.setInt(1, r.getId());
-            zaIzvjestajUpit.setString(2, r.getHomeTeam().getName());
-            ResultSet rs = zaIzvjestajUpit.executeQuery();
+            forReportQuery.setInt(1, r.getId());
+            forReportQuery.setString(2, r.getHomeTeam().getName());
+            ResultSet rs = forReportQuery.executeQuery();
             while (rs.next()) {
                 goals.add(getGoalFromResultSet(rs));
             }
@@ -160,12 +145,12 @@ public final class LeagueDAO {
         }
     }
 
-    public ObservableList<Goal> metodaGost(Result r) {
+    public ObservableList<Goal> awayTeamGoalsCollecting(Result r) {
         ObservableList<Goal> goals = FXCollections.observableArrayList();
         try {
-            zaIzvjestajUpit.setInt(1, r.getId());
-            zaIzvjestajUpit.setString(2, r.getAwayTeam().getName());
-            ResultSet rs = zaIzvjestajUpit.executeQuery();
+            forReportQuery.setInt(1, r.getId());
+            forReportQuery.setString(2, r.getAwayTeam().getName());
+            ResultSet rs = forReportQuery.executeQuery();
             while (rs.next()) {
                 goals.add(getGoalFromResultSet(rs));
             }
@@ -207,8 +192,8 @@ public final class LeagueDAO {
 
     private Club getClub(String name) {
         try {
-            dajClubUpit.setString(1, name);
-            ResultSet rs = dajClubUpit.executeQuery();
+            getClubQuery.setString(1, name);
+            ResultSet rs = getClubQuery.executeQuery();
             if (!rs.next()) return null;
             return getClubFromResultSet(rs);
         } catch (SQLException e) {
@@ -219,8 +204,8 @@ public final class LeagueDAO {
 
     private Player getPlayer(int id, Club c) {
         try {
-            dajPlayerUpit.setInt(1, id);
-            ResultSet rs = dajPlayerUpit.executeQuery();
+            getPlayerQuery.setInt(1, id);
+            ResultSet rs = getPlayerQuery.executeQuery();
             if (!rs.next()) return null;
             return getPlayerFromResultSet(rs, c);
         } catch (SQLException e) {
@@ -231,8 +216,8 @@ public final class LeagueDAO {
 
     private Result getResult(int id) {
         try {
-            dajResultUpit.setInt(1, id);
-            ResultSet rs = dajResultUpit.executeQuery();
+            getResultQuery.setInt(1, id);
+            ResultSet rs = getResultQuery.executeQuery();
             if (!rs.next()) return null;
             return getResultFromResultSet(rs);
         }
@@ -244,9 +229,9 @@ public final class LeagueDAO {
 
     public Result findResult(Club c1, Club c2) {
         try{
-            findResultUpit.setString(1, c1.getName());
-            findResultUpit.setString(2, c2.getName());
-            ResultSet rs = findResultUpit.executeQuery();
+            findResultQuery.setString(1, c1.getName());
+            findResultQuery.setString(2, c2.getName());
+            ResultSet rs = findResultQuery.executeQuery();
             if (!rs.next()) return null;
             return getResultFromResultSet(rs);
         }
@@ -268,16 +253,16 @@ public final class LeagueDAO {
 
     public void deleteClub(String clubName) {
         try {
-            findClubUpit.setString(1, clubName);
-            ResultSet rs = findClubUpit.executeQuery();
+            findClubQuery.setString(1, clubName);
+            ResultSet rs = findClubQuery.executeQuery();
             if (!rs.next()) return;
             Club club = getClubFromResultSet(rs);
 
-            deletePlayersForClubUpit.setInt(1, club.getId());
-            deletePlayersForClubUpit.executeUpdate();
+            deletePlayersForClubQuery.setInt(1, club.getId());
+            deletePlayersForClubQuery.executeUpdate();
 
-            deleteClubUpit.setString(1, club.getName());
-            deleteClubUpit.executeUpdate();
+            deleteClubQuery.setString(1, club.getName());
+            deleteClubQuery.executeUpdate();
         } catch (SQLException e) {
             e.getMessage();
         }
@@ -285,26 +270,25 @@ public final class LeagueDAO {
 
     public void deleteFixture(String homeTeamName, String awayTeamName) {
         try {
-            findFixtureUpit.setString(1, homeTeamName);
-            findFixtureUpit.setString(2, awayTeamName);
-            ResultSet rs = findFixtureUpit.executeQuery();
+            findFixtureQuery.setString(1, homeTeamName);
+            findFixtureQuery.setString(2, awayTeamName);
+            ResultSet rs = findFixtureQuery.executeQuery();
             if (!rs.next()) return;
             Fixture fixture = getFixtureFromResultSet(rs);
 
-            deleteFixtureUpit.setString(1, fixture.getHomeTeam().getName());
-            deleteFixtureUpit.setString(2, fixture.getAwayTeam().getName());
-            deleteFixtureUpit.executeUpdate();
+            deleteFixtureQuery.setString(1, fixture.getHomeTeam().getName());
+            deleteFixtureQuery.setString(2, fixture.getAwayTeam().getName());
+            deleteFixtureQuery.executeUpdate();
         }
         catch (SQLException e) {
             e.getMessage();
         }
     }
 
-   // lista svih igraca u ligi
     public List<Player> players() {
         ArrayList<Player> result = new ArrayList<>();
         try {
-            ResultSet rs = dajPlayersUpit.executeQuery();
+            ResultSet rs = getPlayersQuery.executeQuery();
             while (rs.next()) {
                 Club c = getClub(rs.getString(6));
                 Player player = getPlayerFromResultSet(rs, c);
@@ -316,12 +300,11 @@ public final class LeagueDAO {
         return result;
     }
 
-    // lista svih igrača u klubu
     public List<Player> playersInClub(Club c) {
         ArrayList<Player> result = new ArrayList<>();
         try {
-            findPlayersForClubUpit.setString(1, c.getName());
-            ResultSet rs = findPlayersForClubUpit.executeQuery();
+            findPlayersForClubQuery.setString(1, c.getName());
+            ResultSet rs = findPlayersForClubQuery.executeQuery();
             while (rs.next()) {
                 Player player = getPlayerFromResultSet(rs, c);
                 result.add(player);
@@ -331,18 +314,6 @@ public final class LeagueDAO {
             e.getMessage();
         }
         return result;
-    }
-
-    public Club clubForPlayer(String name, String surname) {
-        List<Club> clubs = clubs();
-        for (Club club : clubs) {
-            for (int j = 0; j < playersInClub(club).size(); j++) {
-                if (playersInClub(club).get(j).getName().equals(name) && playersInClub(club).get(j).getSurname().equals(surname)) {
-                    return club;
-                }
-            }
-        }
-        return null;
     }
 
     public Club clubForPlayer(int id) {
@@ -357,11 +328,10 @@ public final class LeagueDAO {
         return null;
     }
 
-    // lista svih klubova u ligi
     public List<Club> clubs() {
         ArrayList<Club> result = new ArrayList<>();
         try {
-            ResultSet rs = dajClubsUpit.executeQuery();
+            ResultSet rs = getClubsQuery.executeQuery();
             while (rs.next()) {
                 Club club = getClubFromResultSet(rs);
                 result.add(club);
@@ -375,7 +345,7 @@ public final class LeagueDAO {
     public List<Fixture> fixtures() {
         ArrayList<Fixture> result = new ArrayList<>();
         try {
-            ResultSet rs = dajFixturesUpit.executeQuery();
+            ResultSet rs = getFixturesQuery.executeQuery();
             while (rs.next()) {
                 Fixture fixture = getFixtureFromResultSet(rs);
                 result.add(fixture);
@@ -393,7 +363,7 @@ public final class LeagueDAO {
     public List<Result> results() {
         ArrayList<Result> result = new ArrayList<>();
         try {
-            ResultSet rs = dajResultsUpit.executeQuery();
+            ResultSet rs = getResultsQuery.executeQuery();
             while (rs.next()) {
                 Result res = getResultFromResultSet(rs);
                 result.add(res);
@@ -414,7 +384,7 @@ public final class LeagueDAO {
     public List<Goal> goals() {
         ArrayList<Goal> result = new ArrayList<>();
         try {
-            ResultSet rs = dajGoalsUpit.executeQuery();
+            ResultSet rs = getGoalsQuery.executeQuery();
             while (rs.next()) {
                 Goal goal = getGoalFromResultSet(rs);
                 result.add(goal);
@@ -435,7 +405,7 @@ public final class LeagueDAO {
     public List<Stats> stats() {
         ArrayList<Stats> result = new ArrayList<>();
         try {
-            ResultSet rs = dajStatsUpit.executeQuery();
+            ResultSet rs = getStatsQuery.executeQuery();
             while (rs.next()) {
                 Stats stat = getStatFromResultSet(rs);
                 result.add(stat);
@@ -456,7 +426,7 @@ public final class LeagueDAO {
 
     public void createStats() {
         try {
-            deleteAllStatUpit.executeUpdate();
+            deleteAllStatQuery.executeUpdate();
             for (int i=0; i<players().size(); i++) addStat(players().get(i).getId());
         }
         catch (SQLException e) {
@@ -466,10 +436,10 @@ public final class LeagueDAO {
 
     public void addStat(int id) {
         try {
-            addStatUpit.setInt(1, id);
-            addStatUpit.setInt(2, 0);
-            addStatUpit.setInt(3, 0);
-            addStatUpit.executeUpdate();
+            addStatQuery.setInt(1, id);
+            addStatQuery.setInt(2, 0);
+            addStatQuery.setInt(3, 0);
+            addStatQuery.executeUpdate();
         }
         catch (SQLException e) {
             e.getMessage();
@@ -478,51 +448,33 @@ public final class LeagueDAO {
 
     public void addPlayer(Player player) {
         try {
-            ResultSet rs = setIdForPlayerUpit.executeQuery();
+            ResultSet rs = setIdForPlayerQuery.executeQuery();
             int id = 1;
             if (rs.next()) {
                 id = rs.getInt(1);
             }
-
-            // poredati fino parametre
-            addPlayerUpit.setInt(1, id);
-            addPlayerUpit.setString(2, player.getName());
-            addPlayerUpit.setString(3, player.getSurname());
-            addPlayerUpit.setObject(4, player.getBirth());
-            addPlayerUpit.setString(5, player.getNationality());
-            addPlayerUpit.setString(6, player.getClub().getName());
-            addPlayerUpit.setString(7, player.getClass().getSimpleName());
-            addPlayerUpit.executeUpdate();
+            addPlayerQuery.setInt(1, id);
+            addPlayerQuery.setString(2, player.getName());
+            addPlayerQuery.setString(3, player.getSurname());
+            addPlayerQuery.setObject(4, player.getBirth());
+            addPlayerQuery.setString(5, player.getNationality());
+            addPlayerQuery.setString(6, player.getClub().getName());
+            addPlayerQuery.setString(7, player.getClass().getSimpleName());
+            addPlayerQuery.executeUpdate();
         } catch (SQLException e) {
             e.getMessage();
         }
     }
 
-    public int setIdForClub () {
-        try {
-            ResultSet rs = setIdForClubUpit.executeQuery();
-            int id = 1;
-            if (rs.next()) {
-                id = rs.getInt(1);
-            }
-            return id;
-        }
-        catch (SQLException e) {
-            e.getMessage();
-            return 0;
-        }
-    }
-
     public void addClub(Club club) {
         try {
-            // poredati fino parametre
-            addClubUpit.setString(1, club.getName());
-            addClubUpit.setString(2, club.getNickname());
-            addClubUpit.setString(3, club.getStadium());
-            addClubUpit.setString(4, club.getMascot());
-            addClubUpit.setString(5, club.getManager());
-            if (club.getCaptain()!=null) addClubUpit.setInt(6, club.getCaptain().getId());
-            addClubUpit.executeUpdate();
+            addClubQuery.setString(1, club.getName());
+            addClubQuery.setString(2, club.getNickname());
+            addClubQuery.setString(3, club.getStadium());
+            addClubQuery.setString(4, club.getMascot());
+            addClubQuery.setString(5, club.getManager());
+            if (club.getCaptain()!=null) addClubQuery.setInt(6, club.getCaptain().getId());
+            addClubQuery.executeUpdate();
 
         } catch (SQLException e) {
             e.getMessage();
@@ -531,9 +483,9 @@ public final class LeagueDAO {
 
     public void addFixture(Fixture fixture) {
         try {
-            addFixtureUpit.setString(1, fixture.getHomeTeam().getName());
-            addFixtureUpit.setString(2, fixture.getAwayTeam().getName());
-            addFixtureUpit.executeUpdate();
+            addFixtureQuery.setString(1, fixture.getHomeTeam().getName());
+            addFixtureQuery.setString(2, fixture.getAwayTeam().getName());
+            addFixtureQuery.executeUpdate();
         }
         catch (SQLException e) {
             e.getMessage();
@@ -542,17 +494,17 @@ public final class LeagueDAO {
 
     public void addResult(Result result) {
         try{
-            ResultSet rs = setIdForResultUpit.executeQuery();
+            ResultSet rs = setIdForResultQuery.executeQuery();
             int id = 1;
             if (rs.next()) {
                 id = rs.getInt(1);
             }
-            addResultUpit.setInt(1, id);
-            addResultUpit.setString(2, result.getHomeTeam().getName());
-            addResultUpit.setString(3, result.getAwayTeam().getName());
-            addResultUpit.setInt(4, result.getHomeTeamScore());
-            addResultUpit.setInt(5, result.getAwayTeamScore());
-            addResultUpit.executeUpdate();
+            addResultQuery.setInt(1, id);
+            addResultQuery.setString(2, result.getHomeTeam().getName());
+            addResultQuery.setString(3, result.getAwayTeam().getName());
+            addResultQuery.setInt(4, result.getHomeTeamScore());
+            addResultQuery.setInt(5, result.getAwayTeamScore());
+            addResultQuery.executeUpdate();
         }
         catch(SQLException e) {
             e.getMessage();
@@ -561,44 +513,29 @@ public final class LeagueDAO {
 
     public void addGoal (Goal goal) {
         try {
-            addGoalUpit.setInt(1, goal.getScorer().getId());
-             if (goal.getAssistent()!=null) addGoalUpit.setInt(2, goal.getAssistent().getId());
-            addGoalUpit.setInt(3, goal.getMinute());
-            addGoalUpit.setString(4, goal.getGoalType().name());
-            addGoalUpit.setString(5, goal.getGoalSituation().name());
-            addGoalUpit.setString(6, goal.getGoalDistance().name());
-            addGoalUpit.setString(7, goal.getScorer().getClub().getName());
-            addGoalUpit.setInt(8, goal.getResult().getId());
-            addGoalUpit.executeUpdate();
+            addGoalQuery.setInt(1, goal.getScorer().getId());
+             if (goal.getAssistent()!=null) addGoalQuery.setInt(2, goal.getAssistent().getId());
+            addGoalQuery.setInt(3, goal.getMinute());
+            addGoalQuery.setString(4, goal.getGoalType().name());
+            addGoalQuery.setString(5, goal.getGoalSituation().name());
+            addGoalQuery.setString(6, goal.getGoalDistance().name());
+            addGoalQuery.setString(7, goal.getScorer().getClub().getName());
+            addGoalQuery.setInt(8, goal.getResult().getId());
+            addGoalQuery.executeUpdate();
         }
         catch (SQLException e) {
             e.getMessage();
         }
     }
 
-    public void editPlayer(Player player) {
-        try {
-            // poredati fino parametre
-            editPlayerUpit.setString(1, player.getName());
-            editPlayerUpit.setString(2, player.getSurname());
-            editPlayerUpit.setString(3, player.getBirth().toString());
-            editPlayerUpit.setString(4, player.getNationality());
-            editPlayerUpit.setString(5, player.getClub().getName());
-            editPlayerUpit.executeUpdate();
-        } catch (SQLException e) {
-            e.getMessage();
-        }
-    }
-
     public void editClub(Club club) {
         try {
-            // poredati fino parametre
-            editClubUpit.setString(1, club.getNickname());
-            editClubUpit.setString(2, club.getStadium());
-            editClubUpit.setString(3, club.getMascot());
-            editClubUpit.setString(4, club.getManager());
-            if (club.getCaptain()!=null) editClubUpit.setInt(5, club.getCaptain().getId());
-            editClubUpit.executeUpdate();
+            editClubQuery.setString(1, club.getNickname());
+            editClubQuery.setString(2, club.getStadium());
+            editClubQuery.setString(3, club.getMascot());
+            editClubQuery.setString(4, club.getManager());
+            if (club.getCaptain()!=null) editClubQuery.setInt(5, club.getCaptain().getId());
+            editClubQuery.executeUpdate();
         } catch (SQLException e) {
             e.getMessage();
         }
@@ -606,10 +543,10 @@ public final class LeagueDAO {
 
     public void editStat(Stats stat) {
         try {
-            editStatUpit.setInt(1, stat.getAppearances());
-            editStatUpit.setInt(2, stat.getCleanSheets());
-            editStatUpit.setInt(3, stat.getId());
-            editStatUpit.executeUpdate();
+            editStatQuery.setInt(1, stat.getAppearances());
+            editStatQuery.setInt(2, stat.getCleanSheets());
+            editStatQuery.setInt(3, stat.getId());
+            editStatQuery.executeUpdate();
         }
         catch (SQLException e) {
             e.getMessage();
@@ -618,8 +555,8 @@ public final class LeagueDAO {
 
     public Club findClub(String clubName) {
         try {
-            findClubUpit.setString(1, clubName);
-            ResultSet rs = findClubUpit.executeQuery();
+            findClubQuery.setString(1, clubName);
+            ResultSet rs = findClubQuery.executeQuery();
             if (!rs.next()) return null;
             return getClubFromResultSet(rs);
         } catch (SQLException e) {
@@ -630,8 +567,8 @@ public final class LeagueDAO {
 
     public Stats findStat(int id) {
         try {
-            findStatUpit.setInt(1, id);
-            ResultSet rs = findStatUpit.executeQuery();
+            findStatQuery.setInt(1, id);
+            ResultSet rs = findStatQuery.executeQuery();
             if (!rs.next()) return null;
             return getStatFromResultSet(rs);
         }
@@ -643,9 +580,9 @@ public final class LeagueDAO {
 
     public Fixture findFixture(String homeTeam, String awayTeam) {
         try {
-            findFixtureUpit.setString(1, homeTeam);
-            findFixtureUpit.setString(2, awayTeam);
-            ResultSet rs = findFixtureUpit.executeQuery();
+            findFixtureQuery.setString(1, homeTeam);
+            findFixtureQuery.setString(2, awayTeam);
+            ResultSet rs = findFixtureQuery.executeQuery();
             if (!rs.next()) return null;
             return getFixtureFromResultSet(rs);
         } catch (SQLException e) {
@@ -656,8 +593,8 @@ public final class LeagueDAO {
 
     public Player findPlayer(int id) {
         try {
-            findPlayerUpit.setInt(1, id);
-            ResultSet rs = findPlayerUpit.executeQuery();
+            findPlayerQuery.setInt(1, id);
+            ResultSet rs = findPlayerQuery.executeQuery();
             if (!rs.next()) return null;
             Club c = clubForPlayer(id);
             return getPlayerFromResultSet(rs, c);
@@ -669,8 +606,8 @@ public final class LeagueDAO {
 
     public void deletePlayer(Player player) {
         try {
-            deletePlayerUpit.setInt(1, player.getId());
-            deletePlayerUpit.executeUpdate();
+            deletePlayerQuery.setInt(1, player.getId());
+            deletePlayerQuery.executeUpdate();
         } catch (SQLException e) {
             e.getMessage();
         }
@@ -678,7 +615,7 @@ public final class LeagueDAO {
 
     public void deleteAllResults() {
         try {
-            deleteAllResultsUpit.executeUpdate();
+            deleteAllResultsQuery.executeUpdate();
         } catch (SQLException e) {
             e.getMessage();
         }
@@ -686,7 +623,7 @@ public final class LeagueDAO {
 
     public void deleteAllGoals() {
         try {
-            deleteAllGoalsUpit.executeUpdate();
+            deleteAllGoalsQuery.executeUpdate();
         } catch (SQLException e) {
             e.getMessage();
         }
@@ -694,7 +631,7 @@ public final class LeagueDAO {
 
     public void deleteAllStats() {
         try {
-            deleteAllStatUpit.executeUpdate();
+            deleteAllStatQuery.executeUpdate();
         } catch (SQLException e) {
             e.getMessage();
         }
@@ -702,7 +639,7 @@ public final class LeagueDAO {
 
     public void deleteAllPlayers() {
         try {
-            deleteAllPlayersUpit.executeUpdate();
+            deleteAllPlayersQuery.executeUpdate();
         } catch (SQLException e) {
             e.getMessage();
         }
@@ -710,7 +647,7 @@ public final class LeagueDAO {
 
     public void deleteAllClubs() {
         try {
-            deleteAllClubsUpit.executeUpdate();
+            deleteAllClubsQuery.executeUpdate();
         } catch (SQLException e) {
             e.getMessage();
         }
@@ -733,14 +670,14 @@ public final class LeagueDAO {
     private void regenerisiBazu() {
         try {
             Scanner input = new Scanner(new FileInputStream("league.db.sql"));
-            String sqlUpit = "";
+            String sqlQuery = "";
             while (input.hasNext()) {
-                sqlUpit += input.nextLine();
-                if ( sqlUpit.length() > 1 && sqlUpit.charAt( sqlUpit.length()-1 ) == ';') {
+                sqlQuery += input.nextLine();
+                if ( sqlQuery.length() > 1 && sqlQuery.charAt( sqlQuery.length()-1 ) == ';') {
                     try {
                         Statement stmt = conn.createStatement();
-                        stmt.execute(sqlUpit);
-                        sqlUpit = "";
+                        stmt.execute(sqlQuery);
+                        sqlQuery = "";
                     } catch (SQLException e) {
                         e.getMessage();
                     }

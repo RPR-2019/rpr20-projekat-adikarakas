@@ -89,85 +89,72 @@ public class StatsController {
 
     @FXML
     public void initialize() {
-
-        // golovi
         tableColumnGoalsRank.setCellValueFactory(new PropertyValueFactory<>("rank"));
         tableColumnGoalsName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tableColumnGoalsClub.setCellValueFactory(new PropertyValueFactory<>("club"));
         tableColumnGoalsStat.setCellValueFactory(new PropertyValueFactory<>("stat"));
         tableViewGoals.setItems(initializeGoals());
 
-        // asistencije
         tableColumnAssistsRank.setCellValueFactory(new PropertyValueFactory<>("rank"));
         tableColumnAssistsName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tableColumnAssistsClub.setCellValueFactory(new PropertyValueFactory<>("club"));
         tableColumnAssistsStat.setCellValueFactory(new PropertyValueFactory<>("stat"));
         tableViewAssists.setItems(initializeAssists());
 
-        // golovi iz sesnaesterca
         tableColumnInsideRank.setCellValueFactory(new PropertyValueFactory<>("rank"));
         tableColumnInsideName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tableColumnInsideClub.setCellValueFactory(new PropertyValueFactory<>("club"));
         tableColumnInsideStat.setCellValueFactory(new PropertyValueFactory<>("stat"));
         tableViewInside.setItems(initializeDistance(GoalDistance.INSIDEBOX));
 
-        // goals outside box
         tableColumnOutsideRank.setCellValueFactory(new PropertyValueFactory<>("rank"));
         tableColumnOutsideName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tableColumnOutsideClub.setCellValueFactory(new PropertyValueFactory<>("club"));
         tableColumnOutsideStat.setCellValueFactory(new PropertyValueFactory<>("stat"));
         tableViewOutside.setItems(initializeDistance(GoalDistance.OUTSIDEBOX));
 
-        // goals with right foot
         tableColumnRightRank.setCellValueFactory(new PropertyValueFactory<>("rank"));
         tableColumnRightName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tableColumnRightClub.setCellValueFactory(new PropertyValueFactory<>("club"));
         tableColumnRightStat.setCellValueFactory(new PropertyValueFactory<>("stat"));
         tableViewRight.setItems(initializeType(GoalType.RIGHTFOOT));
 
-        // goals with left foot
         tableColumnLeftRank.setCellValueFactory(new PropertyValueFactory<>("rank"));
         tableColumnLeftName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tableColumnLeftClub.setCellValueFactory(new PropertyValueFactory<>("club"));
         tableColumnLeftStat.setCellValueFactory(new PropertyValueFactory<>("stat"));
         tableViewLeft.setItems(initializeType(GoalType.LEFTFOOT));
 
-        // goals with head
         tableColumnHeadRank.setCellValueFactory(new PropertyValueFactory<>("rank"));
         tableColumnHeadName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tableColumnHeadClub.setCellValueFactory(new PropertyValueFactory<>("club"));
         tableColumnHeadStat.setCellValueFactory(new PropertyValueFactory<>("stat"));
         tableViewHead.setItems(initializeType(GoalType.HEADER));
 
-        // goals from penalty spot
         tableColumnPenaltiesRank.setCellValueFactory(new PropertyValueFactory<>("rank"));
         tableColumnPenaltiesName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tableColumnPenaltiesClub.setCellValueFactory(new PropertyValueFactory<>("club"));
         tableColumnPenaltiesStat.setCellValueFactory(new PropertyValueFactory<>("stat"));
         tableViewPenalties.setItems(initializeSituation(GoalSituation.PENALTY));
 
-        // goals direct from free kick
         tableColumnFreeKicksRank.setCellValueFactory(new PropertyValueFactory<>("rank"));
         tableColumnFreeKicksName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tableColumnFreeKicksClub.setCellValueFactory(new PropertyValueFactory<>("club"));
         tableColumnFreeKicksStat.setCellValueFactory(new PropertyValueFactory<>("stat"));
         tableViewFreeKicks.setItems(initializeSituation(GoalSituation.FREEKICK));
 
-        // goals from open play
         tableColumnOpenRank.setCellValueFactory(new PropertyValueFactory<>("rank"));
         tableColumnOpenName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tableColumnOpenClub.setCellValueFactory(new PropertyValueFactory<>("club"));
         tableColumnOpenStat.setCellValueFactory(new PropertyValueFactory<>("stat"));
         tableViewOpen.setItems(initializeSituation(GoalSituation.OPENPLAY));
 
-        // appearances
         tableColumnAppearancesRank.setCellValueFactory(new PropertyValueFactory<>("rank"));
         tableColumnAppearancesName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tableColumnAppearancesClub.setCellValueFactory(new PropertyValueFactory<>("club"));
         tableColumnAppearancesStat.setCellValueFactory(new PropertyValueFactory<>("stat"));
         tableViewAppearances.setItems(initializeAppearances());
 
-        // clean sheets
         tableColumnCleanSheetsRank.setCellValueFactory(new PropertyValueFactory<>("rank"));
         tableColumnCleanSheetsName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tableColumnCleanSheetsClub.setCellValueFactory(new PropertyValueFactory<>("club"));

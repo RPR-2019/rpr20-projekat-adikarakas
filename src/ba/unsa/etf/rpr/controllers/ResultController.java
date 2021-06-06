@@ -35,8 +35,8 @@ public class ResultController {
         if (this.r != null) {
             homeTeamName.setText(this.homeClub.getName());
             awayTeamName.setText(this.awayClub.getName());
-            homeTeamGoals.setItems(dao.metodaDomacin(this.r));
-            awayTeamGoals.setItems(dao.metodaGost(this.r));
+            homeTeamGoals.setItems(dao.homeTeamGoalsCollecting(this.r));
+            awayTeamGoals.setItems(dao.awayTeamGoalsCollecting(this.r));
             homeTeamScore.setText(String.valueOf(homeTeamGoals.getItems().size()));
             awayTeamScore.setText(String.valueOf(awayTeamGoals.getItems().size()));
         }

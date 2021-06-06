@@ -50,6 +50,7 @@ public class ClubController {
                 ObservableList<Player> players = FXCollections.observableArrayList();
                 players.addAll(dao.playersInClub(this.currentClub));
                 captainChoice.setItems(players);
+                captainChoice.getItems().add(null);
                 playersLv.setItems(players);
                 playersLv.refresh();
             }

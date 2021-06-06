@@ -15,8 +15,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
+import java.util.*;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
@@ -143,6 +142,7 @@ public class SeasonController {
             Stage stage = new Stage();
             stage.setMinHeight(150);
             stage.setMinWidth(400);
+            stage.setResizable(false);
             stage.setTitle("Report");
             stage.setScene(scene);
             stage.show();
@@ -184,6 +184,23 @@ public class SeasonController {
 
             Stage stage2 = (Stage) finishButton.getScene().getWindow();
             stage2.close();
+        }
+    }
+
+    public void setLanguage() {
+        List<String> choices = new ArrayList<>();
+        choices.add("Bosanski");
+        choices.add("English");
+
+        ChoiceDialog<String> dialog = new ChoiceDialog<>("English", choices);
+        dialog.setTitle("Choice Dialog");
+        dialog.setHeaderText("Look, a Choice Dialog");
+        dialog.setContentText("Choose your language:");
+
+        Optional<String> result = dialog.showAndWait();
+        if (result.isPresent()){
+            if (("Bosanski").equals(result.get())) Locale.setDefault(new Locale("bs", "BA"));
+            else if (("English").equals(result.get())) Locale.setDefault(new Locale("en", "EN"));
         }
     }
 }

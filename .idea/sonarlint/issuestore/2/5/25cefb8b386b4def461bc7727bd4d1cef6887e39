@@ -1,14 +1,14 @@
 
 8
 java:S5785."Use assertNotEquals instead.(ö£§?8˜Ó­Ÿ/
-:
-java:S5786
-"Remove this 'public' modifier.(ìà‡48ª˜Ÿ/
 ;
 java:S5786("Remove this 'public' modifier.(ËÒ²‡8à«Ÿ/
-@
-java:S5786"Remove this 'public' modifier.(úÆÅØşÿÿÿÿ8“âŸ/
 6
 java:S5785/"Use assertEquals instead.(ºÖÇá8üì´Ÿ/
 ;
 java:S5786"Remove this 'public' modifier.(µãªİ8”…¦Ÿ/
+@
+java:S5786"Remove this 'public' modifier.(úÆÅØşÿÿÿÿ8“âŸ/
+:
+java:S5786
+"Remove this 'public' modifier.(ìà‡48ª˜Ÿ/

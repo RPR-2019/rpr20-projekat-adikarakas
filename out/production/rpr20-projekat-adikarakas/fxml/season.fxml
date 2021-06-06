@@ -45,6 +45,7 @@
                   <Button fx:id="seeReportButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#seeReport" prefHeight="26.0" prefWidth="118.0" text="%seeReport" />
                   <Button fx:id="statsButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#openStats" prefHeight="26.0" prefWidth="118.0" text="%stats"  />
                   <Button fx:id="finishButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#finish" prefHeight="26.0" prefWidth="118.0" text="%finishSeason" />
+                   <Button fx:id="languageButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#setLanguage" prefHeight="26.0" prefWidth="118.0" text="%setLanguage" />
                </children>
                <GridPane.margin>
                   <Insets />

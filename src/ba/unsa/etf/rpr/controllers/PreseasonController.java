@@ -90,21 +90,6 @@ public class PreseasonController {
         }
     }
 
-    public void addPlayerPressed () throws IOException {
-        ResourceBundle bundle = ResourceBundle.getBundle("Translation");
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/player.fxml"), bundle);
-        PlayerController ctrl = new PlayerController(clubsLv.getSelectionModel().getSelectedItem(), null);
-        fxmlLoader.setController(ctrl);
-        Scene scene = new Scene(fxmlLoader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
-        Stage stage = new Stage();
-        stage.setMinHeight(150);
-        stage.setMinWidth(400);
-        stage.setTitle("Player");
-        stage.setResizable(false);
-        stage.setScene(scene);
-        stage.show();
-    }
-
     public void startPressed () throws IOException {
         boolean start = true;
         if (dao.clubs().size()%2==1) {

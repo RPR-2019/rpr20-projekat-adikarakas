@@ -1,121 +1,121 @@
 
-}
-java:S11044"aMake tableColumnInsideClub a static final constant or non-public and provide accessors if needed.(ó‡³[8¿´Ùš”/
-‚
-java:S1104"`Make tableViewAppearances a static final constant or non-public and provide accessors if needed.(…®õÚûÿÿÿÿ8¬¡…©™/
-~
-java:S1104"\Make tableViewOutside a static final constant or non-public and provide accessors if needed.(íøĞéüÿÿÿÿ8µ¢Øš”/
-
-java:S1104D"_Make tableColumnHeadClub a static final constant or non-public and provide accessors if needed.(•æ½ëşÿÿÿÿ8¹€Úš”/
-
-java:S1104'"bMake tableColumnAssistsName a static final constant or non-public and provide accessors if needed.(Š—ö8öıÖš”/
-
-java:S1104J"dMake tableColumnFreeKicksRank a static final constant or non-public and provide accessors if needed.(ù€¡8Î”²Ø—/
-€
-java:S1104"^Make tableViewPenalties a static final constant or non-public and provide accessors if needed.(¢Ü†èûÿÿÿÿ8µ¢Øš”/
-
-java:S1104O"_Make tableColumnOpenName a static final constant or non-public and provide accessors if needed.(×’–âÿÿÿÿÿ8ÓÛ²Ø—/
-|
-java:S1104="`Make tableColumnRightStat a static final constant or non-public and provide accessors if needed.(¿ßÇY8¿´Ùš”/
-†
-java:S1104L"dMake tableColumnFreeKicksClub a static final constant or non-public and provide accessors if needed.(šı’şùÿÿÿÿ8ÓÛ²Ø—/
-ˆ
-java:S1104-"fMake tableColumnCleanSheetsStat a static final constant or non-public and provide accessors if needed.(«¨êüÿÿÿÿ8¿´Ùš”/
-|
-java:S1104:"`Make tableColumnRightRank a static final constant or non-public and provide accessors if needed.(ş†ç:8¿´Ùš”/
-{
-java:S1104"YMake tableViewHead a static final constant or non-public and provide accessors if needed.(†ÿÄ¸şÿÿÿÿ8µ¢Øš”/
-
-java:S1104>"_Make tableColumnLeftRank a static final constant or non-public and provide accessors if needed.(´òó´ûÿÿÿÿ8¿´Ùš”/
-†
-java:S1104K"dMake tableColumnFreeKicksName a static final constant or non-public and provide accessors if needed.(®å«©ÿÿÿÿÿ8ÓÃ²Ø—/
-}
-java:S1104#"`Make tableColumnGoalsName a static final constant or non-public and provide accessors if needed.(ùÿø¾8È­°Ø—/
-}
-java:S1104""`Make tableColumnGoalsRank a static final constant or non-public and provide accessors if needed.(÷­Ì8ƒŞœš”/
 
 java:S1104&"bMake tableColumnAssistsRank a static final constant or non-public and provide accessors if needed.(§ïĞé8öıÖš”/
-
-java:S1104("bMake tableColumnAssistsClub a static final constant or non-public and provide accessors if needed.(óíóğ8öıÖš”/
-|
-java:S1104"ZMake tableViewRight a static final constant or non-public and provide accessors if needed.(¶Å™ºúÿÿÿÿ8µ¢Øš”/
-ƒ
-java:S11041"fMake tableColumnAppearancesStat a static final constant or non-public and provide accessors if needed.(§ÿÉê8œæ…©™/
-
-java:S1104A"_Make tableColumnLeftStat a static final constant or non-public and provide accessors if needed.(ïªæŒûÿÿÿÿ8ş±Ø—/
-{
-java:S1104?"_Make tableColumnLeftName a static final constant or non-public and provide accessors if needed.(—™†t8¿´Ùš”/
-
-java:S1104E"_Make tableColumnHeadStat a static final constant or non-public and provide accessors if needed.(Ãõó›úÿÿÿÿ8¹€Úš”/
-„
-java:S11046"bMake tableColumnOutsideRank a static final constant or non-public and provide accessors if needed.(êƒûşÿÿÿÿ8¿´Ùš”/
-€
-java:S1104"^Make tableViewFreeKicks a static final constant or non-public and provide accessors if needed.(Æ”Ê‘ùÿÿÿÿ8µ¢Øš”/
 {
 java:S1104"YMake tableViewLeft a static final constant or non-public and provide accessors if needed.(öı½Çüÿÿÿÿ8µ¢Øš”/
+‚
+java:S1104%"`Make tableColumnGoalsStat a static final constant or non-public and provide accessors if needed.(±ëÜÁıÿÿÿÿ8È­°Ø—/
+}
+java:S1104"[Make tableViewInside a static final constant or non-public and provide accessors if needed.(–şœ­øÿÿÿÿ8µ¢Øš”/
+‚
+java:S11040"fMake tableColumnAppearancesClub a static final constant or non-public and provide accessors if needed.(À¤Ñ8œæ…©™/
+
+java:S1104C"_Make tableColumnHeadName a static final constant or non-public and provide accessors if needed.(£ä¸¦ÿÿÿÿÿ8¹€Úš”/
+}
+java:S1104""`Make tableColumnGoalsRank a static final constant or non-public and provide accessors if needed.(÷­Ì8ƒŞœš”/
+}
+java:S1104"`Make tableViewCleanSheets a static final constant or non-public and provide accessors if needed.(×ˆ“8µ¢Øš”/
+
+java:S1104O"_Make tableColumnOpenName a static final constant or non-public and provide accessors if needed.(×’–âÿÿÿÿÿ8ÓÛ²Ø—/
+ˆ
+java:S1104."fMake tableColumnAppearancesRank a static final constant or non-public and provide accessors if needed.(¼Áúÿÿÿÿ8œæ…©™/
 „
-java:S11047"bMake tableColumnOutsideName a static final constant or non-public and provide accessors if needed.(ÇÓüŞıÿÿÿÿ8¿´Ùš”/
+java:S1104)"bMake tableColumnAssistsStat a static final constant or non-public and provide accessors if needed.(²ö®±ÿÿÿÿÿ8öıÖš”/
 
 java:S1104G"dMake tableColumnPenaltiesName a static final constant or non-public and provide accessors if needed.(íÜ··8Î”²Ø—/
 v
 java:S1104 "YMake tableViewOpen a static final constant or non-public and provide accessors if needed.(—ÈÛ¬8µ¢Øš”/
-}
-java:S1104$"`Make tableColumnGoalsClub a static final constant or non-public and provide accessors if needed.(Şñ£ƒ8È­°Ø—/
+~
+java:S1104"\Make tableViewOutside a static final constant or non-public and provide accessors if needed.(íøĞéüÿÿÿÿ8µ¢Øš”/
+†
+java:S1104K"dMake tableColumnFreeKicksName a static final constant or non-public and provide accessors if needed.(®å«©ÿÿÿÿÿ8ÓÃ²Ø—/
 ˆ
-java:S1104."fMake tableColumnAppearancesRank a static final constant or non-public and provide accessors if needed.(¼Áúÿÿÿÿ8œæ…©™/
-
-java:S1104C"_Make tableColumnHeadName a static final constant or non-public and provide accessors if needed.(£ä¸¦ÿÿÿÿÿ8¹€Úš”/
-€
-java:S1104H"dMake tableColumnPenaltiesClub a static final constant or non-public and provide accessors if needed.(³¿¶8Î”²Ø—/
-
-java:S1104@"_Make tableColumnLeftClub a static final constant or non-public and provide accessors if needed.(øÉ˜ùÿÿÿÿ8ş¯áØ—/
+java:S1104*"fMake tableColumnCleanSheetsRank a static final constant or non-public and provide accessors if needed.(ñôåØûÿÿÿÿ8¿´Ùš”/
+}
+java:S11044"aMake tableColumnInsideClub a static final constant or non-public and provide accessors if needed.(ó‡³[8¿´Ùš”/
 ˆ
 java:S1104,"fMake tableColumnCleanSheetsClub a static final constant or non-public and provide accessors if needed.(ü¿Æùÿÿÿÿ8¿´Ùš”/
-‚
-java:S1104%"`Make tableColumnGoalsStat a static final constant or non-public and provide accessors if needed.(±ëÜÁıÿÿÿÿ8È­°Ø—/
 ~
-java:S11043"aMake tableColumnInsideName a static final constant or non-public and provide accessors if needed.(¸Í£­8¿´Ùš”/
+java:S1104"\Make tableViewAssists a static final constant or non-public and provide accessors if needed.(ÀÒ¢ªÿÿÿÿÿ8“İÖš”/
+‚
+java:S1104"`Make tableViewAppearances a static final constant or non-public and provide accessors if needed.(…®õÚûÿÿÿÿ8¬¡…©™/
+|
+java:S1104:"`Make tableColumnRightRank a static final constant or non-public and provide accessors if needed.(ş†ç:8¿´Ùš”/
+
+java:S1104N"_Make tableColumnOpenRank a static final constant or non-public and provide accessors if needed.(«ğ÷»úÿÿÿÿ8ÓÛ²Ø—/
+w
+java:S1104"ZMake tableViewGoals a static final constant or non-public and provide accessors if needed.(øÓ€8½»œš”/
 
 java:S1104Q"_Make tableColumnOpenStat a static final constant or non-public and provide accessors if needed.(úà€Üÿÿÿÿÿ8ÓÛ²Ø—/
 ƒ
 java:S1104+"fMake tableColumnCleanSheetsName a static final constant or non-public and provide accessors if needed.(‚šë“8¿´Ùš”/
-„
-java:S1104)"bMake tableColumnAssistsStat a static final constant or non-public and provide accessors if needed.(²ö®±ÿÿÿÿÿ8öıÖš”/
-}
-java:S1104;"`Make tableColumnRightName a static final constant or non-public and provide accessors if needed.(şõ´‡8¿´Ùš”/
+ƒ
+java:S11041"fMake tableColumnAppearancesStat a static final constant or non-public and provide accessors if needed.(§ÿÉê8œæ…©™/
 ~
-java:S1104"\Make tableViewAssists a static final constant or non-public and provide accessors if needed.(ÀÒ¢ªÿÿÿÿÿ8“İÖš”/
-}
-java:S1104<"`Make tableColumnRightClub a static final constant or non-public and provide accessors if needed.(İ²éê8¿´Ùš”/
+java:S11043"aMake tableColumnInsideName a static final constant or non-public and provide accessors if needed.(¸Í£­8¿´Ùš”/
+ƒ
+java:S1104/"fMake tableColumnAppearancesName a static final constant or non-public and provide accessors if needed.(øáˆ¤8œæ…©™/
+
+java:S1104J"dMake tableColumnFreeKicksRank a static final constant or non-public and provide accessors if needed.(ù€¡8Î”²Ø—/
 †
 java:S1104F"dMake tableColumnPenaltiesRank a static final constant or non-public and provide accessors if needed.(ø’¶ùÿÿÿÿ8Î”²Ø—/
+
+java:S1104M"dMake tableColumnFreeKicksStat a static final constant or non-public and provide accessors if needed.(Ûšê8ÓÛ²Ø—/
+}
+java:S1104<"`Make tableColumnRightClub a static final constant or non-public and provide accessors if needed.(İ²éê8¿´Ùš”/
+
+java:S1104@"_Make tableColumnLeftClub a static final constant or non-public and provide accessors if needed.(øÉ˜ùÿÿÿÿ8ş¯áØ—/
+
+java:S1104E"_Make tableColumnHeadStat a static final constant or non-public and provide accessors if needed.(Ãõó›úÿÿÿÿ8¹€Úš”/
+€
+java:S1104"^Make tableViewPenalties a static final constant or non-public and provide accessors if needed.(¢Ü†èûÿÿÿÿ8µ¢Øš”/
+
+java:S1104P"_Make tableColumnOpenClub a static final constant or non-public and provide accessors if needed.(Éš¯îşÿÿÿÿ8ÓÛ²Ø—/
+{
+java:S1104"YMake tableViewHead a static final constant or non-public and provide accessors if needed.(†ÿÄ¸şÿÿÿÿ8µ¢Øš”/
+}
+java:S1104#"`Make tableColumnGoalsName a static final constant or non-public and provide accessors if needed.(ùÿø¾8È­°Ø—/
 
-java:S11049"bMake tableColumnOutsideStat a static final constant or non-public and provide accessors if needed.(¼Èú×8¿´Ùš”/
+java:S1104'"bMake tableColumnAssistsName a static final constant or non-public and provide accessors if needed.(Š—ö8öıÖš”/
 ƒ
 java:S11045"aMake tableColumnInsideStat a static final constant or non-public and provide accessors if needed.(õ‰ÃÍıÿÿÿÿ8¿´Ùš”/
 
-java:S1104I"dMake tableColumnPenaltiesStat a static final constant or non-public and provide accessors if needed.(ë«É8Î”²Ø—/
-
-java:S1104N"_Make tableColumnOpenRank a static final constant or non-public and provide accessors if needed.(«ğ÷»úÿÿÿÿ8ÓÛ²Ø—/
-
-java:S1104P"_Make tableColumnOpenClub a static final constant or non-public and provide accessors if needed.(Éš¯îşÿÿÿÿ8ÓÛ²Ø—/
-}
-java:S1104"`Make tableViewCleanSheets a static final constant or non-public and provide accessors if needed.(×ˆ“8µ¢Øš”/
-
-java:S1104M"dMake tableColumnFreeKicksStat a static final constant or non-public and provide accessors if needed.(Ûšê8ÓÛ²Ø—/
-„
-java:S11048"bMake tableColumnOutsideClub a static final constant or non-public and provide accessors if needed.(•éœşüÿÿÿÿ8¿´Ùš”/
-ˆ
-java:S1104*"fMake tableColumnCleanSheetsRank a static final constant or non-public and provide accessors if needed.(ñôåØûÿÿÿÿ8¿´Ùš”/
-ƒ
-java:S1104/"fMake tableColumnAppearancesName a static final constant or non-public and provide accessors if needed.(øáˆ¤8œæ…©™/
-‚
-java:S11040"fMake tableColumnAppearancesClub a static final constant or non-public and provide accessors if needed.(À¤Ñ8œæ…©™/
-w
-java:S1104"ZMake tableViewGoals a static final constant or non-public and provide accessors if needed.(øÓ€8½»œš”/
-}
-java:S1104"[Make tableViewInside a static final constant or non-public and provide accessors if needed.(–şœ­øÿÿÿÿ8µ¢Øš”/
+java:S1104D"_Make tableColumnHeadClub a static final constant or non-public and provide accessors if needed.(•æ½ëşÿÿÿÿ8¹€Úš”/
 |
 java:S1104B"_Make tableColumnHeadRank a static final constant or non-public and provide accessors if needed.(•ùÑ8¹€Úš”/
+€
+java:S1104H"dMake tableColumnPenaltiesClub a static final constant or non-public and provide accessors if needed.(³¿¶8Î”²Ø—/
+
+java:S1104A"_Make tableColumnLeftStat a static final constant or non-public and provide accessors if needed.(ïªæŒûÿÿÿÿ8ş±Ø—/
+
+java:S1104>"_Make tableColumnLeftRank a static final constant or non-public and provide accessors if needed.(´òó´ûÿÿÿÿ8¿´Ùš”/
 ~
 java:S11042"aMake tableColumnInsideRank a static final constant or non-public and provide accessors if needed.(ïÊ–ş8¿´Ùš”/
+|
+java:S1104="`Make tableColumnRightStat a static final constant or non-public and provide accessors if needed.(¿ßÇY8¿´Ùš”/
+}
+java:S1104$"`Make tableColumnGoalsClub a static final constant or non-public and provide accessors if needed.(Şñ£ƒ8È­°Ø—/
+{
+java:S1104?"_Make tableColumnLeftName a static final constant or non-public and provide accessors if needed.(—™†t8¿´Ùš”/
+„
+java:S11046"bMake tableColumnOutsideRank a static final constant or non-public and provide accessors if needed.(êƒûşÿÿÿÿ8¿´Ùš”/
+†
+java:S1104L"dMake tableColumnFreeKicksClub a static final constant or non-public and provide accessors if needed.(šı’şùÿÿÿÿ8ÓÛ²Ø—/
+
+java:S1104I"dMake tableColumnPenaltiesStat a static final constant or non-public and provide accessors if needed.(ë«É8Î”²Ø—/
+
+java:S1104("bMake tableColumnAssistsClub a static final constant or non-public and provide accessors if needed.(óíóğ8öıÖš”/
+ˆ
+java:S1104-"fMake tableColumnCleanSheetsStat a static final constant or non-public and provide accessors if needed.(«¨êüÿÿÿÿ8¿´Ùš”/
+}
+java:S1104;"`Make tableColumnRightName a static final constant or non-public and provide accessors if needed.(şõ´‡8¿´Ùš”/
+„
+java:S11047"bMake tableColumnOutsideName a static final constant or non-public and provide accessors if needed.(ÇÓüŞıÿÿÿÿ8¿´Ùš”/
+
+java:S11049"bMake tableColumnOutsideStat a static final constant or non-public and provide accessors if needed.(¼Èú×8¿´Ùš”/
+|
+java:S1104"ZMake tableViewRight a static final constant or non-public and provide accessors if needed.(¶Å™ºúÿÿÿÿ8µ¢Øš”/
+„
+java:S11048"bMake tableColumnOutsideClub a static final constant or non-public and provide accessors if needed.(•éœşüÿÿÿÿ8¿´Ùš”/
+€
+java:S1104"^Make tableViewFreeKicks a static final constant or non-public and provide accessors if needed.(Æ”Ê‘ùÿÿÿÿ8µ¢Øš”/

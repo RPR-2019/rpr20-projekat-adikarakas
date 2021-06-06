@@ -1,21 +1,21 @@
 
-x
-java:S1104"[Make addGoalAwayTeam a static final constant or non-public and provide accessors if needed.(„”¨¿8…üÀ››/
 u
 java:S1104"XMake awayTeamName a static final constant or non-public and provide accessors if needed.(ó×€±8…üÀ››/
-{
-java:S1104"YMake awayTeamScore a static final constant or non-public and provide accessors if needed.(üÙñíÿÿÿÿÿ8…üÀ››/
 z
 java:S1104"XMake finishButton a static final constant or non-public and provide accessors if needed.(­û÷Áøÿÿÿÿ8…üÀ››/
 {
-java:S1104"YMake homeTeamGoals a static final constant or non-public and provide accessors if needed.(‹«íúÿÿÿÿ8…üÀ››/
-z
-java:S1104"XMake cancelButton a static final constant or non-public and provide accessors if needed.(•ÚŞãÿÿÿÿÿ8…üÀ››/
-u
-java:S1104"XMake homeTeamName a static final constant or non-public and provide accessors if needed.(Å°Æó8…üÀ››/
+java:S1104"YMake awayTeamGoals a static final constant or non-public and provide accessors if needed.(¥µ¼˜ÿÿÿÿÿ8…üÀ››/
 x
 java:S1104"[Make addGoalHomeTeam a static final constant or non-public and provide accessors if needed.(¼ŞÏó8…üÀ››/
+x
+java:S1104"[Make addGoalAwayTeam a static final constant or non-public and provide accessors if needed.(„”¨¿8…üÀ››/
+z
+java:S1104"XMake cancelButton a static final constant or non-public and provide accessors if needed.(•ÚŞãÿÿÿÿÿ8…üÀ››/
 {
-java:S1104"YMake awayTeamGoals a static final constant or non-public and provide accessors if needed.(¥µ¼˜ÿÿÿÿÿ8…üÀ››/
+java:S1104"YMake homeTeamGoals a static final constant or non-public and provide accessors if needed.(‹«íúÿÿÿÿ8…üÀ››/
+u
+java:S1104"XMake homeTeamName a static final constant or non-public and provide accessors if needed.(Å°Æó8…üÀ››/
 v
 java:S1104"YMake homeTeamScore a static final constant or non-public and provide accessors if needed.(ûµ°Í8…üÀ››/
+{
+java:S1104"YMake awayTeamScore a static final constant or non-public and provide accessors if needed.(üÙñíÿÿÿÿÿ8…üÀ››/

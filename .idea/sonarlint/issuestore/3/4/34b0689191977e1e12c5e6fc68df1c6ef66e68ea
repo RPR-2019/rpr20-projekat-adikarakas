@@ -1,29 +1,33 @@
 
 z
-java:S1104""XMake stadiumField a static final constant or non-public and provide accessors if needed.(¿ã®Ëşÿÿÿÿ8”ìµ×—/
-q
-java:S1104"TMake okButton a static final constant or non-public and provide accessors if needed.(Ûİª8”ìµ×—/
-w
-java:S1104"UMake nameField a static final constant or non-public and provide accessors if needed.(¾Àˆÿÿÿÿÿ8”ìµ×—/
-v
-java:S1104%"YMake captainChoice a static final constant or non-public and provide accessors if needed.(Œ»¦Ë8”ìµ×—/
-q
-java:S1104&"UMake playersLv a static final constant or non-public and provide accessors if needed.(³Û½48”ìµ×—/
-u
-java:S1104#"XMake managerField a static final constant or non-public and provide accessors if needed.(¾şËÅ8”ìµ×—/
+java:S1104#"XMake stadiumField a static final constant or non-public and provide accessors if needed.(¿ã®Ëşÿÿÿÿ8”ìµ×—/
 z
-java:S1104"XMake playersLabel a static final constant or non-public and provide accessors if needed.(ıô†Şûÿÿÿÿ8ĞÁ¶Ú˜/
+java:S1104"XMake cancelButton a static final constant or non-public and provide accessors if needed.(•ÚŞãÿÿÿÿÿ8”ìµ×—/
 Y
-java:S3655^"7Call "Optional#isPresent()" before accessing the value.(ŸªÍäùÿÿÿÿ8¬İİ˜/
-t
-java:S1104!"WMake mascotField a static final constant or non-public and provide accessors if needed.(Ë°ÕÛ8”ìµ×—/
-u
-java:S1104 "YMake nicknameField a static final constant or non-public and provide accessors if needed.(ÎŒïJ8”ìµ×—/
-z
-java:S1104"XMake cancelButton a static final constant or non-public and provide accessors if needed.(•ÚŞãÿÿÿÿÿ8”ìµ×—/
+java:S3655_"7Call "Optional#isPresent()" before accessing the value.(ŸªÍäùÿÿÿÿ8¬İİ˜/
 x
-java:S1104"[Make addPlayerButton a static final constant or non-public and provide accessors if needed.(À½„Ó8ĞÁ¶Ú˜/
-y
-java:S1104$"WMake colorPicker a static final constant or non-public and provide accessors if needed.(ğ•èŠüÿÿÿÿ8”ìµ×—/
+java:S1104"[Make addPlayerButton a static final constant or non-public and provide accessors if needed.(À½„Ó8ãç°ä/
+u
+java:S1104$"XMake managerField a static final constant or non-public and provide accessors if needed.(¾şËÅ8”ìµ×—/
+t
+java:S1104""WMake mascotField a static final constant or non-public and provide accessors if needed.(Ë°ÕÛ8”ìµ×—/
 €
-java:S1104"^Make removePlayerButton a static final constant or non-public and provide accessors if needed.(Ë¾¶½ûÿÿÿÿ8ĞÁ¶Ú˜/
+java:S1104"^Make removePlayerButton a static final constant or non-public and provide accessors if needed.(Ë¾¶½ûÿÿÿÿ8ãç°ä/
+
+java:S1186p"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(˜­Âî8³¯½ß/
+o
+java:S1104"RMake tbExit a static final constant or non-public and provide accessors if needed.(¡éÖ“8ûÊ¥ã/
+z
+java:S1104"XMake playersLabel a static final constant or non-public and provide accessors if needed.(ıô†Şûÿÿÿÿ8ĞÁ¶Ú˜/
+u
+java:S1104!"YMake nicknameField a static final constant or non-public and provide accessors if needed.(ÎŒïJ8”ìµ×—/
+v
+java:S1104&"YMake captainChoice a static final constant or non-public and provide accessors if needed.(Œ»¦Ë8”ìµ×—/
+w
+java:S1104 "UMake nameField a static final constant or non-public and provide accessors if needed.(¾Àˆÿÿÿÿÿ8”ìµ×—/
+y
+java:S1104%"WMake colorPicker a static final constant or non-public and provide accessors if needed.(ğ•èŠüÿÿÿÿ8”ìµ×—/
+q
+java:S1104'"UMake playersLv a static final constant or non-public and provide accessors if needed.(³Û½48”ìµ×—/
+q
+java:S1104"TMake okButton a static final constant or non-public and provide accessors if needed.(Ûİª8”ìµ×—/
