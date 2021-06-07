@@ -34,7 +34,7 @@ public class GoalController {
     public RadioButton openPlay = new RadioButton("Open play");
 
     public Button okButton;
-    public Button cancelButton;
+    public Button cancelGoalButton;
 
     public Spinner<Integer> minuteSpinner;
 
@@ -155,7 +155,7 @@ public class GoalController {
     }
 
     public void cancelPressed() {
-        Stage stage = (Stage) cancelButton.getScene().getWindow();
+        Stage stage = (Stage) cancelGoalButton.getScene().getWindow();
         stage.close();
     }
 }

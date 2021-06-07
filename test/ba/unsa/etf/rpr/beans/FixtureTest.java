@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class FixtureTest {
 
     @Test
-    public void constructor() {
+    void constructor() {
         Club c1 = new Club("Chelsea");
         Club c2 = new Club("Arsenal");
         Fixture f1 = new Fixture(c1, c2);
@@ -18,7 +18,7 @@ class FixtureTest {
     }
 
     @Test
-    public void stringTest() {
+    void stringTest() {
         Club c1 = new Club("Chelsea");
         Club c2 = new Club("Arsenal");
         Fixture f1 = new Fixture(c1, c2);
@@ -26,7 +26,7 @@ class FixtureTest {
     }
 
     @Test
-    public void getterAndSetter() {
+    void getterAndSetter() {
         Club c1 = new Club("Chelsea");
         Club c2 = new Club("Arsenal");
         Club c3 = new Club("Liverpool");
@@ -37,14 +37,14 @@ class FixtureTest {
     }
 
     @Test
-    public void equality() {
+    void equality() {
         Club c1 = new Club("Chelsea");
         Club c2 = new Club("Arsenal");
         Fixture f1 = new Fixture(c1, c2);
         Fixture f2 = new Fixture(c2, c1);
         Fixture f3 = new Fixture(c1, c2);
-        assertFalse(f1.equals(f2));
-        assertTrue(f1.equals(f3));
+        assertNotEquals(f1, f2);
+        assertEquals(f1, f3);
     }
 
 }

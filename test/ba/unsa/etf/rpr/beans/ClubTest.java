@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ClubTest {
 
     @Test
-    public void addingAndRemovingPlayers() {
+    void addingAndRemovingPlayers() {
         Club c = new Club("Chelsea");
         Goalkeeper gk = new Goalkeeper("Asmir", "Begović", LocalDate.parse("1987-03-27"), "Bosna i Hercegovina");
         Defender def = new Defender("Sead", "Kolašinac", LocalDate.parse("1995-03-11"), "Bosna i Hercegovina");
@@ -25,7 +25,7 @@ class ClubTest {
     }
 
     @Test
-    public void constructor() {
+    void constructor() {
         Club c = new Club("Chelsea");
         assertAll(
                 () -> assertEquals("Chelsea", c.toString()),
@@ -40,7 +40,7 @@ class ClubTest {
     }
 
     @Test
-    public void getterAndSetter() {
+    void getterAndSetter() {
         Club c = new Club("Chelsea");
         Goalkeeper gk = new Goalkeeper("Asmir", "Begović", LocalDate.parse("1987-03-27"), "Bosna i Hercegovina");
         c.setManager("Thomas Tuchel");

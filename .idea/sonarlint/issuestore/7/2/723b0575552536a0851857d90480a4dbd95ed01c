@@ -1,19 +1,19 @@
 
-j
-java:S2095µ"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ8—•Š€›/
-ƒ
-java:S1192I"aDefine a constant instead of duplicating this literal "SELECT * FROM clubs WHERE name=?" 3 times.(á’°ıÿÿÿÿ8‡ş©î/
-X
-java:S1141¥"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8”¨î/
-j
-java:S2095¦"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ8”¨î/
-E
-java:S2115D")Add password protection to this database.(ÔÀÕ8‡ş©î/
-M
-java:S10680"0Remove this unused "captainQuery" private field.(¸È“†8»ÖÇî/
-?
-java:S1643£"Use a StringBuilder instead.(ÄÂ¯šıÿÿÿÿ8”¨î/
-U
-java:S1068"3Remove this unused "editPlayerQuery" private field.(³ù©Áùÿÿÿÿ8½±Àî/
 W
 java:S1068""5Remove this unused "setIdForClubQuery" private field.(»’†¦ûÿÿÿÿ8éÆÁî/
+E
+java:S2115D")Add password protection to this database.(ÔÀÕ8‡ş©î/
+j
+java:S2095µ"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ8—•Š€›/
+X
+java:S1141¥"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8”¨î/
+ƒ
+java:S1192I"aDefine a constant instead of duplicating this literal "SELECT * FROM clubs WHERE name=?" 3 times.(á’°ıÿÿÿÿ8‡ş©î/
+?
+java:S1643£"Use a StringBuilder instead.(ÄÂ¯šıÿÿÿÿ8”¨î/
+j
+java:S2095¦"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ8”¨î/
+M
+java:S10680"0Remove this unused "captainQuery" private field.(¸È“†8»ÖÇî/
+U
+java:S1068"3Remove this unused "editPlayerQuery" private field.(³ù©Áùÿÿÿÿ8½±Àî/

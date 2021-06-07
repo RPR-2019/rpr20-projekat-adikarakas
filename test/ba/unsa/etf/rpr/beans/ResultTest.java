@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ResultTest {
 
     @Test
-    public void constructor() {
+    void constructor() {
         Club c1 = new Club("Chelsea");
         Club c2 = new Club("Arsenal");
         Result r = new Result(c1, c2, 1, 0);
@@ -20,7 +20,7 @@ class ResultTest {
     }
 
     @Test
-    public void output() {
+    void output() {
         Club c1 = new Club ("Chelsea");
         Club c2 = new Club ("Arsenal");
         Result r1 = new Result (c1, c2, 1, 0);
@@ -34,7 +34,7 @@ class ResultTest {
     }
 
     @Test
-    public void getterAndSetter() {
+    void getterAndSetter() {
         Club c1 = new Club("Chelsea");
         Club c2 = new Club("Liverpool");
         Club c3 = new Club("Arsenal");

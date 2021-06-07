@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class GoalTest {
 
     @Test
-    public void constructor() {
+    void constructor() {
         Goalkeeper gk = new Goalkeeper("Asmir", "Begović", LocalDate.parse("1987-07-03"), "Bosna i Hercegovina");
         Defender def = new Defender("Sead", "Kolašinac", LocalDate.parse("1995-03-11"), "Bosna i Hercegovina");
         Goal goal1 = new Goal(def, gk, 54, GoalType.LEFTFOOT, GoalSituation.OPENPLAY, GoalDistance.INSIDEBOX);
@@ -31,7 +31,7 @@ class GoalTest {
     }
 
     @Test
-    public void stringTest() {
+    void stringTest() {
         Goalkeeper gk = new Goalkeeper("Asmir", "Begović", LocalDate.parse("1987-07-03"), "Bosna i Hercegovina");
         Defender def = new Defender("Sead", "Kolašinac", LocalDate.parse("1995-03-11"), "Bosna i Hercegovina");
         Attacker att = new Attacker("Richarlison", "", LocalDate.parse("1997-07-07"), "Brazil");
@@ -46,7 +46,7 @@ class GoalTest {
     }
 
     @Test
-    public void getterAndSetter() {
+    void getterAndSetter() {
         Goalkeeper gk = new Goalkeeper("Asmir", "Begović", LocalDate.parse("1987-07-03"), "Bosna i Hercegovina");
         Defender def = new Defender("Sead", "Kolašinac", LocalDate.parse("1995-03-11"), "Bosna i Hercegovina");
         Midfielder mid = new Midfielder("", "Willian", LocalDate.parse("1989-05-02"), "Brazil");
@@ -57,10 +57,18 @@ class GoalTest {
         goal1.setGoalSituation(GoalSituation.PENALTY);
         goal1.setGoalDistance(GoalDistance.INSIDEBOX);
         goal1.setGoalType(GoalType.HEADER);
+        assertAll(
+                () -> assertEquals(mid, goal1.getScorer()),
+                () -> assertEquals(null, goal1.getAssistent()),
+                () -> assertEquals(85, goal1.getMinute()),
+                () -> assertEquals(GoalSituation.PENALTY, goal1.getGoalSituation()),
+                () -> assertEquals(GoalDistance.INSIDEBOX, goal1.getGoalDistance()),
+                () -> assertEquals(GoalType.HEADER, goal1.getGoalType())
+        );
     }
 
     @Test
-    public void exceptions() {
+    void exceptions() {
         Goalkeeper gk = new Goalkeeper("Asmir", "Begović", LocalDate.parse("1987-07-03"), "Bosna i Hercegovina");
         Defender def = new Defender("Sead", "Kolašinac", LocalDate.parse("1995-03-11"), "Bosna i Hercegovina");
         Midfielder mid = new Midfielder("", "Willian", LocalDate.parse("1989-05-02"), "Brazil");

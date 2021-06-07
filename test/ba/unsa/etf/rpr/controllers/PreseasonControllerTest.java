@@ -1,11 +1,14 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.beans.Club;
+import ba.unsa.etf.rpr.beans.Player;
 import ba.unsa.etf.rpr.other.LeagueDAO;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -49,7 +52,7 @@ class PreseasonControllerTest {
 
     @Test
     public void testListView(FxRobot robot) throws SQLException {
-        ListView listView = robot.lookup("#clubsLv").queryAs(ListView.class);
+        ListView<Club> listView = robot.lookup("#clubsLv").queryAs(ListView.class);
         assertEquals(4, listView.getItems().size());
         dao.vratiBazuNaDefault();
     }
@@ -83,12 +86,28 @@ class PreseasonControllerTest {
 
         boolean find = false;
         for(Club club : dao.clubs()) {
-            if (club.getName().equals("Southampton")) {
+            if (("Southampton").equals(club.getName())) {
                 find = true;
                 break;
             }
         }
         assertTrue(find);
+        dao.vratiBazuNaDefault();
+    }
+
+    @Test
+    void emptyClub(FxRobot robot) throws SQLException {
+        robot.clickOn("#addClubButton");
+        robot.lookup("#nameField").tryQuery().isPresent();
+        robot.clickOn("#okButton");
+        robot.lookup(".dialog-pane").tryQuery().isPresent();
+
+        DialogPane dialogPane = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
+        assertNotNull(dialogPane.lookupAll("Morate dati ime klubu"));
+        Button okButton = (Button) dialogPane.lookupButton(ButtonType.OK);
+        robot.clickOn(okButton);
+
+        robot.clickOn("#tbExit");
         dao.vratiBazuNaDefault();
     }
 
@@ -100,11 +119,6 @@ class PreseasonControllerTest {
 
         robot.clickOn("#addClubButton");
 
-        try {
-            Thread.sleep(200);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         robot.lookup(".dialog-pane").tryQuery().isPresent();
 
         DialogPane dialogPane = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
@@ -115,7 +129,7 @@ class PreseasonControllerTest {
     }
 
     @Test
-    public void startWithOddNumberOfClubs(FxRobot robot) throws SQLException {
+    void startWithOddNumberOfClubs(FxRobot robot) throws SQLException {
         robot.clickOn("Everton");
         robot.clickOn("#deleteClubButton");
 
@@ -135,8 +149,6 @@ class PreseasonControllerTest {
 
     @Test
     public void startWithInsufficientNumberOfClubs(FxRobot robot) throws SQLException {
-       // ListView listView = robot.lookup("#clubsLv").queryAs(ListView.class);
-
         robot.clickOn("Everton");
         robot.clickOn("#deleteClubButton");
         robot.lookup(".dialog-pane").tryQuery().isPresent();
@@ -152,6 +164,13 @@ class PreseasonControllerTest {
         robot.clickOn(okButton);
 
         robot.clickOn("Arsenal");
+        robot.clickOn("#deleteClubButton");
+        robot.lookup(".dialog-pane").tryQuery().isPresent();
+        dialogPane = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
+        okButton = (Button) dialogPane.lookupButton(ButtonType.OK);
+        robot.clickOn(okButton);
+
+        robot.clickOn("Liverpool");
         robot.clickOn("#deleteClubButton");
         robot.lookup(".dialog-pane").tryQuery().isPresent();
         dialogPane = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
@@ -182,12 +201,6 @@ class PreseasonControllerTest {
         Button okButton = (Button) dialogPane.lookupButton(ButtonType.OK);
         robot.clickOn(okButton);
 
-        try {
-            Thread.sleep(200);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         robot.clickOn("#okButton");
 
         robot.lookup("#addClubButton").tryQuery().isPresent();
@@ -201,7 +214,7 @@ class PreseasonControllerTest {
     }
 
     @Test
-    public void startWithoutFullSquadsByPositions (FxRobot robot) throws SQLException {
+    void startWithoutFullSquadsByPositions (FxRobot robot) throws SQLException {
         robot.clickOn("Chelsea");
         robot.clickOn("#editClubButton");
 
@@ -221,12 +234,6 @@ class PreseasonControllerTest {
         okButton = (Button) dialogPane.lookupButton(ButtonType.OK);
         robot.clickOn(okButton);
 
-        try {
-            Thread.sleep(200);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         robot.clickOn("#okButton");
 
         robot.lookup("#addClubButton").tryQuery().isPresent();
@@ -240,7 +247,7 @@ class PreseasonControllerTest {
     }
 
     @Test
-    public void startWithoutManager(FxRobot robot) throws SQLException {
+    void startWithoutManager(FxRobot robot) throws SQLException {
         robot.clickOn("Chelsea");
         robot.clickOn("#editClubButton");
         robot.lookup("#nameField").tryQuery().isPresent();
@@ -256,4 +263,137 @@ class PreseasonControllerTest {
         dao.vratiBazuNaDefault();
     }
 
+    @Test
+    void clubThatExists(FxRobot robot) throws SQLException {
+        robot.clickOn("#addClubButton");
+        robot.lookup("#nameField").tryQuery().isPresent();
+        robot.clickOn("#nameField");
+        robot.write("Chelsea");
+        robot.clickOn("#okButton");
+        DialogPane dialogPane = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
+        assertNotNull(dialogPane.lookupAll("Klub sa ovim imenom već postoji"));
+        Button okButton = (Button) dialogPane.lookupButton(ButtonType.OK);
+        robot.clickOn(okButton);
+        robot.clickOn("#cancelButton");
+        dao.vratiBazuNaDefault();
+    }
+
+    @Test
+    void addingPlayers(FxRobot robot) throws SQLException {
+        robot.clickOn("Chelsea");
+        robot.clickOn("#editClubButton");
+
+        robot.lookup("#nameField").tryQuery().isPresent();
+        robot.clickOn("#addPlayerButton");
+
+        robot.lookup("#surnameField").tryQuery().isPresent();
+        robot.clickOn("#saveButton");
+        DialogPane dialogPane = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
+        assertNotNull(dialogPane.lookupAll("Niste unijeli sve podatke za igrača"));
+        Button okButton = (Button) dialogPane.lookupButton(ButtonType.OK);
+        robot.clickOn(okButton);
+
+        robot.clickOn("#firstNameField");
+        robot.write("Wilfredo");
+        robot.clickOn("#surnameField");
+        robot.write("Caballero");
+        robot.clickOn("#choicePosition");
+        robot.clickOn("Goalkeeper");
+        robot.clickOn("#choiceNationality");
+        robot.clickOn("Argentina");
+        DatePicker dp = robot.lookup("#dateIdentity").queryAs(DatePicker.class);
+        robot.moveTo(dp);
+        robot.moveBy(70, 0);
+        robot.press(MouseButton.PRIMARY);
+        robot.release(MouseButton.PRIMARY);
+        robot.press(KeyCode.UP);
+        robot.release(KeyCode.UP);
+        robot.press(KeyCode.ENTER);
+        robot.release(KeyCode.ENTER);
+        robot.clickOn("#saveButton");
+
+        robot.lookup("#nameField").tryQuery().isPresent();
+        robot.clickOn("#addPlayerButton");
+
+        robot.lookup("#surnameField").tryQuery().isPresent();
+        robot.clickOn("#firstNameField");
+        robot.write("Emerson");
+        robot.clickOn("#surnameField");
+        robot.write("Palmieri");
+        robot.clickOn("#choicePosition");
+        robot.clickOn("Defender");
+        robot.clickOn("#choiceNationality");
+        robot.clickOn("Argentina");
+        dp = robot.lookup("#dateIdentity").queryAs(DatePicker.class);
+        robot.moveTo(dp);
+        robot.moveBy(70, 0);
+        robot.press(MouseButton.PRIMARY);
+        robot.release(MouseButton.PRIMARY);
+        robot.press(KeyCode.UP);
+        robot.release(KeyCode.UP);
+        robot.press(KeyCode.ENTER);
+        robot.release(KeyCode.ENTER);
+        robot.clickOn("#saveButton");
+
+
+        robot.lookup("#nameField").tryQuery().isPresent();
+        robot.clickOn("#addPlayerButton");
+
+        robot.lookup("#surnameField").tryQuery().isPresent();
+        robot.clickOn("#firstNameField");
+        robot.write("Billy");
+        robot.clickOn("#surnameField");
+        robot.write("Gilmour");
+        robot.clickOn("#choicePosition");
+        robot.clickOn("Midfielder");
+        robot.clickOn("#choiceNationality");
+        robot.clickOn("Argentina");
+        dp = robot.lookup("#dateIdentity").queryAs(DatePicker.class);
+        robot.moveTo(dp);
+        robot.moveBy(70, 0);
+        robot.press(MouseButton.PRIMARY);
+        robot.release(MouseButton.PRIMARY);
+        robot.press(KeyCode.UP);
+        robot.release(KeyCode.UP);
+        robot.press(KeyCode.ENTER);
+        robot.release(KeyCode.ENTER);
+        robot.clickOn("#saveButton");
+
+        robot.lookup("#nameField").tryQuery().isPresent();
+        robot.clickOn("#addPlayerButton");
+
+        robot.lookup("#surnameField").tryQuery().isPresent();
+        robot.clickOn("#cancelPlayerButton");
+
+
+        robot.lookup("#nameField").tryQuery().isPresent();
+        robot.clickOn("#addPlayerButton");
+
+        robot.lookup("#surnameField").tryQuery().isPresent();
+        robot.clickOn("#firstNameField");
+        robot.write("Callum");
+        robot.clickOn("#surnameField");
+        robot.write("Odoi");
+        robot.clickOn("#choicePosition");
+        robot.clickOn("Attacker");
+        robot.clickOn("#choiceNationality");
+        robot.clickOn("Argentina");
+        dp = robot.lookup("#dateIdentity").queryAs(DatePicker.class);
+        robot.moveTo(dp);
+        robot.moveBy(70, 0);
+        robot.press(MouseButton.PRIMARY);
+        robot.release(MouseButton.PRIMARY);
+        robot.press(KeyCode.UP);
+        robot.release(KeyCode.UP);
+        robot.press(KeyCode.ENTER);
+        robot.release(KeyCode.ENTER);
+        robot.clickOn("#saveButton");
+
+        robot.lookup("#nameField").tryQuery().isPresent();
+        ListView<Player> lv = robot.lookup("#playersLv").queryAs(ListView.class);
+        assertEquals(21, lv.getItems().size());
+        robot.clickOn("#cancelButton");
+
+        dao.vratiBazuNaDefault();
+    }
 }

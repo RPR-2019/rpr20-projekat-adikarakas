@@ -38,7 +38,7 @@ public class SeasonController {
     public Button addGameButton;
     public Button playGameButton;
     public Button seeReportButton;
-    public Button finishButton;
+    public Button finishSeasonButton;
     private LeagueDAO dao;
     ObservableList<ClubOnTable> clubsOnTable = FXCollections.observableArrayList();
     public Label statusBarLabel;
@@ -182,7 +182,7 @@ public class SeasonController {
             stage.setResizable(false);
             stage.show();
 
-            Stage stage2 = (Stage) finishButton.getScene().getWindow();
+            Stage stage2 = (Stage) finishSeasonButton.getScene().getWindow();
             stage2.close();
         }
     }

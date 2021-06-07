@@ -47,15 +47,14 @@ public class ClubController {
     public void initialize() {
         if (this.currentClub!=null) {
             if (!dao.playersInClub(this.currentClub).isEmpty()) {
+                ObservableList<Player> captains = FXCollections.observableArrayList(dao.playersInClub(this.currentClub));
                 ObservableList<Player> players = FXCollections.observableArrayList();
                 players.addAll(dao.playersInClub(this.currentClub));
-                captainChoice.setItems(players);
-                captainChoice.getItems().add(null);
                 playersLv.setItems(players);
                 playersLv.refresh();
+                captainChoice.setItems(captains);
+                captainChoice.getItems().add(null);
             }
-
-
             nameField.setText(this.currentClub.getName());
             nicknameField.setText(this.currentClub.getNickname());
             mascotField.setText(this.currentClub.getMascot());

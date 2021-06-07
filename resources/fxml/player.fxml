@@ -23,7 +23,7 @@
       <Label text="%surname" GridPane.rowIndex="1" />
       <Label text="%country" GridPane.rowIndex="3" />
       <Label text="%birthDate" GridPane.rowIndex="2" />
-      <TextField fx:id="nameField" GridPane.columnIndex="1" />
+      <TextField fx:id="firstNameField" GridPane.columnIndex="1" />
       <TextField fx:id="surnameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <DatePicker fx:id="dateIdentity" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       <ChoiceBox fx:id="choiceNationality" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
@@ -32,7 +32,7 @@
       <ButtonBar prefHeight="49.0" prefWidth="144.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
         <buttons>
           <Button fx:id="saveButton" defaultButton="true" mnemonicParsing="false" onAction="#savePressed" text="%save" />
-            <Button fx:id="cancelButton" cancelButton="true" mnemonicParsing="false" onAction="#cancelPressed" text="%cancel" />
+            <Button fx:id="cancelPlayerButton" cancelButton="true" mnemonicParsing="false" onAction="#cancelPressed" text="%cancel" />
         </buttons>
       </ButtonBar>
    </children>

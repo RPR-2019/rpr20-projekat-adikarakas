@@ -397,9 +397,16 @@ public final class LeagueDAO {
     }
 
     private Goal getGoalFromResultSet(ResultSet rs) throws SQLException {
-        Goal g = new Goal(getPlayer(rs.getInt(1), getClub(rs.getString(7))), getPlayer(rs.getInt(2), getClub(rs.getString(7))), rs.getInt(3), GoalType.valueOf(rs.getString(4)), GoalSituation.valueOf(rs.getString(5)), GoalDistance.valueOf(rs.getString(6)));
-        g.setResult(getResult(rs.getInt(8)));
-        return g;
+        if (rs.getObject(2)!=null) {
+            Goal g = new Goal(getPlayer(rs.getInt(1), getClub(rs.getString(7))), getPlayer(rs.getInt(2), getClub(rs.getString(7))), rs.getInt(3), GoalType.valueOf(rs.getString(4)), GoalSituation.valueOf(rs.getString(5)), GoalDistance.valueOf(rs.getString(6)));
+            g.setResult(getResult(rs.getInt(8)));
+            return g;
+        }
+        else {
+            Goal g = new Goal(getPlayer(rs.getInt(1), getClub(rs.getString(7))), rs.getInt(3), GoalType.valueOf(rs.getString(4)), GoalSituation.valueOf(rs.getString(5)), GoalDistance.valueOf(rs.getString(6)));
+            g.setResult(getResult(rs.getInt(8)));
+            return g;
+        }
     }
 
     public List<Stats> stats() {
@@ -514,7 +521,8 @@ public final class LeagueDAO {
     public void addGoal (Goal goal) {
         try {
             addGoalQuery.setInt(1, goal.getScorer().getId());
-             if (goal.getAssistent()!=null) addGoalQuery.setInt(2, goal.getAssistent().getId());
+            if (goal.getAssistent()!=null) addGoalQuery.setInt(2, goal.getAssistent().getId());
+            else addGoalQuery.setObject(2, null);
             addGoalQuery.setInt(3, goal.getMinute());
             addGoalQuery.setString(4, goal.getGoalType().name());
             addGoalQuery.setString(5, goal.getGoalSituation().name());

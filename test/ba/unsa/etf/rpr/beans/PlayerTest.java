@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PlayerTest {
 
     @Test
-    public void constructor() {
+    void constructor() {
         Goalkeeper gk = new Goalkeeper("Asmir", "Begović", LocalDate.parse("1987-07-03"), "Bosna i Hercegovina");
         assertAll(
                 () -> assertEquals( "Asmir", gk.getName()),
@@ -19,7 +19,7 @@ class PlayerTest {
     }
 
     @Test
-    public void position() {
+    void position() {
         Goalkeeper gk = new Goalkeeper("Asmir", "Begović", LocalDate.parse("1987-03-27"), "Bosna i Hercegovina");
         Defender def = new Defender("Sead", "Kolašinac", LocalDate.parse("1995-03-11"), "Bosna i Hercegovina");
         Midfielder mid = new Midfielder("Miralem", "Pjanić", LocalDate.parse("1991-04-24"), "Bosna i Hercegovina");
@@ -33,7 +33,7 @@ class PlayerTest {
     }
 
     @Test
-    public void getAndSet() {
+    void getAndSet() {
         Goalkeeper gk = new Goalkeeper("Asmir", "Begović", LocalDate.parse("1987-04-25"), "Bosna i Hercegovina");
         gk.setName("Joe");
         gk.setSurname("Hart");
@@ -48,13 +48,13 @@ class PlayerTest {
     }
 
     @Test
-    public void stringTest() {
+    void stringTest() {
         Goalkeeper gk = new Goalkeeper("Asmir", "Begović", LocalDate.parse("1987-04-25"), "Bosna i Hercegovina");
         assertEquals("Asmir Begović", gk.toString());
     }
 
     @Test
-    public void comparing() {
+    void comparing() {
         Goalkeeper gk1 = new Goalkeeper("Asmir", "Begović", LocalDate.parse("1987-04-25"), "Bosna i Hercegovina");
         Goalkeeper gk2 = new Goalkeeper("Asmir", "Begović", LocalDate.parse("1987-04-25"), "Bosna i Hercegovina");
         Goalkeeper gk3 = new Goalkeeper("Asmir", "Begović", LocalDate.parse("1987-04-25"), "Bosna i Hercegovina");
@@ -64,8 +64,8 @@ class PlayerTest {
         gk2.setClub(c1);
         gk3.setClub(c2);
         assertAll(
-                () -> assertTrue(gk1.equals(gk2)),
-                () -> assertFalse(gk2.equals(gk3))
+                () -> assertEquals(gk1, gk2),
+                () -> assertNotEquals(gk2, gk3)
         );
     }
 

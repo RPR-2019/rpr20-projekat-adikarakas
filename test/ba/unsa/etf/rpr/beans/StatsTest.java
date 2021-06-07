@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class StatsTest {
 
     @Test
-    public void constructor() {
+    void constructor() {
         Stats s = new Stats(1);
         assertAll(
                 () -> assertEquals(1, s.getId()),
@@ -17,7 +17,7 @@ class StatsTest {
     }
 
     @Test
-    public void getterAndSetter() {
+    void getterAndSetter() {
         Stats s = new Stats();
         s.setId(1);
         s.setAppearances(2);

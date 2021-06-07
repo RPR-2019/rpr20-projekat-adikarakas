@@ -107,32 +107,16 @@ Z
 *src/ba/unsa/etf/rpr/other/PrintReport.java,a\d\add709756825180934b6384e7d53730a21751c49
 e
 5out/production/rpr20-projekat-adikarakas/css/club.css,0\d\0da9b38b2ce7b2d9ab35ffbc47a16cb6ba986b03
-F
-resources/css/club.css,a\6\a6de362bc8e446b862c38f85e9812d54ef93126d
 i
 9out/production/rpr20-projekat-adikarakas/fxml/finish.fxml,1\3\138f73263654b67b9aeddea206a0f56671ce2af2
-J
-resources/fxml/finish.fxml,1\f\1f397317c854580e299c8cfb67a6502090f7f558
-P
- resources/fxml/fixtureAdder.fxml,a\f\af5ef79f3a84f6d917d349cd5e9b496640a0565a
-H
-resources/fxml/goal.fxml,f\6\f6c0052905962006a301cc6a1d805087f339a1cb
 =
 league.sqbpro,d\6\d68f4c2a8d2e7695f226e6dbf41e370d03c9cb5f
-I
-resources/fxml/match.fxml,0\6\06497087c3ed7e9b6ae1471bbf1ed6f15e88fb08
 m
 =.idea/libraries/net_sf_jasperreports_jasperreports_6_12_0.xml,b\8\b8aa46ac5895fd2551d80fd5cbd4b4fa4403a392
 i
 9out/production/rpr20-projekat-adikarakas/fxml/result.fxml,d\4\d457715784369866aa8996be0a366430382a74c9
-I
-resources/fxml/squad.fxml,6\a\6a7cd5ef525d5f04983b85fa1648956af0cdf00f
-I
-resources/fxml/stats.fxml,7\5\7531c7bf1ce933e5ad8283b0ce2f2e7b0636e961
 k
 ;out/production/rpr20-projekat-adikarakas/reports/team.jrxml,e\1\e1e599531b61673ab954bc4fb918a7aa8ac4988f
-L
-resources/reports/team.jrxml,9\6\9614f2d3693ee80ac77737b56b5de95768a1cf8d
 o
 ?out/production/rpr20-projekat-adikarakas/Translation.properties,0\2\0265b4b465becfadb489f43739b0f44ee6666a89
 u
@@ -143,3 +127,5 @@ u
 Eout/production/rpr20-projekat-adikarakas/Translation_en_EN.properties,4\e\4e2a84a9d6be1072d1101b8e558774f0c00c14c4
 V
 &resources/Translation_en_EN.properties,3\9\39ef735b3e291e2f34fa4f77d6af8024b8edd2ad
+m
+=test/ba/unsa/etf/rpr/controllers/PreseasonControllerTest.java,f\9\f96b385769be5fe790d2e69e9b5106368585eb8b

@@ -7,6 +7,7 @@ import ba.unsa.etf.rpr.other.LeagueDAO;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class ResultController {
     private Club homeClub;
@@ -16,9 +17,6 @@ public class ResultController {
     public ListView<Goal> homeTeamGoals = new ListView<>();
     public ListView<Goal> awayTeamGoals = new ListView<>();
     public Button cancelButton;
-    public Button finishButton;
-    public Button addGoalHomeTeam;
-    public Button addGoalAwayTeam;
     public TextField homeTeamName;
     public TextField awayTeamName;
     private LeagueDAO dao;
@@ -40,5 +38,10 @@ public class ResultController {
             homeTeamScore.setText(String.valueOf(homeTeamGoals.getItems().size()));
             awayTeamScore.setText(String.valueOf(awayTeamGoals.getItems().size()));
         }
+    }
+
+    public void cancelPressed() {
+        Stage stage = (Stage) cancelButton.getScene().getWindow();
+        stage.close();
     }
 }

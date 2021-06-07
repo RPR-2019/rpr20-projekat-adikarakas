@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PlayerStatsTest {
 
     @Test
-    public void constructor() {
+    void constructor() {
         Defender def = new Defender("Sead", "Kolašinac", LocalDate.parse("1995-03-11"), "Bosna i Hercegovina");
         Club c = new Club("Arsenal");
         PlayerStats ps = new PlayerStats(def, c, 2);
@@ -22,7 +22,7 @@ class PlayerStatsTest {
     }
 
     @Test
-    public void getterAndSetter() {
+    void getterAndSetter() {
         Defender def = new Defender("Sead", "Kolašinac", LocalDate.parse("1995-03-11"), "Bosna i Hercegovina");
         Club c = new Club("Arsenal");
         Defender def2 = new Defender("Siniša", "Saničanin", LocalDate.parse("1992-02-12"), "Bosna i Hercegovina");
