@@ -8,13 +8,13 @@ import ba.unsa.etf.rpr.other.LeagueDAO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
@@ -87,10 +87,10 @@ public class FinishController {
     }
 
     private Pair<Player, Integer> calculateGoldenGlove() {
-        int max=0;
         ArrayList<Player> players = new ArrayList<>(dao.players());
         ArrayList<Stats> stats = new ArrayList<>(dao.stats());
         Player player = players.get(0);
+        int max = stats.get(0).getCleanSheets();
         for (int i=0; i<stats.size(); i++) {
             if (stats.get(i).getCleanSheets()>max) {
                 max=stats.get(i).getCleanSheets();
@@ -100,48 +100,47 @@ public class FinishController {
         return new Pair<>(player, max);
     }
 
-    public void finishAndDelete() throws IOException {
-        dao.deleteAllResults();
-        dao.deleteAllGoals();
-        dao.deleteAllStats();
-        dao.deleteAllPlayers();
-        dao.deleteAllClubs();
-
-        ResourceBundle bundle = ResourceBundle.getBundle("Translation");
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/preseason.fxml"), bundle);
-        PreseasonController ctrl = new PreseasonController();
-        fxmlLoader.setController(ctrl);
-        Scene scene = new Scene(fxmlLoader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
-        Stage stage = new Stage();
-        stage.setMinHeight(150);
-        stage.setMinWidth(400);
-        stage.setTitle("Preseason");
-        stage.setScene(scene);
-        stage.show();
-
-        Stage stage2 = (Stage) finishAndDeleteButton.getScene().getWindow();
-        stage2.close();
-    }
-
     public void finish() throws IOException {
-        dao.deleteAllResults();
-        dao.deleteAllGoals();
-        dao.deleteAllStats();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setContentText("Do you want to delete all clubs?");
 
-        ResourceBundle bundle = ResourceBundle.getBundle("Translation");
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/preseason.fxml"), bundle);
-        PreseasonController ctrl = new PreseasonController();
-        fxmlLoader.setController(ctrl);
-        Scene scene = new Scene(fxmlLoader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
-        Stage stage = new Stage();
-        stage.setMinHeight(150);
-        stage.setMinWidth(400);
-        stage.setTitle("Preseason");
-        stage.setScene(scene);
-        stage.show();
+        ButtonType yes = new ButtonType("Yes");
+        ButtonType no = new ButtonType("No");
+        ButtonType cancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
 
-        Stage stage2 = (Stage) finishButton.getScene().getWindow();
-        stage2.close();
+        alert.getButtonTypes().setAll(yes, no, cancel);
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.get() == yes) {
+            dao.deleteAllResults();
+            dao.deleteAllGoals();
+            dao.deleteAllStats();
+            dao.deleteAllPlayers();
+            dao.deleteAllClubs();
+        }
+
+        else if (result.get() == no) {
+            dao.deleteAllResults();
+            dao.deleteAllGoals();
+            dao.deleteAllStats();
+        }
+
+        if (result.get() == yes || result.get() == no) {
+            ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/preseason.fxml"), bundle);
+            PreseasonController ctrl = new PreseasonController();
+            fxmlLoader.setController(ctrl);
+            Scene scene = new Scene(fxmlLoader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
+            Stage stage = new Stage();
+            stage.setMinHeight(150);
+            stage.setMinWidth(248);
+            stage.setTitle("Preseason");
+            stage.setScene(scene);
+            stage.show();
+
+            Stage stage2 = (Stage) finishButton.getScene().getWindow();
+            stage2.close();
+        }
     }
 
     public void cancel() {

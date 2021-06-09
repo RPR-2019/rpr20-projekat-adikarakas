@@ -43,7 +43,7 @@ class SeasonControllerTest {
 
     @BeforeEach
     public void resetujBazu() throws SQLException {
-        dao.vratiBazuNaDefault();
+        dao.resetBaseToDefault();
     }
 
     @Test
@@ -59,7 +59,7 @@ class SeasonControllerTest {
         robot.clickOn("#confirmButton");
         robot.lookup(".dialog-pane").tryQuery().isPresent();
         DialogPane dialogPane = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
-        assertNotNull(dialogPane.lookupAll("Timovi su isti ili par već postoji"));
+        assertNotNull(dialogPane.lookupAll("Clubs are the same or this fixture has been added before"));
         Button okButton = (Button) dialogPane.lookupButton(ButtonType.OK);
         robot.clickOn(okButton);
         robot.clickOn("#awayChoice");
@@ -82,7 +82,7 @@ class SeasonControllerTest {
         robot.release(KeyCode.ENTER);
         robot.clickOn("#confirmButton");
         dialogPane = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
-        assertNotNull(dialogPane.lookupAll("Timovi su isti ili par već postoji"));
+        assertNotNull(dialogPane.lookupAll("Clubs are the same or this fixture has been added before"));
         okButton = (Button) dialogPane.lookupButton(ButtonType.OK);
         robot.clickOn(okButton);
         robot.clickOn("#homeChoice");
@@ -100,7 +100,7 @@ class SeasonControllerTest {
         robot.clickOn("#addGameButton");
         robot.lookup("#homeChoice").tryQuery().isPresent();
         robot.clickOn("#cancelButton");
-        dao.vratiBazuNaDefault();
+        dao.resetBaseToDefault();
     }
 
     @Test
@@ -155,7 +155,7 @@ class SeasonControllerTest {
         assertEquals(0, Integer.parseInt(tf1.getText()));
         assertEquals(1, Integer.parseInt(tf2.getText()));
         robot.clickOn("#cancelButton");
-        dao.vratiBazuNaDefault();
+        dao.resetBaseToDefault();
     }
 
     @Test
@@ -188,20 +188,19 @@ class SeasonControllerTest {
         robot.release(KeyCode.ENTER);
         robot.clickOn("#okButton");
         DialogPane dialogPane = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
-        assertNotNull(dialogPane.lookupAll("Neki igrači se ponavljaju"));
+        assertNotNull(dialogPane.lookupAll("There are players selected at more than one position"));
         Button okButton = (Button) dialogPane.lookupButton(ButtonType.OK);
         robot.clickOn(okButton);
         robot.clickOn("#cancelButton");
-        dao.vratiBazuNaDefault();
+        dao.resetBaseToDefault();
     }
 
     @Test
     void finishBeforeFinish(FxRobot robot) {
         robot.clickOn("#finishSeasonButton");
         DialogPane dialogPane = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
-        assertNotNull(dialogPane.lookupAll("Sezona ne može biti gotova dok se ne odigraju sve utakmice."));
+        assertNotNull(dialogPane.lookupAll("You can't finish a season before all games have been played."));
         Button okButton = (Button) dialogPane.lookupButton(ButtonType.OK);
         robot.clickOn(okButton);
     }
-
 }

@@ -3,9 +3,9 @@ package ba.unsa.etf.rpr.other;
 import ba.unsa.etf.rpr.beans.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.paint.Color;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -26,12 +26,10 @@ public final class LeagueDAO {
     private PreparedStatement addFixtureQuery;
     private PreparedStatement findPlayersForClubQuery;
     private PreparedStatement editClubQuery;
-    private PreparedStatement editPlayerQuery;
     private PreparedStatement editStatQuery;
     private PreparedStatement addPlayerQuery;
     private PreparedStatement setIdForPlayerQuery;
     private PreparedStatement addClubQuery;
-    private PreparedStatement setIdForClubQuery;
     private PreparedStatement deletePlayersForClubQuery;
     private PreparedStatement deleteClubQuery;
     private PreparedStatement deletePlayerQuery;
@@ -40,18 +38,16 @@ public final class LeagueDAO {
     private PreparedStatement deleteAllPlayersQuery;
     private PreparedStatement deleteAllClubsQuery;
     private PreparedStatement findClubQuery;
-    private PreparedStatement findPlayerQuery;
     private PreparedStatement getClubsQuery;
     private PreparedStatement getPlayersQuery;
     private PreparedStatement getPlayerQuery;
-    private PreparedStatement getClubQuery;
-    private PreparedStatement captainQuery;
     private PreparedStatement deleteAllStatQuery;
     private PreparedStatement getResultQuery;
     private PreparedStatement forReportQuery;
     private PreparedStatement getGoalsQuery;
     private PreparedStatement addStatQuery;
     private PreparedStatement findStatQuery;
+    private PreparedStatement findPlayerQuery;
     private Connection conn;
 
     public static LeagueDAO getInstance() {
@@ -67,16 +63,16 @@ public final class LeagueDAO {
         try {
             conn = DriverManager.getConnection("jdbc:sqlite:league.db");
         } catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
         }
         try {
-            getClubQuery = conn.prepareStatement("SELECT * FROM clubs WHERE name=?");
+            findClubQuery = conn.prepareStatement("SELECT * FROM clubs WHERE name=?");
         } catch (SQLException e) {
-            regenerisiBazu();
+            regenerateBase();
             try {
-                getClubQuery = conn.prepareStatement("SELECT * FROM clubs WHERE name=?");
+                findClubQuery = conn.prepareStatement("SELECT * FROM clubs WHERE name=?");
             } catch (SQLException e1) {
-                e1.getMessage();
+                e1.printStackTrace();
             }
         }
         try {
@@ -92,7 +88,6 @@ public final class LeagueDAO {
             deleteAllPlayersQuery = conn.prepareStatement("DELETE FROM players");
             deleteAllClubsQuery = conn.prepareStatement("DELETE FROM clubs");
 
-            findClubQuery = conn.prepareStatement("SELECT * FROM clubs WHERE name=?");
             findPlayersForClubQuery = conn.prepareStatement("SELECT * FROM players WHERE club=?");
             findPlayerQuery = conn.prepareStatement("SELECT * FROM players WHERE id=?");
             findFixtureQuery = conn.prepareStatement("SELECT * FROM fixtures WHERE home_team=? AND away_team=?");
@@ -110,7 +105,7 @@ public final class LeagueDAO {
             getResultQuery = conn.prepareStatement("SELECT * FROM results WHERE id=?");
 
             addPlayerQuery = conn.prepareStatement("INSERT INTO players VALUES(?,?,?,?,?,?,?)");
-            addClubQuery = conn.prepareStatement("INSERT INTO clubs VALUES(?,?,?,?,?,?)");
+            addClubQuery = conn.prepareStatement("INSERT INTO clubs VALUES(?,?,?,?,?,?,?)");
             addFixtureQuery = conn.prepareStatement("INSERT INTO fixtures VALUES(?,?)");
             addResultQuery = conn.prepareStatement("INSERT INTO results VALUES(?,?,?,?,?)");
             addGoalQuery = conn.prepareStatement("INSERT INTO goals VALUES(?,?,?,?,?,?,?,?)");
@@ -119,12 +114,11 @@ public final class LeagueDAO {
             setIdForPlayerQuery = conn.prepareStatement("SELECT MAX(id)+1 FROM players");
             setIdForResultQuery = conn.prepareStatement("SELECT MAX(id)+1 FROM results");
 
-            editPlayerQuery = conn.prepareStatement("UPDATE players SET name=?, surname=?, date=?, nationality=?, club=?, position=? WHERE id=?");
-            editClubQuery = conn.prepareStatement("UPDATE clubs SET nickname=?, stadium=?, mascot=?, manager=?, captain=? WHERE name=?");
+            editClubQuery = conn.prepareStatement("UPDATE clubs SET nickname=?, stadium=?, mascot=?, manager=?, captain=?, color=? WHERE name=?");
             editStatQuery = conn.prepareStatement("UPDATE stats SET appearances=?, clean_sheets=? WHERE id=?");
         }
         catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
         }
     }
 
@@ -140,7 +134,7 @@ public final class LeagueDAO {
             return goals;
         }
         catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
             return goals;
         }
     }
@@ -157,7 +151,7 @@ public final class LeagueDAO {
             return goals;
         }
         catch(SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
             return goals;
         }
     }
@@ -190,14 +184,14 @@ public final class LeagueDAO {
         return null;
     }
 
-    private Club getClub(String name) {
+    private Club findClub(String name) {
         try {
-            getClubQuery.setString(1, name);
-            ResultSet rs = getClubQuery.executeQuery();
+            findClubQuery.setString(1, name);
+            ResultSet rs = findClubQuery.executeQuery();
             if (!rs.next()) return null;
             return getClubFromResultSet(rs);
         } catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
             return null;
         }
     }
@@ -209,7 +203,7 @@ public final class LeagueDAO {
             if (!rs.next()) return null;
             return getPlayerFromResultSet(rs, c);
         } catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
             return null;
         }
     }
@@ -222,7 +216,7 @@ public final class LeagueDAO {
             return getResultFromResultSet(rs);
         }
         catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
             return null;
         }
     }
@@ -236,18 +230,19 @@ public final class LeagueDAO {
             return getResultFromResultSet(rs);
         }
         catch(SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
             return null;
         }
     }
 
     private Club getClubFromResultSet(ResultSet rs) throws SQLException {
-        Club c = new Club(rs.getString(1)); // fino poredati
+        Club c = new Club(rs.getString(1));
         c.setNickname(rs.getString(2));
         c.setStadium(rs.getString(3));
         c.setMascot(rs.getString(4));
         c.setManager(rs.getString(5));
         c.setCaptain(getPlayer(rs.getInt(6), c ));
+        c.setColor(Color.valueOf(rs.getString(7)));
         return c;
     }
 
@@ -264,7 +259,7 @@ public final class LeagueDAO {
             deleteClubQuery.setString(1, club.getName());
             deleteClubQuery.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
         }
     }
 
@@ -281,7 +276,7 @@ public final class LeagueDAO {
             deleteFixtureQuery.executeUpdate();
         }
         catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
         }
     }
 
@@ -290,12 +285,12 @@ public final class LeagueDAO {
         try {
             ResultSet rs = getPlayersQuery.executeQuery();
             while (rs.next()) {
-                Club c = getClub(rs.getString(6));
+                Club c = findClub(rs.getString(6));
                 Player player = getPlayerFromResultSet(rs, c);
                 result.add(player);
             }
         } catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
         }
         return result;
     }
@@ -311,7 +306,7 @@ public final class LeagueDAO {
             }
         }
         catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
         }
         return result;
     }
@@ -337,7 +332,7 @@ public final class LeagueDAO {
                 result.add(club);
             }
         } catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
         }
         return result;
     }
@@ -351,13 +346,13 @@ public final class LeagueDAO {
                 result.add(fixture);
             }
         } catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
         }
         return result;
     }
 
     private Fixture getFixtureFromResultSet(ResultSet rs) throws SQLException {
-        return new Fixture(getClub(rs.getString(1)), getClub(rs.getString(2)));
+        return new Fixture(findClub(rs.getString(1)), findClub(rs.getString(2)));
     }
 
     public List<Result> results() {
@@ -370,13 +365,13 @@ public final class LeagueDAO {
             }
         }
         catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
         }
         return result;
     }
 
     private Result getResultFromResultSet(ResultSet rs) throws SQLException {
-        Result r = new Result(getClub(rs.getString(2)), getClub(rs.getString(3)), rs.getInt(4), rs.getInt(5));
+        Result r = new Result(findClub(rs.getString(2)), findClub(rs.getString(3)), rs.getInt(4), rs.getInt(5));
         r.setId(rs.getInt(1));
         return r;
     }
@@ -391,19 +386,19 @@ public final class LeagueDAO {
             }
         }
         catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
         }
         return result;
     }
 
     private Goal getGoalFromResultSet(ResultSet rs) throws SQLException {
         if (rs.getObject(2)!=null) {
-            Goal g = new Goal(getPlayer(rs.getInt(1), getClub(rs.getString(7))), getPlayer(rs.getInt(2), getClub(rs.getString(7))), rs.getInt(3), GoalType.valueOf(rs.getString(4)), GoalSituation.valueOf(rs.getString(5)), GoalDistance.valueOf(rs.getString(6)));
+            Goal g = new Goal(getPlayer(rs.getInt(1), findClub(rs.getString(7))), getPlayer(rs.getInt(2), findClub(rs.getString(7))), rs.getInt(3), GoalType.valueOf(rs.getString(4)), GoalSituation.valueOf(rs.getString(5)), GoalDistance.valueOf(rs.getString(6)));
             g.setResult(getResult(rs.getInt(8)));
             return g;
         }
         else {
-            Goal g = new Goal(getPlayer(rs.getInt(1), getClub(rs.getString(7))), rs.getInt(3), GoalType.valueOf(rs.getString(4)), GoalSituation.valueOf(rs.getString(5)), GoalDistance.valueOf(rs.getString(6)));
+            Goal g = new Goal(getPlayer(rs.getInt(1), findClub(rs.getString(7))), rs.getInt(3), GoalType.valueOf(rs.getString(4)), GoalSituation.valueOf(rs.getString(5)), GoalDistance.valueOf(rs.getString(6)));
             g.setResult(getResult(rs.getInt(8)));
             return g;
         }
@@ -419,7 +414,7 @@ public final class LeagueDAO {
             }
         }
         catch(SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
         }
         return result;
     }
@@ -437,7 +432,7 @@ public final class LeagueDAO {
             for (int i=0; i<players().size(); i++) addStat(players().get(i).getId());
         }
         catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
         }
     }
 
@@ -449,7 +444,7 @@ public final class LeagueDAO {
             addStatQuery.executeUpdate();
         }
         catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
         }
     }
 
@@ -469,7 +464,7 @@ public final class LeagueDAO {
             addPlayerQuery.setString(7, player.getClass().getSimpleName());
             addPlayerQuery.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
         }
     }
 
@@ -481,10 +476,11 @@ public final class LeagueDAO {
             addClubQuery.setString(4, club.getMascot());
             addClubQuery.setString(5, club.getManager());
             if (club.getCaptain()!=null) addClubQuery.setInt(6, club.getCaptain().getId());
+            addClubQuery.setString(7, club.getColor().toString());
             addClubQuery.executeUpdate();
 
         } catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
         }
     }
 
@@ -495,7 +491,7 @@ public final class LeagueDAO {
             addFixtureQuery.executeUpdate();
         }
         catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
         }
     }
 
@@ -514,7 +510,7 @@ public final class LeagueDAO {
             addResultQuery.executeUpdate();
         }
         catch(SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
         }
     }
 
@@ -532,7 +528,7 @@ public final class LeagueDAO {
             addGoalQuery.executeUpdate();
         }
         catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
         }
     }
 
@@ -543,9 +539,10 @@ public final class LeagueDAO {
             editClubQuery.setString(3, club.getMascot());
             editClubQuery.setString(4, club.getManager());
             if (club.getCaptain()!=null) editClubQuery.setInt(5, club.getCaptain().getId());
+            editClubQuery.setString(6, club.getColor().toString());
             editClubQuery.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
         }
     }
 
@@ -557,19 +554,7 @@ public final class LeagueDAO {
             editStatQuery.executeUpdate();
         }
         catch (SQLException e) {
-            e.getMessage();
-        }
-    }
-
-    public Club findClub(String clubName) {
-        try {
-            findClubQuery.setString(1, clubName);
-            ResultSet rs = findClubQuery.executeQuery();
-            if (!rs.next()) return null;
-            return getClubFromResultSet(rs);
-        } catch (SQLException e) {
-            e.getMessage();
-            return null;
+            e.printStackTrace();
         }
     }
 
@@ -581,7 +566,7 @@ public final class LeagueDAO {
             return getStatFromResultSet(rs);
         }
         catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
             return null;
         }
     }
@@ -594,7 +579,7 @@ public final class LeagueDAO {
             if (!rs.next()) return null;
             return getFixtureFromResultSet(rs);
         } catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
             return null;
         }
     }
@@ -607,7 +592,7 @@ public final class LeagueDAO {
             Club c = clubForPlayer(id);
             return getPlayerFromResultSet(rs, c);
         } catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
             return null;
         }
     }
@@ -617,7 +602,7 @@ public final class LeagueDAO {
             deletePlayerQuery.setInt(1, player.getId());
             deletePlayerQuery.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
         }
     }
 
@@ -625,7 +610,7 @@ public final class LeagueDAO {
         try {
             deleteAllResultsQuery.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
         }
     }
 
@@ -633,7 +618,7 @@ public final class LeagueDAO {
         try {
             deleteAllGoalsQuery.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
         }
     }
 
@@ -641,7 +626,7 @@ public final class LeagueDAO {
         try {
             deleteAllStatQuery.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
         }
     }
 
@@ -649,7 +634,7 @@ public final class LeagueDAO {
         try {
             deleteAllPlayersQuery.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
         }
     }
 
@@ -657,7 +642,28 @@ public final class LeagueDAO {
         try {
             deleteAllClubsQuery.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
+        }
+    }
+
+    public static String readLanguage() throws FileNotFoundException {
+        String language;
+        try (Scanner input = new Scanner(new FileReader("language.txt"))) {
+            language = "";
+            while (input.hasNextLine()) {
+                language = input.nextLine();
+            }
+        }
+        return language;
+    }
+
+    public void writeLanguage(String lang) {
+        try {
+            try (FileWriter output = new FileWriter("language.txt")) {
+                output.write(lang);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -671,41 +677,42 @@ public final class LeagueDAO {
         try {
             conn.close();
         } catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
         }
     }
 
-    private void regenerisiBazu() {
+    private void regenerateBase() {
         try {
-            Scanner input = new Scanner(new FileInputStream("league.db.sql"));
-            String sqlQuery = "";
-            while (input.hasNext()) {
-                sqlQuery += input.nextLine();
-                if ( sqlQuery.length() > 1 && sqlQuery.charAt( sqlQuery.length()-1 ) == ';') {
-                    try {
-                        Statement stmt = conn.createStatement();
-                        stmt.execute(sqlQuery);
-                        sqlQuery = "";
-                    } catch (SQLException e) {
-                        e.getMessage();
+            try (Scanner input = new Scanner(new FileInputStream("league.db.sql"))) {
+                String sqlQuery = "";
+                while (input.hasNext()) {
+                    sqlQuery += input.nextLine();
+                    if (sqlQuery.length() > 1 && sqlQuery.charAt(sqlQuery.length() - 1) == ';') {
+                        try {
+                            try (Statement stmt = conn.createStatement()) {
+                                stmt.execute(sqlQuery);
+                            }
+                            sqlQuery = "";
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
-            input.close();
         } catch (FileNotFoundException e) {
-            e.getMessage();
+            e.printStackTrace();
         }
     }
 
-    public void vratiBazuNaDefault() throws SQLException {
-        Statement stmt = conn.createStatement();
-        stmt.executeUpdate("DELETE FROM players");
-        stmt.executeUpdate("DELETE FROM clubs");
-        stmt.executeUpdate("DELETE FROM fixtures");
-        stmt.executeUpdate("DELETE FROM goals");
-        stmt.executeUpdate("DELETE FROM results");
-        stmt.executeUpdate("DELETE FROM stats");
-        regenerisiBazu();
+    public void resetBaseToDefault() throws SQLException {
+        try (Statement stmt = conn.createStatement()) {
+            stmt.executeUpdate("DELETE FROM players");
+            stmt.executeUpdate("DELETE FROM clubs");
+            stmt.executeUpdate("DELETE FROM fixtures");
+            stmt.executeUpdate("DELETE FROM goals");
+            stmt.executeUpdate("DELETE FROM results");
+            stmt.executeUpdate("DELETE FROM stats");
+        }
+        regenerateBase();
     }
-
 }

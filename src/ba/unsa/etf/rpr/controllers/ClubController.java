@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import net.sf.jasperreports.engine.JRException;
 import org.testfx.api.FxRobot;
@@ -28,6 +29,8 @@ public class ClubController {
     public Button okButton;
     public Button cancelButton;
     public Button tbExit;
+    public Button tbPrint;
+    public Button tbHelp;
     public Label playersLabel;
     public TextField nameField;
     public TextField nicknameField;
@@ -55,6 +58,9 @@ public class ClubController {
                 captainChoice.setItems(captains);
                 captainChoice.getItems().add(null);
             }
+            addPlayerButton.setTooltip(new Tooltip("Add new player"));
+            removePlayerButton.setTooltip(new Tooltip("Remove selected player"));
+            playersLv.setTooltip(new Tooltip("Clubs must have at least 15 players"));
             nameField.setText(this.currentClub.getName());
             nicknameField.setText(this.currentClub.getNickname());
             mascotField.setText(this.currentClub.getMascot());
@@ -69,6 +75,10 @@ public class ClubController {
             removePlayerButton.setVisible(false);
             addPlayerButton.setVisible(false);
         }
+        tbExit.setTooltip(new Tooltip("Exit"));
+        tbPrint.setTooltip(new Tooltip("Print squad list"));
+        tbHelp.setTooltip(new Tooltip("Open helper"));
+        okButton.setTooltip(new Tooltip("Save changes"));
     }
 
     public void addPlayer () throws IOException {
@@ -90,8 +100,8 @@ public class ClubController {
         Player temp = playersLv.getSelectionModel().getSelectedItem();
         if (temp!=null) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Potvrda");
-            alert.setContentText("Jeste li sigurni da želite izbrisati igrača " + temp.getName() + " " + temp.getSurname() + "?");
+            alert.setTitle("Confirmation");
+            alert.setContentText("Are you sure you want to delete " + temp.getName() + " " + temp.getSurname() + "?");
             if (alert.showAndWait().get() == ButtonType.OK) {
                 currentClub.getPlayers().remove(temp);
                 playersLv.getItems().remove(temp);
@@ -110,7 +120,29 @@ public class ClubController {
     }
 
     public void help() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+        alert.setTitle("Help");
+        alert.setHeaderText("Club window helper");
+        StringBuilder message = new StringBuilder("");
+        message.append("Prilikom kreiranja novog kluba dovoljno je samo unijeti ime. ");
+        message.append("Ime kluba ne smije biti prazno i mora biti jedinstveno u ligi.\n\n");
 
+        message.append("Sezona ne može početi dok ne odredite menadžera i kapitena ekipe.\n\n");
+        message.append("Klub mora imati minimalno 15 igrača i to:\n\n");
+        message.append("- minimalno jednog golmana,\n");
+        message.append("- minimalno 4 odbrambena igrača,\n");
+        message.append("- minimalno 3 igrača sredine terena,\n");
+        message.append("- minimalno 3 napadača.\n\n");
+
+        message.append("Igrače ne možete dodavati odmah prilikom kreiranja kluba. ");
+        message.append("Morate sačuvati promjene, vratiti se na početnu stranicu i odabrati opciju za editovanje. ");
+        message.append("Listu igrača sa njihovim podacima možete dobiti pritiskom na ikonu za ispis. ");
+        message.append("Podatke o igračima ne možete mijenjati, možete ih samo obrisati i ponovo kreirati.");
+
+        alert.setContentText(message.toString());
+
+        alert.showAndWait();
     }
 
     public void exit() {
@@ -120,10 +152,10 @@ public class ClubController {
 
     public void okPressed () {
         if (nameField.getText().isBlank()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Greška");
-            alert.setHeaderText("Neispravni podaci");
-            alert.setContentText("Morate dati ime klubu");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Incorrect data");
+            alert.setContentText("You must give a name to the club");
             alert.showAndWait();
             nameField.requestFocus();
             nameField.getStyleClass().add("popunjenoKakoNeTreba");
@@ -136,10 +168,10 @@ public class ClubController {
                     if (clubs.get(i).getName().equals(nameField.getText().trim())) mistake=true;
                 }
                 if (mistake) {
-                    Alert alert = new Alert(Alert.AlertType.WARNING);
-                    alert.setTitle("Greška");
-                    alert.setHeaderText("Neispravni podaci");
-                    alert.setContentText("Klub sa ovim imenom već postoji");
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error");
+                    alert.setHeaderText("Incorrect data");
+                    alert.setContentText("Club with this name already exists");
                     alert.showAndWait();
                     nameField.requestFocus();
                     nameField.getStyleClass().add("popunjenoKakoNeTreba");

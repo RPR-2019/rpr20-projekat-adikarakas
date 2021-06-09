@@ -12,6 +12,7 @@ CREATE TABLE IF NOT EXISTS "clubs" (
 	"mascot"	TEXT,
 	"manager"	TEXT,
 	"captain"	INTEGER DEFAULT null,
+	"color" TEXT,
 	PRIMARY KEY("name"),
 	FOREIGN KEY("captain") REFERENCES "players"("id")
 );
@@ -56,10 +57,10 @@ CREATE TABLE IF NOT EXISTS "stats" (
 	"clean_sheets"	INTEGER,
 	PRIMARY KEY("id")
 );
-INSERT INTO "clubs" VALUES ('Chelsea','The Blues','Stamford Bridge','','Thomas Tuchel',7);
-INSERT INTO "clubs" VALUES ('Liverpool','Reds','Anfield','','Jurgen Klopp',39);
-INSERT INTO "clubs" VALUES ('Arsenal','Gunners','Emirates','Gunnersaurus','Mikel Arteta',28);
-INSERT INTO "clubs" VALUES ('Everton','The Toffies','Goodison Park','','Carlo Ancelotti',48);
+INSERT INTO "clubs" VALUES ('Chelsea','The Blues','Stamford Bridge','','Thomas Tuchel',7,'0x0000ffff');
+INSERT INTO "clubs" VALUES ('Liverpool','Reds','Anfield','','Jurgen Klopp',39,'0xff0000ff');
+INSERT INTO "clubs" VALUES ('Arsenal','Gunners','Emirates','Gunnersaurus','Mikel Arteta',28, '0xff0000ff');
+INSERT INTO "clubs" VALUES ('Everton','The Toffies','Goodison Park','','Carlo Ancelotti',48, '0x0000ffff');
 INSERT INTO "players" VALUES (1,'Edouard','Mendy','1992-03-01','Senegal','Chelsea','Goalkeeper');
 INSERT INTO "players" VALUES (2,'Kepa','Arrizabalaga','1994-10-03','Spain','Chelsea','Goalkeeper');
 INSERT INTO "players" VALUES (3,'Reece','James','2020-01-01','England','Chelsea','Defender');

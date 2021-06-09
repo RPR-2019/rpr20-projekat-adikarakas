@@ -1,9 +1,6 @@
 package ba.unsa.etf.rpr.controllers;
 
-import ba.unsa.etf.rpr.beans.Club;
-import ba.unsa.etf.rpr.beans.Goal;
-import ba.unsa.etf.rpr.beans.Player;
-import ba.unsa.etf.rpr.beans.PlayerStats;
+import ba.unsa.etf.rpr.beans.*;
 import ba.unsa.etf.rpr.other.GoalDistance;
 import ba.unsa.etf.rpr.other.GoalSituation;
 import ba.unsa.etf.rpr.other.GoalType;
@@ -13,9 +10,11 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.util.ArrayList;
+import java.util.function.Function;
 
 public class StatsController {
     public TableView<PlayerStats> tableViewGoals = new TableView<>();
@@ -105,49 +104,49 @@ public class StatsController {
         tableColumnInsideName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tableColumnInsideClub.setCellValueFactory(new PropertyValueFactory<>("club"));
         tableColumnInsideStat.setCellValueFactory(new PropertyValueFactory<>("stat"));
-        tableViewInside.setItems(initializeDistance(GoalDistance.INSIDEBOX));
+        tableViewInside.setItems(initializeGoalData(GoalDistance.INSIDEBOX, (Goal g) -> g.getGoalDistance()));
 
         tableColumnOutsideRank.setCellValueFactory(new PropertyValueFactory<>("rank"));
         tableColumnOutsideName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tableColumnOutsideClub.setCellValueFactory(new PropertyValueFactory<>("club"));
         tableColumnOutsideStat.setCellValueFactory(new PropertyValueFactory<>("stat"));
-        tableViewOutside.setItems(initializeDistance(GoalDistance.OUTSIDEBOX));
+        tableViewOutside.setItems(initializeGoalData(GoalDistance.OUTSIDEBOX, (Goal g) -> g.getGoalDistance()));
 
         tableColumnRightRank.setCellValueFactory(new PropertyValueFactory<>("rank"));
         tableColumnRightName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tableColumnRightClub.setCellValueFactory(new PropertyValueFactory<>("club"));
         tableColumnRightStat.setCellValueFactory(new PropertyValueFactory<>("stat"));
-        tableViewRight.setItems(initializeType(GoalType.RIGHTFOOT));
+        tableViewRight.setItems(initializeGoalData(GoalType.RIGHTFOOT, (Goal g) -> g.getGoalType()));
 
         tableColumnLeftRank.setCellValueFactory(new PropertyValueFactory<>("rank"));
         tableColumnLeftName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tableColumnLeftClub.setCellValueFactory(new PropertyValueFactory<>("club"));
         tableColumnLeftStat.setCellValueFactory(new PropertyValueFactory<>("stat"));
-        tableViewLeft.setItems(initializeType(GoalType.LEFTFOOT));
+        tableViewLeft.setItems(initializeGoalData(GoalType.LEFTFOOT, (Goal g) -> g.getGoalType()));
 
         tableColumnHeadRank.setCellValueFactory(new PropertyValueFactory<>("rank"));
         tableColumnHeadName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tableColumnHeadClub.setCellValueFactory(new PropertyValueFactory<>("club"));
         tableColumnHeadStat.setCellValueFactory(new PropertyValueFactory<>("stat"));
-        tableViewHead.setItems(initializeType(GoalType.HEADER));
+        tableViewHead.setItems(initializeGoalData(GoalType.HEADER, (Goal g) -> g.getGoalType()));
 
         tableColumnPenaltiesRank.setCellValueFactory(new PropertyValueFactory<>("rank"));
         tableColumnPenaltiesName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tableColumnPenaltiesClub.setCellValueFactory(new PropertyValueFactory<>("club"));
         tableColumnPenaltiesStat.setCellValueFactory(new PropertyValueFactory<>("stat"));
-        tableViewPenalties.setItems(initializeSituation(GoalSituation.PENALTY));
+        tableViewPenalties.setItems(initializeGoalData(GoalSituation.PENALTY, (Goal g) -> g.getGoalSituation()));
 
         tableColumnFreeKicksRank.setCellValueFactory(new PropertyValueFactory<>("rank"));
         tableColumnFreeKicksName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tableColumnFreeKicksClub.setCellValueFactory(new PropertyValueFactory<>("club"));
         tableColumnFreeKicksStat.setCellValueFactory(new PropertyValueFactory<>("stat"));
-        tableViewFreeKicks.setItems(initializeSituation(GoalSituation.FREEKICK));
+        tableViewFreeKicks.setItems(initializeGoalData(GoalSituation.FREEKICK, (Goal g) -> g.getGoalSituation()));
 
         tableColumnOpenRank.setCellValueFactory(new PropertyValueFactory<>("rank"));
         tableColumnOpenName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tableColumnOpenClub.setCellValueFactory(new PropertyValueFactory<>("club"));
         tableColumnOpenStat.setCellValueFactory(new PropertyValueFactory<>("stat"));
-        tableViewOpen.setItems(initializeSituation(GoalSituation.OPENPLAY));
+        tableViewOpen.setItems(initializeGoalData(GoalSituation.OPENPLAY, (Goal g) -> g.getGoalSituation()));
 
         tableColumnAppearancesRank.setCellValueFactory(new PropertyValueFactory<>("rank"));
         tableColumnAppearancesName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -160,6 +159,7 @@ public class StatsController {
         tableColumnCleanSheetsClub.setCellValueFactory(new PropertyValueFactory<>("club"));
         tableColumnCleanSheetsStat.setCellValueFactory(new PropertyValueFactory<>("stat"));
         tableViewCleanSheets.setItems(initializeCleanSheets());
+        tableViewCleanSheets.setTooltip(new Tooltip("Goalkeepers with most games without conceding a goal"));
     }
 
 
@@ -217,7 +217,7 @@ public class StatsController {
         return assistsStat;
     }
 
-    private ObservableList<PlayerStats> initializeDistance(GoalDistance distance) {
+    private <Type> ObservableList<PlayerStats> initializeGoalData(Type type, Function<Goal, Type> fun) {
         int broj;
         ArrayList<PlayerStats> list = new ArrayList<>();
         ArrayList<Club> clubs = new ArrayList<>(dao.clubs());
@@ -227,62 +227,7 @@ public class StatsController {
             for (int j=0; j<players.size(); j++) {
                 broj = 0;
                 for (int k=0; k<allGoals.size(); k++) {
-                    if (allGoals.get(k).getScorer().equals(players.get(j)) && allGoals.get(k).getGoalDistance().equals(distance)) broj++;
-                }
-                list.add(new PlayerStats(players.get(j), temp, broj));
-            }
-        }
-        list.sort((o1, o2) -> {
-            if (o2.getStat()-o1.getStat()!=0) return o2.getStat() - o1.getStat();
-            else return o1.getName().getSurname().compareTo(o2.getName().getSurname());
-        });
-        ObservableList<PlayerStats> stat = FXCollections.observableArrayList();
-        for (int i=0; i<5; i++) {
-            list.get(i).setRank((i+1) + ".");
-            stat.add(list.get(i));
-        }
-        return stat;
-    }
-
-    private ObservableList<PlayerStats> initializeType(GoalType type) {
-        int broj;
-        ArrayList<PlayerStats> list = new ArrayList<>();
-        ArrayList<Club> clubs = new ArrayList<>(dao.clubs());
-        for (int i = 0; i < clubs.size(); i++) {
-            Club temp = clubs.get(i);
-            ArrayList<Player> players = new ArrayList<>(dao.playersInClub(temp));
-            for (int j = 0; j < players.size(); j++) {
-                broj = 0;
-                for (int k = 0; k < allGoals.size(); k++) {
-                    if (allGoals.get(k).getScorer().equals(players.get(j)) && allGoals.get(k).getGoalType().equals(type))
-                        broj++;
-                }
-                list.add(new PlayerStats(players.get(j), temp, broj));
-            }
-        }
-        list.sort((o1, o2) -> {
-            if (o2.getStat() - o1.getStat() != 0) return o2.getStat() - o1.getStat();
-            else return o1.getName().getSurname().compareTo(o2.getName().getSurname());
-        });
-        ObservableList<PlayerStats> stat = FXCollections.observableArrayList();
-        for (int i = 0; i < 5; i++) {
-            list.get(i).setRank((i + 1) + ".");
-            stat.add(list.get(i));
-        }
-        return stat;
-    }
-
-    private ObservableList<PlayerStats> initializeSituation(GoalSituation situation) {
-        int broj;
-        ArrayList<PlayerStats> list = new ArrayList<>();
-        ArrayList<Club> clubs = new ArrayList<>(dao.clubs());
-        for (int i=0; i<clubs.size(); i++) {
-            Club temp = clubs.get(i);
-            ArrayList<Player> players = new ArrayList<>(dao.playersInClub(temp));
-            for (int j=0; j<players.size(); j++) {
-                broj = 0;
-                for (int k=0; k<allGoals.size(); k++) {
-                    if (allGoals.get(k).getScorer().equals(players.get(j)) && allGoals.get(k).getGoalSituation().equals(situation)) broj++;
+                    if (allGoals.get(k).getScorer().equals(players.get(j)) && fun.apply(allGoals.get(k)).equals(type)) broj++;
                 }
                 list.add(new PlayerStats(players.get(j), temp, broj));
             }
@@ -328,6 +273,7 @@ public class StatsController {
             Club temp = clubs.get(i);
             ArrayList<Player> players = new ArrayList<>(dao.playersInClub(temp));
             for (int j=0; j<players.size(); j++) {
+                if (!(players.get(j) instanceof Goalkeeper)) continue;
                 cleanSheets.add(new PlayerStats(players.get(j), temp, dao.findStat(players.get(j).getId()).getCleanSheets()));
             }
         }
@@ -339,6 +285,7 @@ public class StatsController {
         for (int i=0; i<5; i++) {
             cleanSheets.get(i).setRank((i+1) + ".");
             cleanSheetsStat.add(cleanSheets.get(i));
+            if (cleanSheets.size()==i+1) break;
         }
         return cleanSheetsStat;
     }

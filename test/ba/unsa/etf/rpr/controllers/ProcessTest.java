@@ -15,6 +15,7 @@ import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
 import java.sql.SQLException;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
@@ -43,21 +44,73 @@ class ProcessTest {
 
     @BeforeEach
     public void resetujBazu() throws SQLException {
-        dao.vratiBazuNaDefault();
+        dao.resetBaseToDefault();
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     void wholeProcess(FxRobot robot) throws SQLException {
         dao.createStats();
-        robot.clickOn("#startButton");
+        robot.lookup("#startButton").tryQuery().isPresent();
+
+        for (int i=0; i<5; i++) {
+            robot.press(KeyCode.TAB);
+            robot.release(KeyCode.TAB);
+        }
+
+        robot.press(KeyCode.ENTER);
+        robot.release(KeyCode.ENTER);
+
+        robot.lookup(".dialog-pane").tryQuery().isPresent();
+
+        assertEquals("en", Locale.getDefault().getLanguage());
+
+        robot.press(KeyCode.UP);
+        robot.release(KeyCode.UP);
+        robot.press(KeyCode.ENTER);
+        robot.release(KeyCode.ENTER);
+
+        robot.lookup("#languageButton").tryQuery().isPresent();
+        assertEquals("bs", Locale.getDefault().getLanguage());
+
+        robot.press(KeyCode.SHIFT);
+        robot.press(KeyCode.TAB);
+        robot.release(KeyCode.TAB);
+        robot.release(KeyCode.SHIFT);
+
+        robot.press(KeyCode.ENTER);
+        robot.release(KeyCode.ENTER);
+
         robot.lookup(".dialog-pane").tryQuery().isPresent();
         robot.press(KeyCode.ENTER);
         robot.release(KeyCode.ENTER);
+
         robot.lookup("#addGameButton").tryQuery().isPresent();
+
+        for (int i=0; i<8; i++) {
+            robot.press(KeyCode.TAB);
+            robot.release(KeyCode.TAB);
+        }
+        robot.press(KeyCode.ENTER);
+        robot.release(KeyCode.ENTER);
+
+        robot.lookup(".dialog-pane").tryQuery().isPresent();
+
+        assertEquals("bs", Locale.getDefault().getLanguage());
+
+        robot.press(KeyCode.ENTER);
+        robot.release(KeyCode.ENTER);
+
+        robot.lookup("#languageButton").tryQuery().isPresent();
+        assertEquals("en", Locale.getDefault().getLanguage());
 
         robot.clickOn("#addGameButton");
         DialogPane dialogPane = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
-        assertNotNull(dialogPane.lookupAll("Svi parovi su dodani"));
+        assertNotNull(dialogPane.lookupAll("All fixtures have been added"));
         Button okButton = (Button) dialogPane.lookupButton(ButtonType.OK);
         robot.clickOn(okButton);
 
@@ -114,7 +167,12 @@ class ProcessTest {
                 () -> assertEquals("Bernd Leno (6)", robot.lookup("#goalkeeperLabel").queryAs(Label.class).getText())
         );
         robot.clickOn("#finishButton");
-        dao.vratiBazuNaDefault();
+        robot.lookup(".dialog-pane").tryQuery().isPresent();
+        robot.press(KeyCode.RIGHT);
+        robot.release(KeyCode.RIGHT);
+        robot.press(KeyCode.ENTER);
+        robot.release(KeyCode.ENTER);
+        dao.resetBaseToDefault();
     }
 
     @Test
@@ -177,7 +235,10 @@ class ProcessTest {
                 () -> assertEquals("Andrew Robertson (1)", robot.lookup("#assistentLabel").queryAs(Label.class).getText()),
                 () -> assertEquals("Bernd Leno (6)", robot.lookup("#goalkeeperLabel").queryAs(Label.class).getText())
         );
-        robot.clickOn("#finishAndDeleteButton");
-        dao.vratiBazuNaDefault();
+        robot.clickOn("#finishButton");
+        robot.lookup(".dialog-pane").tryQuery().isPresent();
+        robot.press(KeyCode.ENTER);
+        robot.release(KeyCode.ENTER);
+        dao.resetBaseToDefault();
     }
 }

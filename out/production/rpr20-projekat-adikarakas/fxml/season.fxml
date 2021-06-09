@@ -8,9 +8,9 @@
    <center>
       <GridPane hgap="20.0" vgap="5.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+          <ColumnConstraints hgrow="SOMETIMES" />
+            <ColumnConstraints hgrow="SOMETIMES" />
+            <ColumnConstraints hgrow="SOMETIMES" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints />
@@ -23,14 +23,14 @@
               <columns>
                 <TableColumn fx:id="tableColumnPosition" prefWidth="40.0" sortable="false" text="Pos" />
                 <TableColumn fx:id="tableColumnClubs" prefWidth="220.80001831054688" sortable="false" text="Club" />
-                  <TableColumn fx:id="tableColumnPlayed" minWidth="0.0" prefWidth="40.0" sortable="false" text="P" />
-                  <TableColumn fx:id="tableColumnWins" minWidth="0.0" prefWidth="40.0" sortable="false" text="W" />
-                  <TableColumn fx:id="tableColumnDraws" prefWidth="40.0" sortable="false" text="D" />
-                  <TableColumn fx:id="tableColumnLosses" prefWidth="40.0" sortable="false" text="L" />
-                  <TableColumn fx:id="tableColumnGoalsScored" prefWidth="40.0" sortable="false" text="GS" />
-                  <TableColumn fx:id="tableColumnGoalsConceded" prefWidth="40.0" sortable="false" text="GC" />
-                  <TableColumn fx:id="tableColumnGoalDifference" minWidth="0.0" prefWidth="40.0" sortable="false" text="GD" />
-                  <TableColumn fx:id="tableColumnPoints" prefWidth="40.0" sortable="false" text="Pts" />
+                  <TableColumn fx:id="tableColumnPlayed" minWidth="0.0" prefWidth="40.0" sortable="false" />
+                  <TableColumn fx:id="tableColumnWins" minWidth="0.0" prefWidth="40.0" sortable="false" />
+                  <TableColumn fx:id="tableColumnDraws" prefWidth="40.0" sortable="false" />
+                  <TableColumn fx:id="tableColumnLosses" prefWidth="40.0" sortable="false" />
+                  <TableColumn fx:id="tableColumnGoalsScored" prefWidth="40.0" sortable="false" />
+                  <TableColumn fx:id="tableColumnGoalsConceded" prefWidth="40.0" sortable="false" />
+                  <TableColumn fx:id="tableColumnGoalDifference" minWidth="0.0" prefWidth="40.0" sortable="false" />
+                  <TableColumn fx:id="tableColumnPoints" prefWidth="40.0" sortable="false" />
               </columns>
             </TableView>
             <ListView fx:id="fixturesList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -40,12 +40,12 @@
             <ListView fx:id="resultsList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <VBox spacing="5.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <children>
-                  <Button fx:id="addGameButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addGame" prefHeight="26.0" prefWidth="118.0" text="%addGame" />
-                  <Button fx:id="playGameButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#playGame" prefHeight="26.0" prefWidth="118.0" text="%playGame" />
-                  <Button fx:id="seeReportButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#seeReport" prefHeight="26.0" prefWidth="118.0" text="%seeReport" />
-                  <Button fx:id="statsButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#openStats" prefHeight="26.0" prefWidth="118.0" text="%stats"  />
-                  <Button fx:id="finishSeasonButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#finish" prefHeight="26.0" prefWidth="118.0" text="%finishSeason" />
-                   <Button fx:id="languageButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#setLanguage" prefHeight="26.0" prefWidth="118.0" text="%setLanguage" />
+                  <Button fx:id="addGameButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addGame" text="%addGame" />
+                  <Button fx:id="playGameButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#playGame" text="%playGame" />
+                  <Button fx:id="seeReportButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#seeReport" text="%seeReport" />
+                  <Button fx:id="statsButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#openStats" text="%stats" />
+                  <Button fx:id="finishSeasonButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#finish" text="%finishSeason" />
+                   <Button fx:id="languageButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#setLanguage" text="%setLanguage" />
                </children>
                <GridPane.margin>
                   <Insets />

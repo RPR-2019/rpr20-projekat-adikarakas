@@ -12,8 +12,8 @@ public class Player implements Serializable {
     private String surname;
     private LocalDate birth;
     private String nationality;
-    private Club club; // samo za potrebe baze podataka
-    private String position; // samo za potrebe baze podataka
+    private Club club;
+    private String position;
 
     public Player(String name, String surname, LocalDate birth, String nationality) {
         this.name = name;

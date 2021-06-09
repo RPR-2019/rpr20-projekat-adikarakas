@@ -57,10 +57,10 @@ public class PlayerController {
         if (dateIdentity.getValue()==null || dateIdentity.getValue().isAfter(LocalDate.now())) irregular=true;
 
         if (irregular) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Greška");
-            alert.setHeaderText("Neispravni podaci");
-            alert.setContentText("Niste unijeli sve podatke za igrača");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Incorrect data");
+            alert.setContentText("You haven't filled all fields");
             alert.showAndWait();
         }
         else {

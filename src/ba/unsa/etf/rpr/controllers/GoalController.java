@@ -92,44 +92,44 @@ public class GoalController {
         else if (openPlay.isSelected()) goalSituation=GoalSituation.OPENPLAY;
         else irregular = true;
 
-        String message = "Pogrešan unos";
+        String message = "Wrong input";
         if (goalScorer.getValue()==null)  {
-            Alert alert = new Alert (Alert.AlertType.WARNING);
+            Alert alert = new Alert (Alert.AlertType.ERROR);
             alert.setTitle(message);
-            alert.setHeaderText("Morate odrediti strijelca");
+            alert.setHeaderText("You must select a scorer");
             alert.showAndWait();
             goalScorer.requestFocus();
         }
         else if (assistProvider.getValue()!=null && goalScorer.getValue()==assistProvider.getValue()) {
-            Alert alert = new Alert (Alert.AlertType.WARNING);
+            Alert alert = new Alert (Alert.AlertType.ERROR);
             alert.setTitle(message);
-            alert.setHeaderText("Asistent i strijelac ne mogu biti ista osoba");
+            alert.setHeaderText("Scorer and assist provider can't be the same person");
             alert.showAndWait();
             assistProvider.requestFocus();
         }
         else if (assistProvider.getValue()!=null && goalSituation!=GoalSituation.OPENPLAY) {
-            Alert alert = new Alert (Alert.AlertType.WARNING);
+            Alert alert = new Alert (Alert.AlertType.ERROR);
             alert.setTitle(message);
-            alert.setHeaderText("Kod penala i slobodnih udaraca se ne dodjeljuje asistencija");
+            alert.setHeaderText("Player can't get assist for direct free-kick goals and penalties");
             alert.showAndWait();
             assistProvider.requestFocus();
         }
         else if (goalSituation==GoalSituation.PENALTY && goalDistance!=GoalDistance.INSIDEBOX) {
-            Alert alert = new Alert (Alert.AlertType.WARNING);
+            Alert alert = new Alert (Alert.AlertType.ERROR);
             alert.setTitle(message);
-            alert.setHeaderText("Penal se izvodi sa 11 metara");
+            alert.setHeaderText("Penalty is taken from 11 meters, which is inside box");
             alert.showAndWait();
         }
         else if (goalSituation==GoalSituation.FREEKICK && goalDistance!=GoalDistance.OUTSIDEBOX) {
-            Alert alert = new Alert (Alert.AlertType.WARNING);
+            Alert alert = new Alert (Alert.AlertType.ERROR);
             alert.setTitle(message);
-            alert.setHeaderText("Slobodan udarac se izvodi izvan šesnaesterca");
+            alert.setHeaderText("Free kicks are taken outside box");
             alert.showAndWait();
         }
         else if (irregular) {
-            Alert alert = new Alert (Alert.AlertType.WARNING);
+            Alert alert = new Alert (Alert.AlertType.ERROR);
             alert.setTitle(message);
-            alert.setHeaderText("Niste dobro unijeli podatke");
+            alert.setHeaderText("Wrong data");
             alert.showAndWait();
         }
 

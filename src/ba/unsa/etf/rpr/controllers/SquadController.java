@@ -167,10 +167,10 @@ public class SquadController {
         awaySet.add(awayPlayerChoiceBox11.getValue());
 
         if (homeSet.size()!=11 || awaySet.size()!=11) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Greška");
-            alert.setHeaderText("Nepravilan odabir igrača");
-            alert.setContentText("Neki igrači se ponavljaju");
+            alert.setHeaderText("Incorrect squad selection");
+            alert.setContentText("There are players selected at more than one position");
             alert.showAndWait();
         }
         else {

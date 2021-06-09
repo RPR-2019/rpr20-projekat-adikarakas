@@ -1,27 +1,21 @@
 
-z
-java:S1104"XMake surnameField a static final constant or non-public and provide accessors if needed.(–Ãâúÿÿÿÿ8¤êÓö/
-v
-java:S1104"ZMake choicePosition a static final constant or non-public and provide accessors if needed.(ªé—>8äÑ ‹/
-k
-java:S1192/"IDefine a constant instead of duplicating this literal "Defender" 3 times.(°´³¤øÿÿÿÿ8›áÚ™/
-z
-java:S1104"]Make choiceNationality a static final constant or non-public and provide accessors if needed.(§ñóî8­Ã‹Û—/
 u
-java:S1104"XMake dateIdentity a static final constant or non-public and provide accessors if needed.(®ÌøŸ8¿¿ÒŒ/
+java:S1104"XMake dateIdentity a static final constant or non-public and provide accessors if needed.(®ÌøŸ8¿¿ÒŒ/
 h
-java:S1192_"KDefine a constant instead of duplicating this literal "#playersLv" 4 times.(–ÂŒ¨8›áÚ™/
-z
-java:S1104"XMake cancelButton a static final constant or non-public and provide accessors if needed.(•ÚŞãÿÿÿÿÿ8‹øÁ‹/
-h
-java:S1192."KDefine a constant instead of duplicating this literal "Goalkeeper" 3 times.(Š´ñ©8›áÚ™/
-x
-java:S1104"VMake saveButton a static final constant or non-public and provide accessors if needed.(˜…øÿÿÿÿ8­Ã‹Û—/
+java:S1192J"KDefine a constant instead of duplicating this literal "#playersLv" 4 times.(–ÂŒ¨8›áÚ™/
+|
+java:S1104"ZMake firstNameField a static final constant or non-public and provide accessors if needed.(®«ŞĞùÿÿÿÿ8ı™Ê¸/
+M
+java:S1068"1Remove this unused "currentPlayer" private field.(¦¼S8Ó§÷Â/
 L
-java:S5411G"*Use the primitive boolean expression here.(Á–Š¨úÿÿÿÿ8­Ã‹Û—/
-h
-java:S11920"KDefine a constant instead of duplicating this literal "Midfielder" 3 times.(şİ‘¡8›áÚ™/
-w
-java:S1104"UMake nameField a static final constant or non-public and provide accessors if needed.(¾Àˆÿÿÿÿÿ8­Ã‹Û—/
-t
-java:S3776?"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(ÚŒ¾ùÿÿÿÿ8øø–Ê˜/
+java:S5411;"*Use the primitive boolean expression here.(Á–Š¨úÿÿÿÿ8­Ã‹Û—/
+z
+java:S1104"XMake surnameField a static final constant or non-public and provide accessors if needed.(–Ãâúÿÿÿÿ8¤êÓö/
+x
+java:S1104"VMake saveButton a static final constant or non-public and provide accessors if needed.(˜…øÿÿÿÿ8­Ã‹Û—/
+v
+java:S1104"ZMake choicePosition a static final constant or non-public and provide accessors if needed.(ªé—>8äÑ ‹/
+z
+java:S1104"]Make choiceNationality a static final constant or non-public and provide accessors if needed.(§ñóî8­Ã‹Û—/
+€
+java:S1104"^Make cancelPlayerButton a static final constant or non-public and provide accessors if needed.(Ï‘øáşÿÿÿÿ8¢ÌÚÂ/

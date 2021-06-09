@@ -45,7 +45,7 @@ class StatTest {
 
     @BeforeEach
     public void resetujBazu() throws SQLException {
-        dao.vratiBazuNaDefault();
+        dao.resetBaseToDefault();
     }
 
     @Test
@@ -161,6 +161,6 @@ class StatTest {
                 () -> assertEquals("Fabinho", penalty.getItems().get(0).getName().toString()),
                 () -> assertEquals("Andrew Robertson", freeKick.getItems().get(0).getName().toString())
         );
-        dao.vratiBazuNaDefault();
+        dao.resetBaseToDefault();
     }
 }

@@ -55,14 +55,14 @@ class GoalControllerTest {
 
     @BeforeEach
     public void resetujBazu() throws SQLException {
-        dao.vratiBazuNaDefault();
+        dao.resetBaseToDefault();
     }
 
     @Test
     void emptyGoal(FxRobot robot) {
         robot.clickOn("#okButton");
         DialogPane dialogPane = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
-        assertNotNull(dialogPane.lookupAll("Morate odrediti strijelca"));
+        assertNotNull(dialogPane.lookupAll("You must select a scorer"));
         Button okButton = (Button) dialogPane.lookupButton(ButtonType.OK);
         robot.clickOn(okButton);
     }
@@ -81,7 +81,7 @@ class GoalControllerTest {
 
         robot.clickOn("#okButton");
         DialogPane dialogPane = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
-        assertNotNull(dialogPane.lookupAll("Niste dobro unijeli podatke"));
+        assertNotNull(dialogPane.lookupAll("Wrong data"));
         Button okButton = (Button) dialogPane.lookupButton(ButtonType.OK);
         robot.clickOn(okButton);
     }
@@ -102,7 +102,7 @@ class GoalControllerTest {
         robot.clickOn("#okButton");
 
         DialogPane dialogPane = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
-        assertNotNull(dialogPane.lookupAll("Asistent i strijelac ne mogu biti ista osoba"));
+        assertNotNull(dialogPane.lookupAll("Scorer and assist provider can't be the same person"));
         Button okButton = (Button) dialogPane.lookupButton(ButtonType.OK);
         robot.clickOn(okButton);
     }
@@ -125,7 +125,7 @@ class GoalControllerTest {
         robot.clickOn("#okButton");
 
         DialogPane dialogPane = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
-        assertNotNull(dialogPane.lookupAll("Kod penala i slobodnih udaraca se ne dodjeljuje asistencija"));
+        assertNotNull(dialogPane.lookupAll("Player can't get assist for direct free-kick goals and penalties"));
         Button okButton = (Button) dialogPane.lookupButton(ButtonType.OK);
         robot.clickOn(okButton);
 
@@ -133,7 +133,7 @@ class GoalControllerTest {
         robot.clickOn("#okButton");
 
         dialogPane = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
-        assertNotNull(dialogPane.lookupAll("Kod penala i slobodnih udaraca se ne dodjeljuje asistencija"));
+        assertNotNull(dialogPane.lookupAll("Player can't get assist for direct free-kick goals and penalties"));
         okButton = (Button) dialogPane.lookupButton(ButtonType.OK);
         robot.clickOn(okButton);
     }
@@ -150,7 +150,7 @@ class GoalControllerTest {
         robot.clickOn("#okButton");
 
         DialogPane dialogPane = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
-        assertNotNull(dialogPane.lookupAll("Penal se izvodi sa 11 metara"));
+        assertNotNull(dialogPane.lookupAll("Penalty is taken from 11 meters, which is inside box"));
         Button okButton = (Button) dialogPane.lookupButton(ButtonType.OK);
         robot.clickOn(okButton);
     }
@@ -167,7 +167,7 @@ class GoalControllerTest {
         robot.clickOn("#okButton");
 
         DialogPane dialogPane = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
-        assertNotNull(dialogPane.lookupAll("Slobodan udarac se izvodi izvan šesnaesterca"));
+        assertNotNull(dialogPane.lookupAll("Free kicks are taken outside box"));
         Button okButton = (Button) dialogPane.lookupButton(ButtonType.OK);
         robot.clickOn(okButton);
     }

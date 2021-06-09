@@ -61,6 +61,17 @@ public class SeasonController {
         tableColumnGoalsConceded.setCellValueFactory(new PropertyValueFactory<>("goalsConceded"));
         tableColumnGoalDifference.setCellValueFactory(new PropertyValueFactory<>("goalDifference"));
         tableColumnPoints.setCellValueFactory(new PropertyValueFactory<>("points"));
+
+        setTooltips(tableColumnPlayed, "P", "Played games");
+        setTooltips(tableColumnWins, "W", "Wins");
+        setTooltips(tableColumnDraws, "D", "Draws");
+        setTooltips(tableColumnLosses, "L", "Losses");
+        setTooltips(tableColumnGoalsScored, "GS", "Goals scored by team");
+        setTooltips(tableColumnGoalsConceded, "GC", "Goals conceded by team");
+        setTooltips(tableColumnGoalDifference, "GD", "Goal difference");
+        setTooltips(tableColumnPoints, "Pts", "Points");
+
+
         ArrayList<Result> allResults = new ArrayList<>(dao.results());
         ArrayList<Fixture> allFixtures = new ArrayList<>(dao.fixtures());
 
@@ -94,9 +105,9 @@ public class SeasonController {
 
     public void addGame() throws IOException {
         if ((dao.fixtures().size() + dao.results().size())==((clubs.size())*(clubs.size()-1))) {
-            Alert alert = new Alert (Alert.AlertType.WARNING);
+            Alert alert = new Alert (Alert.AlertType.ERROR);
             alert.setTitle("Greška");
-            alert.setContentText("Svi parovi su dodani");
+            alert.setContentText("All fixtures have been added");
             alert.showAndWait();
         }
         else {
@@ -165,9 +176,9 @@ public class SeasonController {
 
     public void finish () throws IOException {
         if (dao.results().size()!=(clubs.size()-1)*(clubs.size())) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Greška");
-            alert.setContentText("Sezona ne može biti gotova dok se ne odigraju sve utakmice.");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setContentText("You can't finish a season before all games have been played.");
             alert.showAndWait();
         }
         else {
@@ -194,7 +205,7 @@ public class SeasonController {
 
         ChoiceDialog<String> dialog = new ChoiceDialog<>("English", choices);
         dialog.setTitle("Choice Dialog");
-        dialog.setHeaderText("Look, a Choice Dialog");
+        dialog.setHeaderText("Language chooser");
         dialog.setContentText("Choose your language:");
 
         Optional<String> result = dialog.showAndWait();
@@ -202,5 +213,12 @@ public class SeasonController {
             if (("Bosanski").equals(result.get())) Locale.setDefault(new Locale("bs", "BA"));
             else if (("English").equals(result.get())) Locale.setDefault(new Locale("en", "EN"));
         }
+        dao.writeLanguage(result.get());
+    }
+
+    private void setTooltips(TableColumn tc, String tag, String tip) {
+        Label playedLabel = new Label(tag);
+        playedLabel.setTooltip(new Tooltip(tip));
+        tc.setGraphic(playedLabel);
     }
 }

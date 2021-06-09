@@ -17,7 +17,9 @@ import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
+import java.io.FileNotFoundException;
 import java.sql.SQLException;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
@@ -47,14 +49,14 @@ class PreseasonControllerTest {
 
     @BeforeEach
     public void resetujBazu() throws SQLException {
-        dao.vratiBazuNaDefault();
+        dao.resetBaseToDefault();
     }
 
     @Test
     public void testListView(FxRobot robot) throws SQLException {
         ListView<Club> listView = robot.lookup("#clubsLv").queryAs(ListView.class);
         assertEquals(4, listView.getItems().size());
-        dao.vratiBazuNaDefault();
+        dao.resetBaseToDefault();
     }
 
     @Test
@@ -69,7 +71,7 @@ class PreseasonControllerTest {
         robot.clickOn(okButton);
 
         assertEquals(3, dao.clubs().size());
-        dao.vratiBazuNaDefault();
+        dao.resetBaseToDefault();
     }
 
     @Test
@@ -92,7 +94,7 @@ class PreseasonControllerTest {
             }
         }
         assertTrue(find);
-        dao.vratiBazuNaDefault();
+        dao.resetBaseToDefault();
     }
 
     @Test
@@ -103,12 +105,12 @@ class PreseasonControllerTest {
         robot.lookup(".dialog-pane").tryQuery().isPresent();
 
         DialogPane dialogPane = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
-        assertNotNull(dialogPane.lookupAll("Morate dati ime klubu"));
+        assertNotNull(dialogPane.lookupAll("You must give a name to the club"));
         Button okButton = (Button) dialogPane.lookupButton(ButtonType.OK);
         robot.clickOn(okButton);
 
         robot.clickOn("#tbExit");
-        dao.vratiBazuNaDefault();
+        dao.resetBaseToDefault();
     }
 
     @Test
@@ -122,10 +124,10 @@ class PreseasonControllerTest {
         robot.lookup(".dialog-pane").tryQuery().isPresent();
 
         DialogPane dialogPane = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
-        assertNotNull(dialogPane.lookupAll("Ne možete dodavati nove timove u ligu"));
+        assertNotNull(dialogPane.lookupAll("You can't add new clubs"));
         Button okButton = (Button) dialogPane.lookupButton(ButtonType.OK);
         robot.clickOn(okButton);
-        dao.vratiBazuNaDefault();
+        dao.resetBaseToDefault();
     }
 
     @Test
@@ -141,10 +143,10 @@ class PreseasonControllerTest {
 
         robot.clickOn("#startButton");
         DialogPane dialogPane2 = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
-        assertNotNull(dialogPane2.lookupAll("Liga mora imati paran broj klubova"));
+        assertNotNull(dialogPane2.lookupAll("League must have even number of clubs"));
         okButton = (Button) dialogPane2.lookupButton(ButtonType.OK);
         robot.clickOn(okButton);
-        dao.vratiBazuNaDefault();
+        dao.resetBaseToDefault();
     }
 
     @Test
@@ -179,12 +181,12 @@ class PreseasonControllerTest {
 
         robot.clickOn("#startButton");
         DialogPane dialogPane2 = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
-        assertNotNull(dialogPane2.lookupAll("Liga mora imati barem 2 kluba"));
+        assertNotNull(dialogPane2.lookupAll("League must have at least 2 clubs"));
 
         okButton = (Button) dialogPane2.lookupButton(ButtonType.OK);
         robot.clickOn(okButton);
 
-        dao.vratiBazuNaDefault();
+        dao.resetBaseToDefault();
     }
 
     @Test
@@ -206,11 +208,11 @@ class PreseasonControllerTest {
         robot.lookup("#addClubButton").tryQuery().isPresent();
         robot.clickOn("#startButton");
         DialogPane dialogPane2 = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
-        assertNotNull(dialogPane2.lookupAll("Klub Everton ima manje od 15 igrača"));
+        assertNotNull(dialogPane2.lookupAll("Club Everton have less than 15 players."));
 
         okButton = (Button) dialogPane2.lookupButton(ButtonType.OK);
         robot.clickOn(okButton);
-        dao.vratiBazuNaDefault();
+        dao.resetBaseToDefault();
     }
 
     @Test
@@ -239,11 +241,11 @@ class PreseasonControllerTest {
         robot.lookup("#addClubButton").tryQuery().isPresent();
         robot.clickOn("#startButton");
         DialogPane dialogPane2 = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
-        assertNotNull(dialogPane2.lookupAll("Klub Chelsea nema dovoljno igrača po pozicijama."));
+        assertNotNull(dialogPane2.lookupAll("Club Chelsea don't have enough players by position."));
 
         okButton = (Button) dialogPane2.lookupButton(ButtonType.OK);
         robot.clickOn(okButton);
-        dao.vratiBazuNaDefault();
+        dao.resetBaseToDefault();
     }
 
     @Test
@@ -257,10 +259,10 @@ class PreseasonControllerTest {
         robot.lookup("#addClubButton").tryQuery().isPresent();
         robot.clickOn("#startButton");
         DialogPane dialogPane2 = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
-        assertNotNull(dialogPane2.lookupAll("Klub Chelsea nije imenovao menadžera."));
+        assertNotNull(dialogPane2.lookupAll("Club Chelsea didn't hire a manager."));
         Button okButton = (Button) dialogPane2.lookupButton(ButtonType.OK);
         robot.clickOn(okButton);
-        dao.vratiBazuNaDefault();
+        dao.resetBaseToDefault();
     }
 
     @Test
@@ -271,11 +273,11 @@ class PreseasonControllerTest {
         robot.write("Chelsea");
         robot.clickOn("#okButton");
         DialogPane dialogPane = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
-        assertNotNull(dialogPane.lookupAll("Klub sa ovim imenom već postoji"));
+        assertNotNull(dialogPane.lookupAll("Club with this name already exists"));
         Button okButton = (Button) dialogPane.lookupButton(ButtonType.OK);
         robot.clickOn(okButton);
         robot.clickOn("#cancelButton");
-        dao.vratiBazuNaDefault();
+        dao.resetBaseToDefault();
     }
 
     @Test
@@ -289,7 +291,7 @@ class PreseasonControllerTest {
         robot.lookup("#surnameField").tryQuery().isPresent();
         robot.clickOn("#saveButton");
         DialogPane dialogPane = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
-        assertNotNull(dialogPane.lookupAll("Niste unijeli sve podatke za igrača"));
+        assertNotNull(dialogPane.lookupAll("You haven't filled all fields"));
         Button okButton = (Button) dialogPane.lookupButton(ButtonType.OK);
         robot.clickOn(okButton);
 
@@ -394,6 +396,21 @@ class PreseasonControllerTest {
         assertEquals(21, lv.getItems().size());
         robot.clickOn("#cancelButton");
 
-        dao.vratiBazuNaDefault();
+        dao.resetBaseToDefault();
+    }
+
+    @Test
+    public void helpTest(FxRobot robot) throws SQLException {
+        robot.clickOn("#addClubButton");
+        robot.lookup("#nameField").tryQuery().isPresent();
+        robot.clickOn("#tbHelp");
+
+        DialogPane dialogPane = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
+        assertNotNull(dialogPane.lookupAll("Club window helper"));
+        Button okButton = (Button) dialogPane.lookupButton(ButtonType.OK);
+        robot.clickOn(okButton);
+
+        robot.clickOn("#tbExit");
+        dao.resetBaseToDefault();
     }
 }

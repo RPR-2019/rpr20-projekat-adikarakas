@@ -67,10 +67,10 @@ public class FixtureAdderController {
             stage.close();
         }
         else {
-            Alert alert = new Alert (Alert.AlertType.WARNING);
-            alert.setTitle("Greška");
-            alert.setHeaderText("Neispravan par");
-            alert.setContentText("Timovi su isti ili par već postoji");
+            Alert alert = new Alert (Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Incorrect fixture");
+            alert.setContentText("Clubs are the same or this fixture has been added before");
             alert.showAndWait();
         }
     }

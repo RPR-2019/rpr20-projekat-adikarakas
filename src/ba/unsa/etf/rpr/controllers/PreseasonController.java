@@ -1,7 +1,5 @@
 package ba.unsa.etf.rpr.controllers;
 
-// probati PMD još srediti
-
 import ba.unsa.etf.rpr.beans.*;
 import ba.unsa.etf.rpr.other.LeagueDAO;
 import javafx.collections.FXCollections;
@@ -21,7 +19,7 @@ public class PreseasonController {
     public Button startButton;
     public ListView<Club> clubsLv;
     private final LeagueDAO dao;
-    private static final String MESSAGE = "Greška";
+    private static final String MESSAGE = "Error";
 
     public PreseasonController() {
         dao=LeagueDAO.getInstance();
@@ -38,10 +36,10 @@ public class PreseasonController {
     public void addClubPressed () throws IOException {
         clubsLv.refresh();
         if (dao.clubs().size()==30) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle(MESSAGE);
-            alert.setHeaderText("Dostigli ste limit");
-            alert.setContentText("Ne možete dodavati nove timove u ligu");
+            alert.setHeaderText("You have reached the limit");
+            alert.setContentText("You can't add new clubs");
             alert.showAndWait();
         }
         else {
@@ -81,8 +79,8 @@ public class PreseasonController {
         Club temp = clubsLv.getSelectionModel().getSelectedItem();
         if (temp!=null) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Potvrda");
-            alert.setContentText("Jeste li sigurni da želite izbrisati klub " + temp.getName() + "?");
+            alert.setTitle("Confirmation");
+            alert.setContentText("Are you sure you want to delete " + temp.getName() + "?");
             if (alert.showAndWait().get() == ButtonType.OK) {
                 dao.deleteClub(temp.getName());
                 clubsLv.getItems().remove(temp);
@@ -93,18 +91,18 @@ public class PreseasonController {
     public void startPressed () throws IOException {
         boolean start = true;
         if (dao.clubs().size()%2==1) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle(MESSAGE);
-            alert.setHeaderText("Broj klubova neparan");
-            alert.setContentText("Liga mora imati paran broj klubova");
+            alert.setHeaderText("Odd number of clubs");
+            alert.setContentText("League must have even number of clubs");
             alert.showAndWait();
             start = false;
         }
         else if (dao.clubs().size()<2) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle(MESSAGE);
-            alert.setHeaderText("Nedovoljno klubova");
-            alert.setContentText("Liga mora imati barem 2 kluba");
+            alert.setHeaderText("Not enough clubs");
+            alert.setContentText("League must have at least 2 clubs");
             alert.showAndWait();
             start = false;
         }
@@ -112,10 +110,10 @@ public class PreseasonController {
             for (int i = 0; i < dao.clubs().size(); i++) {
                 Club temp = dao.clubs().get(i);
                 if (dao.playersInClub(temp).size() < 15) {
-                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle(MESSAGE);
-                    alert.setHeaderText("Nedovoljno igrača");
-                    alert.setContentText("Klub " + dao.clubs().get(i) + " ima manje od 15 igrača.");
+                    alert.setHeaderText("Not enough playes");
+                    alert.setContentText("Club " + dao.clubs().get(i) + " have less than 15 players.");
                     alert.showAndWait();
                     start = false;
                     break;
@@ -131,28 +129,28 @@ public class PreseasonController {
                     else attackers.add(dao.playersInClub(temp).get(j));
                 }
                 if (goalkeepers.isEmpty() || defenders.size() < 4 || midfielders.size() < 3 || attackers.size() < 3) {
-                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle(MESSAGE);
-                    alert.setHeaderText("Nedovoljno igrača");
-                    alert.setContentText("Klub " + dao.clubs().get(i) + " nema dovoljno igrača po pozicijama.");
+                    alert.setHeaderText("Not enough players");
+                    alert.setContentText("Club " + dao.clubs().get(i) + " don't have enough players by position.");
                     alert.showAndWait();
                     start = false;
                     break;
                 }
                 if (temp.getCaptain()==null) {
-                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle(MESSAGE);
-                    alert.setHeaderText("Nema kapitena");
-                    alert.setContentText("Klub " + dao.clubs().get(i) + " nije izabrao kapitena.");
+                    alert.setHeaderText("No captain");
+                    alert.setContentText("Club " + dao.clubs().get(i) + " didn't choose a captain.");
                     alert.showAndWait();
                     start = false;
                     break;
                 }
                 if (temp.getManager().isBlank()) {
-                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle(MESSAGE);
-                    alert.setHeaderText("Nema menadžera");
-                    alert.setContentText("Klub " + dao.clubs().get(i) + " nije imenovao menadžera.");
+                    alert.setHeaderText("No manager");
+                    alert.setContentText("Club " + dao.clubs().get(i) + " didn't hire a manager.");
                     alert.showAndWait();
                     start = false;
                     break;
@@ -161,7 +159,7 @@ public class PreseasonController {
         }
         if (start) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setContentText("Želite li unaprijed generisan raspored?");
+            alert.setContentText("Do you want random generated schedule in advance?");
 
             ButtonType yes = new ButtonType("Yes");
             ButtonType no = new ButtonType("No");
@@ -180,8 +178,8 @@ public class PreseasonController {
                 fxmlLoader.setController(ctrl);
                 Scene scene = new Scene(fxmlLoader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
                 Stage stage = new Stage();
-                stage.setMinHeight(150);
-                stage.setMinWidth(400);
+                stage.setMinHeight(400);
+                stage.setMinWidth(1000);
                 stage.setTitle("Season");
                 stage.setScene(scene);
                 stage.show();
@@ -199,13 +197,14 @@ public class PreseasonController {
 
         ChoiceDialog<String> dialog = new ChoiceDialog<>("English", choices);
         dialog.setTitle("Choice Dialog");
-        dialog.setHeaderText("Look, a Choice Dialog");
+        dialog.setHeaderText("Language chooser");
         dialog.setContentText("Choose your language:");
 
         Optional<String> result = dialog.showAndWait();
         if (result.isPresent()){
             if (("Bosanski").equals(result.get())) Locale.setDefault(new Locale("bs", "BA"));
             else if (("English").equals(result.get())) Locale.setDefault(new Locale("en", "EN"));
+            dao.writeLanguage(result.get());
         }
     }
 

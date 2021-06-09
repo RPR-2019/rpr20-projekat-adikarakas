@@ -63,38 +63,30 @@ public class MatchController {
         awayTeamScore.setText(String.valueOf(awayTeamGoals.getItems().size()));
     }
 
-    public void addGoalHome() {
+    public void addGoalHome() throws IOException {
         Stage stage = new Stage();
-        try {
-            ResourceBundle bundle = ResourceBundle.getBundle("Translation");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/goal.fxml"), bundle);
-            GoalController goalController = new GoalController(this.homePlayers, this.homeClubGoals, true); // dodati drugi argument
-            loader.setController(goalController);
-            Parent root = loader.load();
-            stage.setTitle("Goal");
-            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-            stage.setResizable(false);
-            stage.show();
-        } catch (IOException e) {
-            e.getMessage();
-        }
+        ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/goal.fxml"), bundle);
+        GoalController goalController = new GoalController(this.homePlayers, this.homeClubGoals, true);
+        loader.setController(goalController);
+        Parent root = loader.load();
+        stage.setTitle("Goal");
+        stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        stage.setResizable(false);
+        stage.show();
     }
 
-    public void addGoalAway() {
+    public void addGoalAway() throws IOException {
         Stage stage = new Stage();
-        try {
-            ResourceBundle bundle = ResourceBundle.getBundle("Translation");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/goal.fxml"), bundle);
-            GoalController goalController = new GoalController(this.awayPlayers, this.awayClubGoals, false); // dodati drugi argument
-            loader.setController(goalController);
-            Parent root = loader.load();
-            stage.setTitle("Goal");
-            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-            stage.setResizable(false);
-            stage.show();
-        } catch (IOException e) {
-            e.getMessage();
-        }
+        ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/goal.fxml"), bundle);
+        GoalController goalController = new GoalController(this.awayPlayers, this.awayClubGoals, false);
+        loader.setController(goalController);
+        Parent root = loader.load();
+        stage.setTitle("Goal");
+        stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        stage.setResizable(false);
+        stage.show();
     }
 
     public void finishPressed() {

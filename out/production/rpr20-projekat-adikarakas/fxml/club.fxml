@@ -12,19 +12,19 @@
    <center>
       <GridPane hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="290.0" prefWidth="551.0" vgap="5.0">
           <columnConstraints>
-          <ColumnConstraints maxWidth="230.0" minWidth="199.0" prefWidth="230.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="221.0" minWidth="10.0" prefWidth="93.79999999999998" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="161.39999999999998" />
+          <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="199.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label text="%clubName" GridPane.columnIndex="1" />
@@ -37,22 +37,22 @@
             <TextField fx:id="stadiumField" GridPane.columnIndex="2" GridPane.rowIndex="2" />
             <TextField fx:id="mascotField" GridPane.columnIndex="2" GridPane.rowIndex="3" />
             <TextField fx:id="managerField" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <ChoiceBox fx:id="captainChoice" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <ChoiceBox fx:id="captainChoice" GridPane.columnIndex="2" GridPane.rowIndex="5" />
             <ColorPicker fx:id="colorPicker" GridPane.columnIndex="2" GridPane.rowIndex="6" />
             <Label text="%shirtColor" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.rowIndex="7">
+            <ButtonBar GridPane.rowIndex="7">
               <buttons>
                 <Button fx:id="addPlayerButton" mnemonicParsing="false" onAction="#addPlayer" text="%addPlayer" />
                   <Button fx:id="removePlayerButton" mnemonicParsing="false" onAction="#removePlayer" text="%removePlayer" />
               </buttons>
             </ButtonBar>
-            <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="7">
+            <ButtonBar GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="7">
               <buttons>
                 <Button fx:id="okButton" defaultButton="true" mnemonicParsing="false" onAction="#okPressed" text="%ok" />
                   <Button fx:id="cancelButton" cancelButton="true" mnemonicParsing="false" onAction="#cancelPressed" text="%cancel" />
               </buttons>
             </ButtonBar>
-            <ListView fx:id="playersLv" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" GridPane.rowSpan="6" />
+            <ListView fx:id="playersLv" GridPane.rowIndex="1" GridPane.rowSpan="6" />
             <Label fx:id="playersLabel" text="%players" />
             <Label text="%manager" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
@@ -62,11 +62,11 @@
       </GridPane>
    </center>
    <top>
-      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="TOP_RIGHT">
+      <ToolBar BorderPane.alignment="TOP_RIGHT">
         <items>
-          <Button fx:id="tbPrint" mnemonicParsing="false" onAction="#print" prefHeight="23.0" prefWidth="23.0" />
-            <Button fx:id="tbHelp" mnemonicParsing="false" onAction="#help" prefHeight="23.0" prefWidth="23.0" />
-            <Button fx:id="tbExit" mnemonicParsing="false" onAction="#exit" prefHeight="23.0" prefWidth="23.0" />
+          <Button fx:id="tbPrint" mnemonicParsing="false" onAction="#print" />
+            <Button fx:id="tbHelp" mnemonicParsing="false" onAction="#help" />
+            <Button fx:id="tbExit" mnemonicParsing="false" onAction="#exit" />
         </items>
       </ToolBar>
    </top>
