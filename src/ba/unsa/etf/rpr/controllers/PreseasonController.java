@@ -1,6 +1,11 @@
 package ba.unsa.etf.rpr.controllers;
 
-import ba.unsa.etf.rpr.beans.*;
+import ba.unsa.etf.rpr.beans.Goalkeeper;
+import ba.unsa.etf.rpr.beans.Midfielder;
+import ba.unsa.etf.rpr.beans.Defender;
+import ba.unsa.etf.rpr.beans.Fixture;
+import ba.unsa.etf.rpr.beans.Club;
+import ba.unsa.etf.rpr.beans.Player;
 import ba.unsa.etf.rpr.other.LeagueDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -168,9 +173,9 @@ public class PreseasonController {
             alert.getButtonTypes().setAll(yes, no, cancel);
             Optional<ButtonType> result = alert.showAndWait();
 
-            if (result.get() == yes) scheduleGenerator(dao.clubs());
+            if (result.isPresent() && result.get() == yes) scheduleGenerator(dao.clubs());
 
-            if (result.get() == yes || result.get() == no) {
+            if (result.isPresent() && (result.get() == yes || result.get() == no)) {
                 dao.createStats();
                 ResourceBundle bundle = ResourceBundle.getBundle("Translation");
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/season.fxml"), bundle);
@@ -190,21 +195,38 @@ public class PreseasonController {
         }
     }
 
-    public void setLanguage() {
+    public void setLanguage() throws IOException {
         List<String> choices = new ArrayList<>();
         choices.add("Bosanski");
         choices.add("English");
 
+        String previous = dao.readLanguage();
         ChoiceDialog<String> dialog = new ChoiceDialog<>("English", choices);
         dialog.setTitle("Choice Dialog");
         dialog.setHeaderText("Language chooser");
         dialog.setContentText("Choose your language:");
 
         Optional<String> result = dialog.showAndWait();
-        if (result.isPresent()){
+        if (result.isPresent()) {
             if (("Bosanski").equals(result.get())) Locale.setDefault(new Locale("bs", "BA"));
             else if (("English").equals(result.get())) Locale.setDefault(new Locale("en", "EN"));
             dao.writeLanguage(result.get());
+            if (!previous.equals(dao.readLanguage())) {
+                Stage stage = (Stage) startButton.getScene().getWindow();
+                stage.close();
+
+                ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/preseason.fxml"), bundle);
+                PreseasonController ctrl = new PreseasonController();
+                fxmlLoader.setController(ctrl);
+                Scene scene = new Scene(fxmlLoader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
+                Stage stage2 = new Stage();
+                stage2.setMinHeight(150);
+                stage2.setMinWidth(248);
+                stage2.setTitle("Preseason");
+                stage2.setScene(scene);
+                stage2.show();
+            }
         }
     }
 

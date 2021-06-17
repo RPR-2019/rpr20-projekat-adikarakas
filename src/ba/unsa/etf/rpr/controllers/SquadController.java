@@ -1,6 +1,10 @@
 package ba.unsa.etf.rpr.controllers;
 
-import ba.unsa.etf.rpr.beans.*;
+import ba.unsa.etf.rpr.beans.Goalkeeper;
+import ba.unsa.etf.rpr.beans.Defender;
+import ba.unsa.etf.rpr.beans.Midfielder;
+import ba.unsa.etf.rpr.beans.Club;
+import ba.unsa.etf.rpr.beans.Player;
 import ba.unsa.etf.rpr.other.ClubOnTable;
 import ba.unsa.etf.rpr.other.LeagueDAO;
 import javafx.collections.FXCollections;
@@ -55,7 +59,7 @@ public class SquadController {
     private final ObservableList<Player> awayAttackers;
     private final Club homeClub;
     private final Club awayClub;
-    private LeagueDAO dao;
+    private final LeagueDAO dao;
     private final ObservableList<ClubOnTable> clubsOnTable;
 
     SquadController (Club home, Club away, ObservableList<ClubOnTable> clubsOnTable) {

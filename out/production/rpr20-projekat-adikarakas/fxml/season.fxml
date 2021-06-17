@@ -21,8 +21,8 @@
          <children>
             <TableView fx:id="tableViewTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.rowIndex="1" GridPane.rowSpan="3">
               <columns>
-                <TableColumn fx:id="tableColumnPosition" prefWidth="40.0" sortable="false" text="Pos" />
-                <TableColumn fx:id="tableColumnClubs" prefWidth="220.80001831054688" sortable="false" text="Club" />
+                <TableColumn fx:id="tableColumnPosition" prefWidth="40.0" sortable="false" text="%pos" />
+                <TableColumn fx:id="tableColumnClubs" prefWidth="220.80001831054688" sortable="false" text="%club" />
                   <TableColumn fx:id="tableColumnPlayed" minWidth="0.0" prefWidth="40.0" sortable="false" />
                   <TableColumn fx:id="tableColumnWins" minWidth="0.0" prefWidth="40.0" sortable="false" />
                   <TableColumn fx:id="tableColumnDraws" prefWidth="40.0" sortable="false" />

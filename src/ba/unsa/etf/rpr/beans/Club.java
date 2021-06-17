@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Objects;
 
 public class Club implements Serializable {
-    private int id;
     private String name;
     private String nickname="";
     private String stadium="";
@@ -22,14 +21,6 @@ public class Club implements Serializable {
         this.name = name;
         this.players = new ArrayList<>(0);
         this.color=Color.WHITE;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {

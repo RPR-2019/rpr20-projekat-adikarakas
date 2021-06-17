@@ -1,18 +1,16 @@
 
-X
-java:S3655«"5Call "result.isPresent()" before accessing the value.(³Ã…Ôúÿÿÿÿ8ùÀ …™/
-i
-java:S1192."LDefine a constant instead of duplicating this literal "Translation" 3 times.(“òáĞ8«ÍÈî/
-t
-java:S1104"WMake startButton a static final constant or non-public and provide accessors if needed.(¦Ñğñ8ä¾ëÚ/
 o
-java:S3776["RRefactor this method to reduce its Cognitive Complexity from 34 to the 15 allowed.(¿‰…ü8«ÍÈî/
-p
-java:S1104"SMake clubsLv a static final constant or non-public and provide accessors if needed.(€êÏÁ8ä¾ëÚ/
-h
-java:S1192t"FDefine a constant instead of duplicating this literal "Club " 4 times.(é×›½ıÿÿÿÿ8£¡£ï/
+java:S3776`"RRefactor this method to reduce its Cognitive Complexity from 36 to the 15 allowed.(¿‰…ü8«ÍÈî/
+i
+java:S11923"LDefine a constant instead of duplicating this literal "Translation" 4 times.(“òáĞ8«ÍÈî/
+z	java:S135s"YReduce the total number of break and continue statements in this loop to use at most one.(€™¡æûÿÿÿÿ8«ÍÈî/
+t
+java:S1104"WMake startButton a static final constant or non-public and provide accessors if needed.(¦Ñğñ8ä¾ëÚ/
 Y
-java:S3655T"7Call "Optional#isPresent()" before accessing the value.(ŸªÍäùÿÿÿÿ8«ÍÈî/
+java:S3655Y"7Call "Optional#isPresent()" before accessing the value.(ŸªÍäùÿÿÿÿ8«ÍÈî/
+h
+java:S1192y"FDefine a constant instead of duplicating this literal "Club " 4 times.(é×›½ıÿÿÿÿ8£¡£ï/
+p
+java:S1104"SMake clubsLv a static final constant or non-public and provide accessors if needed.(€êÏÁ8ä¾ëÚ/
 k
-java:S1192Ä"HDefine a constant instead of duplicating this literal "English" 3 times.(ÿ–¹¹ùÿÿÿÿ8ÍÛÚŸ™/
-z	java:S135n"YReduce the total number of break and continue statements in this loop to use at most one.(€™¡æûÿÿÿÿ8«ÍÈî/
+java:S1192É"HDefine a constant instead of duplicating this literal "English" 3 times.(ÿ–¹¹ùÿÿÿÿ8ÍÛÚŸ™/

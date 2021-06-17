@@ -1,6 +1,12 @@
 package ba.unsa.etf.rpr.controllers;
 
-import ba.unsa.etf.rpr.beans.*;
+import ba.unsa.etf.rpr.beans.Goalkeeper;
+import ba.unsa.etf.rpr.beans.Fixture;
+import ba.unsa.etf.rpr.beans.Stats;
+import ba.unsa.etf.rpr.beans.Club;
+import ba.unsa.etf.rpr.beans.Goal;
+import ba.unsa.etf.rpr.beans.Player;
+import ba.unsa.etf.rpr.beans.Result;
 import ba.unsa.etf.rpr.other.ClubOnTable;
 import ba.unsa.etf.rpr.other.LeagueDAO;
 import javafx.collections.FXCollections;
@@ -25,8 +31,8 @@ import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class MatchController {
 
-    private Club homeClub;
-    private Club awayClub;
+    private final Club homeClub;
+    private final Club awayClub;
     public TextField homeTeamScore;
     public TextField awayTeamScore;
     public ListView<Goal> homeTeamGoals = new ListView<>();
@@ -35,12 +41,12 @@ public class MatchController {
     public Button finishButton;
     public TextField homeTeamName;
     public TextField awayTeamName;
-    private List<Player> homePlayers;
-    private List<Player> awayPlayers;
+    private final List<Player> homePlayers;
+    private final List<Player> awayPlayers;
     private final ObservableList<Goal> homeClubGoals = FXCollections.observableArrayList();
     private final ObservableList<Goal> awayClubGoals = FXCollections.observableArrayList();
-    private LeagueDAO dao;
-    private ObservableList<ClubOnTable> clubsOnTable;
+    private final LeagueDAO dao;
+    private final ObservableList<ClubOnTable> clubsOnTable;
 
     MatchController (Club c1, Club c2, List<Player> p1, List<Player> p2, ObservableList<ClubOnTable> clubsOnTable) {
         dao=LeagueDAO.getInstance();
@@ -103,9 +109,9 @@ public class MatchController {
 
         Result res = dao.findResult(r.getHomeTeam(), r.getAwayTeam());
         hcG.forEach(k -> k.setResult(res));
-        hcG.forEach(k -> dao.addGoal(k));
+        hcG.forEach(dao::addGoal);
         acG.forEach(k -> k.setResult(res));
-        acG.forEach(k -> dao.addGoal(k));
+        acG.forEach(dao::addGoal);
 
         // izbacujemo kolo jer se utakmica odigrala
         Fixture fixture = dao.findFixture(homeClub.getName(), awayClub.getName());
@@ -118,27 +124,27 @@ public class MatchController {
 
         Stats stat = new Stats();
         // sređivanje statistike
-        for (int i=0; i<this.homePlayers.size(); i++) {
-            if (this.homePlayers.get(i) instanceof Goalkeeper && awayClubGoals.isEmpty()) {
-                stat.setId(this.homePlayers.get(i).getId());
+        for (Player homePlayer : this.homePlayers) {
+            if (homePlayer instanceof Goalkeeper && awayClubGoals.isEmpty()) {
+                stat.setId(homePlayer.getId());
                 stat.setAppearances(dao.findStat(stat.getId()).getAppearances());
                 stat.setCleanSheets(dao.findStat(stat.getId()).getCleanSheets() + 1);
                 dao.editStat(stat);
             }
-            stat.setId(this.homePlayers.get(i).getId());
+            stat.setId(homePlayer.getId());
             stat.setAppearances(dao.findStat(stat.getId()).getAppearances() + 1);
             stat.setCleanSheets(dao.findStat(stat.getId()).getCleanSheets());
             dao.editStat(stat);
         }
 
-        for (int i=0; i<this.awayPlayers.size(); i++) {
-            if (this.awayPlayers.get(i) instanceof Goalkeeper && homeClubGoals.isEmpty()) {
-                stat.setId(this.awayPlayers.get(i).getId());
+        for (Player awayPlayer : this.awayPlayers) {
+            if (awayPlayer instanceof Goalkeeper && homeClubGoals.isEmpty()) {
+                stat.setId(awayPlayer.getId());
                 stat.setAppearances(dao.findStat(stat.getId()).getAppearances());
                 stat.setCleanSheets(dao.findStat(stat.getId()).getCleanSheets() + 1);
                 dao.editStat(stat);
             }
-            stat.setId(this.awayPlayers.get(i).getId());
+            stat.setId(awayPlayer.getId());
             stat.setAppearances(dao.findStat(stat.getId()).getAppearances() + 1);
             stat.setCleanSheets(dao.findStat(stat.getId()).getCleanSheets());
             dao.editStat(stat);

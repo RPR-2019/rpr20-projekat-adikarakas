@@ -15,13 +15,18 @@ public class Goal implements Serializable {
     private GoalDistance goalDistance;
     private int minute;
     private Result result;
+    
+    private static final String SAMEPERSONMESSAGE = "Scorer and assistent shouldn't be same person";
+    private static final String OUTSIDEPENALTYMESSAGE = "You can't scorer penalty from outside box";
+    private static final String INSIDEMESSAGE = "You can't score free kick from inside box";
+    private static final String ASSISTMESSAGE = "You can get assist only for open play goals";
 
     public Goal(Player scorer, Player assistent, int minute, GoalType goalType, GoalSituation goalSituation, GoalDistance goalDistance) {
         if (minute < 0 || minute > 90) throw new IllegalArgumentException("Minute should be between 0 and 90!");
-        if (scorer.equals(assistent)) throw new WrongArgumentException("Scorer and assistent shouldn't be same person");
-        if (!goalSituation.equals(GoalSituation.OPENPLAY) && assistent!=null) throw new WrongArgumentException("You can get assist only for open play goals");
-        if (goalSituation.equals(GoalSituation.PENALTY) && goalDistance.equals(GoalDistance.OUTSIDEBOX)) throw new WrongArgumentException("You can't score penalty from outside box");
-        if (goalSituation.equals(GoalSituation.FREEKICK) && goalDistance.equals(GoalDistance.INSIDEBOX)) throw new WrongArgumentException("You can't score free kick from inside box");
+        if (scorer.equals(assistent)) throw new WrongArgumentException(SAMEPERSONMESSAGE);
+        if (!goalSituation.equals(GoalSituation.OPENPLAY) && assistent!=null) throw new WrongArgumentException(ASSISTMESSAGE);
+        if (goalSituation.equals(GoalSituation.PENALTY) && goalDistance.equals(GoalDistance.OUTSIDEBOX)) throw new WrongArgumentException(OUTSIDEPENALTYMESSAGE);
+        if (goalSituation.equals(GoalSituation.FREEKICK) && goalDistance.equals(GoalDistance.INSIDEBOX)) throw new WrongArgumentException(INSIDEMESSAGE);
         this.scorer = scorer;
         this.assistent = assistent;
         this.minute = minute;
@@ -32,10 +37,8 @@ public class Goal implements Serializable {
 
     public Goal(Player scorer, int minute, GoalType goalType, GoalSituation goalSituation, GoalDistance goalDistance) {
         if (minute < 0 || minute > 90) throw new IllegalArgumentException("Minute should be between 0 and 90!");
-        if (scorer.equals(assistent)) throw new WrongArgumentException("Scorer and assistent shouldn't be same person");
-        if (!goalSituation.equals(GoalSituation.OPENPLAY) && assistent!=null) throw new WrongArgumentException("You can get assist only for open play goals");
-        if (goalSituation.equals(GoalSituation.PENALTY) && goalDistance.equals(GoalDistance.OUTSIDEBOX)) throw new WrongArgumentException("You can't score penalty from outside box");
-        if (goalSituation.equals(GoalSituation.FREEKICK) && goalDistance.equals(GoalDistance.INSIDEBOX)) throw new WrongArgumentException("You can't score free kick from inside box");
+        if (goalSituation.equals(GoalSituation.PENALTY) && goalDistance.equals(GoalDistance.OUTSIDEBOX)) throw new WrongArgumentException(OUTSIDEPENALTYMESSAGE);
+        if (goalSituation.equals(GoalSituation.FREEKICK) && goalDistance.equals(GoalDistance.INSIDEBOX)) throw new WrongArgumentException(INSIDEMESSAGE);
         this.scorer=scorer;
         this.assistent = null;
         this.minute=minute;
@@ -49,7 +52,7 @@ public class Goal implements Serializable {
     }
 
     public void setScorer(Player scorer) {
-        if (this.scorer.equals(assistent)) throw new WrongArgumentException("Scorer and assistent shouldn't be same person");
+        if (this.scorer.equals(assistent)) throw new WrongArgumentException(SAMEPERSONMESSAGE);
         this.scorer = scorer;
     }
 
@@ -58,8 +61,8 @@ public class Goal implements Serializable {
     }
 
     public void setAssistent(Player assistent) {
-        if (this.scorer.equals(assistent)) throw new WrongArgumentException("Scorer and assistent shouldn't be same person");
-        if (!goalSituation.equals(GoalSituation.OPENPLAY) && assistent!=null) throw new WrongArgumentException("You can get assist only for open play goals");
+        if (this.scorer.equals(assistent)) throw new WrongArgumentException(SAMEPERSONMESSAGE);
+        if (!goalSituation.equals(GoalSituation.OPENPLAY) && assistent!=null) throw new WrongArgumentException(ASSISTMESSAGE);
         this.assistent = assistent;
     }
 
@@ -76,9 +79,9 @@ public class Goal implements Serializable {
     }
 
     public void setGoalSituation(GoalSituation goalSituation) {
-        if (goalSituation.equals(GoalSituation.PENALTY) && goalDistance.equals(GoalDistance.OUTSIDEBOX)) throw new WrongArgumentException("You can't score penalty from outside box");
-        if (!goalSituation.equals(GoalSituation.OPENPLAY) && assistent!=null) throw new WrongArgumentException("You can get assist only for open play goals");
-        if (goalSituation.equals(GoalSituation.FREEKICK) && goalDistance.equals(GoalDistance.INSIDEBOX)) throw new WrongArgumentException("You can't score free kick from inside box");
+        if (goalSituation.equals(GoalSituation.PENALTY) && goalDistance.equals(GoalDistance.OUTSIDEBOX)) throw new WrongArgumentException(OUTSIDEPENALTYMESSAGE);
+        if (!goalSituation.equals(GoalSituation.OPENPLAY) && assistent!=null) throw new WrongArgumentException(ASSISTMESSAGE);
+        if (goalSituation.equals(GoalSituation.FREEKICK) && goalDistance.equals(GoalDistance.INSIDEBOX)) throw new WrongArgumentException(INSIDEMESSAGE);
         this.goalSituation = goalSituation;
     }
 
@@ -87,8 +90,8 @@ public class Goal implements Serializable {
     }
 
     public void setGoalDistance(GoalDistance goalDistance) {
-        if (goalSituation.equals(GoalSituation.PENALTY) && goalDistance.equals(GoalDistance.OUTSIDEBOX)) throw new WrongArgumentException("You can't score penalty from outside box");
-        if (goalSituation.equals(GoalSituation.FREEKICK) && goalDistance.equals(GoalDistance.INSIDEBOX)) throw new WrongArgumentException("You can't score free kick from inside box");
+        if (goalSituation.equals(GoalSituation.PENALTY) && goalDistance.equals(GoalDistance.OUTSIDEBOX)) throw new WrongArgumentException(OUTSIDEPENALTYMESSAGE);
+        if (goalSituation.equals(GoalSituation.FREEKICK) && goalDistance.equals(GoalDistance.INSIDEBOX)) throw new WrongArgumentException(INSIDEMESSAGE);
         this.goalDistance = goalDistance;
     }
 

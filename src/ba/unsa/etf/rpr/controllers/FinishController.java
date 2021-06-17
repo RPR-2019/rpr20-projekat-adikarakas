@@ -27,11 +27,10 @@ public class FinishController {
     public Label assistentLabel;
     public Label goalkeeperLabel;
 
-    private Club winningClub;
-    private LeagueDAO dao;
+    private final Club winningClub;
+    private final LeagueDAO dao;
     public Button cancelButton;
     public Button finishButton;
-    public Button finishAndDeleteButton;
 
     FinishController(Club c) {
         dao=LeagueDAO.getInstance();
@@ -54,14 +53,14 @@ public class FinishController {
         ArrayList<Player> players = new ArrayList<>(dao.players());
         ArrayList<Goal> goals = new ArrayList<>(dao.goals());
         Player scorer = players.get(0);
-        for (int i=0; i<players.size(); i++) {
-            value=0;
-            for (int j=0; j<goals.size(); j++) {
-                if (goals.get(j).getScorer().equals(players.get(i))) value++;
+        for (Player player : players) {
+            value = 0;
+            for (Goal goal : goals) {
+                if (goal.getScorer().equals(player)) value++;
             }
-            if (value>max) {
-                max=value;
-                scorer=players.get(i);
+            if (value > max) {
+                max = value;
+                scorer = player;
             }
         }
         return new Pair<>(scorer, max);
@@ -73,14 +72,14 @@ public class FinishController {
         ArrayList<Player> players = new ArrayList<>(dao.players());
         ArrayList<Goal> goals = new ArrayList<>(dao.goals());
         Player assistent = players.get(0);
-        for (int i=0; i<players.size(); i++) {
-            value=0;
-            for (int j=0; j<goals.size(); j++) {
-                if (goals.get(j).getAssistent()!=null && goals.get(j).getAssistent().equals(players.get(i))) value++;
+        for (Player player : players) {
+            value = 0;
+            for (Goal goal : goals) {
+                if (goal.getAssistent() != null && goal.getAssistent().equals(player)) value++;
             }
-            if (value>max) {
-                max=value;
-                assistent=players.get(i);
+            if (value > max) {
+                max = value;
+                assistent = player;
             }
         }
         return new Pair<>(assistent, max);
@@ -91,10 +90,10 @@ public class FinishController {
         ArrayList<Stats> stats = new ArrayList<>(dao.stats());
         Player player = players.get(0);
         int max = stats.get(0).getCleanSheets();
-        for (int i=0; i<stats.size(); i++) {
-            if (stats.get(i).getCleanSheets()>max) {
-                max=stats.get(i).getCleanSheets();
-                player= dao.findPlayer(stats.get(i).getId());
+        for (Stats stat : stats) {
+            if (stat.getCleanSheets() > max) {
+                max = stat.getCleanSheets();
+                player = dao.findPlayer(stat.getId());
             }
         }
         return new Pair<>(player, max);
@@ -111,7 +110,7 @@ public class FinishController {
         alert.getButtonTypes().setAll(yes, no, cancel);
         Optional<ButtonType> result = alert.showAndWait();
 
-        if (result.get() == yes) {
+        if (result.isPresent() && result.get() == yes) {
             dao.deleteAllResults();
             dao.deleteAllGoals();
             dao.deleteAllStats();
@@ -119,13 +118,13 @@ public class FinishController {
             dao.deleteAllClubs();
         }
 
-        else if (result.get() == no) {
+        else if (result.isPresent() && result.get() == no) {
             dao.deleteAllResults();
             dao.deleteAllGoals();
             dao.deleteAllStats();
         }
 
-        if (result.get() == yes || result.get() == no) {
+        if (result.isPresent() && (result.get() == yes || result.get() == no)) {
             ResourceBundle bundle = ResourceBundle.getBundle("Translation");
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/preseason.fxml"), bundle);
             PreseasonController ctrl = new PreseasonController();

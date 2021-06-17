@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.controllers;
 
+import ba.unsa.etf.rpr.beans.Player;
 import ba.unsa.etf.rpr.other.LeagueDAO;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -77,10 +78,10 @@ class ProcessTest {
         robot.lookup("#languageButton").tryQuery().isPresent();
         assertEquals("bs", Locale.getDefault().getLanguage());
 
-        robot.press(KeyCode.SHIFT);
-        robot.press(KeyCode.TAB);
-        robot.release(KeyCode.TAB);
-        robot.release(KeyCode.SHIFT);
+        for (int i=0; i<4; i++) {
+            robot.press(KeyCode.TAB);
+            robot.release(KeyCode.TAB);
+        }
 
         robot.press(KeyCode.ENTER);
         robot.release(KeyCode.ENTER);
@@ -128,11 +129,15 @@ class ProcessTest {
         robot.clickOn("#goalScorer");
         robot.press(KeyCode.ENTER);
         robot.release(KeyCode.ENTER);
+        ChoiceBox<Player> cb1 = robot.lookup("#goalScorer").queryAs(ChoiceBox.class);
+        String first = cb1.getSelectionModel().getSelectedItem().toString();
         robot.clickOn("#assistProvider");
         robot.press(KeyCode.DOWN);
         robot.release(KeyCode.DOWN);
         robot.press(KeyCode.ENTER);
         robot.release(KeyCode.ENTER);
+        ChoiceBox<Player> cb2 = robot.lookup("#assistProvider").queryAs(ChoiceBox.class);
+        String second = cb2.getSelectionModel().getSelectedItem().toString();
         robot.clickOn("#rightFoot");
         robot.clickOn("#insideBox");
         robot.clickOn("#openPlay");
@@ -162,8 +167,8 @@ class ProcessTest {
                 () -> assertEquals("Liverpool", robot.lookup("#championsLabel").queryAs(Label.class).getText()),
                 () -> assertEquals("Jurgen Klopp", robot.lookup("#managerLabel").queryAs(Label.class).getText()),
                 () -> assertEquals("Jordan Henderson", robot.lookup("#captainLabel").queryAs(Label.class).getText()),
-                () -> assertEquals("Trent Alexander-Arnold (1)", robot.lookup("#scorerLabel").queryAs(Label.class).getText()),
-                () -> assertEquals("Andrew Robertson (1)", robot.lookup("#assistentLabel").queryAs(Label.class).getText()),
+                () -> assertEquals(first + " (1)", robot.lookup("#scorerLabel").queryAs(Label.class).getText()),
+                () -> assertEquals(second + " (1)", robot.lookup("#assistentLabel").queryAs(Label.class).getText()),
                 () -> assertEquals("Bernd Leno (6)", robot.lookup("#goalkeeperLabel").queryAs(Label.class).getText())
         );
         robot.clickOn("#finishButton");
@@ -197,11 +202,15 @@ class ProcessTest {
         robot.clickOn("#goalScorer");
         robot.press(KeyCode.ENTER);
         robot.release(KeyCode.ENTER);
+        ChoiceBox<Player> cb1 = robot.lookup("#goalScorer").queryAs(ChoiceBox.class);
+        String first = cb1.getSelectionModel().getSelectedItem().toString();
         robot.clickOn("#assistProvider");
         robot.press(KeyCode.DOWN);
         robot.release(KeyCode.DOWN);
         robot.press(KeyCode.ENTER);
         robot.release(KeyCode.ENTER);
+        ChoiceBox<Player> cb2 = robot.lookup("#assistProvider").queryAs(ChoiceBox.class);
+        String second = cb2.getSelectionModel().getSelectedItem().toString();
         robot.clickOn("#rightFoot");
         robot.clickOn("#insideBox");
         robot.clickOn("#openPlay");
@@ -231,8 +240,8 @@ class ProcessTest {
                 () -> assertEquals("Liverpool", robot.lookup("#championsLabel").queryAs(Label.class).getText()),
                 () -> assertEquals("Jurgen Klopp", robot.lookup("#managerLabel").queryAs(Label.class).getText()),
                 () -> assertEquals("Jordan Henderson", robot.lookup("#captainLabel").queryAs(Label.class).getText()),
-                () -> assertEquals("Trent Alexander-Arnold (1)", robot.lookup("#scorerLabel").queryAs(Label.class).getText()),
-                () -> assertEquals("Andrew Robertson (1)", robot.lookup("#assistentLabel").queryAs(Label.class).getText()),
+                () -> assertEquals(first + " (1)", robot.lookup("#scorerLabel").queryAs(Label.class).getText()),
+                () -> assertEquals(second + " (1)", robot.lookup("#assistentLabel").queryAs(Label.class).getText()),
                 () -> assertEquals("Bernd Leno (6)", robot.lookup("#goalkeeperLabel").queryAs(Label.class).getText())
         );
         robot.clickOn("#finishButton");

@@ -1,10 +1,12 @@
 package ba.unsa.etf.rpr.controllers;
 
+import ba.unsa.etf.rpr.beans.Player;
 import ba.unsa.etf.rpr.beans.PlayerStats;
 import ba.unsa.etf.rpr.other.LeagueDAO;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableView;
 import javafx.scene.input.KeyCode;
@@ -69,11 +71,15 @@ class StatTest {
         robot.clickOn("#goalScorer");
         robot.press(KeyCode.ENTER);
         robot.release(KeyCode.ENTER);
+        ChoiceBox<Player> cb1 = robot.lookup("#goalScorer").queryAs(ChoiceBox.class);
+        String first = cb1.getSelectionModel().getSelectedItem().toString();
         robot.clickOn("#assistProvider");
         robot.press(KeyCode.DOWN);
         robot.release(KeyCode.DOWN);
         robot.press(KeyCode.ENTER);
         robot.release(KeyCode.ENTER);
+        ChoiceBox<Player> cb2 = robot.lookup("#assistProvider").queryAs(ChoiceBox.class);
+        String second = cb2.getSelectionModel().getSelectedItem().toString();
         robot.clickOn("#head");
         robot.clickOn("#insideBox");
         robot.clickOn("#openPlay");
@@ -106,6 +112,8 @@ class StatTest {
         robot.release(KeyCode.DOWN);
         robot.press(KeyCode.ENTER);
         robot.release(KeyCode.ENTER);
+        cb1 = robot.lookup("#goalScorer").queryAs(ChoiceBox.class);
+        String third = cb1.getSelectionModel().getSelectedItem().toString();
         robot.clickOn("#rightFoot");
         robot.clickOn("#insideBox");
         robot.clickOn("#penalty");
@@ -149,17 +157,17 @@ class StatTest {
 
 
         assertAll(
-                () -> assertEquals("Trent Alexander-Arnold", goals.getItems().get(0).getName().toString()),
-                () -> assertEquals("Andrew Robertson", assists.getItems().get(0).getName().toString()),
+                () -> assertEquals(first, goals.getItems().get(0).getName().toString()),
+                () -> assertEquals(second, assists.getItems().get(0).getName().toString()),
                 () -> assertEquals("Alisson Becker", cleanSheets.getItems().get(0).getName().toString()),
-                () -> assertEquals("Trent Alexander-Arnold", inside.getItems().get(0).getName().toString()),
-                () -> assertEquals("Andrew Robertson", outside.getItems().get(0).getName().toString()),
-                () -> assertEquals("Fabinho", right.getItems().get(0).getName().toString()),
-                () -> assertEquals("Andrew Robertson", left.getItems().get(0).getName().toString()),
-                () -> assertEquals("Trent Alexander-Arnold", head.getItems().get(0).getName().toString()),
-                () -> assertEquals("Trent Alexander-Arnold", open.getItems().get(0).getName().toString()),
-                () -> assertEquals("Fabinho", penalty.getItems().get(0).getName().toString()),
-                () -> assertEquals("Andrew Robertson", freeKick.getItems().get(0).getName().toString())
+                () -> assertEquals(first, inside.getItems().get(0).getName().toString()),
+                () -> assertEquals(second, outside.getItems().get(0).getName().toString()),
+                () -> assertEquals(third, right.getItems().get(0).getName().toString()),
+                () -> assertEquals(second, left.getItems().get(0).getName().toString()),
+                () -> assertEquals(first, head.getItems().get(0).getName().toString()),
+                () -> assertEquals(first, open.getItems().get(0).getName().toString()),
+                () -> assertEquals(third, penalty.getItems().get(0).getName().toString()),
+                () -> assertEquals(second, freeKick.getItems().get(0).getName().toString())
         );
         dao.resetBaseToDefault();
     }

@@ -39,10 +39,10 @@ public class SeasonController {
     public Button playGameButton;
     public Button seeReportButton;
     public Button finishSeasonButton;
-    private LeagueDAO dao;
+    private final LeagueDAO dao;
     ObservableList<ClubOnTable> clubsOnTable = FXCollections.observableArrayList();
     public Label statusBarLabel;
-    private ArrayList<Club> clubs;
+    private final List<Club> clubs;
 
     public SeasonController() {
         dao=LeagueDAO.getInstance();
@@ -62,38 +62,49 @@ public class SeasonController {
         tableColumnGoalDifference.setCellValueFactory(new PropertyValueFactory<>("goalDifference"));
         tableColumnPoints.setCellValueFactory(new PropertyValueFactory<>("points"));
 
-        setTooltips(tableColumnPlayed, "P", "Played games");
-        setTooltips(tableColumnWins, "W", "Wins");
-        setTooltips(tableColumnDraws, "D", "Draws");
-        setTooltips(tableColumnLosses, "L", "Losses");
-        setTooltips(tableColumnGoalsScored, "GS", "Goals scored by team");
-        setTooltips(tableColumnGoalsConceded, "GC", "Goals conceded by team");
-        setTooltips(tableColumnGoalDifference, "GD", "Goal difference");
-        setTooltips(tableColumnPoints, "Pts", "Points");
+        if (Locale.getDefault().equals(new Locale("en", "EN"))) {
+            setTooltips(tableColumnPlayed, "P", "Played games");
+            setTooltips(tableColumnWins, "W", "Wins");
+            setTooltips(tableColumnDraws, "D", "Draws");
+            setTooltips(tableColumnLosses, "L", "Losses");
+            setTooltips(tableColumnGoalsScored, "GS", "Goals scored by team");
+            setTooltips(tableColumnGoalsConceded, "GC", "Goals conceded by team");
+            setTooltips(tableColumnGoalDifference, "GD", "Goal difference");
+            setTooltips(tableColumnPoints, "Pts", "Points");
+        }
+
+        else if (Locale.getDefault().equals(new Locale("bs", "BA"))) {
+            setTooltips(tableColumnPlayed, "O", "Odigrane utakmice");
+            setTooltips(tableColumnWins, "P", "Pobjede");
+            setTooltips(tableColumnDraws, "N", "Neriješene utakmice");
+            setTooltips(tableColumnLosses, "I", "Izgubljene utakmice");
+            setTooltips(tableColumnGoalsScored, "DG", "Dati golovi");
+            setTooltips(tableColumnGoalsConceded, "PG", "Primljeni golovi");
+            setTooltips(tableColumnGoalDifference, "GR", "Gol-razlika");
+            setTooltips(tableColumnPoints, "Bod", "Bodovi");
+        }
 
 
         ArrayList<Result> allResults = new ArrayList<>(dao.results());
         ArrayList<Fixture> allFixtures = new ArrayList<>(dao.fixtures());
 
-        if (allResults!=null) {
-            for (int i = 0; i < allResults.size(); i++) {
-                results.add(allResults.get(i));
-            }
-            resultsList.setItems(results);
+        for (Result allResult : allResults) {
+            results.add(allResult);
+        }
+        resultsList.setItems(results);
+
+        for (Fixture allFixture : allFixtures) {
+            fixtures.add(allFixture);
+        }
+        fixturesList.setItems(fixtures);
+
+        if (allResults.size() == (clubs.size())*(clubs.size()-1)) {
+            if (Locale.getDefault().equals(new Locale("en", "EN"))) statusBarLabel.setText("All games have been played");
+            else if (Locale.getDefault().equals(new Locale("bs", "BA"))) statusBarLabel.setText("Sve utakmice su odigrane");
         }
 
-
-        if (allFixtures!=null) {
-            for (int i = 0; i < allFixtures.size(); i++) {
-                fixtures.add(allFixtures.get(i));
-            }
-            fixturesList.setItems(fixtures);
-        }
-
-        if (allResults.size() == (clubs.size())*(clubs.size()-1)) statusBarLabel.setText("All games have been played");
-
-        for (int i=0; i<clubs.size(); i++) {
-            clubsOnTable.add(new ClubOnTable(clubs.get(i), results));
+        for (Club club : clubs) {
+            clubsOnTable.add(new ClubOnTable(club, results));
         }
         this.clubsOnTable.sort((o1, o2) -> o2.compareTo(o1));
         for (int i=0; i<this.clubsOnTable.size(); i++) {
@@ -198,7 +209,7 @@ public class SeasonController {
         }
     }
 
-    public void setLanguage() {
+    public void setLanguage() throws IOException {
         List<String> choices = new ArrayList<>();
         choices.add("Bosanski");
         choices.add("English");
@@ -208,12 +219,29 @@ public class SeasonController {
         dialog.setHeaderText("Language chooser");
         dialog.setContentText("Choose your language:");
 
+        String previous = dao.readLanguage();
         Optional<String> result = dialog.showAndWait();
-        if (result.isPresent()){
+        if (result.isPresent()) {
             if (("Bosanski").equals(result.get())) Locale.setDefault(new Locale("bs", "BA"));
             else if (("English").equals(result.get())) Locale.setDefault(new Locale("en", "EN"));
+            dao.writeLanguage(result.get());
+            if (!previous.equals(dao.readLanguage())) {
+                Stage stage = (Stage) addGameButton.getScene().getWindow();
+                stage.close();
+
+                ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/season.fxml"), bundle);
+                SeasonController ctrl = new SeasonController();
+                fxmlLoader.setController(ctrl);
+                Scene scene = new Scene(fxmlLoader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
+                Stage stage2 = new Stage();
+                stage.setMinHeight(400);
+                stage.setMinWidth(1000);
+                stage.setTitle("Season");
+                stage2.setScene(scene);
+                stage2.show();
+            }
         }
-        dao.writeLanguage(result.get());
     }
 
     private void setTooltips(TableColumn tc, String tag, String tip) {

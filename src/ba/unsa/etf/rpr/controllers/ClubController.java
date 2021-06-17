@@ -17,13 +17,14 @@ import org.testfx.api.FxRobot;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class ClubController {
     private final Club currentClub;
-    private LeagueDAO dao;
+    private final LeagueDAO dao;
     public Button addPlayerButton;
     public Button removePlayerButton;
     public Button okButton;
@@ -31,7 +32,6 @@ public class ClubController {
     public Button tbExit;
     public Button tbPrint;
     public Button tbHelp;
-    public Label playersLabel;
     public TextField nameField;
     public TextField nicknameField;
     public TextField mascotField;
@@ -58,9 +58,16 @@ public class ClubController {
                 captainChoice.setItems(captains);
                 captainChoice.getItems().add(null);
             }
-            addPlayerButton.setTooltip(new Tooltip("Add new player"));
-            removePlayerButton.setTooltip(new Tooltip("Remove selected player"));
-            playersLv.setTooltip(new Tooltip("Clubs must have at least 15 players"));
+            if (Locale.getDefault().equals(new Locale("en", "EN"))) {
+                addPlayerButton.setTooltip(new Tooltip("Add new player"));
+                removePlayerButton.setTooltip(new Tooltip("Remove selected player"));
+                playersLv.setTooltip(new Tooltip("Clubs must have at least 15 players"));
+            }
+            else if (Locale.getDefault().equals(new Locale("bs", "BA"))) {
+                addPlayerButton.setTooltip(new Tooltip("Dodaj novog igrača"));
+                removePlayerButton.setTooltip(new Tooltip("Izbaci odabranog igrača"));
+                playersLv.setTooltip(new Tooltip("Klubovi moraju imati najmanje 15 igrača"));
+            }
             nameField.setText(this.currentClub.getName());
             nicknameField.setText(this.currentClub.getNickname());
             mascotField.setText(this.currentClub.getMascot());
@@ -75,16 +82,24 @@ public class ClubController {
             removePlayerButton.setVisible(false);
             addPlayerButton.setVisible(false);
         }
-        tbExit.setTooltip(new Tooltip("Exit"));
-        tbPrint.setTooltip(new Tooltip("Print squad list"));
-        tbHelp.setTooltip(new Tooltip("Open helper"));
-        okButton.setTooltip(new Tooltip("Save changes"));
+        if (Locale.getDefault().equals(new Locale("en", "EN"))) {
+            tbExit.setTooltip(new Tooltip("Exit"));
+            tbPrint.setTooltip(new Tooltip("Print squad list"));
+            tbHelp.setTooltip(new Tooltip("Open helper"));
+            okButton.setTooltip(new Tooltip("Save changes"));
+        }
+        else if (Locale.getDefault().equals(new Locale("bs", "BA"))) {
+            tbExit.setTooltip(new Tooltip("Izlaz"));
+            tbPrint.setTooltip(new Tooltip("Ispiši listu igrača"));
+            tbHelp.setTooltip(new Tooltip("Otvori pomoć"));
+            okButton.setTooltip(new Tooltip("Spasi promjene"));
+        }
     }
 
     public void addPlayer () throws IOException {
         ResourceBundle bundle = ResourceBundle.getBundle("Translation");
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/player.fxml"), bundle);
-        PlayerController ctrl = new PlayerController(this.currentClub, null);
+        PlayerController ctrl = new PlayerController(this.currentClub);
         fxmlLoader.setController(ctrl);
         Scene scene = new Scene(fxmlLoader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
         Stage stage = new Stage();
@@ -115,7 +130,7 @@ public class ClubController {
             PrintReport pr = new PrintReport(this.currentClub);
             pr.showReport(dao.getConn());
         } catch (JRException e1) {
-            e1.printStackTrace();
+            e1.getMessage();
         }
     }
 
@@ -124,21 +139,41 @@ public class ClubController {
         alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
         alert.setTitle("Help");
         alert.setHeaderText("Club window helper");
-        StringBuilder message = new StringBuilder("");
-        message.append("Prilikom kreiranja novog kluba dovoljno je samo unijeti ime. ");
-        message.append("Ime kluba ne smije biti prazno i mora biti jedinstveno u ligi.\n\n");
+        StringBuilder message = new StringBuilder();
 
-        message.append("Sezona ne može početi dok ne odredite menadžera i kapitena ekipe.\n\n");
-        message.append("Klub mora imati minimalno 15 igrača i to:\n\n");
-        message.append("- minimalno jednog golmana,\n");
-        message.append("- minimalno 4 odbrambena igrača,\n");
-        message.append("- minimalno 3 igrača sredine terena,\n");
-        message.append("- minimalno 3 napadača.\n\n");
+        if (Locale.getDefault().equals(new Locale("bs", "BA"))) {
+            message.append("Prilikom kreiranja novog kluba dovoljno je samo unijeti ime. ");
+            message.append("Ime kluba ne smije biti prazno i mora biti jedinstveno u ligi.\n\n");
 
-        message.append("Igrače ne možete dodavati odmah prilikom kreiranja kluba. ");
-        message.append("Morate sačuvati promjene, vratiti se na početnu stranicu i odabrati opciju za editovanje. ");
-        message.append("Listu igrača sa njihovim podacima možete dobiti pritiskom na ikonu za ispis. ");
-        message.append("Podatke o igračima ne možete mijenjati, možete ih samo obrisati i ponovo kreirati.");
+            message.append("Sezona ne može početi dok ne odredite menadžera i kapitena ekipe.\n\n");
+            message.append("Klub mora imati minimalno 15 igrača i to:\n\n");
+            message.append("- minimalno jednog golmana,\n");
+            message.append("- minimalno 4 odbrambena igrača,\n");
+            message.append("- minimalno 3 igrača sredine terena,\n");
+            message.append("- minimalno 3 napadača.\n\n");
+
+            message.append("Igrače ne možete dodavati odmah prilikom kreiranja kluba. ");
+            message.append("Morate sačuvati promjene, vratiti se na početnu stranicu i odabrati opciju za uređenje. ");
+            message.append("Listu igrača sa njihovim podacima možete dobiti pritiskom na ikonu za ispis. ");
+            message.append("Podatke o igračima ne možete mijenjati, možete ih samo obrisati i ponovo kreirati.");
+        }
+
+        else if (Locale.getDefault().equals(new Locale("en", "EN"))) {
+            message.append("To create a new club it's just enough to fill only a name field. ");
+            message.append("Name shouldn't be blank and must be unique.\n\n");
+
+            message.append("Season couldn't start before you choose captains and managers for every club.\n\n");
+            message.append("Clubs must have at least 15 players and:\n\n");
+            message.append("- minimum of 1 goalkeeper,\n");
+            message.append("- minimum of 4 defenders,\n");
+            message.append("- minimum of 3 midfielders,\n");
+            message.append("- minimum of 3 attackers.\n\n");
+
+            message.append("Players couldn't be added while creating a club. ");
+            message.append("You should save changes first, go back to the homepage and select an editing option. ");
+            message.append("Squad list could be printed by clicking at the print icon. ");
+            message.append("You can't edit players, you can only delete them and create again.");
+        }
 
         alert.setContentText(message.toString());
 
@@ -164,8 +199,8 @@ public class ClubController {
             if (this.currentClub==null) {
                 boolean mistake=false;
                 ArrayList<Club> clubs = new ArrayList<>(dao.clubs());
-                for (int i=0; i<clubs.size(); i++) {
-                    if (clubs.get(i).getName().equals(nameField.getText().trim())) mistake=true;
+                for (Club club : clubs) {
+                    if (club.getName().equals(nameField.getText().trim())) mistake = true;
                 }
                 if (mistake) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);

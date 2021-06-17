@@ -253,7 +253,7 @@ public final class LeagueDAO {
             if (!rs.next()) return;
             Club club = getClubFromResultSet(rs);
 
-            deletePlayersForClubQuery.setInt(1, club.getId());
+            deletePlayersForClubQuery.setString(1, club.getName());
             deletePlayersForClubQuery.executeUpdate();
 
             deleteClubQuery.setString(1, club.getName());

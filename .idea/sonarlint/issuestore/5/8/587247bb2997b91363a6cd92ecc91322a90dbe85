@@ -1,49 +1,43 @@
 
-T
-java:S2589N"7Remove this expression which always evaluates to "true"(á©ãÛ8ıªæí/
-i
-java:S1192r"LDefine a constant instead of duplicating this literal "Translation" 5 times.(“òáĞ8éúÆ¡/
-M
-java:S3740Û"/Provide the parametrized type for this generic.(ùú±Ô8À•î/
-{
-java:S1104&"YMake addGameButton a static final constant or non-public and provide accessors if needed.(ö„„¾ùÿÿÿÿ8°¿•/
-X
-java:S3655Ø"5Call "result.isPresent()" before accessing the value.(åÚçªúÿÿÿÿ8ü±ì/
-v
-java:S1104"ZMake tableViewTable a static final constant or non-public and provide accessors if needed.(˜â¾$8°¿•/
-x
-java:S1104"[Make tableColumnWins a static final constant or non-public and provide accessors if needed.(†ÒêÍ8°¿•/
-€
-java:S1104"dMake tableColumnGoalsConceded a static final constant or non-public and provide accessors if needed.(¡èìh8°¿•/
-t
-java:S1104%"WMake resultsList a static final constant or non-public and provide accessors if needed.(‰”‘½8°¿•/
-T
-java:S2589V"7Remove this expression which always evaluates to "true"(š§µÆ8éúÆ¡/
-€
-java:S1104)"^Make finishSeasonButton a static final constant or non-public and provide accessors if needed.(êÅ€ºúÿÿÿÿ8£ÒÖ´/
-
-java:S1104"]Make tableColumnLosses a static final constant or non-public and provide accessors if needed.(„öÉÀøÿÿÿÿ8°¿•/
-z
-java:S1104!"]Make tableColumnPoints a static final constant or non-public and provide accessors if needed.(»•ğ‘8°¿•/
-v
-java:S1104,"ZMake statusBarLabel a static final constant or non-public and provide accessors if needed.(“”ú#8­ÚïĞ˜/
-~
-java:S1104"\Make tableColumnClubs a static final constant or non-public and provide accessors if needed.(Òçœìùÿÿÿÿ8æô†Ù—/
-|
-java:S1104"_Make tableColumnPosition a static final constant or non-public and provide accessors if needed.(¦–ö¸8°¿•/
-z
-java:S1104$"XMake fixturesList a static final constant or non-public and provide accessors if needed.(İıåÒùÿÿÿÿ8°¿•/
-y
-java:S1104"\Make tableColumnDraws a static final constant or non-public and provide accessors if needed.(é€Ä8°¿•/
-w
-java:S1104'"ZMake playGameButton a static final constant or non-public and provide accessors if needed.(÷Íã¼8°¿•/
-
-java:S1104"]Make tableColumnPlayed a static final constant or non-public and provide accessors if needed.(¼Ãœşÿÿÿÿ8°¿•/
-k
-java:S1192Ì"HDefine a constant instead of duplicating this literal "English" 3 times.(ÿ–¹¹ùÿÿÿÿ8Ìˆ¿ï/
 ‡
 java:S1104 "eMake tableColumnGoalDifference a static final constant or non-public and provide accessors if needed.(›ƒ°˜úÿÿÿÿ8°¿•/
+w
+java:S1104'"ZMake playGameButton a static final constant or non-public and provide accessors if needed.(÷Íã¼8òğõ¹Ÿ/
+
+java:S1104"]Make tableColumnLosses a static final constant or non-public and provide accessors if needed.(„öÉÀøÿÿÿÿ8°¿•/
+€
+java:S1104)"^Make finishSeasonButton a static final constant or non-public and provide accessors if needed.(êÅ€ºúÿÿÿÿ8£ÒÖ´/
+z
+java:S1104!"]Make tableColumnPoints a static final constant or non-public and provide accessors if needed.(»•ğ‘8°¿•/
+~
+java:S1104"\Make tableColumnClubs a static final constant or non-public and provide accessors if needed.(Òçœìùÿÿÿÿ8æô†Ù—/
+y
+java:S1104"\Make tableColumnDraws a static final constant or non-public and provide accessors if needed.(é€Ä8°¿•/
+v
+java:S1104"ZMake tableViewTable a static final constant or non-public and provide accessors if needed.(˜â¾$8°¿•/
+t
+java:S1104%"WMake resultsList a static final constant or non-public and provide accessors if needed.(‰”‘½8°¿•/
+M
+java:S3740ç"/Provide the parametrized type for this generic.(ùú±Ô8”ş¼µŸ/
+
+java:S1104"]Make tableColumnPlayed a static final constant or non-public and provide accessors if needed.(¼Ãœşÿÿÿÿ8°¿•/
+v
+java:S1104,"ZMake statusBarLabel a static final constant or non-public and provide accessors if needed.(“”ú#8­ÚïĞ˜/
+|
+java:S1104"_Make tableColumnPosition a static final constant or non-public and provide accessors if needed.(¦–ö¸8°¿•/
+}
+java:S1104("[Make seeReportButton a static final constant or non-public and provide accessors if needed.(£üïÔıÿÿÿÿ8òğõ¹Ÿ/
+€
+java:S1104"dMake tableColumnGoalsConceded a static final constant or non-public and provide accessors if needed.(¡èìh8°¿•/
+k
+java:S1192Ç"HDefine a constant instead of duplicating this literal "English" 3 times.(ÿ–¹¹ùÿÿÿÿ8Ìˆ¿ï/
 
 java:S1104"bMake tableColumnGoalsScored a static final constant or non-public and provide accessors if needed.(Û¨ãø8°¿•/
-}
-java:S1104("[Make seeReportButton a static final constant or non-public and provide accessors if needed.(£üïÔıÿÿÿÿ8°¿•/
+x
+java:S1104"[Make tableColumnWins a static final constant or non-public and provide accessors if needed.(†ÒêÍ8°¿•/
+z
+java:S1104$"XMake fixturesList a static final constant or non-public and provide accessors if needed.(İıåÒùÿÿÿÿ8°¿•/
+i
+java:S1192m"LDefine a constant instead of duplicating this literal "Translation" 6 times.(“òáĞ8éúÆ¡/
+{
+java:S1104&"YMake addGameButton a static final constant or non-public and provide accessors if needed.(ö„„¾ùÿÿÿÿ8°¿•/

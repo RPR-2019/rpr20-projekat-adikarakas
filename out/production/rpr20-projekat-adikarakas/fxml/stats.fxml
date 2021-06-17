@@ -24,98 +24,98 @@
    <children>
       <TableView fx:id="tableViewGoals" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
         <columns>
-          <TableColumn fx:id="tableColumnGoalsRank" prefWidth="35.0" resizable="false" sortable="false" text="Rank" />
-          <TableColumn fx:id="tableColumnGoalsName" prefWidth="155.0" resizable="false" sortable="false" text="Name" />
-            <TableColumn fx:id="tableColumnGoalsClub" prefWidth="115.0" resizable="false" sortable="false" text="Club" />
-            <TableColumn fx:id="tableColumnGoalsStat" prefWidth="35.0" resizable="false" sortable="false" text="Stat" />
+          <TableColumn fx:id="tableColumnGoalsRank" prefWidth="35.0" resizable="false" sortable="false" text="%rank" />
+          <TableColumn fx:id="tableColumnGoalsName" prefWidth="155.0" resizable="false" sortable="false" text="%pName" />
+            <TableColumn fx:id="tableColumnGoalsClub" prefWidth="115.0" resizable="false" sortable="false" text="%club" />
+            <TableColumn fx:id="tableColumnGoalsStat" prefWidth="35.0" resizable="false" sortable="false" text="%stat" />
         </columns>
       </TableView>
       <TableView fx:id="tableViewAssists" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
         <columns>
-          <TableColumn fx:id="tableColumnAssistsRank" prefWidth="35.0" sortable="false" text="Rank" />
-          <TableColumn fx:id="tableColumnAssistsName" prefWidth="155.0" sortable="false" text="Name" />
-            <TableColumn fx:id="tableColumnAssistsClub" prefWidth="115.0" sortable="false" text="Club" />
-            <TableColumn fx:id="tableColumnAssistsStat" prefWidth="35.0" sortable="false" text="Stat" />
+          <TableColumn fx:id="tableColumnAssistsRank" prefWidth="35.0" sortable="false" text="%rank" />
+          <TableColumn fx:id="tableColumnAssistsName" prefWidth="155.0" sortable="false" text="%pName" />
+            <TableColumn fx:id="tableColumnAssistsClub" prefWidth="115.0" sortable="false" text="%club" />
+            <TableColumn fx:id="tableColumnAssistsStat" prefWidth="35.0" sortable="false" text="%stat" />
         </columns>
       </TableView>
       <TableView fx:id="tableViewCleanSheets" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
         <columns>
-          <TableColumn fx:id="tableColumnCleanSheetsRank" prefWidth="35.0" sortable="false" text="Rank" />
-          <TableColumn fx:id="tableColumnCleanSheetsName" prefWidth="155.0" sortable="false" text="Name" />
-            <TableColumn fx:id="tableColumnCleanSheetsClub" prefWidth="115.0" sortable="false" text="Club" />
-            <TableColumn fx:id="tableColumnCleanSheetsStat" prefWidth="35.0" sortable="false" text="Stat" />
+          <TableColumn fx:id="tableColumnCleanSheetsRank" prefWidth="35.0" sortable="false" text="%rank" />
+          <TableColumn fx:id="tableColumnCleanSheetsName" prefWidth="155.0" sortable="false" text="%pName" />
+            <TableColumn fx:id="tableColumnCleanSheetsClub" prefWidth="115.0" sortable="false" text="%club" />
+            <TableColumn fx:id="tableColumnCleanSheetsStat" prefWidth="35.0" sortable="false" text="%stat" />
         </columns>
       </TableView>
       <TableView fx:id="tableViewAppearances" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
         <columns>
-          <TableColumn fx:id="tableColumnAppearancesRank" prefWidth="35.0" sortable="false" text="Rank" />
-          <TableColumn fx:id="tableColumnAppearancesName" prefWidth="155.0" sortable="false" text="Name" />
-            <TableColumn fx:id="tableColumnAppearancesClub" prefWidth="115.0" sortable="false" text="Club" />
-            <TableColumn fx:id="tableColumnAppearancesStat" prefWidth="35.0" sortable="false" text="Stat" />
+          <TableColumn fx:id="tableColumnAppearancesRank" prefWidth="35.0" sortable="false" text="%rank" />
+          <TableColumn fx:id="tableColumnAppearancesName" prefWidth="155.0" sortable="false" text="%pName" />
+            <TableColumn fx:id="tableColumnAppearancesClub" prefWidth="115.0" sortable="false" text="%club" />
+            <TableColumn fx:id="tableColumnAppearancesStat" prefWidth="35.0" sortable="false" text="%stat" />
         </columns>
       </TableView>
       <TableView fx:id="tableViewInside" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
         <columns>
-          <TableColumn fx:id="tableColumnInsideRank" prefWidth="35.0" sortable="false" text="Rank" />
-          <TableColumn fx:id="tableColumnInsideName" prefWidth="155.0" sortable="false" text="Name" />
-            <TableColumn fx:id="tableColumnInsideClub" prefWidth="115.0" sortable="false" text="Club" />
-            <TableColumn fx:id="tableColumnInsideStat" prefWidth="35.0" sortable="false" text="Stat" />
+          <TableColumn fx:id="tableColumnInsideRank" prefWidth="35.0" sortable="false" text="%rank" />
+          <TableColumn fx:id="tableColumnInsideName" prefWidth="155.0" sortable="false" text="%pName" />
+            <TableColumn fx:id="tableColumnInsideClub" prefWidth="115.0" sortable="false" text="%club" />
+            <TableColumn fx:id="tableColumnInsideStat" prefWidth="35.0" sortable="false" text="%stat" />
         </columns>
       </TableView>
       <TableView fx:id="tableViewOutside" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
         <columns>
-          <TableColumn fx:id="tableColumnOutsideRank" prefWidth="35.0" sortable="false" text="Rank" />
-          <TableColumn fx:id="tableColumnOutsideName" prefWidth="155.0" sortable="false" text="Name" />
-            <TableColumn fx:id="tableColumnOutsideClub" prefWidth="115.0" sortable="false" text="Club" />
-            <TableColumn fx:id="tableColumnOutsideStat" prefWidth="35.0" sortable="false" text="Stat" />
+          <TableColumn fx:id="tableColumnOutsideRank" prefWidth="35.0" sortable="false" text="%rank" />
+          <TableColumn fx:id="tableColumnOutsideName" prefWidth="155.0" sortable="false" text="%pName" />
+            <TableColumn fx:id="tableColumnOutsideClub" prefWidth="115.0" sortable="false" text="%club" />
+            <TableColumn fx:id="tableColumnOutsideStat" prefWidth="35.0" sortable="false" text="%stat" />
         </columns>
       </TableView>
       <TableView fx:id="tableViewRight" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
         <columns>
-          <TableColumn fx:id="tableColumnRightRank" prefWidth="35.0" sortable="false" text="Rank" />
-          <TableColumn fx:id="tableColumnRightName" prefWidth="155.0" sortable="false" text="Name" />
-            <TableColumn fx:id="tableColumnRightClub" prefWidth="115.0" sortable="false" text="Club" />
-            <TableColumn fx:id="tableColumnRightStat" prefWidth="35.0" sortable="false" text="Stat" />
+          <TableColumn fx:id="tableColumnRightRank" prefWidth="35.0" sortable="false" text="%rank" />
+          <TableColumn fx:id="tableColumnRightName" prefWidth="155.0" sortable="false" text="%pName" />
+            <TableColumn fx:id="tableColumnRightClub" prefWidth="115.0" sortable="false" text="%club" />
+            <TableColumn fx:id="tableColumnRightStat" prefWidth="35.0" sortable="false" text="%stat" />
         </columns>
       </TableView>
       <TableView fx:id="tableViewLeft" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
         <columns>
-            <TableColumn fx:id="tableColumnLeftRank" prefWidth="35.0" sortable="false" text="Rank" />
-          <TableColumn fx:id="tableColumnLeftName" prefWidth="155.0" sortable="false" text="Name" />
-            <TableColumn fx:id="tableColumnLeftClub" prefWidth="115.0" sortable="false" text="Club" />
-            <TableColumn fx:id="tableColumnLeftStat" prefWidth="35.0" sortable="false" text="Stat" />
+            <TableColumn fx:id="tableColumnLeftRank" prefWidth="35.0" sortable="false" text="%rank" />
+          <TableColumn fx:id="tableColumnLeftName" prefWidth="155.0" sortable="false" text="%pName" />
+            <TableColumn fx:id="tableColumnLeftClub" prefWidth="115.0" sortable="false" text="%club" />
+            <TableColumn fx:id="tableColumnLeftStat" prefWidth="35.0" sortable="false" text="%stat" />
         </columns>
       </TableView>
       <TableView fx:id="tableViewHead" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
         <columns>
-          <TableColumn fx:id="tableColumnHeadRank" prefWidth="35.0" sortable="false" text="Rank" />
-          <TableColumn fx:id="tableColumnHeadName" prefWidth="155.0" sortable="false" text="Name" />
-            <TableColumn fx:id="tableColumnHeadClub" prefWidth="115.0" sortable="false" text="Club" />
-            <TableColumn fx:id="tableColumnHeadStat" prefWidth="35.0" sortable="false" text="Stat" />
+          <TableColumn fx:id="tableColumnHeadRank" prefWidth="35.0" sortable="false" text="%rank" />
+          <TableColumn fx:id="tableColumnHeadName" prefWidth="155.0" sortable="false" text="%pName" />
+            <TableColumn fx:id="tableColumnHeadClub" prefWidth="115.0" sortable="false" text="%club" />
+            <TableColumn fx:id="tableColumnHeadStat" prefWidth="35.0" sortable="false" text="%stat" />
         </columns>
       </TableView>
       <TableView fx:id="tableViewPenalties" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
         <columns>
-          <TableColumn fx:id="tableColumnPenaltiesRank" prefWidth="35.0" sortable="false" text="Rank" />
-          <TableColumn fx:id="tableColumnPenaltiesName" prefWidth="155.0" sortable="false" text="Name" />
-            <TableColumn fx:id="tableColumnPenaltiesClub" prefWidth="115.0" sortable="false" text="Club" />
-            <TableColumn fx:id="tableColumnPenaltiesStat" prefWidth="35.0" sortable="false" text="Stat" />
+          <TableColumn fx:id="tableColumnPenaltiesRank" prefWidth="35.0" sortable="false" text="%rank" />
+          <TableColumn fx:id="tableColumnPenaltiesName" prefWidth="155.0" sortable="false" text="%pName" />
+            <TableColumn fx:id="tableColumnPenaltiesClub" prefWidth="115.0" sortable="false" text="%club" />
+            <TableColumn fx:id="tableColumnPenaltiesStat" prefWidth="35.0" sortable="false" text="%stat" />
         </columns>
       </TableView>
       <TableView fx:id="tableViewFreeKicks" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="7">
         <columns>
-          <TableColumn fx:id="tableColumnFreeKicksRank" prefWidth="35.0" sortable="false" text="Rank" />
-          <TableColumn fx:id="tableColumnFreeKicksName" prefWidth="155.0" sortable="false" text="Name" />
-            <TableColumn fx:id="tableColumnFreeKicksClub" prefWidth="115.0" sortable="false" text="Club" />
-            <TableColumn fx:id="tableColumnFreeKicksStat" prefWidth="35.0" sortable="false" text="Stat" />
+          <TableColumn fx:id="tableColumnFreeKicksRank" prefWidth="35.0" sortable="false" text="%rank" />
+          <TableColumn fx:id="tableColumnFreeKicksName" prefWidth="155.0" sortable="false" text="%pName" />
+            <TableColumn fx:id="tableColumnFreeKicksClub" prefWidth="115.0" sortable="false" text="%club" />
+            <TableColumn fx:id="tableColumnFreeKicksStat" prefWidth="35.0" sortable="false" text="%stat" />
         </columns>
       </TableView>
       <TableView fx:id="tableViewOpen" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="7">
         <columns>
-          <TableColumn fx:id="tableColumnOpenRank" prefWidth="35.0" sortable="false" text="Rank" />
-          <TableColumn fx:id="tableColumnOpenName" prefWidth="155.0" sortable="false" text="Name" />
-          <TableColumn fx:id="tableColumnOpenClub" prefWidth="115.0" sortable="false" text="Club" />
-            <TableColumn fx:id="tableColumnOpenStat" prefWidth="35.0" sortable="false" text="Stat" />
+          <TableColumn fx:id="tableColumnOpenRank" prefWidth="35.0" sortable="false" text="%rank" />
+          <TableColumn fx:id="tableColumnOpenName" prefWidth="155.0" sortable="false" text="%pName" />
+          <TableColumn fx:id="tableColumnOpenClub" prefWidth="115.0" sortable="false" text="%club" />
+            <TableColumn fx:id="tableColumnOpenStat" prefWidth="35.0" sortable="false" text="%stat" />
         </columns>
       </TableView>
        <Label text="%goals" GridPane.columnIndex="1" />

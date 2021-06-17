@@ -1,23 +1,7 @@
 
-k
-java:S2095¢"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(Ö¢¨Íıÿÿÿÿ8‘Í‡í/
-E
-java:S2115C")Add password protection to this database.(ÔÀÕ8‡ş©î/
-X
-java:S1141¿"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8”¨î/
-ƒ
-java:S1192H"aDefine a constant instead of duplicating this literal "SELECT * FROM clubs WHERE name=?" 3 times.(á’°ıÿÿÿÿ8‡ş©î/
-h
-java:S2095˜"EUse try-with-resources or close this "Scanner" in a "finally" clause.(¥„è«ÿÿÿÿÿ8ˆÈçì/
-U
-java:S1068"3Remove this unused "editPlayerQuery" private field.(³ù©Áùÿÿÿÿ8½±Àî/
 ?
-java:S1643½"Use a StringBuilder instead.(ÄÂ¯šıÿÿÿÿ8”¨î/
-W
-java:S1068!"5Remove this unused "setIdForClubQuery" private field.(»’†¦ûÿÿÿÿ8éÆÁî/
-M
-java:S1068/"0Remove this unused "captainQuery" private field.(¸È“†8»ÖÇî/
-j
-java:S2095À"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ8”¨î/
-j
-java:S2095Ï"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ8—•Š€›/
+java:S1643±"Use a StringBuilder instead.(ÄÂ¯šıÿÿÿÿ8ª¸”‡Ÿ/
+X
+java:S1141³"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8ª¸”‡Ÿ/
+E
+java:S2115@")Add password protection to this database.(ÔÀÕ8ïŒÕ†Ÿ/

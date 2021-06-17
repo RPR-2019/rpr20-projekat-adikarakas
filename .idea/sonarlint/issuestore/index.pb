@@ -135,3 +135,5 @@ j
 .test/ba/unsa/etf/rpr/controllers/StatTest.java,a\4\a420418892c45993ea9ba56a2c7716aa963bc4f3
 <
 language.txt,3\9\390844b7dff4c64061d700663230234f7522ad26
+I
+resources/fxml/squad.fxml,6\a\6a7cd5ef525d5f04983b85fa1648956af0cdf00f

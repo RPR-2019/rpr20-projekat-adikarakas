@@ -41,9 +41,7 @@ public class GoalController {
     private final boolean home;
 
     GoalController(List<Player> p, ObservableList<Goal> g, boolean home) {
-        for (Player player : p) {
-            this.players.add(player);
-        }
+        this.players.addAll(p);
         this.goals=g;
         this.home=home;
     }
@@ -75,18 +73,18 @@ public class GoalController {
     public void okPressed () {
         boolean irregular = false;
 
-        GoalType goalType = GoalType.HEADER;
+        GoalType goalType = null;
         if (rightFoot.isSelected()) goalType = GoalType.RIGHTFOOT;
         else if (leftFoot.isSelected()) goalType = GoalType.LEFTFOOT;
         else if (head.isSelected()) goalType = GoalType.HEADER;
         else irregular = true;
 
-        GoalDistance goalDistance = GoalDistance.INSIDEBOX;
+        GoalDistance goalDistance = null;
         if (outsideBox.isSelected()) goalDistance=GoalDistance.OUTSIDEBOX;
         else if (insideBox.isSelected()) goalDistance=GoalDistance.INSIDEBOX;
         else irregular = true;
 
-        GoalSituation goalSituation = GoalSituation.OPENPLAY;
+        GoalSituation goalSituation = null;
         if (penalty.isSelected()) goalSituation=GoalSituation.PENALTY;
         else if (freeKick.isSelected()) goalSituation=GoalSituation.FREEKICK;
         else if (openPlay.isSelected()) goalSituation=GoalSituation.OPENPLAY;

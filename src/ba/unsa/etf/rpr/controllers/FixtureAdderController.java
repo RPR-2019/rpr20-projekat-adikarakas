@@ -22,7 +22,7 @@ public class FixtureAdderController {
     public Button cancelButton;
     public ChoiceBox<Club> homeChoice;
     public ChoiceBox<Club> awayChoice;
-    private LeagueDAO dao;
+    private final LeagueDAO dao;
 
     public FixtureAdderController() {
         dao=LeagueDAO.getInstance();
@@ -32,9 +32,7 @@ public class FixtureAdderController {
     public void initialize() {
         ObservableList<Club> teams = FXCollections.observableArrayList();
         ArrayList<Club> clubs = new ArrayList<>(dao.clubs());
-        for (int i=0; i<clubs.size(); i++) {
-            teams.add(clubs.get(i));
-        }
+        teams.addAll(clubs);
         homeChoice.setItems(teams);
         awayChoice.setItems(teams);
     }
@@ -47,13 +45,17 @@ public class FixtureAdderController {
         ArrayList<Fixture> fixtures = new ArrayList<>(dao.fixtures());
         if (home==null || away==null || home.equals(away)) correct = false;
         else {
-            for (int i = 0; i < results.size(); i++) {
-                if (results.get(i).getHomeTeam().getName().equals(home.getName()) && results.get(i).getAwayTeam().getName().equals(away.getName()))
+            for (Result result : results) {
+                if (result.getHomeTeam().getName().equals(home.getName()) && result.getAwayTeam().getName().equals(away.getName())) {
                     correct = false;
+                    break;
+                }
             }
-            for (int i = 0; i < fixtures.size(); i++) {
-                if (fixtures.get(i).getHomeTeam().getName().equals(home.getName()) && fixtures.get(i).getAwayTeam().getName().equals(away.getName()))
+            for (Fixture fixture : fixtures) {
+                if (fixture.getHomeTeam().getName().equals(home.getName()) && fixture.getAwayTeam().getName().equals(away.getName())) {
                     correct = false;
+                    break;
+                }
             }
         }
         if (correct) {

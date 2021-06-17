@@ -10,8 +10,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class ResultController {
-    private Club homeClub;
-    private Club awayClub;
+    private final Club homeClub;
+    private final Club awayClub;
     public TextField homeTeamScore;
     public TextField awayTeamScore;
     public ListView<Goal> homeTeamGoals = new ListView<>();
@@ -19,8 +19,8 @@ public class ResultController {
     public Button cancelButton;
     public TextField homeTeamName;
     public TextField awayTeamName;
-    private LeagueDAO dao;
-    private Result r;
+    private final LeagueDAO dao;
+    private final Result r;
 
     ResultController(Result r) {
         dao= LeagueDAO.getInstance();

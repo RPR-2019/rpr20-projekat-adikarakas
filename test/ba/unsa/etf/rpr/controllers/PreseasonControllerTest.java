@@ -17,9 +17,7 @@ import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
-import java.io.FileNotFoundException;
 import java.sql.SQLException;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
@@ -53,14 +51,14 @@ class PreseasonControllerTest {
     }
 
     @Test
-    public void testListView(FxRobot robot) throws SQLException {
+    void testListView(FxRobot robot) throws SQLException {
         ListView<Club> listView = robot.lookup("#clubsLv").queryAs(ListView.class);
         assertEquals(4, listView.getItems().size());
         dao.resetBaseToDefault();
     }
 
     @Test
-    public void deleteClub(FxRobot robot) throws SQLException {
+    void deleteClub(FxRobot robot) throws SQLException {
         robot.clickOn("Everton");
         robot.clickOn("#deleteClubButton");
 
@@ -75,7 +73,7 @@ class PreseasonControllerTest {
     }
 
     @Test
-    public void addClub(FxRobot robot) throws SQLException {
+    void addClub(FxRobot robot) throws SQLException {
         robot.clickOn("#addClubButton");
 
         robot.lookup("#nameField").tryQuery().isPresent();
@@ -114,7 +112,7 @@ class PreseasonControllerTest {
     }
 
     @Test
-    public void addClubOverflow(FxRobot robot) throws SQLException {
+    void addClubOverflow(FxRobot robot) throws SQLException {
         for (int i=0; i<26; i++) {
            dao.addClub(new Club(("Southampton" + (i+1))));
         }
@@ -150,7 +148,7 @@ class PreseasonControllerTest {
     }
 
     @Test
-    public void startWithInsufficientNumberOfClubs(FxRobot robot) throws SQLException {
+    void startWithInsufficientNumberOfClubs(FxRobot robot) throws SQLException {
         robot.clickOn("Everton");
         robot.clickOn("#deleteClubButton");
         robot.lookup(".dialog-pane").tryQuery().isPresent();
@@ -190,7 +188,7 @@ class PreseasonControllerTest {
     }
 
     @Test
-    public void startWithoutFullSquads (FxRobot robot) throws SQLException {
+    void startWithoutFullSquads (FxRobot robot) throws SQLException {
         robot.clickOn("Everton");
         robot.clickOn("#editClubButton");
 
@@ -400,7 +398,7 @@ class PreseasonControllerTest {
     }
 
     @Test
-    public void helpTest(FxRobot robot) throws SQLException {
+    void helpTest(FxRobot robot) throws SQLException {
         robot.clickOn("#addClubButton");
         robot.lookup("#nameField").tryQuery().isPresent();
         robot.clickOn("#tbHelp");

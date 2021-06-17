@@ -78,7 +78,7 @@ public class Player implements Serializable {
     }
 
     public void setPosition(String position) {
-        if (position!=this.getClass().getSimpleName()) throw new WrongPositionException("Wrong position set");
+        if (!position.equals(this.getClass().getSimpleName())) throw new WrongPositionException("Wrong position set");
         this.position = position;
     }
 
