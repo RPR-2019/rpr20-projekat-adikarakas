@@ -1,15 +1,15 @@
 
-v
-java:S1104"ZMake choicePosition a static final constant or non-public and provide accessors if needed.(ªé—>8äÑ ‹/
-|
-java:S1104"ZMake firstNameField a static final constant or non-public and provide accessors if needed.(®«ŞĞùÿÿÿÿ8ı™Ê¸/
 €
 java:S1104"^Make cancelPlayerButton a static final constant or non-public and provide accessors if needed.(Ï‘øáşÿÿÿÿ8¢ÌÚÂ/
 z
 java:S1104"XMake surnameField a static final constant or non-public and provide accessors if needed.(–Ãâúÿÿÿÿ8¤êÓö/
-x
-java:S1104"VMake saveButton a static final constant or non-public and provide accessors if needed.(˜…øÿÿÿÿ8­Ã‹Û—/
 u
 java:S1104"XMake dateIdentity a static final constant or non-public and provide accessors if needed.(®ÌøŸ8¿¿ÒŒ/
 z
 java:S1104"]Make choiceNationality a static final constant or non-public and provide accessors if needed.(§ñóî8­Ã‹Û—/
+x
+java:S1104"VMake saveButton a static final constant or non-public and provide accessors if needed.(˜…øÿÿÿÿ8­Ã‹Û—/
+v
+java:S1104"ZMake choicePosition a static final constant or non-public and provide accessors if needed.(ªé—>8äÑ ‹/
+|
+java:S1104"ZMake firstNameField a static final constant or non-public and provide accessors if needed.(®«ŞĞùÿÿÿÿ8ı™Ê¸/

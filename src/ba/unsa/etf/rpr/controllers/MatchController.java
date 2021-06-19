@@ -99,7 +99,6 @@ public class MatchController {
         ArrayList<Goal> hcG = new ArrayList<>(this.homeClubGoals);
         ArrayList<Goal> acG = new ArrayList<>(this.awayClubGoals);
 
-        // upisivanje rezultata i golova
         Result r = new Result(this.homeClub, this.awayClub, hcG.size(), acG.size());
         dao.addResult(r);
 
@@ -113,7 +112,6 @@ public class MatchController {
         acG.forEach(k -> k.setResult(res));
         acG.forEach(dao::addGoal);
 
-        // izbacujemo kolo jer se utakmica odigrala
         Fixture fixture = dao.findFixture(homeClub.getName(), awayClub.getName());
         if (fixture!=null) {
             FxRobot robot2 = new FxRobot();
@@ -123,7 +121,6 @@ public class MatchController {
         }
 
         Stats stat = new Stats();
-        // sređivanje statistike
         for (Player homePlayer : this.homePlayers) {
             if (homePlayer instanceof Goalkeeper && awayClubGoals.isEmpty()) {
                 stat.setId(homePlayer.getId());
@@ -151,7 +148,6 @@ public class MatchController {
         }
 
 
-        // ažuriranje tabele
         FxRobot robot3 = new FxRobot();
         TableView<ClubOnTable> tableViewTable= robot3.lookup("#tableViewTable").queryAs(TableView.class);
 

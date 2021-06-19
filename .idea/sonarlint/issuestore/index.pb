@@ -137,3 +137,5 @@ j
 language.txt,3\9\390844b7dff4c64061d700663230234f7522ad26
 I
 resources/fxml/squad.fxml,6\a\6a7cd5ef525d5f04983b85fa1648956af0cdf00f
+I
+resources/fxml/stats.fxml,7\5\7531c7bf1ce933e5ad8283b0ce2f2e7b0636e961

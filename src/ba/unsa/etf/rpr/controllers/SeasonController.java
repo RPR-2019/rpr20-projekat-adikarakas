@@ -43,6 +43,8 @@ public class SeasonController {
     ObservableList<ClubOnTable> clubsOnTable = FXCollections.observableArrayList();
     public Label statusBarLabel;
     private final List<Club> clubs;
+    private static final String TRANSLATION="Translation";
+    private static final String ENGLISH="English";
 
     public SeasonController() {
         dao=LeagueDAO.getInstance();
@@ -122,7 +124,7 @@ public class SeasonController {
             alert.showAndWait();
         }
         else {
-            ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+            ResourceBundle bundle = ResourceBundle.getBundle(TRANSLATION);
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/fixtureAdder.fxml"), bundle);
             FixtureAdderController ctrl = new FixtureAdderController();
             fxmlLoader.setController(ctrl);
@@ -139,7 +141,7 @@ public class SeasonController {
 
     public void playGame () throws IOException {
         if (fixturesList.getSelectionModel().getSelectedItem()!=null) {
-            ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+            ResourceBundle bundle = ResourceBundle.getBundle(TRANSLATION);
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/squad.fxml"), bundle);
             SquadController ctrl = new SquadController(fixturesList.getSelectionModel().getSelectedItem().getHomeTeam(), fixturesList.getSelectionModel().getSelectedItem().getAwayTeam(), this.clubsOnTable);
             fxmlLoader.setController(ctrl);
@@ -156,7 +158,7 @@ public class SeasonController {
 
     public void seeReport () throws IOException {
         if (resultsList.getSelectionModel().getSelectedItem()!=null) {
-            ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+            ResourceBundle bundle = ResourceBundle.getBundle(TRANSLATION);
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/result.fxml"), bundle);
             ResultController ctrl = new ResultController(resultsList.getSelectionModel().getSelectedItem());
             fxmlLoader.setController(ctrl);
@@ -172,7 +174,7 @@ public class SeasonController {
     }
 
     public void openStats () throws IOException {
-        ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+        ResourceBundle bundle = ResourceBundle.getBundle(TRANSLATION);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/stats.fxml"), bundle);
         StatsController ctrl = new StatsController();
         fxmlLoader.setController(ctrl);
@@ -193,7 +195,7 @@ public class SeasonController {
             alert.showAndWait();
         }
         else {
-            ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+            ResourceBundle bundle = ResourceBundle.getBundle(TRANSLATION);
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/finish.fxml"), bundle);
             FinishController ctrl = new FinishController(this.clubsOnTable.get(0).getClub());
             fxmlLoader.setController(ctrl);
@@ -212,9 +214,9 @@ public class SeasonController {
     public void setLanguage() throws IOException {
         List<String> choices = new ArrayList<>();
         choices.add("Bosanski");
-        choices.add("English");
+        choices.add(ENGLISH);
 
-        ChoiceDialog<String> dialog = new ChoiceDialog<>("English", choices);
+        ChoiceDialog<String> dialog = new ChoiceDialog<>(ENGLISH, choices);
         dialog.setTitle("Choice Dialog");
         dialog.setHeaderText("Language chooser");
         dialog.setContentText("Choose your language:");
@@ -223,13 +225,13 @@ public class SeasonController {
         Optional<String> result = dialog.showAndWait();
         if (result.isPresent()) {
             if (("Bosanski").equals(result.get())) Locale.setDefault(new Locale("bs", "BA"));
-            else if (("English").equals(result.get())) Locale.setDefault(new Locale("en", "EN"));
+            else if ((ENGLISH).equals(result.get())) Locale.setDefault(new Locale("en", "EN"));
             dao.writeLanguage(result.get());
             if (!previous.equals(dao.readLanguage())) {
                 Stage stage = (Stage) addGameButton.getScene().getWindow();
                 stage.close();
 
-                ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+                ResourceBundle bundle = ResourceBundle.getBundle(TRANSLATION);
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/season.fxml"), bundle);
                 SeasonController ctrl = new SeasonController();
                 fxmlLoader.setController(ctrl);

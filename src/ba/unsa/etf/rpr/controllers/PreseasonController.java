@@ -25,6 +25,8 @@ public class PreseasonController {
     public ListView<Club> clubsLv;
     private final LeagueDAO dao;
     private static final String MESSAGE = "Error";
+    private static final String CLUB = "Club ";
+    private static final String TRANSLATION = "Translation";
 
     public PreseasonController() {
         dao=LeagueDAO.getInstance();
@@ -48,7 +50,7 @@ public class PreseasonController {
             alert.showAndWait();
         }
         else {
-            ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+            ResourceBundle bundle = ResourceBundle.getBundle(TRANSLATION);
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/club.fxml"), bundle);
             ClubController ctrl = new ClubController(null);
             fxmlLoader.setController(ctrl);
@@ -65,7 +67,7 @@ public class PreseasonController {
 
     public void editClubPressed () throws IOException {
         if (clubsLv.getSelectionModel().getSelectedItem()!=null) {
-            ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+            ResourceBundle bundle = ResourceBundle.getBundle(TRANSLATION);
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/club.fxml"), bundle);
             ClubController ctrl = new ClubController(clubsLv.getSelectionModel().getSelectedItem());
             fxmlLoader.setController(ctrl);
@@ -118,7 +120,7 @@ public class PreseasonController {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle(MESSAGE);
                     alert.setHeaderText("Not enough playes");
-                    alert.setContentText("Club " + dao.clubs().get(i) + " have less than 15 players.");
+                    alert.setContentText(CLUB + dao.clubs().get(i) + " have less than 15 players.");
                     alert.showAndWait();
                     start = false;
                     break;
@@ -137,7 +139,7 @@ public class PreseasonController {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle(MESSAGE);
                     alert.setHeaderText("Not enough players");
-                    alert.setContentText("Club " + dao.clubs().get(i) + " don't have enough players by position.");
+                    alert.setContentText(CLUB + dao.clubs().get(i) + " don't have enough players by position.");
                     alert.showAndWait();
                     start = false;
                     break;
@@ -146,7 +148,7 @@ public class PreseasonController {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle(MESSAGE);
                     alert.setHeaderText("No captain");
-                    alert.setContentText("Club " + dao.clubs().get(i) + " didn't choose a captain.");
+                    alert.setContentText(CLUB + dao.clubs().get(i) + " didn't choose a captain.");
                     alert.showAndWait();
                     start = false;
                     break;
@@ -155,7 +157,7 @@ public class PreseasonController {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle(MESSAGE);
                     alert.setHeaderText("No manager");
-                    alert.setContentText("Club " + dao.clubs().get(i) + " didn't hire a manager.");
+                    alert.setContentText(CLUB + dao.clubs().get(i) + " didn't hire a manager.");
                     alert.showAndWait();
                     start = false;
                     break;
@@ -177,7 +179,7 @@ public class PreseasonController {
 
             if (result.isPresent() && (result.get() == yes || result.get() == no)) {
                 dao.createStats();
-                ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+                ResourceBundle bundle = ResourceBundle.getBundle(TRANSLATION);
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/season.fxml"), bundle);
                 SeasonController ctrl = new SeasonController();
                 fxmlLoader.setController(ctrl);
@@ -215,7 +217,7 @@ public class PreseasonController {
                 Stage stage = (Stage) startButton.getScene().getWindow();
                 stage.close();
 
-                ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+                ResourceBundle bundle = ResourceBundle.getBundle(TRANSLATION);
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/preseason.fxml"), bundle);
                 PreseasonController ctrl = new PreseasonController();
                 fxmlLoader.setController(ctrl);
