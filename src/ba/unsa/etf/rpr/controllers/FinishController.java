@@ -136,6 +136,7 @@ public class FinishController {
             stage.setTitle("Preseason");
             stage.setScene(scene);
             stage.show();
+            stage.setWidth(stage.getWidth() + 10);
 
             Stage stage2 = (Stage) finishButton.getScene().getWindow();
             stage2.close();

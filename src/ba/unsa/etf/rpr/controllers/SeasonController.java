@@ -136,6 +136,7 @@ public class SeasonController {
             stage.setResizable(false);
             stage.setScene(scene);
             stage.show();
+            stage.setWidth(stage.getWidth() + 10);
         }
     }
 
@@ -153,6 +154,7 @@ public class SeasonController {
             stage.setResizable(false);
             stage.setScene(scene);
             stage.show();
+            stage.setWidth(stage.getWidth() + 10);
         }
     }
 
@@ -170,6 +172,7 @@ public class SeasonController {
             stage.setTitle("Report");
             stage.setScene(scene);
             stage.show();
+            stage.setWidth(stage.getWidth() + 10);
         }
     }
 
@@ -185,6 +188,7 @@ public class SeasonController {
         stage.setTitle("Stats");
         stage.setScene(scene);
         stage.show();
+        stage.setWidth(stage.getWidth() + 10);
     }
 
     public void finish () throws IOException {
@@ -205,6 +209,7 @@ public class SeasonController {
             stage.setScene(scene);
             stage.setResizable(false);
             stage.show();
+            stage.setWidth(stage.getWidth() + 10);
 
             Stage stage2 = (Stage) finishSeasonButton.getScene().getWindow();
             stage2.close();
@@ -242,6 +247,7 @@ public class SeasonController {
                 stage.setTitle("Season");
                 stage2.setScene(scene);
                 stage2.show();
+                stage.setWidth(stage.getWidth() + 10);
             }
         }
     }

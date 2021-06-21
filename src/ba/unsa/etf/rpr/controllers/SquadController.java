@@ -193,6 +193,7 @@ public class SquadController {
             stage.setResizable(false);
             stage.setScene(scene);
             stage.show();
+            stage.setWidth(stage.getWidth() + 10);
 
             Stage stage2 = (Stage) okButton.getScene().getWindow();
             stage2.close();

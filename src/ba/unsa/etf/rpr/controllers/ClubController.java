@@ -109,6 +109,7 @@ public class ClubController {
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
+        stage.setWidth(stage.getWidth() + 10);
     }
 
     public void removePlayer () {

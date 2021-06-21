@@ -62,6 +62,7 @@ public class PreseasonController {
             stage.setTitle("Club");
             stage.setScene(scene);
             stage.show();
+            stage.setWidth(stage.getWidth() + 10);
         }
     }
 
@@ -79,6 +80,7 @@ public class PreseasonController {
             stage.setResizable(false);
             stage.setScene(scene);
             stage.show();
+            stage.setWidth(stage.getWidth() + 10);
         }
     }
 
@@ -101,7 +103,7 @@ public class PreseasonController {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle(MESSAGE);
             alert.setHeaderText("Odd number of clubs");
-            alert.setContentText("League must have even number of clubs");
+            alert.setContentText("League must contain even number of clubs");
             alert.showAndWait();
             start = false;
         }
@@ -109,7 +111,7 @@ public class PreseasonController {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle(MESSAGE);
             alert.setHeaderText("Not enough clubs");
-            alert.setContentText("League must have at least 2 clubs");
+            alert.setContentText("League must contain at least 2 clubs");
             alert.showAndWait();
             start = false;
         }
@@ -190,6 +192,7 @@ public class PreseasonController {
                 stage.setTitle("Season");
                 stage.setScene(scene);
                 stage.show();
+                stage.setWidth(stage.getWidth() + 10);
 
                 Stage stage2 = (Stage) startButton.getScene().getWindow();
                 stage2.close();
@@ -228,6 +231,7 @@ public class PreseasonController {
                 stage2.setTitle("Preseason");
                 stage2.setScene(scene);
                 stage2.show();
+                stage.setWidth(stage.getWidth() + 10);
             }
         }
     }

@@ -52,7 +52,14 @@ class StatTest {
 
     @Test
     void statTest(FxRobot robot) throws SQLException {
-        robot.clickOn("#startButton");
+
+        for (int i=0; i<4; i++) {
+            robot.press(KeyCode.TAB);
+            robot.release(KeyCode.TAB);
+        }
+        robot.press(KeyCode.ENTER);
+        robot.release(KeyCode.ENTER);
+
         robot.lookup(".dialog-pane").tryQuery().isPresent();
         robot.press(KeyCode.ENTER);
         robot.release(KeyCode.ENTER);

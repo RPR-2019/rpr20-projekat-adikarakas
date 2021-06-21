@@ -1,17 +1,17 @@
 
-z
-java:S1104 "XMake cancelButton a static final constant or non-public and provide accessors if needed.(•ÚŞãÿÿÿÿÿ8ç¶ÔÕ˜/
+t
+java:S1104"WMake scorerLabel a static final constant or non-public and provide accessors if needed.(›ÏØ·8çÑÏÑ˜/
 |
 java:S1104"ZMake assistentLabel a static final constant or non-public and provide accessors if needed.(òªÃ¶şÿÿÿÿ8“öÔ˜/
-w
-java:S1104"ZMake championsLabel a static final constant or non-public and provide accessors if needed.(²“ó­8ÑÖÄÓ˜/
+z
+java:S1104 "XMake cancelButton a static final constant or non-public and provide accessors if needed.(•ÚŞãÿÿÿÿÿ8ç¶ÔÕ˜/
+z
+java:S1104"XMake captainLabel a static final constant or non-public and provide accessors if needed.(áÇÇ’øÿÿÿÿ8çÑÏÑ˜/
 }
 java:S1104"[Make goalkeeperLabel a static final constant or non-public and provide accessors if needed.(ÒÙİ¢üÿÿÿÿ8çÑÏÑ˜/
 u
 java:S1104"XMake managerLabel a static final constant or non-public and provide accessors if needed.(ëˆÇŞ8çÑÏÑ˜/
 z
 java:S1104!"XMake finishButton a static final constant or non-public and provide accessors if needed.(­û÷Áøÿÿÿÿ8ç¶ÔÕ˜/
-t
-java:S1104"WMake scorerLabel a static final constant or non-public and provide accessors if needed.(›ÏØ·8çÑÏÑ˜/
-z
-java:S1104"XMake captainLabel a static final constant or non-public and provide accessors if needed.(áÇÇ’øÿÿÿÿ8çÑÏÑ˜/
+w
+java:S1104"ZMake championsLabel a static final constant or non-public and provide accessors if needed.(²“ó­8ÑÖÄÓ˜/

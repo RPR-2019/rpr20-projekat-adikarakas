@@ -15,10 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.testfx.api.FxRobot;
 
@@ -80,6 +77,7 @@ public class MatchController {
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.setResizable(false);
         stage.show();
+        stage.setWidth(stage.getWidth() + 10);
     }
 
     public void addGoalAway() throws IOException {
@@ -93,6 +91,7 @@ public class MatchController {
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.setResizable(false);
         stage.show();
+        stage.setWidth(stage.getWidth() + 10);
     }
 
     public void finishPressed() {

@@ -141,7 +141,7 @@ class PreseasonControllerTest {
 
         robot.clickOn("#startButton");
         DialogPane dialogPane2 = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
-        assertNotNull(dialogPane2.lookupAll("League must have even number of clubs"));
+        assertNotNull(dialogPane2.lookupAll("League must contain even number of clubs"));
         okButton = (Button) dialogPane2.lookupButton(ButtonType.OK);
         robot.clickOn(okButton);
         dao.resetBaseToDefault();
@@ -179,7 +179,7 @@ class PreseasonControllerTest {
 
         robot.clickOn("#startButton");
         DialogPane dialogPane2 = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
-        assertNotNull(dialogPane2.lookupAll("League must have at least 2 clubs"));
+        assertNotNull(dialogPane2.lookupAll("League must contain at least 2 clubs"));
 
         okButton = (Button) dialogPane2.lookupButton(ButtonType.OK);
         robot.clickOn(okButton);
